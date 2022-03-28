@@ -1,0 +1,5 @@
+gGACAUAUAAUCGCGUGGAUAUGGCACGCAAGUUUCUACCGGGCACCGUAAAUGUCCGACUAUGUCC
+((((((((..(.(((((.......))))).)......).((((((.......))))))..)))))))
+A.pdb: 7-13 29-40 58-61
+B1.pdb: 17-25
+B2.pdb: 45-53

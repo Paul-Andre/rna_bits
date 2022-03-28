@@ -1,0 +1,7 @@
+gGACAUAUAAUCGCGUGGAUAUGGCACGCAAGUUUCUACCGGGCACCGUAAAUGUCCGACUAUGUCC
+((((((((..(.(((((.......))))).)......).((((((.......))))))..)))))))
+C-Project/Examples/6uc9/A.pdb-7-13-1
+C-Project/Examples/6uc9/A.pdb-29-40-2
+C-Project/Examples/6uc9/A.pdb-58-61-3
+C-Project/Examples/6uc9/B1.pdb-17-25-1
+C-Project/Examples/6uc9/B2.pdb-45-53-1
