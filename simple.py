@@ -1,4 +1,5 @@
 import sys;
+import numpy as np
 
 f = sys.stdin
 
@@ -181,7 +182,8 @@ for i in range(0,len(seq)):
     print(i)
     for mod, comp, pos in ass:
         print(mod.kind, mod.components)
-    assert len(ass)>=1, "nucleotide "+repr(i)+" isn't assigned to a node"
+    # I comment this line out to start implementing arcs:
+    # assert len(ass)>=1, "nucleotide "+repr(i)+" isn't assigned to a node"
     assert len(ass)<=2, "nucleotide "+repr(i)+" is assigned to more than 2 components"
     if len(ass) == 2:
         a = ass[0][0]
@@ -293,9 +295,12 @@ def map_node_components(node):
     assert(len(node.components) == len(components)), "number of fragment components doesn't match"
     ret = {}
     for nc, c in zip(node.components, components):
-        assert(nc[1]-nc[0]+1 == len(c)), "fragment doesn't match"
+        assert(nc[1]-nc[0]+1 == len(c)), "fragment doesn't match " + str(node.kind)
         for i,r in zip(range(nc[0], nc[1]+1), c):
-            ret[i] = r
+            if r is not None:
+                # r can be None in the case of RNAMoIP-style input where skips of up to 4 nts are allowed
+                # TODO: make this coherent with module_assignment
+                ret[i] = r
     return ret
 
 models_used = []
@@ -306,23 +311,12 @@ for node in nodes:
     node.model_filename = model_filename
     models_used.append((node.components, model_filename))
     node.component_mapping = map_node_components(node)
+    print(node.component_mapping)
 
 
 # Before turning data into the BIO classes, I will represent the chain as a dict of nucleotides first
 chain_of_nucleotides = {}
 
-central_node = nodes[0]
-for node in nodes:
-    if len(node.components)>len(central_node.components):
-        central_node = node
-
-# center the first model, just because
-acc = sum(atom.coord for atom in central_node.model.get_atoms());
-tot = sum(1 for atom in central_node.model.get_atoms());
-centroid = acc/tot;
-
-for atom in central_node.model.get_atoms():
-    atom.coord-=centroid
 
 def canonical_atom_name(name):
     if name == "O1P":
@@ -373,25 +367,131 @@ def superimpose_nodes(fixed, moving, nucls):
 
     superimposer.apply(moving.model.get_atoms())
 
+class Nucleotide:
+    def __init__(self, model, rigid):
+        self.model = model
+        self.rigid = rigid
+        rigid.nucleotides.add(self)
 
-def traverse_and_stack(node):
-    print("Putting down", node.model_filename)
+class Rigid:
+    id_increment = 1000
+    def __init__(self):
+        # self.translation = nunmpy.array([0.,0.,0.])
+        # self.rotation = nunmpy.array([0.,0.,0.])
+        self.nucleotides = set()
+        self.parent = None
+        self.id = Rigid.id_increment
+        Rigid.id_increment+=1
+    
+    # Merge other into self
+    def merge(self, other):
+        for n in other.nucleotides:
+            n.rigid = self
+        self.nucleotides += other.nucleotides
+        other.nucleotides = freeze(set())
+        other.parent = self
+
+def traverse_and_stack(node, currentRigid):
     if node.visited:
         return
+    print("Putting down", node.model_filename)
     node.visited=True
     for (k,v) in node.component_mapping.items():
         if k not in chain_of_nucleotides:
             print(k,v)
-            chain_of_nucleotides[k] = v.copy()
+            wrapper = Nucleotide(v.copy(), currentRigid)
+            chain_of_nucleotides[k] = wrapper
 
     for edge in node.edges:
         other = edge.a if edge.b is node else edge.b
         if other.visited:
             continue
         superimpose_nodes(node,other,edge.nucls)
-        traverse_and_stack(other)
+        traverse_and_stack(other, currentRigid)
 
-traverse_and_stack(central_node)
+rigidCounter = 0
+
+rigids = []
+
+while(True):
+    central_node = None
+    for node in nodes:
+        if not node.visited and (central_node is None or (
+                len(node.components)>len(central_node.components))):
+            central_node = node
+    if central_node is None:
+        break
+
+    # center the first model, just because
+    acc = sum(atom.coord for atom in central_node.model.get_atoms());
+    tot = sum(1 for atom in central_node.model.get_atoms());
+    centroid = acc/tot;
+    rigidCounter+=1
+
+    currentRigid = Rigid()
+    rigids.append(currentRigid)
+
+    for atom in central_node.model.get_atoms():
+        atom.coord-=centroid + rigidCounter*20.
+    traverse_and_stack(central_node, currentRigid)
+
+def hasPrev(nuc_id):
+    return (nuc_id >= 1) 
+
+def hasNext(nuc_id):
+    return (nuc_id < len(seq)-1)
+
+def isNucValid(nuc_id):
+    return nuc_id>=0 and nuc_id<len(seq)
+
+def createC3PrimeNuc(coord, letter):
+    output_residue = PDB.Residue.Residue((" ",0," "), letter, "    ")
+    # 'name', 'coord', 'bfactor', 'occupancy', 'altloc', 'fullname', 'serial_number', element=None
+    output_atom = PDB.Atom.Atom(
+        "C3'", coord, 0., 1.0, " ", "C3'", 1, "C")
+    output_residue.add(output_atom)
+    rigid = Rigid()
+    rigids.append(rigid)
+    nucWrapper = Nucleotide(output_residue, rigid)
+    return nucWrapper
+
+import scipy.spatial.transform
+
+# Distance between C3' atoms.
+# Took from NAST
+NUCLEOTIDE_DISTANCE = 5.78
+
+def stretch_chain(chain):
+    if not (hasPrev(chain[0]) and hasNext(chain[-1])):
+        return
+    start_id = chain[0]-1
+    end_id = chain[-1]+1
+    start_res = residueToCanonicalDict(chain_of_nucleotides[start_id].model)
+    end_res = residueToCanonicalDict(chain_of_nucleotides[end_id].model)
+    start_coord = start_res["C3'"].coord
+    end_coord = end_res["C3'"].coord
+    diff_vec = end_coord-start_coord
+    print("Length", np.linalg.norm(((1)/(1+len(chain)))*diff_vec))
+    for i in range(0, len(chain)):
+        j = chain[i]
+        coord = start_coord + ((1+i)/(1+len(chain)))*diff_vec
+        chain_of_nucleotides[j] = createC3PrimeNuc(coord, seq[i])
+    #exit()
+
+# Find chain that hasn't been placed
+i = 0
+while i < len(seq):
+    print("looking at ", i)
+    if i not in chain_of_nucleotides:
+        print("beginning of a chain ", i)
+        chain = []
+        chain.append(i)
+        while hasNext(i) and (i+1) not in chain_of_nucleotides:
+            i+=1
+            chain.append(i)
+        print(chain);
+        stretch_chain(chain)
+    i+=1
 
 if (False):
     # visualize stuff
@@ -413,12 +513,13 @@ output_model = PDB.Model.Model(0)
 output_chain = PDB.Chain.Chain("A")
 
 atom_serial_inc = 1
-for (i,r) in sorted(chain_of_nucleotides.items()):
+for (i,rw) in sorted(chain_of_nucleotides.items()):
+    r = rw.model
     output_residue = PDB.Residue.Residue((" ",i+1," "), r.resname, "    ")
     for atom in r:
         # 'name', 'coord', 'bfactor', 'occupancy', 'altloc', 'fullname', and 'serial_number'
         output_atom = PDB.Atom.Atom(
-            atom.name, atom.coord, atom.bfactor, atom.occupancy, atom.altloc, atom.fullname, atom_serial_inc)
+            atom.name, atom.coord, atom.bfactor, atom.occupancy, atom.altloc, atom.fullname, atom_serial_inc, atom.element)
         output_residue.add(output_atom)
     output_chain.add(output_residue)
 
