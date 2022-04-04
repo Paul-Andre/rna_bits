@@ -368,10 +368,13 @@ def superimpose_nodes(fixed, moving, nucls):
     superimposer.apply(moving.model.get_atoms())
 
 class Nucleotide:
-    def __init__(self, model, rigid):
+    def __init__(self, model, rigid, pos):
         self.model = model
         self.rigid = rigid
+        self.pos = pos
         rigid.nucleotides.add(self)
+    def __repr__(self):
+        return "Nuc{}".format(self.pos + 1)
 
 class Rigid:
     id_increment = 1000
@@ -385,10 +388,12 @@ class Rigid:
     
     # Merge other into self
     def merge(self, other):
+        if (self is other):
+            return
         for n in other.nucleotides:
             n.rigid = self
-        self.nucleotides += other.nucleotides
-        other.nucleotides = freeze(set())
+        self.nucleotides.update(other.nucleotides)
+        other.nucleotides = None
         other.parent = self
 
 def traverse_and_stack(node, currentRigid):
@@ -399,7 +404,7 @@ def traverse_and_stack(node, currentRigid):
     for (k,v) in node.component_mapping.items():
         if k not in chain_of_nucleotides:
             print(k,v)
-            wrapper = Nucleotide(v.copy(), currentRigid)
+            wrapper = Nucleotide(v.copy(), currentRigid, k)
             chain_of_nucleotides[k] = wrapper
 
     for edge in node.edges:
@@ -435,6 +440,99 @@ while(True):
         atom.coord-=centroid + rigidCounter*20.
     traverse_and_stack(central_node, currentRigid)
 
+def createC3PrimeNuc(coord, letter, pos):
+    output_residue = PDB.Residue.Residue((" ",0," "), letter, "    ")
+    # 'name', 'coord', 'bfactor', 'occupancy', 'altloc', 'fullname', 'serial_number', element=None
+    output_atom = PDB.Atom.Atom(
+        "C3'", coord, 0., 1.0, " ", "C3'", 1, "C")
+    output_residue.add(output_atom)
+    rigid = Rigid()
+    rigids.append(rigid)
+    nucWrapper = Nucleotide(output_residue, rigid, pos)
+    return nucWrapper
+
+# Find nucleotides that haven't been placed and turn them into rigids
+for i in range(0, len(seq)):
+    if i not in chain_of_nucleotides:
+        rigidCounter+=1
+        coord = np.array([0.,0,0]) - rigidCounter*20
+        chain_of_nucleotides[i] = createC3PrimeNuc(coord, seq[i], i)
+
+# Find the shortest cycle:
+# shortest_cycle = None
+# shortest_cycle_length = math.inf
+
+
+def isRigidEdgeNuc(i):
+    if (i+1) in chain_of_nucleotides:
+        if (chain_of_nucleotides[i+1].rigid is not chain_of_nucleotides[i].rigid):
+            return True
+    if (i-1) in chain_of_nucleotides:
+        if (chain_of_nucleotides[i-1].rigid is not chain_of_nucleotides[i].rigid):
+            return True
+    return False
+
+def getNeigbors(nuc):
+    for nn in nuc.rigid.nucleotides:
+        if nn is not nuc and isRigidEdgeNuc(nn):
+            yield nn
+
+visitedRigids = set()
+startingNuc = None
+stack = None
+
+def cycleNotDegenerate(stack):
+    return len(stack)>2 or stack[0][0] != stack[0][1] or stack[1][0] != stack[1][1]
+
+def traverseToGetCycle(nuc):
+    assert(nuc.rigid not in visitedRigids)
+    assert startingNuc is not None
+    visitedRigids.add(nuc.rigid)
+
+    for nn in nuc.rigid.nucleotides:
+        stack.append((nuc, nn))
+        try:
+            for j in (nn.pos+1, nn.pos-1):
+                if j not in chain_of_nucleotides:
+                    continue
+                nnn = chain_of_nucleotides[j]
+                if nnn.rigid is nuc.rigid:
+                    continue
+
+                if nnn is startingNuc and cycleNotDegenerate(stack):
+                    return list(stack)
+
+                if nnn.rigid in visitedRigids:
+                    continue
+
+                ret = traverseToGetCycle(nnn)
+                if ret is not None:
+                    return ret
+
+        finally:
+            stack.pop()
+    return None
+
+# Finds the next we want to process
+# TODO: make this return cycles in the order of their lengths
+def getNextCycle():
+    global visitedRigids
+    global startingNuc
+    global stack
+    for i in range(len(seq)):
+        if isRigidEdgeNuc(i):
+            nuc = chain_of_nucleotides[i]
+
+            visitedRigids = set()
+            startingNuc = nuc
+            stack = []
+
+            ret = traverseToGetCycle(chain_of_nucleotides[i])
+            if ret is not None:
+                return ret
+    return None
+
+
 def hasPrev(nuc_id):
     return (nuc_id >= 1) 
 
@@ -444,22 +542,152 @@ def hasNext(nuc_id):
 def isNucValid(nuc_id):
     return nuc_id>=0 and nuc_id<len(seq)
 
-def createC3PrimeNuc(coord, letter):
-    output_residue = PDB.Residue.Residue((" ",0," "), letter, "    ")
-    # 'name', 'coord', 'bfactor', 'occupancy', 'altloc', 'fullname', 'serial_number', element=None
-    output_atom = PDB.Atom.Atom(
-        "C3'", coord, 0., 1.0, " ", "C3'", 1, "C")
-    output_residue.add(output_atom)
-    rigid = Rigid()
-    rigids.append(rigid)
-    nucWrapper = Nucleotide(output_residue, rigid)
-    return nucWrapper
+import inscribed_polygon
 
-import scipy.spatial.transform
+def getC3Prime(residue):
+    if "C3'" in residue:
+        return residue["C3'"]
+    if "C3*" in residue:
+        return residue["C3*"]
+    return None
+
+def np_distance(a_coord,b_coord):
+    return np.linalg.norm(a_coord - b_coord)
 
 # Distance between C3' atoms.
 # Took from NAST
 NUCLEOTIDE_DISTANCE = 5.78
+import math
+import scipy
+
+def ortho_project(s, d):
+    print(s,d)
+    return (s.dot(d)/(np.linalg.norm(d)**2)) * d
+
+def map_rotation(s1, s2, d1, d2):
+    """ Create a rotation matrix that transforms the vector s1 to align with the vector d1
+    while having the vector s2 be aligned with the vector d2 as much as possible """
+
+    # Construct two orthonormal bases
+    s1 = s1/np.linalg.norm(s1)
+    d1 = d1/np.linalg.norm(d1)
+
+    print("s1 s2", s1, s2)
+    s2 = s2 - ortho_project(s2, s1)
+    d2 = d2 - ortho_project(d2, d1)
+
+    print("s1 s2", s1, s2)
+    s2 = s2/np.linalg.norm(s2)
+    d2 = d2/np.linalg.norm(d2)
+
+    s3 = np.cross(s1, s2)
+    d3 = np.cross(d1, d2)
+
+    S = np.array([s1,s2,s3])
+    D = np.array([d1,d2,d3])
+
+    # Solve SX = D
+    T = np.linalg.solve(S, D)
+    T = T.transpose()
+
+    print(s1, d1, T.dot(s1))
+    return T
+
+
+while True:
+    cycle = getNextCycle()
+    print("Cycle", cycle)
+    if cycle is None:
+        break
+
+    rigid_distances = []
+    for (a,b) in cycle:
+        a_atom = getC3Prime(a.model)
+        b_atom = getC3Prime(b.model)
+        rigid_distances.append(np_distance(a_atom.coord, b_atom.coord))
+
+    distances = []
+    for d in rigid_distances:
+        distances.append(d)
+        distances.append(NUCLEOTIDE_DISTANCE)
+
+    print(distances)
+
+    if (sum(distances) <= 2*max(distances)):
+        # the polygon is going to be degenerate or impossible
+        # might need to stretch the distance between nucleotides
+        assert( max(distances) != NUCLEOTIDE_DISTANCE )
+        adj_nuc_dist = NUCLEOTIDE_DISTANCE + (2*max(distances) - sum(distances))/len(cycle)
+        print("stretch distance to", adj_nuc_dist)
+        pos = 0.
+        points = []
+        for d in rigid_distances:
+            if d == max(distances):
+                pos -= d
+            else:
+                pos += d
+            points.append((pos, 0.))
+
+            pos += adj_nuc_dist
+            points.append((pos, 0.))
+    else:
+        points = inscribed_polygon.construct_polygon(distances)
+
+    points = [np.array([x,y,0]) for (x,y) in points]
+    print(points)
+
+    #place the pieces onto the polygon
+    assert(len(points)%2 == 0)
+    for i in range(len(points)//2):
+        dpa = points[i*2]
+        dpb = points[i*2+1]
+        ra = cycle[i][0]
+        rb = cycle[i][1]
+        assert(ra.rigid is rb.rigid)
+
+        spa = getC3Prime(ra.model).coord
+        spb = getC3Prime(rb.model).coord
+
+        offset = dpa - spa
+
+        if (spb == spa).all():
+            sv1 = np.array([1.,0,0])
+            dv1 = np.array([-dpa[1], dpb[0], 0])
+        else:
+            sv1 = spb-spa
+            dv1 = dpb-dpa
+        
+        # Find the centroid of the rigid to orient it away from the loop
+        acc = sum(sum(atom.coord for atom in nuc.model) for nuc in ra.rigid.nucleotides);
+        num = sum(sum(1 for atom in nuc.model) for nuc in ra.rigid.nucleotides);
+        centroid = acc/num;
+
+        # if it is colinear, switch it to something else
+        sv2 = centroid - spa
+        if abs(abs(sv1.dot(sv1))/np.linalg.norm(sv1) - 1) <=1e-10:
+            sv2 = np.array([1,0,0]) 
+        if abs(abs(sv1.dot(sv1))/np.linalg.norm(sv1) - 1) <=1e-10:
+            sv2 = np.array([0,1,0]) 
+
+        dv2 = dpa
+
+        rotation_matrix = map_rotation(sv1, sv2, dv1, dv2)
+        print(rotation_matrix)
+        
+        for nuc in ra.rigid.nucleotides:
+            for atom in nuc.model:
+                coord = atom.coord
+                atom.coord = rotation_matrix.dot( (coord - spa) ) + dpa
+
+    #combine all rigid bodies
+    first = cycle[0][0]
+    for (a,b) in cycle[1:]:
+        assert(a.rigid is not first)
+        assert(a.rigid is b.rigid)
+        first.rigid.merge(a.rigid)
+
+
+
 
 def stretch_chain(chain):
     if not (hasPrev(chain[0]) and hasNext(chain[-1])):
@@ -475,23 +703,9 @@ def stretch_chain(chain):
     for i in range(0, len(chain)):
         j = chain[i]
         coord = start_coord + ((1+i)/(1+len(chain)))*diff_vec
-        chain_of_nucleotides[j] = createC3PrimeNuc(coord, seq[i])
+        chain_of_nucleotides[j] = createC3PrimeNuc(coord, seq[j])
     #exit()
 
-# Find chain that hasn't been placed
-i = 0
-while i < len(seq):
-    print("looking at ", i)
-    if i not in chain_of_nucleotides:
-        print("beginning of a chain ", i)
-        chain = []
-        chain.append(i)
-        while hasNext(i) and (i+1) not in chain_of_nucleotides:
-            i+=1
-            chain.append(i)
-        print(chain);
-        stretch_chain(chain)
-    i+=1
 
 if (False):
     # visualize stuff
