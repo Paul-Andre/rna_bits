@@ -1,0 +1,5 @@
+gGUCACGCACAGGGCAAACCAUUCGAAAGAGUGGGACGCAAAGCCUCCGGCCUAAACCAUUGCACUCCGGUAGGUAGCGGGGUUACCGAUGG
+...(.((......((...((((((....))))))..[))...(((.((((((((..((..........))))))).]))))))...))...)
+C-A_minor_3UCZ.pdb-34-35-1
+C-A_minor_3UCZ.pdb-59-60-2
+C-A_minor_3UCZ.pdb-78-79-3

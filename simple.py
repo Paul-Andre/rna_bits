@@ -384,6 +384,8 @@ class Nucleotide:
         rigid.nucleotides.add(self)
     def __repr__(self):
         return "Nuc{}".format(self.pos + 1)
+    def __lt__(self, other):
+        return self.pos < other.pos
 
 class Rigid:
     id_increment = 1000
@@ -464,7 +466,7 @@ def createC3PrimeNuc(coord, letter, pos):
 for i in range(0, len(seq)):
     if i not in chain_of_nucleotides:
         rigidCounter+=1
-        coord = np.array([0.,0,0]) - rigidCounter*20
+        coord = np.array([0.,0,0]) - rigidCounter*20.
         chain_of_nucleotides[i] = createC3PrimeNuc(coord, seq[i], i)
 
 # Find the shortest cycle:
@@ -486,84 +488,128 @@ def getNeigbors(nuc):
         if nn is not nuc and isRigidEdgeNuc(nn):
             yield nn
 
-visitedRigids = set()
-startingNuc = None
-stack = None
 
 def cycleNotDegenerate(stack):
     return len(stack)>2 or stack[0][0] != stack[0][1] or stack[1][0] != stack[1][1]
+
+def checkCycleNotDegenerate(prevMap, startNuc):
+    assert startNuc in prevMap
+    c, d = prevMap[startNuc]
+    a, b = prevMap[c]
+    return not ((c is d) and (a is b) and a is startNuc)
 
 def isTerminalRigid(r):
     # TODO: make this work even when there's more than 1 strand
     return r is chain_of_nucleotides[len(seq)-1].rigid
 
+# Distance between C3' atoms.
+# Took from NAST
+NUCLEOTIDE_DISTANCE = 5.78
 
-def traverseToGetCycle(nuc, want_chain=False):
-    assert(nuc.rigid not in visitedRigids)
-    assert startingNuc is not None or want_chain
-    visitedRigids.add(nuc.rigid)
+import heapq
 
-    for nn in nuc.rigid.nucleotides:
-        stack.append((nuc, nn))
-        try:
+        # if want_chain and isTerminalRigid(nuc.rigid) and nuc.rigid is not startNuc.rigid:
+        #     prevMap[nuc] = prev
+        #     endNuc = nuc
+        #     score = dist
+        #     break;
+
+def traverseToGetCycle(startNuc, endNuc):
+    # The idea is to get the shortest path from startNuc to startNuc,
+    # but without passing the startNuc->endNuc link in that direction (but
+    # allowing the endNuc->startNuc direction), so that we find the shortest
+    # cycle containing that link.
+
+    print("start traverseToGetCycle", startNuc, endNuc)
+    prevMap = {}
+
+    queue = [(0., startNuc, None)]
+
+    score = None
+    while len(queue):
+        dist, nuc, prev = heapq.heappop(queue)
+
+        if nuc in prevMap:
+            continue
+
+        if prev is not None:
+            prevMap[nuc] = prev
+
+        #print(dist, nuc, prev)
+
+        if nuc is startNuc and prev is not None and checkCycleNotDegenerate(prevMap, startNuc):
+            prevMap[nuc] = prev
+            score = dist
+            break;
+
+
+
+        for nn in nuc.rigid.nucleotides:
+            dist2 = dist + np.linalg.norm(getC3Prime(nn.model) - getC3Prime(nuc.model))
             for j in (nn.pos+1, nn.pos-1):
                 if j not in chain_of_nucleotides:
                     continue
                 nnn = chain_of_nucleotides[j]
-                if nnn.rigid is nuc.rigid:
+                if nnn.rigid is nn.rigid:
                     continue
 
-                if nnn is startingNuc and cycleNotDegenerate(stack):
-                    return list(stack)
-
-                if want_chain and isTerminalRigid(nnn.rigid):
-                    stack.append((nnn,nnn))
-                    return list(stack)
-
-                if nnn.rigid in visitedRigids:
+                if nn is startNuc and nnn is endNuc:
                     continue
 
-                ret = traverseToGetCycle(nnn, want_chain)
-                if ret is not None:
-                    return ret
 
-        finally:
-            stack.pop()
-    return None
+                dist3 = dist2 + NUCLEOTIDE_DISTANCE
+
+                if nnn not in prevMap:
+                    #print("nnnnn",nuc, nn, nnn)
+                    heapq.heappush(queue, (dist3, nnn, (nuc, nn)))
+
+
+    if score is None:
+        return None, math.inf
+
+    ret = []
+    ret.append(prevMap[startNuc])
+    current = prevMap[startNuc][0]
+    while current is not startNuc:
+        ret.append(prevMap[current])
+        current = prevMap[current][0]
+
+    ret.reverse()
+
+    return ret, score
 
 # Finds the next we want to process
 # TODO: make this return cycles in the order of their lengths
 def getNextCycle():
-    global visitedRigids
-    global startingNuc
-    global stack
+    print (chain_of_nucleotides)
+    bestScore = math.inf
+    bestCycle = None
     for i in range(len(seq)):
         if isRigidEdgeNuc(i):
             nuc = chain_of_nucleotides[i]
 
-            visitedRigids = set()
-            startingNuc = nuc
-            stack = []
+            for j in (i-1, i+1):
+                if j not in chain_of_nucleotides:
+                    continue
+                nn = chain_of_nucleotides[j]
+                if nn.rigid is nuc.rigid:
+                    continue
 
-            ret = traverseToGetCycle(chain_of_nucleotides[i])
-            if ret is not None:
-                return ret
-    return None
+                cycle, score = traverseToGetCycle(nuc, nn)
+                if score<bestScore:
+                    bestScore = score
+                    bestCycle = cycle
+    return bestCycle
 
 def getNextChain():
-    global visitedRigids
-    global startingNuc
-    global stack
+    return None
     for i in range(len(seq)):
         if isRigidEdgeNuc(i):
             nuc = chain_of_nucleotides[i]
             if (nuc.rigid is not chain_of_nucleotides[0].rigid):
                 continue
 
-            visitedRigids = set()
 
-            startingNuc = None
-            stack = []
 
             ret = traverseToGetCycle(chain_of_nucleotides[i], want_chain=True)
             if ret is not None:
@@ -592,9 +638,6 @@ def getC3Prime(residue):
 def np_distance(a_coord,b_coord):
     return np.linalg.norm(a_coord - b_coord)
 
-# Distance between C3' atoms.
-# Took from NAST
-NUCLEOTIDE_DISTANCE = 5.78
 import math
 import scipy
 
@@ -638,8 +681,8 @@ while True:
     cycle = getNextCycle()
     print("Cycle", cycle)
     if cycle is None:
-        cycle = getNextChain()
-        print("Chain", cycle)
+        #cycle = getNextChain()
+        #print("Chain", cycle)
         # TODO: make chain work
         break;
     if cycle is None:
@@ -658,8 +701,8 @@ while True:
 
     print(distances)
 
-    is_bridge = (sum(distances) <= 2*max(distances))
-    if is_bridge:
+    is_degenerate = (sum(distances) <= 2*max(distances))
+    if is_degenerate:
         # the polygon is going to be degenerate or impossible
         # might need to stretch the distance between nucleotides
         assert( max(distances) != NUCLEOTIDE_DISTANCE )
@@ -701,7 +744,7 @@ while True:
         else:
             sv1 = spb-spa
 
-        if is_bridge:
+        if is_degenerate:
             if rigid_distances[i] != max(rigid_distances):
                 dv1 = np.array([1, 0, 0])
                 dv2 = np.array([0, 1, 0])
@@ -715,18 +758,24 @@ while True:
             else:
                 dv1 = dpb-dpa
 
-            dv2 = dpa
+            dv2 = (dpa+dpb)/2
+            # For the case of bridges, inverse the side that goes in the other direction
+            # To check if the side goes in the other direction, compute CCW
+            if (dpa[0]*dpb[1] - dpa[1]*dpb[0])<0:
+                dv2*=-1
         
         # Find the centroid of the rigid to orient it away from the loop
         acc = sum(sum(atom.coord for atom in nuc.model) for nuc in ra.rigid.nucleotides);
         num = sum(sum(1 for atom in nuc.model) for nuc in ra.rigid.nucleotides);
         centroid = acc/num;
 
+        print("centroid", centroid, spa)
+
         # if it is colinear, switch it to something else
         sv2 = centroid - spa
-        if abs(abs(sv1.dot(sv1))/np.linalg.norm(sv1) - 1) <=1e-10:
+        if np.linalg.norm(sv2) <= 1e-10 or abs(abs(sv1.dot(sv2))/np.linalg.norm(sv1)/np.linalg.norm(sv2) - 1) <=1e-10:
             sv2 = np.array([1,0,0]) 
-        if abs(abs(sv1.dot(sv1))/np.linalg.norm(sv1) - 1) <=1e-10:
+        if abs(abs(sv1.dot(sv2))/np.linalg.norm(sv1)/np.linalg.norm(sv2) - 1) <=1e-10:
             sv2 = np.array([0,1,0]) 
 
 
@@ -765,6 +814,11 @@ def stretch_chain(chain):
         chain_of_nucleotides[j] = createC3PrimeNuc(coord, seq[j])
     #exit()
 
+rigids_seen = set()
+for nuc in chain_of_nucleotides.values():
+    rigids_seen.add(nuc.rigid)
+
+print("rigids seen", [r.id for r in rigids_seen])
 
 if (False):
     # visualize stuff
@@ -801,6 +855,10 @@ output_structure.add(output_model)
 
 io = PDB.PDBIO()
 io.set_structure(output_structure)
+
+for i,n in sorted(chain_of_nucleotides.items()):
+    print(i, n.rigid.id)
+
 
 if (len (sys.argv) >= 2):
     out = sys.argv[1]
