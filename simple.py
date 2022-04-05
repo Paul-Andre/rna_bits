@@ -47,7 +47,16 @@ def find_pairing():
         else:
             assert False, "Unexpected character in dot-bracket string: "+repr(dot_bracket[pos])
 
-find_pairing()
+
+import Project.parser
+for a,b in Project.parser.parseParens(dot_bracket):
+    a-=1
+    b-=1
+    pairing[a]=b
+    pairing[b]=a
+
+
+#find_pairing()
 
 # We build a tree where the nodes are NCMs or modules, and the edges are overlaps
 # Currently NCMs we look at are 2_2, 2_3 (and 3_2) and 3_3
@@ -484,9 +493,14 @@ stack = None
 def cycleNotDegenerate(stack):
     return len(stack)>2 or stack[0][0] != stack[0][1] or stack[1][0] != stack[1][1]
 
-def traverseToGetCycle(nuc):
+def isTerminalRigid(r):
+    # TODO: make this work even when there's more than 1 strand
+    return r is chain_of_nucleotides[len(seq)-1].rigid
+
+
+def traverseToGetCycle(nuc, want_chain=False):
     assert(nuc.rigid not in visitedRigids)
-    assert startingNuc is not None
+    assert startingNuc is not None or want_chain
     visitedRigids.add(nuc.rigid)
 
     for nn in nuc.rigid.nucleotides:
@@ -502,10 +516,14 @@ def traverseToGetCycle(nuc):
                 if nnn is startingNuc and cycleNotDegenerate(stack):
                     return list(stack)
 
+                if want_chain and isTerminalRigid(nnn.rigid):
+                    stack.append((nnn,nnn))
+                    return list(stack)
+
                 if nnn.rigid in visitedRigids:
                     continue
 
-                ret = traverseToGetCycle(nnn)
+                ret = traverseToGetCycle(nnn, want_chain)
                 if ret is not None:
                     return ret
 
@@ -528,6 +546,26 @@ def getNextCycle():
             stack = []
 
             ret = traverseToGetCycle(chain_of_nucleotides[i])
+            if ret is not None:
+                return ret
+    return None
+
+def getNextChain():
+    global visitedRigids
+    global startingNuc
+    global stack
+    for i in range(len(seq)):
+        if isRigidEdgeNuc(i):
+            nuc = chain_of_nucleotides[i]
+            if (nuc.rigid is not chain_of_nucleotides[0].rigid):
+                continue
+
+            visitedRigids = set()
+
+            startingNuc = None
+            stack = []
+
+            ret = traverseToGetCycle(chain_of_nucleotides[i], want_chain=True)
             if ret is not None:
                 return ret
     return None
@@ -564,7 +602,7 @@ def ortho_project(s, d):
     print(s,d)
     return (s.dot(d)/(np.linalg.norm(d)**2)) * d
 
-def map_rotation(s1, s2, d1, d2):
+def create_rotation(s1, s2, d1, d2):
     """ Create a rotation matrix that transforms the vector s1 to align with the vector d1
     while having the vector s2 be aligned with the vector d2 as much as possible """
 
@@ -573,10 +611,12 @@ def map_rotation(s1, s2, d1, d2):
     d1 = d1/np.linalg.norm(d1)
 
     print("s1 s2", s1, s2)
+    print("d1 d2", d1, d2)
     s2 = s2 - ortho_project(s2, s1)
     d2 = d2 - ortho_project(d2, d1)
 
     print("s1 s2", s1, s2)
+    print("d1 d2", d1, d2)
     s2 = s2/np.linalg.norm(s2)
     d2 = d2/np.linalg.norm(d2)
 
@@ -598,7 +638,12 @@ while True:
     cycle = getNextCycle()
     print("Cycle", cycle)
     if cycle is None:
-        break
+        cycle = getNextChain()
+        print("Chain", cycle)
+        # TODO: make chain work
+        break;
+    if cycle is None:
+        break;
 
     rigid_distances = []
     for (a,b) in cycle:
@@ -613,7 +658,8 @@ while True:
 
     print(distances)
 
-    if (sum(distances) <= 2*max(distances)):
+    is_bridge = (sum(distances) <= 2*max(distances))
+    if is_bridge:
         # the polygon is going to be degenerate or impossible
         # might need to stretch the distance between nucleotides
         assert( max(distances) != NUCLEOTIDE_DISTANCE )
@@ -622,14 +668,16 @@ while True:
         pos = 0.
         points = []
         for d in rigid_distances:
+            points.append((pos, 0.))
             if d == max(distances):
                 pos -= d
             else:
                 pos += d
+
             points.append((pos, 0.))
 
             pos += adj_nuc_dist
-            points.append((pos, 0.))
+            print("bridge", points)
     else:
         points = inscribed_polygon.construct_polygon(distances)
 
@@ -648,14 +696,26 @@ while True:
         spa = getC3Prime(ra.model).coord
         spb = getC3Prime(rb.model).coord
 
-        offset = dpa - spa
-
         if (spb == spa).all():
             sv1 = np.array([1.,0,0])
-            dv1 = np.array([-dpa[1], dpb[0], 0])
         else:
             sv1 = spb-spa
-            dv1 = dpb-dpa
+
+        if is_bridge:
+            if rigid_distances[i] != max(rigid_distances):
+                dv1 = np.array([1, 0, 0])
+                dv2 = np.array([0, 1, 0])
+            else:
+                dv1 = np.array([-1, 0, 0])
+                dv2 = np.array([0, -1, 0])
+
+        else :
+            if (spb == spa).all():
+                dv1 = np.array([-dpa[1], dpb[0], 0])
+            else:
+                dv1 = dpb-dpa
+
+            dv2 = dpa
         
         # Find the centroid of the rigid to orient it away from the loop
         acc = sum(sum(atom.coord for atom in nuc.model) for nuc in ra.rigid.nucleotides);
@@ -669,9 +729,8 @@ while True:
         if abs(abs(sv1.dot(sv1))/np.linalg.norm(sv1) - 1) <=1e-10:
             sv2 = np.array([0,1,0]) 
 
-        dv2 = dpa
 
-        rotation_matrix = map_rotation(sv1, sv2, dv1, dv2)
+        rotation_matrix = create_rotation(sv1, sv2, dv1, dv2)
         print(rotation_matrix)
         
         for nuc in ra.rigid.nucleotides:

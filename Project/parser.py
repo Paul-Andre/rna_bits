@@ -2,7 +2,7 @@ from typing import List, Tuple, Union, DefaultDict
 
 from collections import defaultdict
 
-from representation import *
+from .representation import *
 
 class ParseError(Exception):
     def __init__(self, message=None, text=None, column=None, line=None):
@@ -271,7 +271,6 @@ GCUGGGAUGUUGGCUUAGAAGCAGCCAUCAUUUAAAGAGUGCGUAACAGCUCACCAGC
             continue
         if nuc.next is None:
             continue
-        if 
 
 
     
