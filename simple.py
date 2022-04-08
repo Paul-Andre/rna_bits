@@ -101,13 +101,10 @@ for name,comp,first,last in module_components:
 added_ncms = set()
 
 def have_overlapping_module(nucls):
-    print(nucls)
     b = [
             {node.id for (node,_,_) in module_assignment[id]} for id in nucls
     ]
-    print (b)
     a = set.intersection(*b)
-    print (a)
     return (len(a) >= 1)
 
 for i in range(0, len(seq)):
@@ -177,6 +174,36 @@ for i in range(0, len(seq)):
         if module:
             nodes.append(module)
 
+# Add isolated pairs
+for i in range(0, len(seq)):
+    if pairing[i] is not None:
+        j = pairing[i]
+        ts = tuple(sorted((i,j)))
+        if (ts in added_ncms or have_overlapping_module(ts)):
+            continue
+        added_ncms.add(ts)
+        module = Node(("pair", seq[i]+seq[j]))
+        module_assignment[i].append((module,0,0))
+        module_assignment[j].append((module,1,0))
+        module.nucls.update({i,j})
+        module.components = [(i,i), (j,j)]
+        nodes.append(module)
+
+
+# Add single nucleotides
+for i in range(0, len(seq)):
+    if len(module_assignment[i]) == 0:
+        ts = (i,)
+        if (ts in added_ncms or have_overlapping_module(ts)):
+            continue
+        added_ncms.add(ts)
+        module = Node(("nucleotide", seq[i]))
+        module_assignment[i].append((module,0,0))
+        module.nucls.update({i})
+        module.components = [(i,i)]
+        nodes.append(module)
+
+
 
 class Edge:
     def __init__(self,a,b):
@@ -188,7 +215,6 @@ edges_by_nodes = {}
 
 for i in range(0,len(seq)):
     ass = module_assignment[i]
-    print(i)
     for mod, comp, pos in ass:
         print(mod.kind, mod.components)
     # I comment this line out to start implementing arcs:
@@ -213,9 +239,6 @@ for edge in edges_by_nodes.values():
     assert len(edge.nucls) in (1,2), "edge has "+repr(len(edge.nucls))+" nucleotides"
 
 
-print(len(edges_by_nodes))
-print(len(nodes))
-
 import vpython as vp
 import Bio.PDB as PDB
 
@@ -225,9 +248,68 @@ import random
 import gzip
 
 
+# TODO: take the correspondences from the RNA-Puzzles assessment source
+def canonical_atom_name(name):
+    if name == "O1P":
+        return "OP1"
+    if name == "O2P":
+        return "OP2"
+    return name.replace("*", "'")
+
+def canonical_residue_name(name):
+    # TODO
+    # Note: in this function we won't rename modified nucleotide names
+    return name
+
+def canonical_unmodified_residue_name(name):
+    # TODO
+    # Note: in this function we will rename modified nucleotide names
+    return name
+
+# Creates a new model that has canonical atom representation
+def canonicalize_model(model):
+    output_model = PDB.Model.Model(0)
+    for chain in model:
+        output_chain = PDB.Chain.Chain(chain.id)
+        output_model.add(output_chain)
+        for residue in chain:
+            output_residue = PDB.Residue.Residue(residue.id, canonical_residue_name(residue.resname), residue.segid)
+            output_chain.add(output_residue)
+            for atom in residue:
+                print(atom.name, atom.fullname)
+                can_name = canonical_atom_name(atom.name)
+                full_can_name = can_name
+                output_atom = PDB.Atom.Atom(
+                        name = can_name,
+                        coord = atom.coord,
+                        bfactor = atom.bfactor,
+                        occupancy = atom.occupancy,
+                        altloc = atom.altloc,
+                        fullname = full_can_name,
+                        serial_number = atom.serial_number,
+                        element = atom.element,
+                        )
+                output_residue.add(output_atom)
+
+    return  output_model
+
+
+def load_model(filename):
+    if filename.endswith(".pdb"):
+        pass
+    elif filename.endswith(".pdb.gz"):
+        pass
+    elif filename.endswith(".cif"):
+        print("implement the cif, should be easy")
+        exit()
+    elif filename.endswith(".cif.gz"):
+        print("implement the cif, should be easy")
+        exit()
+
 # returns (model, filename)
 # TODO: put the filename selection into a different file
-def load_model(kind):
+# TODO: add a caching layer
+def load_model_kind(kind):
     if kind[0] == "module":
         name = kind[1]
         directory = name
@@ -237,6 +319,7 @@ def load_model(kind):
         else:
             choice = directory
         model = PDB.PDBParser().get_structure(name, choice)[0]
+        model = canonicalize_model(model)
         return model,choice
     if kind[0] == "ncm":
         directory = "mcsym-db/"+kind[1]+"/"+kind[2]
@@ -250,7 +333,29 @@ def load_model(kind):
             filename = random.choice(options)
         with gzip.open(filename, "rt") as f:
             model = PDB.PDBParser().get_structure(directory, f)[0]
+            model = canonicalize_model(model)
             return model,filename
+    if kind[0] == "pair":
+        # load 2_2 from mcsym-db, and truncate
+        model, filename = load_model_kind(("ncm", "2_2", kind[1][0]+"GC"+kind[1][1]))
+        i = 0
+        for chain in model:
+            residue_ids_to_delete = []
+            for residue in chain:
+                if i in (1,2):
+                    residue_ids_to_delete.append(residue.id)
+                i+=1
+            for id in residue_ids_to_delete:
+                chain.detach_child(id)
+
+        model = canonicalize_model(model)
+        return model, (filename, "trimmed")
+    if kind[0] == "nucleotide":
+        name = kind[1]
+        directory = name+".pdb"
+        model = PDB.PDBParser().get_structure(name, directory)[0]
+        model = canonicalize_model(model)
+        return model,directory
 
 
 
@@ -275,9 +380,40 @@ def get_model_components(model, kind):
                 prev = residue
         return components
 
+    # TODO refactor this stuff
     elif (kind[0] == "ncm"):
         components = []
         lengths = list(map(int,kind[1].split("_")))
+        components = [[] for _ in lengths]
+        li = 0
+        lj = 0
+        for chain in model:
+            for residue in chain:
+                components[li].append(residue)
+                lj+=1
+                if(lj>=lengths[li]):
+                    lj=0
+                    li+=1
+        return components
+
+    elif (kind[0] == "pair"):
+        components = []
+        lengths = [1,1]
+        components = [[] for _ in lengths]
+        li = 0
+        lj = 0
+        for chain in model:
+            for residue in chain:
+                components[li].append(residue)
+                lj+=1
+                if(lj>=lengths[li]):
+                    lj=0
+                    li+=1
+        return components
+
+    elif (kind[0] == "nucleotide"):
+        components = []
+        lengths = [1]
         components = [[] for _ in lengths]
         li = 0
         lj = 0
@@ -294,7 +430,7 @@ def get_model_components(model, kind):
 
 
 
-# returns a map (component_id, nucleotide_id_in_comp)->(chain_id, nucleotide_id in model)
+# returns a map nucleotide_id -> residue_in_the_model
 def map_node_components(node):
     model = node.model
 
@@ -314,38 +450,108 @@ def map_node_components(node):
 
 models_used = []
 
+# Model contains only the 4 bases, used for base substitution
+substitution_model = PDB.PDBParser().get_structure("substitution_model", "bases.pdb")[0]
+
+# Returns (a reference to) the reference base of the given letter, used for base substitution
+def get_reference_base(letter):
+    return substitution_model[letter][1]
+
+
+BB_SUGAR_ATOMS = {
+        "C1'", 
+        "C2'", 
+        "O2'", 
+
+        "C3'", 
+        "O3'", 
+
+        "C4'", 
+        "O4'", 
+
+        "C5'", 
+
+        "O5'", 
+
+        "P", 
+        "OP1", 
+        "OP2", 
+        }
+
+
+def substitute_base(residue, newResname):
+    oldResname = canonical_unmodified_residue_name(residue.resname)
+    oldBaseAtoms = []
+    referenceOldBase = get_reference_base(oldResname)
+    fixed_list = []
+    moving_list = []
+    for atom in referenceOldBase:
+        if atom.id in residue:
+            fixed_list.append(residue[atom.id])
+            moving_list.append(atom)
+
+    superimposer = PDB.Superimposer()
+    superimposer.set_atoms(fixed = fixed_list, moving = moving_list)
+
+    # Remove the old base
+    for atom in oldBaseAtoms:
+        residue.detach_child(atom.id)
+
+    # Remove everything that isn't part of our known atoms.
+    # I use remove_list because I got the impression that removing stuff while
+    # iterating causes problems.
+    remove_list = []
+    for atom in residue:
+        if atom.id not in BB_SUGAR_ATOMS:
+            remove_list.append(atom.id)
+    for id_to_remove in remove_list:
+        residue.detach_child(id_to_remove)
+
+    freshBaseAtoms = []
+    for atom in get_reference_base(newResname):
+        fresh_atom = atom.copy()
+        residue.add(fresh_atom)
+        freshBaseAtoms.append(fresh_atom)
+
+    residue.resname = newResname
+
+    superimposer.apply(freshBaseAtoms)
+
+
+
 for node in nodes:
     print(node.kind, node.nucls)
-    node.model, model_filename = load_model(node.kind)
+    node.model, model_filename = load_model_kind(node.kind)
     node.model_filename = model_filename
     models_used.append((node.components, model_filename))
     node.component_mapping = map_node_components(node)
     print(node.component_mapping)
+
+    did_substitute = False
+    for k,v in node.component_mapping.items():
+        if seq[k].isupper() and seq[k] != canonical_residue_name(v.resname):
+            did_substitute = True
+            substitute_base(v, seq[k])
+    #exit()
 
 
 # Before turning data into the BIO classes, I will represent the chain as a dict of nucleotides first
 chain_of_nucleotides = {}
 
 
-def canonical_atom_name(name):
-    if name == "O1P":
-        return "OP1"
-    if name == "O2P":
-        return "OP2"
-    return name.replace("*", "'")
 
 def residueToCanonicalDict(res):
     return {canonical_atom_name(atom.name):atom for atom in res}
 
 BB_ATOM_NAMES = ["P","O5'","C5'","C4'","C3'","O3'"];
 
+
 # Given two nucleotides of the same type,
 # returns two lists of corresponding atoms
 # (references to the existing atoms, not copies)
-# Tries to resolve atom naming convention differences
 def correspondNucleotideAtoms(a, b, only_bb=False):
-    a_canon = residueToCanonicalDict(a)
-    b_canon = residueToCanonicalDict(b)
+    a_canon = {atom.name:atom for atom in a}
+    b_canon = {atom.name:atom for atom in b}
     assert(len(a_canon) == len(a))
     assert(len(b_canon) == len(b))
     all_atoms = set(a_canon.keys()) | set(b_canon.keys())
@@ -462,9 +668,14 @@ def createC3PrimeNuc(coord, letter, pos):
     nucWrapper = Nucleotide(output_residue, rigid, pos)
     return nucWrapper
 
+# Load models for A,U,G,C nucleotides
+
 # Find nucleotides that haven't been placed and turn them into rigids
 for i in range(0, len(seq)):
+    #assert i in chain_of_nucleotides
     if i not in chain_of_nucleotides:
+        print(i, "is not in chain of nucleotides for some reason")
+
         rigidCounter+=1
         coord = np.array([0.,0,0]) - rigidCounter*20.
         chain_of_nucleotides[i] = createC3PrimeNuc(coord, seq[i], i)
@@ -506,6 +717,9 @@ def isTerminalRigid(r):
 # Took from NAST
 NUCLEOTIDE_DISTANCE = 5.78
 
+# Some arbitrary distance
+#NUCLEOTIDE_DISTANCE = 7.5
+
 import heapq
 
         # if want_chain and isTerminalRigid(nuc.rigid) and nuc.rigid is not startNuc.rigid:
@@ -520,7 +734,6 @@ def traverseToGetCycle(startNuc, endNuc):
     # allowing the endNuc->startNuc direction), so that we find the shortest
     # cycle containing that link.
 
-    print("start traverseToGetCycle", startNuc, endNuc)
     prevMap = {}
 
     queue = [(0., startNuc, None)]
@@ -642,7 +855,6 @@ import math
 import scipy
 
 def ortho_project(s, d):
-    print(s,d)
     return (s.dot(d)/(np.linalg.norm(d)**2)) * d
 
 def create_rotation(s1, s2, d1, d2):
@@ -653,13 +865,13 @@ def create_rotation(s1, s2, d1, d2):
     s1 = s1/np.linalg.norm(s1)
     d1 = d1/np.linalg.norm(d1)
 
-    print("s1 s2", s1, s2)
-    print("d1 d2", d1, d2)
+    # print("s1 s2", s1, s2)
+    # print("d1 d2", d1, d2)
     s2 = s2 - ortho_project(s2, s1)
     d2 = d2 - ortho_project(d2, d1)
 
-    print("s1 s2", s1, s2)
-    print("d1 d2", d1, d2)
+    # print("s1 s2", s1, s2)
+    # print("d1 d2", d1, d2)
     s2 = s2/np.linalg.norm(s2)
     d2 = d2/np.linalg.norm(d2)
 
@@ -673,7 +885,7 @@ def create_rotation(s1, s2, d1, d2):
     T = np.linalg.solve(S, D)
     T = T.transpose()
 
-    print(s1, d1, T.dot(s1))
+    # print(s1, d1, T.dot(s1))
     return T
 
 
@@ -725,7 +937,7 @@ while True:
         points = inscribed_polygon.construct_polygon(distances)
 
     points = [np.array([x,y,0]) for (x,y) in points]
-    print(points)
+    # print(points)
 
     #place the pieces onto the polygon
     assert(len(points)%2 == 0)
@@ -769,7 +981,7 @@ while True:
         num = sum(sum(1 for atom in nuc.model) for nuc in ra.rigid.nucleotides);
         centroid = acc/num;
 
-        print("centroid", centroid, spa)
+        # print("centroid", centroid, spa)
 
         # if it is colinear, switch it to something else
         sv2 = centroid - spa
@@ -780,7 +992,7 @@ while True:
 
 
         rotation_matrix = create_rotation(sv1, sv2, dv1, dv2)
-        print(rotation_matrix)
+        # print(rotation_matrix)
         
         for nuc in ra.rigid.nucleotides:
             for atom in nuc.model:
@@ -855,9 +1067,6 @@ output_structure.add(output_model)
 
 io = PDB.PDBIO()
 io.set_structure(output_structure)
-
-for i,n in sorted(chain_of_nucleotides.items()):
-    print(i, n.rigid.id)
 
 
 if (len (sys.argv) >= 2):
