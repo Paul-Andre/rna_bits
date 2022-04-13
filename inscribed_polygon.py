@@ -1,7 +1,7 @@
 import math
 
-def construct_polygon(distances):
-    t, r = inscribed_polygon_radius(distances)
+def construct_polygon(distances, target_angle=math.tau):
+    t, r = inscribed_polygon_radius(distances, target_angle)
     assert(t not in ("impossible", "line"))
 
     if t == "normal":
@@ -25,7 +25,7 @@ def construct_polygon(distances):
 
 
 
-def inscribed_polygon_radius(A):
+def inscribed_polygon_radius(A, target_angle = math.tau):
     """ returns the type of polygon, and the radius of the circle it is inscribed in
     "normal" is a polygon containing the center of the circle it is inscribed into
     "bridge" is a polygon not containing the center of the circle it is inscribed into
@@ -34,7 +34,7 @@ def inscribed_polygon_radius(A):
     """
     # Arc chord < 2*radius
     smallest_r = max(A)*0.5
-    biggest_r = sum(A)*0.5
+    biggest_r = sum(A)
     #print(smallest_r, biggest_r)
 
     # The total angle we would get if we tend all the given lenghts as chords to a circle of given radius
@@ -45,10 +45,10 @@ def inscribed_polygon_radius(A):
     # The smaller the radius, the bigger the total angle
     min_angle = tot_angle(biggest_r)
     max_angle = tot_angle(smallest_r)
-    #print(min_angle/math.tau, max_angle/math.tau)
+    print(min_angle/math.tau, max_angle/math.tau)
 
     can_do_inner_center = True
-    if not (min_angle <= math.tau and math.tau <= max_angle):
+    if not (min_angle <= target_angle and target_angle <= max_angle):
         #print("can't do inner center")
         can_do_inner_center = False
 
@@ -59,7 +59,7 @@ def inscribed_polygon_radius(A):
         for _ in range(50):
             rc = (ra + rb)*0.5
             angle_c = tot_angle(rc)
-            if angle_c < math.tau:
+            if angle_c < target_angle:
                 # Need to decrease the radius
                 rb = rc
             else:

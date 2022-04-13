@@ -276,7 +276,6 @@ def canonicalize_model(model):
             output_residue = PDB.Residue.Residue(residue.id, canonical_residue_name(residue.resname), residue.segid)
             output_chain.add(output_residue)
             for atom in residue:
-                print(atom.name, atom.fullname)
                 can_name = canonical_atom_name(atom.name)
                 full_can_name = can_name
                 output_atom = PDB.Atom.Atom(
@@ -293,18 +292,30 @@ def canonicalize_model(model):
 
     return  output_model
 
+def is_struct_filename(filename):
+    return (
+            filename.endswith(".pdb") or
+            filename.endswith(".pdb.gz") or
+            filename.endswith(".cif") or
+            filename.endswith(".cif.gz")
+            )
 
-def load_model(filename):
+def load_struct_file(filename, struct_name=None):
+    if struct_name is None:
+        struct_name = filename
+
     if filename.endswith(".pdb"):
-        pass
+        return PDB.PDBParser().get_structure(struct_name, filename)
     elif filename.endswith(".pdb.gz"):
-        pass
+        with gzip.open(filename, "rt") as f:
+            return PDB.PDBParser().get_structure(struct_name, f)
     elif filename.endswith(".cif"):
-        print("implement the cif, should be easy")
-        exit()
+        return PDB.MMCIFParser().get_structure(struct_name, filename)
     elif filename.endswith(".cif.gz"):
-        print("implement the cif, should be easy")
-        exit()
+        with gzip.open(filename, "rt") as f:
+            return PDB.MMCIFParser().get_structure(struct_name, f)
+
+    assert(False), "Not a proper filename"
 
 # returns (model, filename)
 # TODO: put the filename selection into a different file
@@ -314,11 +325,12 @@ def load_model_kind(kind):
         name = kind[1]
         directory = name
         if (os.path.isdir(directory)) :
-            options = [os.path.join(directory, x) for x in os.listdir(directory) if x.endswith('.pdb')]
+            options = [os.path.join(directory, x) for x in os.listdir(directory) if is_struct_filename(x) and
+                    not x.startswith(".")]
             choice = random.choice(options)
         else:
             choice = directory
-        model = PDB.PDBParser().get_structure(name, choice)[0]
+        model = load_struct_file(choice)[0]
         model = canonicalize_model(model)
         return model,choice
     if kind[0] == "ncm":
@@ -331,10 +343,9 @@ def load_model_kind(kind):
             options = [os.path.join(directory, x) for x in os.listdir(directory)
                        if ( x.endswith('.pdb.gz') and not x.startswith("."))]
             filename = random.choice(options)
-        with gzip.open(filename, "rt") as f:
-            model = PDB.PDBParser().get_structure(directory, f)[0]
-            model = canonicalize_model(model)
-            return model,filename
+        model = load_struct_file(filename)[0]
+        model = canonicalize_model(model)
+        return model,filename
     if kind[0] == "pair":
         # load 2_2 from mcsym-db, and truncate
         model, filename = load_model_kind(("ncm", "2_2", kind[1][0]+"GC"+kind[1][1]))
@@ -353,7 +364,7 @@ def load_model_kind(kind):
     if kind[0] == "nucleotide":
         name = kind[1]
         directory = name+".pdb"
-        model = PDB.PDBParser().get_structure(name, directory)[0]
+        model = load_struct_file(directory)[0]
         model = canonicalize_model(model)
         return model,directory
 
@@ -436,6 +447,7 @@ def map_node_components(node):
 
     components = get_model_components(model, node.kind)
 
+    print(node.kind)
     print(node.components, components)
     assert(len(node.components) == len(components)), "number of fragment components doesn't match"
     ret = {}
@@ -694,11 +706,6 @@ def isRigidEdgeNuc(i):
             return True
     return False
 
-def getNeigbors(nuc):
-    for nn in nuc.rigid.nucleotides:
-        if nn is not nuc and isRigidEdgeNuc(nn):
-            yield nn
-
 
 def cycleNotDegenerate(stack):
     return len(stack)>2 or stack[0][0] != stack[0][1] or stack[1][0] != stack[1][1]
@@ -708,10 +715,6 @@ def checkCycleNotDegenerate(prevMap, startNuc):
     c, d = prevMap[startNuc]
     a, b = prevMap[c]
     return not ((c is d) and (a is b) and a is startNuc)
-
-def isTerminalRigid(r):
-    # TODO: make this work even when there's more than 1 strand
-    return r is chain_of_nucleotides[len(seq)-1].rigid
 
 # Distance between C3' atoms.
 # Took from NAST
@@ -814,19 +817,64 @@ def getNextCycle():
                     bestCycle = cycle
     return bestCycle
 
-def getNextChain():
-    return None
+
+def isTerminalRigid(r):
+    # TODO: make this work even when there's more than 1 strand
+    return r in (
+            chain_of_nucleotides[len(seq)-1].rigid,
+            chain_of_nucleotides[0].rigid
+            )
+
+def traverseToGetPath(startNuc):
+    """ Traverse to get a path between two rigids that are connected to only one edge each
+    (to get an "outer loop")
+    """
+    assert(isTerminalRigid(startNuc.rigid))
+    assert(isRigidEdgeNuc(startNuc.pos))
+
+    visitedRigids = set()
+    out = []
+    nuc = startNuc
+    visitedRigids.add(nuc.rigid)
+    while(nuc is startNuc or not isTerminalRigid(nuc.rigid)):
+        print(nuc)
+        print(out)
+
+        result = None
+
+        for nn in nuc.rigid.nucleotides:
+            #dist2 = dist + np.linalg.norm(getC3Prime(nn.model) - getC3Prime(nuc.model))
+            print(nuc, nn)
+            for j in (nn.pos+1, nn.pos-1):
+                if j not in chain_of_nucleotides:
+                    continue
+                nnn = chain_of_nucleotides[j]
+                print(nuc, nn, nnn)
+                if nnn.rigid is nn.rigid:
+                    continue
+                #dist3 = dist2 + NUCLEOTIDE_DISTANCE
+                if nnn.rigid not in visitedRigids:
+                    result = (nuc, nn, nnn)
+                    break;
+            if result is not None:
+                break;
+
+        nuc, nn, nnn = result
+        out.append((nuc, nn))
+        nuc = nnn
+        visitedRigids.add(nuc)
+    out.append((nuc, nuc))
+    return out
+
+def getNextPath():
+    """ Assumes that all cycles have been found.
+    Finds the next "outer loop"
+    """
     for i in range(len(seq)):
         if isRigidEdgeNuc(i):
             nuc = chain_of_nucleotides[i]
-            if (nuc.rigid is not chain_of_nucleotides[0].rigid):
-                continue
+            return traverseToGetPath(nuc)
 
-
-
-            ret = traverseToGetCycle(chain_of_nucleotides[i], want_chain=True)
-            if ret is not None:
-                return ret
     return None
 
 
@@ -891,12 +939,17 @@ def create_rotation(s1, s2, d1, d2):
 
 while True:
     cycle = getNextCycle()
-    print("Cycle", cycle)
-    if cycle is None:
-        #cycle = getNextChain()
-        #print("Chain", cycle)
-        # TODO: make chain work
-        break;
+
+    if cycle is not None:
+        print("Cycle", cycle)
+        isPath = False
+    else:
+        # for i,nuc in sorted(chain_of_nucleotides.items()):
+            # print(i+1, nuc.rigid.id)
+        cycle = getNextPath()
+        print("Chain", cycle)
+        isPath = True
+
     if cycle is None:
         break;
 
@@ -911,9 +964,16 @@ while True:
         distances.append(d)
         distances.append(NUCLEOTIDE_DISTANCE)
 
+    if isPath:
+        distances.pop()
+
     print(distances)
 
-    is_degenerate = (sum(distances) <= 2*max(distances))
+    # To simplify things, if what I have is a path, I'll place it on a half-circle
+    # It's guaranteed that a half circle is not going to be degenerate
+    # (But the path needs to have at least 3 nodes, otherwise it's not really
+    # possible to put it on a half-circle... (I think?) )
+    is_degenerate = not isPath and (sum(distances) <= 2*max(distances))
     if is_degenerate:
         # the polygon is going to be degenerate or impossible
         # might need to stretch the distance between nucleotides
@@ -934,7 +994,11 @@ while True:
             pos += adj_nuc_dist
             print("bridge", points)
     else:
-        points = inscribed_polygon.construct_polygon(distances)
+        if not isPath:
+            points = inscribed_polygon.construct_polygon(distances)
+        else:
+            points = inscribed_polygon.construct_polygon(distances, math.tau*0.33)
+            points.append(points[-1])
 
     points = [np.array([x,y,0]) for (x,y) in points]
     # print(points)
@@ -953,6 +1017,12 @@ while True:
 
         if (spb == spa).all():
             sv1 = np.array([1.,0,0])
+            if "P" in ra.model:
+                if ( (i == 0 and cycle[i+1][0].pos > cycle[i][1].pos)
+                        or cycle[i][0].pos > cycle[i-1][1].pos ):
+                    sv1 = spa - ra.model["P"].coord
+                else:
+                    sv1 = ra.model["P"].coord - spa
         else:
             sv1 = spb-spa
 
