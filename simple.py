@@ -6,23 +6,44 @@ f = sys.stdin
 # internally, I use 0-based indexing for now
 
 seq = f.readline().strip()
+original_seq = seq
+seq = seq.upper()
 dot_bracket = f.readline().strip()
 assert(len(seq) == len(dot_bracket))
 module_components = []
+stacks = []
 while True:
     line = f.readline()
     if not line:
         break;
     line = line.strip()
-    info = line.split("-")
-    if (info[0] != 'C'):
-        continue;
-    _,name,first,last,comp = info
-    first,last,comp = map(int, (first,last,comp))
-    first-=1
-    last-=1
-    comp-=1
-    module_components.append((name, comp, first, last))
+    if line.startswith("C-"):
+        info = line.split("-")
+        if (info[0] != 'C'):
+            continue;
+        _,name,first,last,comp = info
+        first,last,comp = map(int, (first,last,comp))
+        first-=1
+        last-=1
+        comp-=1
+        module_components.append((name, comp, first, last))
+    elif line.startswith("stack"):
+        # Currently, only doing stacking of nucleotids that are joined by the backbone
+        # Stacking makes sense in other contexts, but I'm not doing it right now
+        rest = line[len("stack"):0].strip()
+        a,b = line.split("-")
+        a = int(a)
+        b = int(b)
+        #TODO: warn
+        assert(a>=1)
+        assert(b<=len(seq))
+        assert(b>a)
+        a-=1
+        b-=1
+        for i in range(a,b):
+            stacks.append((i,i+1))
+
+
 f.close()
 
 pairing = [None]*len(seq)
@@ -188,6 +209,44 @@ for i in range(0, len(seq)):
         module.nucls.update({i,j})
         module.components = [(i,i), (j,j)]
         nodes.append(module)
+
+def add_helix_stack_module(i,j):
+    assert(j==i+1)
+    ts = tuple(sorted((i,j)))
+    if (ts in added_ncms or have_overlapping_module(ts)):
+        #TODO: check if the overlap is a helix fragment or not
+        return;
+    added_ncms.add(ts)
+    module = Node(("helix_stack", seq[i]+seq[j]))
+    module_assignment[i].append((module,0,0))
+    module_assignment[j].append((module,0,1))
+    module.nucls.update({i,j})
+    module.components = [(i,j)]
+    nodes.append(module)
+
+# Add stacking that was given by the instructions
+for i,j in stacks:
+    add_helix_stack_module(i,j)
+
+# Turn dangling ends into stacks
+fp_start = 0
+for i in range(0, len(seq)-1):
+    if len(module_assignment[i])==0:
+        fp_start = i+1
+    else:
+        break
+print("fp_start", fp_start)
+for i in range(0, fp_start):
+    add_helix_stack_module(i,i+1)
+
+tp_start = len(seq)-1
+for i in range(len(seq) -1, 0, -1):
+    if len(module_assignment[i])==0:
+        tp_start = i-1
+    else:
+        break
+for i in range(len(seq)-1, tp_start, -1):
+    add_helix_stack_module(i-1,i)
 
 
 # Add single nucleotides
@@ -361,6 +420,26 @@ def load_model_kind(kind):
 
         model = canonicalize_model(model)
         return model, (filename, "trimmed")
+    if kind[0] == "helix_stack":
+        complementary = {"A":"U", "U":"A", "G":"C", "C":"G"}
+        a = kind[1][0]
+        b = kind[1][1]
+        c = complementary[b]
+        d = complementary[a]
+        # load 2_2 from mcsym-db, and truncate
+        model, filename = load_model_kind(("ncm", "2_2", a+b+c+d))
+        i = 0
+        for chain in model:
+            residue_ids_to_delete = []
+            for residue in chain:
+                if i >= 2:
+                    residue_ids_to_delete.append(residue.id)
+                i+=1
+            for id in residue_ids_to_delete:
+                chain.detach_child(id)
+
+        model = canonicalize_model(model)
+        return model, (filename, "trimmed")
     if kind[0] == "nucleotide":
         name = kind[1]
         directory = name+".pdb"
@@ -392,6 +471,7 @@ def get_model_components(model, kind):
         return components
 
     # TODO refactor this stuff
+    # Actually, I probably don't even need it; delete it
     elif (kind[0] == "ncm"):
         components = []
         lengths = list(map(int,kind[1].split("_")))
@@ -422,6 +502,21 @@ def get_model_components(model, kind):
                     li+=1
         return components
 
+    elif (kind[0] == "helix_stack"):
+        components = []
+        lengths = [2]
+        components = [[] for _ in lengths]
+        li = 0
+        lj = 0
+        for chain in model:
+            for residue in chain:
+                components[li].append(residue)
+                lj+=1
+                if(lj>=lengths[li]):
+                    lj=0
+                    li+=1
+        return components
+
     elif (kind[0] == "nucleotide"):
         components = []
         lengths = [1]
@@ -440,15 +535,14 @@ def get_model_components(model, kind):
 
 
 
-
-# returns a map nucleotide_id -> residue_in_the_model
-def map_node_components(node):
+def old_map_node_components(node):
     model = node.model
 
     components = get_model_components(model, node.kind)
 
     print(node.kind)
     print(node.components, components)
+    # You know what? Fuck the whole component system
     assert(len(node.components) == len(components)), "number of fragment components doesn't match"
     ret = {}
     for nc, c in zip(node.components, components):
@@ -458,6 +552,39 @@ def map_node_components(node):
                 # r can be None in the case of RNAMoIP-style input where skips of up to 4 nts are allowed
                 # TODO: make this coherent with module_assignment
                 ret[i] = r
+    return ret
+
+# returns a map nucleotide_id -> residue_in_the_model
+def map_node_components(node):
+    model = node.model
+
+
+    print(node.kind)
+    # You know what? **** the whole component system,
+
+    pos_list = []
+    pos_set = set()
+    for (a,b) in node.components:
+        assert(a<=b)
+        for pos in range(a,b+1):
+            assert(pos not in pos_set)
+            pos_list.append(pos)
+            pos_set.add(pos)
+
+    res_list = []
+    for chain in model:
+        for residue in chain:
+            res_list.append(residue)
+
+    # TODO: perhaps not need this, for example if we want to allow the possibility of adding ions in the fragments
+    assert(len(pos_list) == len(res_list))
+
+    ret = {}
+    for pos, res in zip(pos_list, res_list):
+        ret[pos] = res
+
+    #assert(ret == old_map_node_components(node))
+
     return ret
 
 models_used = []
