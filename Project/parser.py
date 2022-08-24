@@ -80,8 +80,8 @@ def isSeparator(c):
     return c == "&" or c == " "
 
 
-def parseParens(s: Union[List[str], str]) -> List[Tuple[Tuple[int,int], Tuple[int,int]]]:
-    stacks: DefaultDict[str, List[Tuple[int,int]]] = defaultdict(list)
+def parseParens(s: Union[List[str], str]) -> List[Tuple[int,int]]:
+    stacks: DefaultDict[str, List[int]] = defaultdict(list)
     links = []
     pos = 1
     for c in s:

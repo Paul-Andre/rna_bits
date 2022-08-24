@@ -1,7 +1,12 @@
 import sys;
 import numpy as np
 
-f = sys.stdin
+in_filename =  None
+if (len (sys.argv) >= 2):
+    in_filename = sys.argv[1]
+    f = open(in_filename)
+else:
+    f = sys.stdin
 
 # internally, I use 0-based indexing for now
 
@@ -12,12 +17,16 @@ dot_bracket = f.readline().strip()
 assert(len(seq) == len(dot_bracket))
 module_components = []
 stacks = []
+asdf = 0
 while True:
+    asdf+=1
     line = f.readline()
     if not line:
         break;
     line = line.strip()
-    if line.startswith("C-"):
+    if line.startswith("%"):
+        pass
+    elif line.startswith("C-"):
         info = line.split("-")
         if (info[0] != 'C'):
             continue;
@@ -26,15 +35,32 @@ while True:
         first-=1
         last-=1
         comp-=1
-        module_components.append((name, comp, first, last))
+        module_components.append(((name, 0), comp, first, last))
+    elif line.startswith("motif:"):
+        #TODO: This syntax is temporary
+        # And the way I'm treating this is temporary
+        # The whole module component thing is kinda stupid
+        _,name,ranges = line.split(":")
+        for comp, r in enumerate(ranges.split(",")):
+            r = r.strip()
+            if "-" in r:
+                first,last = r.split("-")
+                first = int(first)
+                last = int(last)
+            else:
+                first = int(r)
+                last = first
+            first-=1
+            last-=1
+            module_components.append(((name, asdf), comp, first, last))
     elif line.startswith("stack"):
         # Currently, only doing stacking of nucleotids that are joined by the backbone
         # Stacking makes sense in other contexts, but I'm not doing it right now
-        rest = line[len("stack"):0].strip()
-        a,b = line.split("-")
+        rest = line[len("stack"):].strip()
+        a,b = rest.split("-")
         a = int(a)
         b = int(b)
-        #TODO: warn
+        #TODO: warn instead of asserting
         assert(a>=1)
         assert(b<=len(seq))
         assert(b>a)
@@ -99,20 +125,19 @@ class Node:
 
 module_assignment = [[] for _ in range(len(seq))]
 
-seen_comp = set()
 modules_by_name = {}
 
 nodes = []
 
 module_components.sort() # just to make sure in order
 for name,comp,first,last in module_components:
-    assert (not (name,comp) in seen_comp), "Currently we only deal with one instance of a module"
     if name in modules_by_name:
         module = modules_by_name[name]
     else:
-        module = Node(("module", name))
+        module = Node(("module", name[0]))
         nodes.append(module)
         modules_by_name[name] = module
+    print(name,comp,first,last)
     assert(len(module.components) == comp), "Index of module component does not match order"
     module.components.append((first,last))
     for i in range(first, last+1):
@@ -278,7 +303,7 @@ for i in range(0,len(seq)):
         print(mod.kind, mod.components)
     # I comment this line out to start implementing arcs:
     # assert len(ass)>=1, "nucleotide "+repr(i)+" isn't assigned to a node"
-    assert len(ass)<=2, "nucleotide "+repr(i)+" is assigned to more than 2 components"
+    #assert len(ass)<=2, "nucleotide "+repr(i)+" is assigned to more than 2 components"
     if len(ass) == 2:
         a = ass[0][0]
         b = ass[1][0]
@@ -376,6 +401,11 @@ def load_struct_file(filename, struct_name=None):
 
     assert(False), "Not a proper filename"
 
+def choose_or_not(options):
+    # return random.choice(options)
+    o = sorted(options)
+    return o[0]
+
 # returns (model, filename)
 # TODO: put the filename selection into a different file
 # TODO: add a caching layer
@@ -383,10 +413,12 @@ def load_model_kind(kind):
     if kind[0] == "module":
         name = kind[1]
         directory = name
+        if directory.startswith("./") and in_filename is not None:
+            directory = os.path.join(os.path.dirname(in_filename), directory)
         if (os.path.isdir(directory)) :
             options = [os.path.join(directory, x) for x in os.listdir(directory) if is_struct_filename(x) and
                     not x.startswith(".")]
-            choice = random.choice(options)
+            choice = choose_or_not(options)
         else:
             choice = directory
         model = load_struct_file(choice)[0]
@@ -401,7 +433,7 @@ def load_model_kind(kind):
         else:
             options = [os.path.join(directory, x) for x in os.listdir(directory)
                        if ( x.endswith('.pdb.gz') and not x.startswith("."))]
-            filename = random.choice(options)
+            filename = choose_or_not(options)
         model = load_struct_file(filename)[0]
         model = canonicalize_model(model)
         return model,filename
@@ -752,23 +784,49 @@ class Rigid:
         other.nucleotides = None
         other.parent = self
 
+
 def traverse_and_stack(node, currentRigid):
     if node.visited:
         return
     print("Putting down", node.model_filename)
     node.visited=True
-    for (k,v) in node.component_mapping.items():
-        if k not in chain_of_nucleotides:
-            print(k,v)
-            wrapper = Nucleotide(v.copy(), currentRigid, k)
-            chain_of_nucleotides[k] = wrapper
 
-    for edge in node.edges:
-        other = edge.a if edge.b is node else edge.b
-        if other.visited:
-            continue
-        superimpose_nodes(node,other,edge.nucls)
-        traverse_and_stack(other, currentRigid)
+    fixed_residues = []
+    aligning_residues = []
+    to_place_id = []
+    for nuc_id in node.nucls:
+        if nuc_id in chain_of_nucleotides:
+            fixed_residues.append(chain_of_nucleotides[nuc_id].model)
+            print(node.component_mapping[nuc_id])
+            aligning_residues.append(node.component_mapping[nuc_id])
+        else:
+            to_place_id.append(nuc_id)
+
+    if (len(fixed_residues) != 0):
+
+
+        fixed_atoms = []
+        aligning_atoms = []
+
+        for fixed_res, aligning_res in zip(fixed_residues, aligning_residues):
+            fixed_a,aligning_a = correspondNucleotideAtoms(fixed_res, aligning_res, False)
+            fixed_atoms+=fixed_a
+            aligning_atoms+=aligning_a
+
+        superimposer = PDB.Superimposer()
+        superimposer.set_atoms(fixed_atoms, aligning_atoms)
+
+        superimposer.apply(node.component_mapping.values())
+
+    for k in to_place_id:
+        v = node.component_mapping[k]
+        wrapper = Nucleotide(v.copy(), currentRigid, k)
+        chain_of_nucleotides[k] = wrapper
+
+    for nuc_id in node.nucls:
+        for (other,_,_) in module_assignment[nuc_id]:
+            if not other.visited:
+                traverse_and_stack(other, currentRigid)
 
 rigidCounter = 0
 
@@ -1063,6 +1121,8 @@ def create_rotation(s1, s2, d1, d2):
     # print(s1, d1, T.dot(s1))
     return T
 
+for a,b in sorted(chain_of_nucleotides.items()):
+    print(b,b.rigid)
 
 while True:
     cycle = getNextCycle()
@@ -1267,9 +1327,10 @@ io.set_structure(output_structure)
 
 
 if (len (sys.argv) >= 2):
-    out = sys.argv[1]
+    out = sys.argv[1]+".pdb"
 else:
     out = "out.pdb"
 io.save(out)
 for a in (models_used):
     print(a)
+print("Wrote to", repr(out))
