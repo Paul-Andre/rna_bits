@@ -1,116 +1,105 @@
 import sys
 import numpy as np
 
-in_filename = None
-if len(sys.argv) >= 2:
-    in_filename = sys.argv[1]
-    f = open(in_filename)
-else:
-    f = sys.stdin
-
 # internally, I use 0-based indexing for now
 
-seq = f.readline().strip()
-original_seq = seq
-seq = seq.upper()
-dot_bracket = f.readline().strip()
-assert len(seq) == len(dot_bracket)
-module_components = []
-stacks = []
-asdf = 0
-while True:
-    asdf += 1
-    line = f.readline()
-    if not line:
-        break
-    line = line.strip()
-    if line.startswith("%"):
-        pass
-    elif line.startswith("C-"):
-        info = line.split("-")
-        if info[0] != "C":
-            continue
-        _, name, first, last, comp = info
-        first, last, comp = map(int, (first, last, comp))
-        first -= 1
-        last -= 1
-        comp -= 1
-        module_components.append(((name, 0), comp, first, last))
-    elif line.startswith("motif:"):
-        # TODO: This syntax is temporary
-        # And the way I'm treating this is temporary
-        # The whole module component thing is kinda stupid
-        _, name, ranges = line.split(":")
-        for comp, r in enumerate(ranges.split(",")):
-            r = r.strip()
-            if "-" in r:
-                first, last = r.split("-")
-                first = int(first)
-                last = int(last)
-            else:
-                first = int(r)
-                last = first
+# Globals specific to this run.
+# Really, these should be passed around somehow
+in_filename = None
+
+def get_input_file(argv):
+    # TODO: split this into parsing argv, and opening the file
+    global in_filename
+    if len(sys.argv) >= 2:
+        in_filename = sys.argv[1]
+        f = open(in_filename)
+    else:
+        f = sys.stdin
+
+    return f
+
+def parse_rass_file(f):
+    global seq, original_seq, dot_bracket, module_components, stacks
+    seq = f.readline().strip()
+    original_seq = seq
+    seq = seq.upper()
+    dot_bracket = f.readline().strip()
+    assert len(seq) == len(dot_bracket)
+    module_components = []
+    stacks = []
+    asdf = 0
+    while True:
+        asdf += 1
+        line = f.readline()
+        if not line:
+            break
+        line = line.strip()
+        if line.startswith("%"):
+            pass
+        elif line.startswith("C-"):
+            info = line.split("-")
+            if info[0] != "C":
+                continue
+            _, name, first, last, comp = info
+            first, last, comp = map(int, (first, last, comp))
             first -= 1
             last -= 1
-            module_components.append(((name, asdf), comp, first, last))
-    elif line.startswith("stack"):
-        # Currently, only doing stacking of nucleotids that are joined by the backbone
-        # Stacking makes sense in other contexts, but I'm not doing it right now
-        rest = line[len("stack") :].strip()
-        a, b = rest.split("-")
-        a = int(a)
-        b = int(b)
-        # TODO: warn instead of asserting
-        assert a >= 1
-        assert b <= len(seq)
-        assert b > a
-        a -= 1
-        b -= 1
-        for i in range(a, b):
-            stacks.append((i, i + 1))
+            comp -= 1
+            module_components.append(((name, 0), comp, first, last))
+        elif line.startswith("motif:"):
+            # TODO: This syntax is temporary
+            # And the way I'm treating this is temporary
+            # The whole module component thing is kinda stupid
+            _, name, ranges = line.split(":")
+            for comp, r in enumerate(ranges.split(",")):
+                # I pretend each part separated by a comma is a different "component"
+                r = r.strip()
+                if "-" in r:
+                    first, last = r.split("-")
+                    first = int(first)
+                    last = int(last)
+                else:
+                    first = int(r)
+                    last = first
+                first -= 1
+                last -= 1
+                module_components.append(((name, asdf), comp, first, last))
+        elif line.startswith("stack"):
+            # The same kind of stack that would form in a helix.
+            # Used to simulate coaxial stacking
+            # Currently, only doing stacking of nucleotids that are joined by the backbone
+            # Stacking makes sense in other contexts, but I'm not doing it right now
+            rest = line[len("stack") :].strip()
+            a, b = rest.split("-")
+            a = int(a)
+            b = int(b)
+            # TODO: warn instead of asserting
+            assert a >= 1
+            assert b <= len(seq)
+            assert b > a
+            a -= 1
+            b -= 1
+            for i in range(a, b):
+                stacks.append((i, i + 1))
 
 
-f.close()
-
-pairing = [None] * len(seq)
-
-pos = 0
-
-
-def find_pairing():
-    global pos
-    while pos < len(dot_bracket):
-        if dot_bracket[pos] == ".":
-            pos += 1
-            continue
-        elif dot_bracket[pos] == ")":
-            return
-        elif dot_bracket[pos] == "(":
-            open_pos = pos
-            pos += 1
-            find_pairing()
-            assert pos < len(dot_bracket) and dot_bracket[pos] == ")"
-            pairing[open_pos] = pos
-            pairing[pos] = open_pos
-            pos += 1
-        else:
-            assert False, "Unexpected character in dot-bracket string: " + repr(
-                dot_bracket[pos]
-            )
-
+    f.close()
 
 import Project.parser
 
-for a, b in Project.parser.parseParens(dot_bracket):
-    a -= 1
-    b -= 1
-    pairing[a] = b
-    pairing[b] = a
+def parse_parens(seq, dot_bracket):
+    global pairing
+    pairing = [None] * len(seq)
 
+    pos = 0
 
-# find_pairing()
+    for a, b in Project.parser.parseParens(dot_bracket):
+        a -= 1
+        b -= 1
+        pairing[a] = b
+        pairing[b] = a
 
-# We build a tree where the nodes are NCMs or modules, and the edges are overlaps
+# We build a graph where the nodes are NCMs or modules, and the edges are overlaps
 # Currently NCMs we look at are 2_2, 2_3 (and 3_2) and 3_3
 
 # TODO: deal with the same module coming up in two places
@@ -120,7 +109,7 @@ class Node:
     id_increment = 10000
 
     def __init__(self, kind):
-        self.kind = kind
+        self.kind = kind # Stuff like: ("module", "/filnemanaf/asdf/adsf/asdf.pdb"), ("ncm", "2_2", "AGCU")
         self.components = []
         self.edges = []
         self.nucls = set()
@@ -131,30 +120,35 @@ class Node:
         self.user_added = kind[0] == "module"
 
 
-module_assignment = [[] for _ in range(len(seq))]
+# For each nucleotide, which (module, component_number,
+# residue_in_component) it corresponds to
+module_assignment = []
 
-modules_by_name = {}
-
+# A list of all modules
 nodes = []
 
-module_components.sort()  # just to make sure in order
-for name, comp, first, last in module_components:
-    if name in modules_by_name:
-        module = modules_by_name[name]
-    else:
-        module = Node(("module", name[0]))
-        nodes.append(module)
-        modules_by_name[name] = module
-    print(name, comp, first, last)
-    assert (
-        len(module.components) == comp
-    ), "Index of module component does not match order"
-    module.components.append((first, last))
-    for i in range(first, last + 1):
-        module_assignment[i].append((module, comp, i - first))
-        module.nucls.add(i)
 
-added_ncms = set()
+def generate_nodes_from_components(module_components):
+    global module_assignment
+    global nodes
+    module_assignment = [[] for _ in range(len(seq))]
+    modules_by_name = {}
+    module_components.sort()  # just to make sure in order
+    for name, comp, first, last in module_components:
+        if name in modules_by_name:
+            module = modules_by_name[name]
+        else:
+            module = Node(("module", name[0]))
+            nodes.append(module)
+            modules_by_name[name] = module
+        print(name, comp, first, last)
+        assert (
+            len(module.components) == comp
+        ), "Index of module component does not match order"
+        module.components.append((first, last))
+        for i in range(first, last + 1):
+            module_assignment[i].append((module, comp, i - first))
+            module.nucls.add(i)
 
 
 def have_overlapping_module(nucls):
@@ -163,151 +157,153 @@ def have_overlapping_module(nucls):
     return len(a) >= 1
 
 
-for i in range(0, len(seq)):
-    if pairing[i] is not None:
-        j = pairing[i]
-        ii = i + 1
-        jj = j - 1
-        iii = i + 2
-        jjj = j - 2
-        module = None
-        if ii < len(pairing) and pairing[ii] == jj:
-            ts = tuple(sorted((i, ii, jj, j)))
-            if ts in added_ncms or have_overlapping_module(ts):
-                continue
-            added_ncms.add(ts)
-            module = Node(("ncm", "2_2", seq[i] + seq[ii] + seq[jj] + seq[j]))
-            module_assignment[i].append((module, 0, 0))
-            module_assignment[ii].append((module, 0, 1))
-            module_assignment[jj].append((module, 1, 0))
-            module_assignment[j].append((module, 1, 1))
-            module.nucls.update({i, ii, jj, j})
-            module.components = [(i, ii), (jj, j)]
+def generate_auto_nodes():
+    added_ncms = set()
+    for i in range(0, len(seq)):
+        if pairing[i] is not None:
+            j = pairing[i]
+            ii = i + 1
+            jj = j - 1
+            iii = i + 2
+            jjj = j - 2
+            module = None
+            if ii < len(pairing) and pairing[ii] == jj:
+                ts = tuple(sorted((i, ii, jj, j)))
+                if ts in added_ncms or have_overlapping_module(ts):
+                    continue
+                added_ncms.add(ts)
+                module = Node(("ncm", "2_2", seq[i] + seq[ii] + seq[jj] + seq[j]))
+                module_assignment[i].append((module, 0, 0))
+                module_assignment[ii].append((module, 0, 1))
+                module_assignment[jj].append((module, 1, 0))
+                module_assignment[j].append((module, 1, 1))
+                module.nucls.update({i, ii, jj, j})
+                module.components = [(i, ii), (jj, j)]
 
-        elif ii < len(pairing) and pairing[ii] == jjj:
-            ts = tuple(sorted((i, ii, jjj, jj, j)))
-            if ts in added_ncms or have_overlapping_module(ts):
-                continue
-            added_ncms.add(ts)
-            module = Node(
-                ("ncm", "2_3", seq[i] + seq[ii] + seq[jjj] + seq[jj] + seq[j])
-            )
-            module_assignment[i].append((module, 0, 0))
-            module_assignment[ii].append((module, 0, 1))
-            module_assignment[jjj].append((module, 1, 0))
-            module_assignment[jj].append((module, 1, 1))
-            module_assignment[j].append((module, 1, 2))
-            module.nucls.update({i, ii, jjj, jj, j})
-            module.components = [(i, ii), (jjj, j)]
-
-        elif iii < len(pairing) and pairing[iii] == jj:
-            ts = tuple(sorted((i, iii, iii, jj, j)))
-            if ts in added_ncms or have_overlapping_module(ts):
-                continue
-            added_ncms.add(ts)
-            module = Node(
-                ("ncm", "3_2", seq[i] + seq[ii] + seq[iii] + seq[jj] + seq[j])
-            )
-            module_assignment[i].append((module, 0, 0))
-            module_assignment[ii].append((module, 0, 1))
-            module_assignment[iii].append((module, 0, 2))
-            module_assignment[jj].append((module, 1, 0))
-            module_assignment[j].append((module, 1, 1))
-            module.nucls.update({i, ii, iii, jj, j})
-            module.components = [(i, iii), (jj, j)]
-
-        elif iii < len(pairing) and pairing[iii] == jjj:
-            ts = tuple(sorted((i, ii, iii, jjj, jj, j)))
-            if ts in added_ncms or have_overlapping_module(ts):
-                continue
-            added_ncms.add(ts)
-            module = Node(
-                (
-                    "ncm",
-                    "3_3",
-                    seq[i] + seq[ii] + seq[iii] + seq[jjj] + seq[jj] + seq[j],
+            elif ii < len(pairing) and pairing[ii] == jjj:
+                ts = tuple(sorted((i, ii, jjj, jj, j)))
+                if ts in added_ncms or have_overlapping_module(ts):
+                    continue
+                added_ncms.add(ts)
+                module = Node(
+                    ("ncm", "2_3", seq[i] + seq[ii] + seq[jjj] + seq[jj] + seq[j])
                 )
-            )
-            module_assignment[i].append((module, 0, 0))
-            module_assignment[ii].append((module, 0, 1))
-            module_assignment[iii].append((module, 0, 2))
-            module_assignment[jjj].append((module, 1, 0))
-            module_assignment[jj].append((module, 1, 1))
-            module_assignment[j].append((module, 1, 2))
-            module.nucls.update({i, ii, iii, jjj, jj, j})
-            module.components = [(i, iii), (jjj, j)]
+                module_assignment[i].append((module, 0, 0))
+                module_assignment[ii].append((module, 0, 1))
+                module_assignment[jjj].append((module, 1, 0))
+                module_assignment[jj].append((module, 1, 1))
+                module_assignment[j].append((module, 1, 2))
+                module.nucls.update({i, ii, jjj, jj, j})
+                module.components = [(i, ii), (jjj, j)]
 
-        if module:
+            elif iii < len(pairing) and pairing[iii] == jj:
+                ts = tuple(sorted((i, iii, iii, jj, j)))
+                if ts in added_ncms or have_overlapping_module(ts):
+                    continue
+                added_ncms.add(ts)
+                module = Node(
+                    ("ncm", "3_2", seq[i] + seq[ii] + seq[iii] + seq[jj] + seq[j])
+                )
+                module_assignment[i].append((module, 0, 0))
+                module_assignment[ii].append((module, 0, 1))
+                module_assignment[iii].append((module, 0, 2))
+                module_assignment[jj].append((module, 1, 0))
+                module_assignment[j].append((module, 1, 1))
+                module.nucls.update({i, ii, iii, jj, j})
+                module.components = [(i, iii), (jj, j)]
+
+            elif iii < len(pairing) and pairing[iii] == jjj:
+                ts = tuple(sorted((i, ii, iii, jjj, jj, j)))
+                if ts in added_ncms or have_overlapping_module(ts):
+                    continue
+                added_ncms.add(ts)
+                module = Node(
+                    (
+                        "ncm",
+                        "3_3",
+                        seq[i] + seq[ii] + seq[iii] + seq[jjj] + seq[jj] + seq[j],
+                    )
+                )
+                module_assignment[i].append((module, 0, 0))
+                module_assignment[ii].append((module, 0, 1))
+                module_assignment[iii].append((module, 0, 2))
+                module_assignment[jjj].append((module, 1, 0))
+                module_assignment[jj].append((module, 1, 1))
+                module_assignment[j].append((module, 1, 2))
+                module.nucls.update({i, ii, iii, jjj, jj, j})
+                module.components = [(i, iii), (jjj, j)]
+
+            if module:
+                nodes.append(module)
+
+    # Add isolated pairs
+    for i in range(0, len(seq)):
+        if pairing[i] is not None:
+            j = pairing[i]
+            ts = tuple(sorted((i, j)))
+            if ts in added_ncms or have_overlapping_module(ts):
+                continue
+            added_ncms.add(ts)
+            module = Node(("pair", seq[i] + seq[j]))
+            module_assignment[i].append((module, 0, 0))
+            module_assignment[j].append((module, 1, 0))
+            module.nucls.update({i, j})
+            module.components = [(i, i), (j, j)]
             nodes.append(module)
 
-# Add isolated pairs
-for i in range(0, len(seq)):
-    if pairing[i] is not None:
-        j = pairing[i]
+
+    def add_helix_stack_module(i, j):
+        assert j == i + 1
         ts = tuple(sorted((i, j)))
         if ts in added_ncms or have_overlapping_module(ts):
-            continue
+            # TODO: check if the overlap is a helix fragment or not
+            return
         added_ncms.add(ts)
-        module = Node(("pair", seq[i] + seq[j]))
+        module = Node(("helix_stack", seq[i] + seq[j]))
         module_assignment[i].append((module, 0, 0))
-        module_assignment[j].append((module, 1, 0))
+        module_assignment[j].append((module, 0, 1))
         module.nucls.update({i, j})
-        module.components = [(i, i), (j, j)]
+        module.components = [(i, j)]
         nodes.append(module)
 
 
-def add_helix_stack_module(i, j):
-    assert j == i + 1
-    ts = tuple(sorted((i, j)))
-    if ts in added_ncms or have_overlapping_module(ts):
-        # TODO: check if the overlap is a helix fragment or not
-        return
-    added_ncms.add(ts)
-    module = Node(("helix_stack", seq[i] + seq[j]))
-    module_assignment[i].append((module, 0, 0))
-    module_assignment[j].append((module, 0, 1))
-    module.nucls.update({i, j})
-    module.components = [(i, j)]
-    nodes.append(module)
+    # Add stacking that was given by the instructions
+    for i, j in stacks:
+        add_helix_stack_module(i, j)
+
+    # Turn dangling ends into stacks
+    fp_start = 0
+    for i in range(0, len(seq) - 1):
+        if len(module_assignment[i]) == 0:
+            fp_start = i + 1
+        else:
+            break
+    print("fp_start", fp_start)
+    for i in range(0, fp_start):
+        add_helix_stack_module(i, i + 1)
+
+    tp_start = len(seq) - 1
+    for i in range(len(seq) - 1, 0, -1):
+        if len(module_assignment[i]) == 0:
+            tp_start = i - 1
+        else:
+            break
+    for i in range(len(seq) - 1, tp_start, -1):
+        add_helix_stack_module(i - 1, i)
 
 
-# Add stacking that was given by the instructions
-for i, j in stacks:
-    add_helix_stack_module(i, j)
-
-# Turn dangling ends into stacks
-fp_start = 0
-for i in range(0, len(seq) - 1):
-    if len(module_assignment[i]) == 0:
-        fp_start = i + 1
-    else:
-        break
-print("fp_start", fp_start)
-for i in range(0, fp_start):
-    add_helix_stack_module(i, i + 1)
-
-tp_start = len(seq) - 1
-for i in range(len(seq) - 1, 0, -1):
-    if len(module_assignment[i]) == 0:
-        tp_start = i - 1
-    else:
-        break
-for i in range(len(seq) - 1, tp_start, -1):
-    add_helix_stack_module(i - 1, i)
-
-
-# Add single nucleotides
-for i in range(0, len(seq)):
-    if len(module_assignment[i]) == 0:
-        ts = (i,)
-        if ts in added_ncms or have_overlapping_module(ts):
-            continue
-        added_ncms.add(ts)
-        module = Node(("nucleotide", seq[i]))
-        module_assignment[i].append((module, 0, 0))
-        module.nucls.update({i})
-        module.components = [(i, i)]
-        nodes.append(module)
+    # Add single nucleotides
+    for i in range(0, len(seq)):
+        if len(module_assignment[i]) == 0:
+            ts = (i,)
+            if ts in added_ncms or have_overlapping_module(ts):
+                continue
+            added_ncms.add(ts)
+            module = Node(("nucleotide", seq[i]))
+            module_assignment[i].append((module, 0, 0))
+            module.nucls.update({i})
+            module.components = [(i, i)]
+            nodes.append(module)
 
 
 class Edge:
@@ -319,39 +315,39 @@ class Edge:
 
 edges_by_nodes = {}
 
-for i in range(0, len(seq)):
-    ass = module_assignment[i]
-    for mod, comp, pos in ass:
-        print(mod.kind, mod.components)
-    # I comment this line out to start implementing arcs:
-    # assert len(ass)>=1, "nucleotide "+repr(i)+" isn't assigned to a node"
-    # assert len(ass)<=2, "nucleotide "+repr(i)+" is assigned to more than 2 components"
-    if len(ass) == 2:
-        a = ass[0][0]
-        b = ass[1][0]
-        ts = tuple(sorted((a.id, b.id)))
-        if ts in edges_by_nodes:
-            edge = edges_by_nodes[ts]
-        else:
-            edge = Edge(a, b)
-            a.edges.append(edge)
-            b.edges.append(edge)
-            edges_by_nodes[ts] = edge
-        edge.nucls.add(i)
+def generate_edges():
+    for i in range(0, len(seq)):
+        ass = module_assignment[i]
+        for mod, comp, pos in ass:
+            print(mod.kind, mod.components)
+        # I comment this line out to start implementing arcs:
+        # assert len(ass)>=1, "nucleotide "+repr(i)+" isn't assigned to a node"
+        # assert len(ass)<=2, "nucleotide "+repr(i)+" is assigned to more than 2 components"
+        if len(ass) == 2:
+            a = ass[0][0]
+            b = ass[1][0]
+            ts = tuple(sorted((a.id, b.id)))
+            if ts in edges_by_nodes:
+                edge = edges_by_nodes[ts]
+            else:
+                edge = Edge(a, b)
+                a.edges.append(edge)
+                b.edges.append(edge)
+                edges_by_nodes[ts] = edge
+            edge.nucls.add(i)
 
 
-for edge in edges_by_nodes.values():
-    # assert len(edge.nucls) == 2, "edge has "+repr(len(edge.nucls))+" nucleotides"
-    assert len(edge.nucls) in (1, 2), (
-        "edge has " + repr(len(edge.nucls)) + " nucleotides"
-    )
+    for edge in edges_by_nodes.values():
+        # assert len(edge.nucls) == 2, "edge has "+repr(len(edge.nucls))+" nucleotides"
+        assert len(edge.nucls) in (1, 2), (
+            "edge has " + repr(len(edge.nucls)) + " nucleotides"
+        )
 
 
 import vpython as vp
 import Bio.PDB as PDB
 
 import os
-import random
 
 import gzip
 
@@ -443,6 +439,7 @@ def choose_or_not(options):
 # TODO: put the filename selection into a different file
 # TODO: add a caching layer
 def load_model_kind(kind):
+    global in_filename
     if kind[0] == "module":
         name = kind[1]
         directory = name
@@ -521,6 +518,7 @@ def load_model_kind(kind):
         model = load_struct_file(directory)[0]
         model = canonicalize_model(model)
         return model, directory
+    assert False, "We don't recognize "+ repr(kind)
 
 
 MAX_COMP_GAP = 4
@@ -663,13 +661,16 @@ def map_node_components(node):
     return ret
 
 
-models_used = []
 
 # Model contains only the 4 bases, used for base substitution
-substitution_model = PDB.PDBParser().get_structure("substitution_model", "bases.pdb")[0]
+substitution_model = None
 
 # Returns (a reference to) the reference base of the given letter, used for base substitution
 def get_reference_base(letter):
+    global substitution_model
+    if substitution_model is None:
+        substitution_model = PDB.PDBParser().get_structure("substitution_model", "bases.pdb")[0]
+
     return substitution_model[letter][1]
 
 
@@ -728,20 +729,23 @@ def substitute_base(residue, newResname):
     superimposer.apply(freshBaseAtoms)
 
 
-for node in nodes:
-    print(node.kind, node.nucls)
-    node.model, model_filename = load_model_kind(node.kind)
-    node.model_filename = model_filename
-    models_used.append((node.components, model_filename))
-    node.component_mapping = map_node_components(node)
-    print(node.component_mapping)
+models_used = []
 
-    did_substitute = False
-    for k, v in node.component_mapping.items():
-        if seq[k].isupper() and seq[k] != canonical_residue_name(v.resname):
-            did_substitute = True
-            substitute_base(v, seq[k])
-    # exit()
+def assign_models():
+    for node in nodes:
+        print(node.kind, node.nucls)
+        node.model, model_filename = load_model_kind(node.kind)
+        node.model_filename = model_filename
+        models_used.append((node.components, model_filename))
+        node.component_mapping = map_node_components(node)
+        print(node.component_mapping)
+
+        did_substitute = False
+        for k, v in node.component_mapping.items():
+            if seq[k].isupper() and seq[k] != canonical_residue_name(v.resname):
+                did_substitute = True
+                substitute_base(v, seq[k])
+        # exit()
 
 
 # Before turning data into the BIO classes, I will represent the chain as a dict of nucleotides first
@@ -880,29 +884,31 @@ rigidCounter = 0
 
 rigids = []
 
-while True:
-    central_node = None
-    for node in nodes:
-        if not node.visited and (
-            central_node is None
-            or (len(node.components) > len(central_node.components))
-        ):
-            central_node = node
-    if central_node is None:
-        break
+def assemble():
+    global rigidCounter
+    while True:
+        central_node = None
+        for node in nodes:
+            if not node.visited and (
+                central_node is None
+                or (len(node.components) > len(central_node.components))
+            ):
+                central_node = node
+        if central_node is None:
+            break
 
-    # center the first model, just because
-    acc = sum(atom.coord for atom in central_node.model.get_atoms())
-    tot = sum(1 for atom in central_node.model.get_atoms())
-    centroid = acc / tot
-    rigidCounter += 1
+        # center the first model, just because
+        acc = sum(atom.coord for atom in central_node.model.get_atoms())
+        tot = sum(1 for atom in central_node.model.get_atoms())
+        centroid = acc / tot
+        rigidCounter += 1
 
-    currentRigid = Rigid()
-    rigids.append(currentRigid)
+        currentRigid = Rigid()
+        rigids.append(currentRigid)
 
-    for atom in central_node.model.get_atoms():
-        atom.coord -= centroid + rigidCounter * 20.0
-    traverse_and_stack(central_node, currentRigid)
+        for atom in central_node.model.get_atoms():
+            atom.coord -= centroid + rigidCounter * 20.0
+        traverse_and_stack(central_node, currentRigid)
 
 
 def createC3PrimeNuc(coord, letter, pos):
@@ -916,22 +922,17 @@ def createC3PrimeNuc(coord, letter, pos):
     return nucWrapper
 
 
-# Load models for A,U,G,C nucleotides
+def generate_unplaced_nucleotides():
+    global rigidCounter
+    # Find nucleotides that haven't been placed and turn them into rigids
+    for i in range(0, len(seq)):
+        # assert i in chain_of_nucleotides
+        if i not in chain_of_nucleotides:
+            print(i, "is not in chain of nucleotides for some reason")
 
-# Find nucleotides that haven't been placed and turn them into rigids
-for i in range(0, len(seq)):
-    # assert i in chain_of_nucleotides
-    if i not in chain_of_nucleotides:
-        print(i, "is not in chain of nucleotides for some reason")
-
-        rigidCounter += 1
-        coord = np.array([0.0, 0, 0]) - rigidCounter * 20.0
-        chain_of_nucleotides[i] = createC3PrimeNuc(coord, seq[i], i)
-
-# Find the shortest cycle:
-# shortest_cycle = None
-# shortest_cycle_length = math.inf
-
+            rigidCounter += 1
+            coord = np.array([0.0, 0, 0]) - rigidCounter * 20.0
+            chain_of_nucleotides[i] = createC3PrimeNuc(coord, seq[i], i)
 
 def isRigidEdgeNuc(i):
     if (i + 1) in chain_of_nucleotides:
@@ -1035,7 +1036,6 @@ def traverseToGetCycle(startNuc, endNuc):
 
 
 # Finds the next we want to process
-# TODO: make this return cycles in the order of their lengths
 def getNextCycle():
     print(chain_of_nucleotides)
     bestScore = math.inf
@@ -1148,7 +1148,6 @@ def np_distance(a_coord, b_coord):
 
 
 import math
-import scipy
 
 
 def ortho_project(s, d):
@@ -1187,156 +1186,154 @@ def create_rotation(s1, s2, d1, d2):
     return T
 
 
-for a, b in sorted(chain_of_nucleotides.items()):
-    print(b, b.rigid)
+def build_cycles():
+    while True:
+        cycle = getNextCycle()
 
-while True:
-    cycle = getNextCycle()
+        if cycle is not None:
+            print("Cycle", cycle)
+            isPath = False
+        else:
+            # for i,nuc in sorted(chain_of_nucleotides.items()):
+            # print(i+1, nuc.rigid.id)
+            cycle = getNextPath()
+            print("Chain", cycle)
+            isPath = True
 
-    if cycle is not None:
-        print("Cycle", cycle)
-        isPath = False
-    else:
-        # for i,nuc in sorted(chain_of_nucleotides.items()):
-        # print(i+1, nuc.rigid.id)
-        cycle = getNextPath()
-        print("Chain", cycle)
-        isPath = True
+        if cycle is None:
+            break
 
-    if cycle is None:
-        break
+        rigid_distances = []
+        for (a, b) in cycle:
+            a_atom = getC3Prime(a.model)
+            b_atom = getC3Prime(b.model)
+            rigid_distances.append(np_distance(a_atom.coord, b_atom.coord))
 
-    rigid_distances = []
-    for (a, b) in cycle:
-        a_atom = getC3Prime(a.model)
-        b_atom = getC3Prime(b.model)
-        rigid_distances.append(np_distance(a_atom.coord, b_atom.coord))
-
-    distances = []
-    for d in rigid_distances:
-        distances.append(d)
-        distances.append(NUCLEOTIDE_DISTANCE)
-
-    if isPath:
-        distances.pop()
-
-    print(distances)
-
-    # To simplify things, if what I have is a path, I'll place it on a half-circle
-    # It's guaranteed that a half circle is not going to be degenerate
-    # (But the path needs to have at least 3 nodes, otherwise it's not really
-    # possible to put it on a half-circle... (I think?) )
-    is_degenerate = not isPath and (sum(distances) <= 2 * max(distances))
-    if is_degenerate:
-        # the polygon is going to be degenerate or impossible
-        # might need to stretch the distance between nucleotides
-        assert max(distances) != NUCLEOTIDE_DISTANCE
-        adj_nuc_dist = NUCLEOTIDE_DISTANCE + (
-            2 * max(distances) - sum(distances)
-        ) / len(cycle)
-        print("stretch distance to", adj_nuc_dist)
-        pos = 0.0
-        points = []
+        distances = []
         for d in rigid_distances:
-            points.append((pos, 0.0))
-            if d == max(distances):
-                pos -= d
-            else:
-                pos += d
+            distances.append(d)
+            distances.append(NUCLEOTIDE_DISTANCE)
 
-            points.append((pos, 0.0))
+        if isPath:
+            distances.pop()
 
-            pos += adj_nuc_dist
-            print("bridge", points)
-    else:
-        if not isPath:
-            points = inscribed_polygon.construct_polygon(distances)
-        else:
-            points = inscribed_polygon.construct_polygon(distances, math.tau * 0.33)
-            points.append(points[-1])
+        print(distances)
 
-    points = [np.array([x, y, 0]) for (x, y) in points]
-    # print(points)
-
-    # place the pieces onto the polygon
-    assert len(points) % 2 == 0
-    for i in range(len(points) // 2):
-        dpa = points[i * 2]
-        dpb = points[i * 2 + 1]
-        ra = cycle[i][0]
-        rb = cycle[i][1]
-        assert ra.rigid is rb.rigid
-
-        spa = getC3Prime(ra.model).coord
-        spb = getC3Prime(rb.model).coord
-
-        if (spb == spa).all():
-            sv1 = np.array([1.0, 0, 0])
-            if "P" in ra.model:
-                if (i == 0 and cycle[i + 1][0].pos > cycle[i][1].pos) or cycle[i][
-                    0
-                ].pos > cycle[i - 1][1].pos:
-                    sv1 = spa - ra.model["P"].coord
-                else:
-                    sv1 = ra.model["P"].coord - spa
-        else:
-            sv1 = spb - spa
-
+        # To simplify things, if what I have is a path, I'll place it on a half-circle
+        # It's guaranteed that a half circle is not going to be degenerate
+        # (But the path needs to have at least 3 nodes, otherwise it's not really
+        # possible to put it on a half-circle... (I think?) )
+        is_degenerate = not isPath and (sum(distances) <= 2 * max(distances))
         if is_degenerate:
-            if rigid_distances[i] != max(rigid_distances):
-                dv1 = np.array([1, 0, 0])
-                dv2 = np.array([0, 1, 0])
-            else:
-                dv1 = np.array([-1, 0, 0])
-                dv2 = np.array([0, -1, 0])
+            # the polygon is going to be degenerate or impossible
+            # might need to stretch the distance between nucleotides
+            assert max(distances) != NUCLEOTIDE_DISTANCE
+            adj_nuc_dist = NUCLEOTIDE_DISTANCE + (
+                2 * max(distances) - sum(distances)
+            ) / len(cycle)
+            print("stretch distance to", adj_nuc_dist)
+            pos = 0.0
+            points = []
+            for d in rigid_distances:
+                points.append((pos, 0.0))
+                if d == max(distances):
+                    pos -= d
+                else:
+                    pos += d
 
+                points.append((pos, 0.0))
+
+                pos += adj_nuc_dist
+                print("bridge", points)
         else:
-            if (spb == spa).all():
-                dv1 = np.array([-dpa[1], dpb[0], 0])
+            if not isPath:
+                points = inscribed_polygon.construct_polygon(distances)
             else:
-                dv1 = dpb - dpa
+                points = inscribed_polygon.construct_polygon(distances, math.tau * 0.33)
+                points.append(points[-1])
 
-            dv2 = (dpa + dpb) / 2
-            # For the case of bridges, inverse the side that goes in the other direction
-            # To check if the side goes in the other direction, compute CCW
-            if (dpa[0] * dpb[1] - dpa[1] * dpb[0]) < 0:
-                dv2 *= -1
+        points = [np.array([x, y, 0]) for (x, y) in points]
+        # print(points)
 
-        # Find the centroid of the rigid to orient it away from the loop
-        acc = sum(sum(atom.coord for atom in nuc.model) for nuc in ra.rigid.nucleotides)
-        num = sum(sum(1 for atom in nuc.model) for nuc in ra.rigid.nucleotides)
-        centroid = acc / num
+        # place the pieces onto the polygon
+        assert len(points) % 2 == 0
+        for i in range(len(points) // 2):
+            dpa = points[i * 2]
+            dpb = points[i * 2 + 1]
+            ra = cycle[i][0]
+            rb = cycle[i][1]
+            assert ra.rigid is rb.rigid
 
-        # print("centroid", centroid, spa)
+            spa = getC3Prime(ra.model).coord
+            spb = getC3Prime(rb.model).coord
 
-        # if it is colinear, switch it to something else
-        sv2 = centroid - spa
-        if (
-            np.linalg.norm(sv2) <= 1e-10
-            or abs(abs(sv1.dot(sv2)) / np.linalg.norm(sv1) / np.linalg.norm(sv2) - 1)
-            <= 1e-10
-        ):
-            sv2 = np.array([1, 0, 0])
-        if (
-            abs(abs(sv1.dot(sv2)) / np.linalg.norm(sv1) / np.linalg.norm(sv2) - 1)
-            <= 1e-10
-        ):
-            sv2 = np.array([0, 1, 0])
+            if (spb == spa).all():
+                sv1 = np.array([1.0, 0, 0])
+                if "P" in ra.model:
+                    if (i == 0 and cycle[i + 1][0].pos > cycle[i][1].pos) or cycle[i][
+                        0
+                    ].pos > cycle[i - 1][1].pos:
+                        sv1 = spa - ra.model["P"].coord
+                    else:
+                        sv1 = ra.model["P"].coord - spa
+            else:
+                sv1 = spb - spa
 
-        rotation_matrix = create_rotation(sv1, sv2, dv1, dv2)
-        # print(rotation_matrix)
+            if is_degenerate:
+                if rigid_distances[i] != max(rigid_distances):
+                    dv1 = np.array([1, 0, 0])
+                    dv2 = np.array([0, 1, 0])
+                else:
+                    dv1 = np.array([-1, 0, 0])
+                    dv2 = np.array([0, -1, 0])
 
-        for nuc in ra.rigid.nucleotides:
-            for atom in nuc.model:
-                coord = atom.coord
-                atom.coord = rotation_matrix.dot((coord - spa)) + dpa
+            else:
+                if (spb == spa).all():
+                    dv1 = np.array([-dpa[1], dpb[0], 0])
+                else:
+                    dv1 = dpb - dpa
 
-    # combine all rigid bodies
-    first = cycle[0][0]
-    for (a, b) in cycle[1:]:
-        assert a.rigid is not first
-        assert a.rigid is b.rigid
-        first.rigid.merge(a.rigid)
+                dv2 = (dpa + dpb) / 2
+                # For the case of bridges, inverse the side that goes in the other direction
+                # To check if the side goes in the other direction, compute CCW
+                if (dpa[0] * dpb[1] - dpa[1] * dpb[0]) < 0:
+                    dv2 *= -1
+
+            # Find the centroid of the rigid to orient it away from the loop
+            acc = sum(sum(atom.coord for atom in nuc.model) for nuc in ra.rigid.nucleotides)
+            num = sum(sum(1 for atom in nuc.model) for nuc in ra.rigid.nucleotides)
+            centroid = acc / num
+
+            # print("centroid", centroid, spa)
+
+            # if it is colinear, switch it to something else
+            sv2 = centroid - spa
+            if (
+                np.linalg.norm(sv2) <= 1e-10
+                or abs(abs(sv1.dot(sv2)) / np.linalg.norm(sv1) / np.linalg.norm(sv2) - 1)
+                <= 1e-10
+            ):
+                sv2 = np.array([1, 0, 0])
+            if (
+                abs(abs(sv1.dot(sv2)) / np.linalg.norm(sv1) / np.linalg.norm(sv2) - 1)
+                <= 1e-10
+            ):
+                sv2 = np.array([0, 1, 0])
+
+            rotation_matrix = create_rotation(sv1, sv2, dv1, dv2)
+            # print(rotation_matrix)
+
+            for nuc in ra.rigid.nucleotides:
+                for atom in nuc.model:
+                    coord = atom.coord
+                    atom.coord = rotation_matrix.dot((coord - spa)) + dpa
+
+        # combine all rigid bodies
+        first = cycle[0][0]
+        for (a, b) in cycle[1:]:
+            assert a.rigid is not first
+            assert a.rigid is b.rigid
+            first.rigid.merge(a.rigid)
 
 
 def stretch_chain(chain):
@@ -1353,17 +1350,10 @@ def stretch_chain(chain):
     for i in range(0, len(chain)):
         j = chain[i]
         coord = start_coord + ((1 + i) / (1 + len(chain))) * diff_vec
-        chain_of_nucleotides[j] = createC3PrimeNuc(coord, seq[j])
+        chain_of_nucleotides[j] = createC3PrimeNuc(coord, seq[j], j)
     # exit()
 
-
-rigids_seen = set()
-for nuc in chain_of_nucleotides.values():
-    rigids_seen.add(nuc.rigid)
-
-print("rigids seen", [r.id for r in rigids_seen])
-
-if False:
+def visualize_stuff():
     # visualize stuff
     import vpython as vp
 
@@ -1378,43 +1368,79 @@ if False:
                     pos=toVpVec(atom.coord), radius=0.5, color=vp.vector(1, 0.25, 0)
                 )
 
+
 # Now all we need is to write a pdb output!
-print("Great! now to write it down!")
-output_structure = PDB.Structure.Structure("output")
-output_model = PDB.Model.Model(0)
-output_chain = PDB.Chain.Chain("A")
+def generate_biopython_structure():
+    output_structure = PDB.Structure.Structure("output")
+    output_model = PDB.Model.Model(0)
+    output_chain = PDB.Chain.Chain("A")
 
-atom_serial_inc = 1
-for (i, rw) in sorted(chain_of_nucleotides.items()):
-    r = rw.model
-    output_residue = PDB.Residue.Residue((" ", i + 1, " "), r.resname, "    ")
-    for atom in r:
-        # 'name', 'coord', 'bfactor', 'occupancy', 'altloc', 'fullname', and 'serial_number'
-        output_atom = PDB.Atom.Atom(
-            atom.name,
-            atom.coord,
-            atom.bfactor,
-            atom.occupancy,
-            atom.altloc,
-            atom.fullname,
-            atom_serial_inc,
-            atom.element,
-        )
-        output_residue.add(output_atom)
-    output_chain.add(output_residue)
+    atom_serial_inc = 1
+    for (i, rw) in sorted(chain_of_nucleotides.items()):
+        r = rw.model
+        output_residue = PDB.Residue.Residue((" ", i + 1, " "), r.resname, "    ")
+        for atom in r:
+            # 'name', 'coord', 'bfactor', 'occupancy', 'altloc', 'fullname', and 'serial_number'
+            output_atom = PDB.Atom.Atom(
+                atom.name,
+                atom.coord,
+                atom.bfactor,
+                atom.occupancy,
+                atom.altloc,
+                atom.fullname,
+                atom_serial_inc,
+                atom.element,
+            )
+            output_residue.add(output_atom)
+        output_chain.add(output_residue)
 
-output_model.add(output_chain)
-output_structure.add(output_model)
+    output_model.add(output_chain)
+    output_structure.add(output_model)
+    return output_structure
 
-io = PDB.PDBIO()
-io.set_structure(output_structure)
+def get_output_filename(in_filename):
+    if in_filename is None:
+        return "out.pdb"
+    else:
+        return in_filename + ".pdb"
+
+def write_output_pdb_file(output_structure, out_filename):
+    io = PDB.PDBIO()
+    io.set_structure(output_structure)
+
+    io.save(out_filename)
+    print("Wrote to", repr(out_filename))
 
 
-if len(sys.argv) >= 2:
-    out = sys.argv[1] + ".pdb"
-else:
-    out = "out.pdb"
-io.save(out)
-for a in models_used:
-    print(a)
-print("Wrote to", repr(out))
+def main(argv):
+    f = get_input_file(argv)
+    parse_rass_file(f)
+    parse_parens(seq, dot_bracket)
+    generate_nodes_from_components(module_components)
+    generate_auto_nodes()
+    generate_edges()
+    assign_models()
+    assemble()
+    generate_unplaced_nucleotides() # Probably unneeded
+    for _, b in sorted(chain_of_nucleotides.items()):
+        print(b, b.rigid)
+
+    build_cycles()
+
+    
+    rigids_seen = set()
+    for nuc in chain_of_nucleotides.values():
+        rigids_seen.add(nuc.rigid)
+    print("rigids seen", [r.id for r in rigids_seen])
+
+    if False:
+        visualize_stuff()
+    for a in models_used:
+        print(a)
+
+    output_structure = generate_biopython_structure()
+    out_filename = get_output_filename(in_filename)
+    write_output_pdb_file(output_structure, out_filename)
+
+if __name__ == "__main__":
+    main(sys.argv)
