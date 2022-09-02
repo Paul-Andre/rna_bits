@@ -482,7 +482,14 @@ def load_model_kind(kind):
         model = canonicalize_model(model)
         return model, choice
     if kind[0] == "ncm":
-        directory = "mcsym-db/" + kind[1] + "/" + kind[2]
+        directory = None
+        for folder in sorted(os.listdir("mcsym-db/" + kind[1] + "/")):
+            if folder.upper() == kind[2]:
+                directory = "mcsym-db/" + kind[1] + "/" + folder
+                break
+
+        assert directory is not None
+
         # if the theoretical model exists:
         theoretical_filename = os.path.join(
             directory, "1-" + kind[1] + "-" + kind[2] + "_t.pdb.gz"
