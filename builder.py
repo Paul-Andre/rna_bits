@@ -5,20 +5,11 @@ from typing import List, Tuple, Dict
 
 # internally, I use 0-based indexing for now
 
-# Globals specific to this run.
-# Really, these should be passed around somehow
-in_filename = None
-
-def get_input_file(argv):
-    # TODO: split this into parsing argv, and opening the file
-    global in_filename
+def get_input_filename(argv):
     if len(sys.argv) >= 2:
-        in_filename = sys.argv[1]
-        f = open(in_filename)
+        return sys.argv[1]
     else:
-        f = sys.stdin
-
-    return f
+        return None
 
 @dataclass(frozen=True)
 class RassData:
@@ -462,13 +453,14 @@ def choose_or_not(options):
 # returns (model, filename)
 # TODO: put the filename selection into a different file
 # TODO: add a caching layer
-def load_model_kind(kind):
-    global in_filename
+# TODO: instead of passing the rass_filename, pass the directory to search for
+# models in the "./" case
+def load_model_kind(kind, rass_filename):
     if kind[0] == "module":
         name = kind[1]
         directory = name
-        if directory.startswith("./") and in_filename is not None:
-            directory = os.path.join(os.path.dirname(in_filename), directory)
+        if directory.startswith("./") and rass_filename is not None:
+            directory = os.path.join(os.path.dirname(rass_filename), directory)
         if os.path.isdir(directory):
             options = [
                 os.path.join(directory, x)
@@ -509,7 +501,7 @@ def load_model_kind(kind):
     if kind[0] == "pair":
         # load 2_2 from mcsym-db, and truncate
         model, filename = load_model_kind(
-            ("ncm", "2_2", kind[1][0] + "GC" + kind[1][1])
+            ("ncm", "2_2", kind[1][0] + "GC" + kind[1][1]), None
         )
         i = 0
         for chain in model:
@@ -530,7 +522,7 @@ def load_model_kind(kind):
         c = complementary[b]
         d = complementary[a]
         # load 2_2 from mcsym-db, and truncate
-        model, filename = load_model_kind(("ncm", "2_2", a + b + c + d))
+        model, filename = load_model_kind(("ncm", "2_2", a + b + c + d), None)
         i = 0
         for chain in model:
             residue_ids_to_delete = []
@@ -762,10 +754,10 @@ def substitute_base(residue, newResname):
 
 models_used = []
 
-def assign_models(seq):
+def assign_models(seq, rass_filename):
     for node in nodes:
         print(node.kind, node.nucls)
-        node.model, model_filename = load_model_kind(node.kind)
+        node.model, model_filename = load_model_kind(node.kind, rass_filename)
         node.model_filename = model_filename
         models_used.append((node.components, model_filename))
         node.component_mapping = map_node_components(node)
@@ -1444,13 +1436,17 @@ def write_output_pdb_file(output_structure, out_filename):
 
 
 def main(argv):
-    f = get_input_file(argv)
+    rass_filename = get_input_filename(argv)
+    if rass_filename is not None:
+        f = open(rass_filename)
+    else:
+        f = sys.stdin
     rass_data = parse_rass_file(f)
     pairing = parse_parens(rass_data.dot_bracket)
     generate_nodes_from_components(rass_data)
     generate_auto_nodes(rass_data, pairing)
     generate_edges()
-    assign_models(rass_data.seq)
+    assign_models(rass_data.seq, rass_filename)
     assemble()
     generate_unplaced_nucleotides(rass_data.seq) # Probably unneeded because all lonely nucleotides should have been generated
     for _, b in sorted(chain_of_nucleotides.items()):
@@ -1470,7 +1466,7 @@ def main(argv):
         print(a)
 
     output_structure = generate_biopython_structure()
-    out_filename = get_output_filename(in_filename)
+    out_filename = get_output_filename(rass_filename)
     write_output_pdb_file(output_structure, out_filename)
 
 if __name__ == "__main__":
