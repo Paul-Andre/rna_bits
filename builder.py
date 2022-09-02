@@ -1,5 +1,7 @@
 import sys
 import numpy as np
+from dataclasses import dataclass
+from typing import List, Tuple, Dict
 
 # internally, I use 0-based indexing for now
 
@@ -18,8 +20,15 @@ def get_input_file(argv):
 
     return f
 
+@dataclass(frozen=True)
+class RassData:
+    seq: str
+    original_seq: str
+    dot_bracket: str
+    module_components: List[Tuple[str, int]]
+    stacks: List[Tuple[int,int]]
+
 def parse_rass_file(f):
-    global seq, original_seq, dot_bracket, module_components, stacks
     seq = f.readline().strip()
     original_seq = seq
     seq = seq.upper()
@@ -84,12 +93,12 @@ def parse_rass_file(f):
 
 
     f.close()
+    return RassData(seq, original_seq, dot_bracket, module_components, stacks)
 
 import Project.parser
 
-def parse_parens(seq, dot_bracket):
-    global pairing
-    pairing = [None] * len(seq)
+def parse_parens(dot_bracket):
+    pairing = [None] * len(dot_bracket)
 
     pos = 0
 
@@ -99,10 +108,10 @@ def parse_parens(seq, dot_bracket):
         pairing[a] = b
         pairing[b] = a
 
+    return pairing
+
 # We build a graph where the nodes are NCMs or modules, and the edges are overlaps
 # Currently NCMs we look at are 2_2, 2_3 (and 3_2) and 3_3
-
-# TODO: deal with the same module coming up in two places
 
 
 class Node:
@@ -120,19 +129,30 @@ class Node:
         self.user_added = kind[0] == "module"
 
 
-# For each nucleotide, which (module, component_number,
-# residue_in_component) it corresponds to
+# For each nucleotide, a list of the (module, component_number,
+# residue_in_component)s it corresponds to
 module_assignment = []
 
 # A list of all modules
 nodes = []
 
 
-def generate_nodes_from_components(module_components):
+
+
+ #####
+ # TODO NOW
+ # I'm in the process of refactoring to removing some globals
+
+
+
+
+
+def generate_nodes_from_components(rass_data):
     global module_assignment
     global nodes
-    module_assignment = [[] for _ in range(len(seq))]
+    module_assignment = [[] for _ in range(len(rass_data.seq))]
     modules_by_name = {}
+    module_components = rass_data.module_components.copy()
     module_components.sort()  # just to make sure in order
     for name, comp, first, last in module_components:
         if name in modules_by_name:
@@ -157,8 +177,10 @@ def have_overlapping_module(nucls):
     return len(a) >= 1
 
 
-def generate_auto_nodes():
+def generate_auto_nodes(rass_data, pairing):
     added_ncms = set()
+    seq = rass_data.seq
+    stacks = rass_data.stacks
     for i in range(0, len(seq)):
         if pairing[i] is not None:
             j = pairing[i]
@@ -316,8 +338,7 @@ class Edge:
 edges_by_nodes = {}
 
 def generate_edges():
-    for i in range(0, len(seq)):
-        ass = module_assignment[i]
+    for i,ass in enumerate(module_assignment):
         for mod, comp, pos in ass:
             print(mod.kind, mod.components)
         # I comment this line out to start implementing arcs:
@@ -428,8 +449,11 @@ def load_struct_file(filename, struct_name=None):
 
     assert False, "Not a proper filename"
 
+import random
 
 def choose_or_not(options):
+    """A hack to switch between deterministic and randomized fragment choice.
+    """
     # return random.choice(options)
     o = sorted(options)
     return o[0]
@@ -731,7 +755,7 @@ def substitute_base(residue, newResname):
 
 models_used = []
 
-def assign_models():
+def assign_models(seq):
     for node in nodes:
         print(node.kind, node.nucls)
         node.model, model_filename = load_model_kind(node.kind)
@@ -741,11 +765,11 @@ def assign_models():
         print(node.component_mapping)
 
         did_substitute = False
+        # TODO: instead of passing seq, add the sequence information with the Node object
         for k, v in node.component_mapping.items():
             if seq[k].isupper() and seq[k] != canonical_residue_name(v.resname):
                 did_substitute = True
                 substitute_base(v, seq[k])
-        # exit()
 
 
 # Before turning data into the BIO classes, I will represent the chain as a dict of nucleotides first
@@ -922,7 +946,7 @@ def createC3PrimeNuc(coord, letter, pos):
     return nucWrapper
 
 
-def generate_unplaced_nucleotides():
+def generate_unplaced_nucleotides(seq):
     global rigidCounter
     # Find nucleotides that haven't been placed and turn them into rigids
     for i in range(0, len(seq)):
@@ -1036,7 +1060,7 @@ def traverseToGetCycle(startNuc, endNuc):
 
 
 # Finds the next we want to process
-def getNextCycle():
+def getNextCycle(seq):
     print(chain_of_nucleotides)
     bestScore = math.inf
     bestCycle = None
@@ -1058,7 +1082,7 @@ def getNextCycle():
     return bestCycle
 
 
-def isTerminalRigid(r):
+def isTerminalRigid(seq, r):
     # TODO: make this work even when there's more than 1 strand
     return r in (
         chain_of_nucleotides[len(seq) - 1].rigid,
@@ -1066,18 +1090,18 @@ def isTerminalRigid(r):
     )
 
 
-def traverseToGetPath(startNuc):
+def traverseToGetPath(seq, startNuc):
     """Traverse to get a path between two rigids that are connected to only one edge each
     (to get an "outer loop")
     """
-    assert isTerminalRigid(startNuc.rigid)
+    assert isTerminalRigid(seq, startNuc.rigid)
     assert isRigidEdgeNuc(startNuc.pos)
 
     visitedRigids = set()
     out = []
     nuc = startNuc
     visitedRigids.add(nuc.rigid)
-    while nuc is startNuc or not isTerminalRigid(nuc.rigid):
+    while nuc is startNuc or not isTerminalRigid(seq, nuc.rigid):
         print(nuc)
         print(out)
 
@@ -1108,14 +1132,14 @@ def traverseToGetPath(startNuc):
     return out
 
 
-def getNextPath():
+def getNextPath(seq):
     """Assumes that all cycles have been found.
     Finds the next "outer loop"
     """
     for i in range(len(seq)):
         if isRigidEdgeNuc(i):
             nuc = chain_of_nucleotides[i]
-            return traverseToGetPath(nuc)
+            return traverseToGetPath(seq, nuc)
 
     return None
 
@@ -1186,9 +1210,9 @@ def create_rotation(s1, s2, d1, d2):
     return T
 
 
-def build_cycles():
+def build_cycles(rass_data):
     while True:
-        cycle = getNextCycle()
+        cycle = getNextCycle(rass_data.seq)
 
         if cycle is not None:
             print("Cycle", cycle)
@@ -1196,7 +1220,7 @@ def build_cycles():
         else:
             # for i,nuc in sorted(chain_of_nucleotides.items()):
             # print(i+1, nuc.rigid.id)
-            cycle = getNextPath()
+            cycle = getNextPath(rass_data.seq)
             print("Chain", cycle)
             isPath = True
 
@@ -1414,18 +1438,18 @@ def write_output_pdb_file(output_structure, out_filename):
 
 def main(argv):
     f = get_input_file(argv)
-    parse_rass_file(f)
-    parse_parens(seq, dot_bracket)
-    generate_nodes_from_components(module_components)
-    generate_auto_nodes()
+    rass_data = parse_rass_file(f)
+    pairing = parse_parens(rass_data.dot_bracket)
+    generate_nodes_from_components(rass_data)
+    generate_auto_nodes(rass_data, pairing)
     generate_edges()
-    assign_models()
+    assign_models(rass_data.seq)
     assemble()
-    generate_unplaced_nucleotides() # Probably unneeded
+    generate_unplaced_nucleotides(rass_data.seq) # Probably unneeded because all lonely nucleotides should have been generated
     for _, b in sorted(chain_of_nucleotides.items()):
         print(b, b.rigid)
 
-    build_cycles()
+    build_cycles(rass_data)
 
     
     rigids_seen = set()
