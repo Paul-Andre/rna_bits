@@ -1,25 +1,29 @@
 import sys
 import numpy as np
 from dataclasses import dataclass
-from typing import List, Tuple, Dict
+from typing import Optional, Union, List, Tuple, Dict, TextIO
+import io
 
-# internally, I use 0-based indexing for now
+# internally, I use 0-based indexing for sequences
 
-def get_input_filename(argv):
+
+def get_input_filename(argv: List[str]) -> Optional[str]:
     if len(sys.argv) >= 2:
         return sys.argv[1]
     else:
         return None
+
 
 @dataclass(frozen=True)
 class RassData:
     seq: str
     original_seq: str
     dot_bracket: str
-    module_components: List[Tuple[str, int]]
-    stacks: List[Tuple[int,int]]
+    module_components: List[Tuple[Tuple[str, int], int, int, int]]
+    stacks: List[Tuple[int, int]]
 
-def parse_rass_file(f):
+
+def parse_rass_file(f: TextIO) -> RassData:
     seq = f.readline().strip()
     original_seq = seq
     seq = seq.upper()
@@ -82,13 +86,14 @@ def parse_rass_file(f):
             for i in range(a, b):
                 stacks.append((i, i + 1))
 
-
     f.close()
     return RassData(seq, original_seq, dot_bracket, module_components, stacks)
 
+
 import Project.parser
 
-def parse_parens(dot_bracket):
+
+def parse_parens(dot_bracket: str) -> List[Optional[int]]:
     pairing = [None] * len(dot_bracket)
 
     pos = 0
@@ -101,23 +106,29 @@ def parse_parens(dot_bracket):
 
     return pairing
 
+
 # We build a graph where the nodes are NCMs or modules, and the edges are overlaps
 # Currently NCMs we look at are 2_2, 2_3 (and 3_2) and 3_3
+
+NodeKind = Union[Tuple[str, str, str], Tuple[str, str]]
+ModelSourceInfo = Union[str, Tuple[str, str]]
 
 
 class Node:
     id_increment = 10000
 
-    def __init__(self, kind):
-        self.kind = kind # Stuff like: ("module", "/filnemanaf/asdf/adsf/asdf.pdb"), ("ncm", "2_2", "AGCU")
+    def __init__(self, kind: NodeKind) -> None:
+        self.kind = kind  # Stuff like: ("module", "/filnemanaf/asdf/adsf/asdf.pdb"), ("ncm", "2_2", "AGCU")
         self.components = []
         self.edges = []
         self.nucls = set()
         self.id = Node.id_increment
         Node.id_increment += 1
         self.visited = False
-        self.model = None
+        self.model: Optional[Model] = None
         self.user_added = kind[0] == "module"
+        self.model_filename: Optional[ModelSourceInfo] = None
+        self.component_mapping: Optional[Dict[int, Residue]] = None
 
 
 # For each nucleotide, a list of the (module, component_number,
@@ -128,17 +139,12 @@ module_assignment = []
 nodes = []
 
 
+#####
+# TODO NOW
+# I'm in the process of refactoring to removing some globals
 
 
- #####
- # TODO NOW
- # I'm in the process of refactoring to removing some globals
-
-
-
-
-
-def generate_nodes_from_components(rass_data):
+def generate_nodes_from_components(rass_data: RassData) -> None:
     global module_assignment
     global nodes
     module_assignment = [[] for _ in range(len(rass_data.seq))]
@@ -162,13 +168,13 @@ def generate_nodes_from_components(rass_data):
             module.nucls.add(i)
 
 
-def have_overlapping_module(nucls):
+def have_overlapping_module(nucls: Tuple[int, ...]) -> bool:
     b = [{node.id for (node, _, _) in module_assignment[id]} for id in nucls]
     a = set.intersection(*b)
     return len(a) >= 1
 
 
-def generate_auto_nodes(rass_data, pairing):
+def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> None:
     added_ncms = set()
     seq = rass_data.seq
     stacks = rass_data.stacks
@@ -264,7 +270,6 @@ def generate_auto_nodes(rass_data, pairing):
             module.components = [(i, i), (j, j)]
             nodes.append(module)
 
-
     def add_helix_stack_module(i, j):
         assert j == i + 1
         ts = tuple(sorted((i, j)))
@@ -278,7 +283,6 @@ def generate_auto_nodes(rass_data, pairing):
         module.nucls.update({i, j})
         module.components = [(i, j)]
         nodes.append(module)
-
 
     # Add stacking that was given by the instructions
     for i, j in stacks:
@@ -304,7 +308,6 @@ def generate_auto_nodes(rass_data, pairing):
     for i in range(len(seq) - 1, tp_start, -1):
         add_helix_stack_module(i - 1, i)
 
-
     # Add single nucleotides
     for i in range(0, len(seq)):
         if len(module_assignment[i]) == 0:
@@ -320,7 +323,7 @@ def generate_auto_nodes(rass_data, pairing):
 
 
 class Edge:
-    def __init__(self, a, b):
+    def __init__(self, a: Node, b: Node) -> None:
         self.a = a
         self.b = b
         self.nucls = set()
@@ -328,8 +331,9 @@ class Edge:
 
 edges_by_nodes = {}
 
-def generate_edges():
-    for i,ass in enumerate(module_assignment):
+
+def generate_edges() -> None:
+    for i, ass in enumerate(module_assignment):
         for mod, comp, pos in ass:
             print(mod.kind, mod.components)
         # I comment this line out to start implementing arcs:
@@ -348,7 +352,6 @@ def generate_edges():
                 edges_by_nodes[ts] = edge
             edge.nucls.add(i)
 
-
     for edge in edges_by_nodes.values():
         # assert len(edge.nucls) == 2, "edge has "+repr(len(edge.nucls))+" nucleotides"
         assert len(edge.nucls) in (1, 2), (
@@ -365,7 +368,7 @@ import gzip
 
 
 # TODO: take the correspondences from the RNA-Puzzles assessment source
-def canonical_atom_name(name):
+def canonical_atom_name(name: str) -> str:
     if name == "O1P":
         return "OP1"
     if name == "O2P":
@@ -373,20 +376,25 @@ def canonical_atom_name(name):
     return name.replace("*", "'")
 
 
-def canonical_residue_name(name):
+def canonical_residue_name(name: str) -> str:
     # TODO
     # Note: in this function we won't rename modified nucleotide names
     return name
 
 
-def canonical_unmodified_residue_name(name):
+def canonical_unmodified_residue_name(name: str) -> str:
     # TODO
     # Note: in this function we will rename modified nucleotide names
     return name
 
 
+from Bio.PDB.Atom import Atom
+from Bio.PDB.Model import Model
+from Bio.PDB.Residue import Residue
+from Bio.PDB.Structure import Structure
+
 # Creates a new model that has canonical atom representation
-def canonicalize_model(model):
+def canonicalize_model(model: Model) -> Model:
     output_model = PDB.Model.Model(0)
     for chain in model:
         output_chain = PDB.Chain.Chain(chain.id)
@@ -414,7 +422,7 @@ def canonicalize_model(model):
     return output_model
 
 
-def is_struct_filename(filename):
+def is_struct_filename(filename: str) -> bool:
     return (
         filename.endswith(".pdb")
         or filename.endswith(".pdb.gz")
@@ -423,7 +431,7 @@ def is_struct_filename(filename):
     )
 
 
-def load_struct_file(filename, struct_name=None):
+def load_struct_file(filename: str, struct_name: Optional[str] = None) -> Structure:
     if struct_name is None:
         struct_name = filename
 
@@ -440,11 +448,12 @@ def load_struct_file(filename, struct_name=None):
 
     assert False, "Not a proper filename"
 
+
 import random
 
-def choose_or_not(options):
-    """A hack to switch between deterministic and randomized fragment choice.
-    """
+
+def choose_or_not(options: List[str]) -> str:
+    """A hack to switch between deterministic and randomized fragment choice."""
     # return random.choice(options)
     o = sorted(options)
     return o[0]
@@ -455,7 +464,9 @@ def choose_or_not(options):
 # TODO: add a caching layer
 # TODO: instead of passing the rass_filename, pass the directory to search for
 # models in the "./" case
-def load_model_kind(kind, rass_filename):
+def load_model_kind(
+    kind: NodeKind, rass_filename: Optional[str]
+) -> Tuple[Model, ModelSourceInfo]:
     if kind[0] == "module":
         name = kind[1]
         directory = name
@@ -541,13 +552,13 @@ def load_model_kind(kind, rass_filename):
         model = load_struct_file(directory)[0]
         model = canonicalize_model(model)
         return model, directory
-    assert False, "We don't recognize "+ repr(kind)
+    assert False, "We don't recognize " + repr(kind)
 
 
 MAX_COMP_GAP = 4
 
 
-def get_model_components(model, kind):
+def get_model_components(model: Model, kind: NodeKind):
     if kind[0] == "module":
         components = []
         for chain in model:
@@ -652,8 +663,9 @@ def old_map_node_components(node):
 
 
 # returns a map nucleotide_id -> residue_in_the_model
-def map_node_components(node):
+def map_node_components(node: Node) -> Dict[int, Residue]:
     model = node.model
+    assert model is not None
 
     print(node.kind)
     # You know what? **** the whole component system,
@@ -684,15 +696,16 @@ def map_node_components(node):
     return ret
 
 
-
 # Model contains only the 4 bases, used for base substitution
-substitution_model = None
+substitution_model: Optional[Model] = None
 
 # Returns (a reference to) the reference base of the given letter, used for base substitution
-def get_reference_base(letter):
+def get_reference_base(letter: str) -> Residue:
     global substitution_model
     if substitution_model is None:
-        substitution_model = PDB.PDBParser().get_structure("substitution_model", "bases.pdb")[0]
+        substitution_model = PDB.PDBParser().get_structure(
+            "substitution_model", "bases.pdb"
+        )[0]
 
     return substitution_model[letter][1]
 
@@ -713,7 +726,7 @@ BB_SUGAR_ATOMS = {
 }
 
 
-def substitute_base(residue, newResname):
+def substitute_base(residue: Residue, newResname: str) -> None:
     oldResname = canonical_unmodified_residue_name(residue.resname)
     oldBaseAtoms = []
     referenceOldBase = get_reference_base(oldResname)
@@ -754,7 +767,8 @@ def substitute_base(residue, newResname):
 
 models_used = []
 
-def assign_models(seq, rass_filename):
+
+def assign_models(seq: str, rass_filename: str) -> None:
     for node in nodes:
         print(node.kind, node.nucls)
         node.model, model_filename = load_model_kind(node.kind, rass_filename)
@@ -785,7 +799,9 @@ BB_ATOM_NAMES = ["P", "O5'", "C5'", "C4'", "C3'", "O3'"]
 # Given two nucleotides of the same type,
 # returns two lists of corresponding atoms
 # (references to the existing atoms, not copies)
-def correspondNucleotideAtoms(a, b, only_bb=False):
+def correspondNucleotideAtoms(
+    a: Residue, b: Residue, only_bb: bool = False
+) -> Tuple[List[Atom], List[Atom]]:
     a_canon = {atom.name: atom for atom in a}
     b_canon = {atom.name: atom for atom in b}
     assert len(a_canon) == len(a)
@@ -823,23 +839,23 @@ def superimpose_nodes(fixed, moving, nucls):
 
 
 class Nucleotide:
-    def __init__(self, model, rigid, pos):
+    def __init__(self, model: Residue, rigid: "Rigid", pos: int) -> None:
         self.model = model
         self.rigid = rigid
         self.pos = pos
         rigid.nucleotides.add(self)
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return "Nuc{}".format(self.pos + 1)
 
-    def __lt__(self, other):
+    def __lt__(self, other: "Nucleotide") -> bool:
         return self.pos < other.pos
 
 
 class Rigid:
     id_increment = 1000
 
-    def __init__(self):
+    def __init__(self) -> None:
         # self.translation = nunmpy.array([0.,0.,0.])
         # self.rotation = nunmpy.array([0.,0.,0.])
         self.nucleotides = set()
@@ -848,7 +864,7 @@ class Rigid:
         Rigid.id_increment += 1
 
     # Merge other into self
-    def merge(self, other):
+    def merge(self, other: "Rigid") -> None:
         if self is other:
             return
         for n in other.nucleotides:
@@ -858,7 +874,7 @@ class Rigid:
         other.parent = self
 
 
-def traverse_and_stack(node, currentRigid):
+def traverse_and_stack(node: Node, currentRigid: Rigid) -> None:
     if node.visited:
         return
     print("Putting down", node.model_filename)
@@ -890,6 +906,7 @@ def traverse_and_stack(node, currentRigid):
         superimposer = PDB.Superimposer()
         superimposer.set_atoms(fixed_atoms, aligning_atoms)
 
+        assert node.component_mapping is not None
         superimposer.apply(node.component_mapping.values())
 
     for k in to_place_id:
@@ -907,7 +924,8 @@ rigidCounter = 0
 
 rigids = []
 
-def assemble():
+
+def assemble() -> None:
     global rigidCounter
     while True:
         central_node = None
@@ -921,15 +939,17 @@ def assemble():
             break
 
         # center the first model, just because
+        # pytype: disable=attribute-error
         acc = sum(atom.coord for atom in central_node.model.get_atoms())
         tot = sum(1 for atom in central_node.model.get_atoms())
+        # pytype: enable=attribute-error
         centroid = acc / tot
         rigidCounter += 1
 
         currentRigid = Rigid()
         rigids.append(currentRigid)
 
-        for atom in central_node.model.get_atoms():
+        for atom in central_node.model.get_atoms():  # pytype: disable=attribute-error
             atom.coord -= centroid + rigidCounter * 20.0
         traverse_and_stack(central_node, currentRigid)
 
@@ -945,7 +965,7 @@ def createC3PrimeNuc(coord, letter, pos):
     return nucWrapper
 
 
-def generate_unplaced_nucleotides(seq):
+def generate_unplaced_nucleotides(seq: str) -> None:
     global rigidCounter
     # Find nucleotides that haven't been placed and turn them into rigids
     for i in range(0, len(seq)):
@@ -957,7 +977,8 @@ def generate_unplaced_nucleotides(seq):
             coord = np.array([0.0, 0, 0]) - rigidCounter * 20.0
             chain_of_nucleotides[i] = createC3PrimeNuc(coord, seq[i], i)
 
-def isRigidEdgeNuc(i):
+
+def isRigidEdgeNuc(i: int) -> bool:
     if (i + 1) in chain_of_nucleotides:
         if chain_of_nucleotides[i + 1].rigid is not chain_of_nucleotides[i].rigid:
             return True
@@ -971,7 +992,9 @@ def cycleNotDegenerate(stack):
     return len(stack) > 2 or stack[0][0] != stack[0][1] or stack[1][0] != stack[1][1]
 
 
-def checkCycleNotDegenerate(prevMap, startNuc):
+def checkCycleNotDegenerate(
+    prevMap: Dict[Nucleotide, Tuple[Nucleotide, Nucleotide]], startNuc: Nucleotide
+) -> bool:
     assert startNuc in prevMap
     c, d = prevMap[startNuc]
     a, b = prevMap[c]
@@ -994,7 +1017,12 @@ import heapq
 #     break;
 
 
-def traverseToGetCycle(startNuc, endNuc):
+from numpy import float32, float64, ndarray
+
+
+def traverseToGetCycle(
+    startNuc: Nucleotide, endNuc: Nucleotide
+) -> Tuple[Optional[List[Tuple[Nucleotide, Nucleotide]]], float64]:
     # The idea is to get the shortest path from startNuc to startNuc,
     # but without passing the startNuc->endNuc link in that direction (but
     # allowing the endNuc->startNuc direction), so that we find the shortest
@@ -1059,7 +1087,7 @@ def traverseToGetCycle(startNuc, endNuc):
 
 
 # Finds the next we want to process
-def getNextCycle(seq):
+def getNextCycle(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
     print(chain_of_nucleotides)
     bestScore = math.inf
     bestCycle = None
@@ -1081,7 +1109,7 @@ def getNextCycle(seq):
     return bestCycle
 
 
-def isTerminalRigid(seq, r):
+def isTerminalRigid(seq: str, r: Rigid) -> bool:
     # TODO: make this work even when there's more than 1 strand
     return r in (
         chain_of_nucleotides[len(seq) - 1].rigid,
@@ -1089,7 +1117,9 @@ def isTerminalRigid(seq, r):
     )
 
 
-def traverseToGetPath(seq, startNuc):
+def traverseToGetPath(
+    seq: str, startNuc: Nucleotide
+) -> List[Tuple[Nucleotide, Nucleotide]]:
     """Traverse to get a path between two rigids that are connected to only one edge each
     (to get an "outer loop")
     """
@@ -1123,6 +1153,8 @@ def traverseToGetPath(seq, startNuc):
             if result is not None:
                 break
 
+        assert result is not None
+
         nuc, nn, nnn = result
         out.append((nuc, nn))
         nuc = nnn
@@ -1131,7 +1163,7 @@ def traverseToGetPath(seq, startNuc):
     return out
 
 
-def getNextPath(seq):
+def getNextPath(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
     """Assumes that all cycles have been found.
     Finds the next "outer loop"
     """
@@ -1147,18 +1179,18 @@ def hasPrev(nuc_id):
     return nuc_id >= 1
 
 
-def hasNext(nuc_id):
+def hasNext(nuc_id, seq):
     return nuc_id < len(seq) - 1
 
 
-def isNucValid(nuc_id):
+def isNucValid(nuc_id, seq):
     return nuc_id >= 0 and nuc_id < len(seq)
 
 
 import inscribed_polygon
 
 
-def getC3Prime(residue):
+def getC3Prime(residue: Residue) -> Atom:
     if "C3'" in residue:
         return residue["C3'"]
     if "C3*" in residue:
@@ -1166,18 +1198,19 @@ def getC3Prime(residue):
     return None
 
 
-def np_distance(a_coord, b_coord):
+def np_distance(a_coord: ndarray, b_coord: ndarray) -> Union[float32, float64]:
     return np.linalg.norm(a_coord - b_coord)
 
 
 import math
+from io import TextIOWrapper
 
 
-def ortho_project(s, d):
+def ortho_project(s: ndarray, d: ndarray) -> ndarray:
     return (s.dot(d) / (np.linalg.norm(d) ** 2)) * d
 
 
-def create_rotation(s1, s2, d1, d2):
+def create_rotation(s1: ndarray, s2: ndarray, d1: ndarray, d2: ndarray) -> ndarray:
     """Create a rotation matrix that transforms the vector s1 to align with the vector d1
     while having the vector s2 be aligned with the vector d2 as much as possible"""
 
@@ -1209,7 +1242,7 @@ def create_rotation(s1, s2, d1, d2):
     return T
 
 
-def build_cycles(rass_data):
+def build_cycles(rass_data: RassData) -> None:
     while True:
         cycle = getNextCycle(rass_data.seq)
 
@@ -1323,7 +1356,9 @@ def build_cycles(rass_data):
                     dv2 *= -1
 
             # Find the centroid of the rigid to orient it away from the loop
-            acc = sum(sum(atom.coord for atom in nuc.model) for nuc in ra.rigid.nucleotides)
+            acc = sum(
+                sum(atom.coord for atom in nuc.model) for nuc in ra.rigid.nucleotides
+            )
             num = sum(sum(1 for atom in nuc.model) for nuc in ra.rigid.nucleotides)
             centroid = acc / num
 
@@ -1333,7 +1368,9 @@ def build_cycles(rass_data):
             sv2 = centroid - spa
             if (
                 np.linalg.norm(sv2) <= 1e-10
-                or abs(abs(sv1.dot(sv2)) / np.linalg.norm(sv1) / np.linalg.norm(sv2) - 1)
+                or abs(
+                    abs(sv1.dot(sv2)) / np.linalg.norm(sv1) / np.linalg.norm(sv2) - 1
+                )
                 <= 1e-10
             ):
                 sv2 = np.array([1, 0, 0])
@@ -1359,8 +1396,8 @@ def build_cycles(rass_data):
             first.rigid.merge(a.rigid)
 
 
-def stretch_chain(chain):
-    if not (hasPrev(chain[0]) and hasNext(chain[-1])):
+def stretch_chain(chain, seq):
+    if not (hasPrev(chain[0]) and hasNext(chain[-1], seq)):
         return
     start_id = chain[0] - 1
     end_id = chain[-1] + 1
@@ -1376,6 +1413,7 @@ def stretch_chain(chain):
         chain_of_nucleotides[j] = createC3PrimeNuc(coord, seq[j], j)
     # exit()
 
+
 def visualize_stuff():
     # visualize stuff
     import vpython as vp
@@ -1384,7 +1422,7 @@ def visualize_stuff():
         return vp.vector(a[0], a[1], a[2])
 
     for k, residue in chain_of_nucleotides.items():
-        for atom in residue:
+        for atom in residue.model:
             vp.sphere(pos=toVpVec(atom.coord), radius=0.3, color=vp.vector(0, 0.5, 0))
             if canonical_atom_name(atom.name) == "P":
                 vp.sphere(
@@ -1393,7 +1431,7 @@ def visualize_stuff():
 
 
 # Now all we need is to write a pdb output!
-def generate_biopython_structure():
+def generate_biopython_structure() -> Structure:
     output_structure = PDB.Structure.Structure("output")
     output_model = PDB.Model.Model(0)
     output_chain = PDB.Chain.Chain("A")
@@ -1421,13 +1459,15 @@ def generate_biopython_structure():
     output_structure.add(output_model)
     return output_structure
 
-def get_output_filename(in_filename):
+
+def get_output_filename(in_filename: Optional[str]) -> str:
     if in_filename is None:
         return "out.pdb"
     else:
         return in_filename + ".pdb"
 
-def write_output_pdb_file(output_structure, out_filename):
+
+def write_output_pdb_file(output_structure: Structure, out_filename: str) -> None:
     io = PDB.PDBIO()
     io.set_structure(output_structure)
 
@@ -1435,7 +1475,7 @@ def write_output_pdb_file(output_structure, out_filename):
     print("Wrote to", repr(out_filename))
 
 
-def main(argv):
+def main(argv: List[str]) -> None:
     rass_filename = get_input_filename(argv)
     if rass_filename is not None:
         f = open(rass_filename)
@@ -1448,13 +1488,14 @@ def main(argv):
     generate_edges()
     assign_models(rass_data.seq, rass_filename)
     assemble()
-    generate_unplaced_nucleotides(rass_data.seq) # Probably unneeded because all lonely nucleotides should have been generated
+    generate_unplaced_nucleotides(
+        rass_data.seq
+    )  # Probably unneeded because all lonely nucleotides should have been generated
     for _, b in sorted(chain_of_nucleotides.items()):
         print(b, b.rigid)
 
     build_cycles(rass_data)
 
-    
     rigids_seen = set()
     for nuc in chain_of_nucleotides.values():
         rigids_seen.add(nuc.rigid)
@@ -1468,6 +1509,7 @@ def main(argv):
     output_structure = generate_biopython_structure()
     out_filename = get_output_filename(rass_filename)
     write_output_pdb_file(output_structure, out_filename)
+
 
 if __name__ == "__main__":
     main(sys.argv)
