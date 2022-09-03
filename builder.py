@@ -1174,19 +1174,6 @@ def getNextPath(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
 
     return None
 
-
-def hasPrev(nuc_id):
-    return nuc_id >= 1
-
-
-def hasNext(nuc_id, seq):
-    return nuc_id < len(seq) - 1
-
-
-def isNucValid(nuc_id, seq):
-    return nuc_id >= 0 and nuc_id < len(seq)
-
-
 import inscribed_polygon
 
 
@@ -1394,24 +1381,6 @@ def build_cycles(rass_data: RassData) -> None:
             assert a.rigid is not first
             assert a.rigid is b.rigid
             first.rigid.merge(a.rigid)
-
-
-def stretch_chain(chain, seq):
-    if not (hasPrev(chain[0]) and hasNext(chain[-1], seq)):
-        return
-    start_id = chain[0] - 1
-    end_id = chain[-1] + 1
-    start_res = residueToCanonicalDict(chain_of_nucleotides[start_id].model)
-    end_res = residueToCanonicalDict(chain_of_nucleotides[end_id].model)
-    start_coord = start_res["C3'"].coord
-    end_coord = end_res["C3'"].coord
-    diff_vec = end_coord - start_coord
-    print("Length", np.linalg.norm(((1) / (1 + len(chain))) * diff_vec))
-    for i in range(0, len(chain)):
-        j = chain[i]
-        coord = start_coord + ((1 + i) / (1 + len(chain))) * diff_vec
-        chain_of_nucleotides[j] = createC3PrimeNuc(coord, seq[j], j)
-    # exit()
 
 
 def visualize_stuff():
