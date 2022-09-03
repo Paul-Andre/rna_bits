@@ -113,7 +113,6 @@ def parse_parens(dot_bracket: str) -> List[Optional[int]]:
 NodeKind = Union[Tuple[str, str, str], Tuple[str, str]]
 ModelSourceInfo = Union[str, Tuple[str, str]]
 
-
 class Node:
     id_increment = 10000
 
@@ -639,29 +638,6 @@ def get_model_components(model: Model, kind: NodeKind):
                     li += 1
         return components
 
-
-def old_map_node_components(node):
-    model = node.model
-
-    components = get_model_components(model, node.kind)
-
-    print(node.kind)
-    print(node.components, components)
-    # You know what? Fuck the whole component system
-    assert len(node.components) == len(
-        components
-    ), "number of fragment components doesn't match"
-    ret = {}
-    for nc, c in zip(node.components, components):
-        assert nc[1] - nc[0] + 1 == len(c), "fragment doesn't match " + str(node.kind)
-        for i, r in zip(range(nc[0], nc[1] + 1), c):
-            if r is not None:
-                # r can be None in the case of RNAMoIP-style input where skips of up to 4 nts are allowed
-                # TODO: make this coherent with module_assignment
-                ret[i] = r
-    return ret
-
-
 # returns a map nucleotide_id -> residue_in_the_model
 def map_node_components(node: Node) -> Dict[int, Residue]:
     model = node.model
@@ -690,8 +666,6 @@ def map_node_components(node: Node) -> Dict[int, Residue]:
     ret = {}
     for pos, res in zip(pos_list, res_list):
         ret[pos] = res
-
-    # assert(ret == old_map_node_components(node))
 
     return ret
 
