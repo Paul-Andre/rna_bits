@@ -13,6 +13,7 @@ def get_input_filename(argv: List[str]) -> Optional[str]:
     else:
         return None
 
+
 @dataclass(frozen=True)
 class RnamoipCompInfo:
     name: str
@@ -20,10 +21,12 @@ class RnamoipCompInfo:
     first_nuc: int
     last_nuc: int
 
+
 @dataclass(frozen=True)
 class MotifInfo:
     filename: str
     nucs: List[int]
+
 
 @dataclass(frozen=True)
 class RassData:
@@ -34,6 +37,7 @@ class RassData:
     user_motifs: List[MotifInfo]
     stacks: List[Tuple[int, int]]
     rnamoip_components: List[RnamoipCompInfo]
+
 
 def parse_and_expand_ranges(ranges: str) -> List[int]:
     ret = []
@@ -46,8 +50,9 @@ def parse_and_expand_ranges(ranges: str) -> List[int]:
         else:
             first = int(r)
             last = first
-        ret.extend(range(first, last+1))
+        ret.extend(range(first, last + 1))
     return ret
+
 
 def parse_rass_file(f: TextIO) -> RassData:
     seq = f.readline().strip()
@@ -72,12 +77,14 @@ def parse_rass_file(f: TextIO) -> RassData:
             first -= 1
             last -= 1
             comp -= 1
-            rnamoip_components.append(RnamoipCompInfo(name=name, comp_id=comp, first_nuc=first, last_nuc=last))
+            rnamoip_components.append(
+                RnamoipCompInfo(name=name, comp_id=comp, first_nuc=first, last_nuc=last)
+            )
         elif line.startswith("motif:"):
             _, name, ranges = line.split(":")
             nucs = parse_and_expand_ranges(ranges)
-            nucs = [n-1 for n in nucs]
-            user_motifs.append(MotifInfo(filename = name, nucs = nucs))
+            nucs = [n - 1 for n in nucs]
+            user_motifs.append(MotifInfo(filename=name, nucs=nucs))
         elif line.startswith("stack"):
             # The same kind of stack that would form in a helix.
             # Used to simulate coaxial stacking
@@ -98,13 +105,13 @@ def parse_rass_file(f: TextIO) -> RassData:
 
     f.close()
     return RassData(
-        seq = seq,
-        original_seq = original_seq,
-        dot_bracket = dot_bracket,
-        user_motifs = user_motifs,
-        stacks = stacks,
-        rnamoip_components = rnamoip_components
-        )
+        seq=seq,
+        original_seq=original_seq,
+        dot_bracket=dot_bracket,
+        user_motifs=user_motifs,
+        stacks=stacks,
+        rnamoip_components=rnamoip_components,
+    )
 
 
 import Project.parser
@@ -124,11 +131,15 @@ def parse_parens(dot_bracket: str) -> List[Optional[int]]:
     return pairing
 
 
-# We build a graph where the nodes are NCMs or modules, and the edges are overlaps
-# Currently NCMs we look at are 2_2, 2_3 (and 3_2) and 3_3
-
-NodeKind = Union[Tuple[Literal["ncm"], str, str], Tuple[Literal["module"], str]]
+NodeKind = Union[
+    Tuple[Literal["ncm"], str, str],
+    Tuple[Literal["module"], str],
+    Tuple[Literal["pair"], str],
+    Tuple[Literal["helix_stack"], str],
+    Tuple[Literal["nucleotide"], str],
+]
 ModelSourceInfo = Union[str, Tuple[str, str]]
+
 
 class Node:
     id_increment = 10000
@@ -141,7 +152,6 @@ class Node:
         self.id = Node.id_increment
         Node.id_increment += 1
 
-        self.edges = []
         self.visited = False
 
         self.model: Optional[Model] = None
@@ -151,7 +161,7 @@ class Node:
 
 # For each nucleotide, a list of the (module, component_number,
 # residue_in_component)s it corresponds to
-module_assignment: List[Tuple[Node,int]] = []
+module_assignment: List[Tuple[Node, int]] = []
 
 # A list of all modules
 nodes: List[Node] = []
@@ -160,11 +170,13 @@ nodes: List[Node] = []
 def new_node_from_motif_info(info: MotifInfo) -> Node:
     return Node(("module", info.filename), info.nucs)
 
+
 def reset_nodes(seq) -> None:
     global module_assignment
     global nodes
     module_assignment = [[] for _ in range(len(seq))]
     nodes = []
+
 
 def generate_motif_nodes(rass_data: RassData) -> None:
     global module_assignment
@@ -174,6 +186,7 @@ def generate_motif_nodes(rass_data: RassData) -> None:
         nodes.append(n)
         for motif_nuc, target_nuc in enumerate(info.nucs):
             module_assignment[target_nuc].append((n, motif_nuc))
+
 
 def generate_nodes_from_rnamoip_components(rass_data: RassData) -> None:
     # TODO: Somehow take care of rnamoip components?
@@ -226,7 +239,9 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
                 if ts in added_ncms or have_overlapping_module(ts):
                     continue
                 added_ncms.add(ts)
-                module = Node(("ncm", "2_2", seq[i] + seq[ii] + seq[jj] + seq[j]), [i,ii,jj,j])
+                module = Node(
+                    ("ncm", "2_2", seq[i] + seq[ii] + seq[jj] + seq[j]), [i, ii, jj, j]
+                )
                 module_assignment[i].append((module, 0))
                 module_assignment[ii].append((module, 1))
                 module_assignment[jj].append((module, 2))
@@ -238,7 +253,8 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
                     continue
                 added_ncms.add(ts)
                 module = Node(
-                    ("ncm", "2_3", seq[i] + seq[ii] + seq[jjj] + seq[jj] + seq[j]), [i,ii,jjj,jj,j]
+                    ("ncm", "2_3", seq[i] + seq[ii] + seq[jjj] + seq[jj] + seq[j]),
+                    [i, ii, jjj, jj, j],
                 )
                 module_assignment[i].append((module, 0))
                 module_assignment[ii].append((module, 1))
@@ -252,7 +268,8 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
                     continue
                 added_ncms.add(ts)
                 module = Node(
-                    ("ncm", "3_2", seq[i] + seq[ii] + seq[iii] + seq[jj] + seq[j]), [i, ii, iii, jj, j]
+                    ("ncm", "3_2", seq[i] + seq[ii] + seq[iii] + seq[jj] + seq[j]),
+                    [i, ii, iii, jj, j],
                 )
                 module_assignment[i].append((module, 0))
                 module_assignment[ii].append((module, 1))
@@ -269,7 +286,8 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
                         "ncm",
                         "3_3",
                         seq[i] + seq[ii] + seq[iii] + seq[jjj] + seq[jj] + seq[j],
-                    ), [i,ii,iii,jjj,jj,j]
+                    ),
+                    [i, ii, iii, jjj, jj, j],
                 )
                 module_assignment[i].append((module, 0))
                 module_assignment[ii].append((module, 1))
@@ -289,7 +307,7 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
             if ts in added_ncms or have_overlapping_module(ts):
                 continue
             added_ncms.add(ts)
-            module = Node(("pair", seq[i] + seq[j]), [i,j])
+            module = Node(("pair", seq[i] + seq[j]), [i, j])
             module_assignment[i].append((module, 0))
             module_assignment[j].append((module, 1))
             nodes.append(module)
@@ -301,7 +319,7 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
             # TODO: check if the overlap is a helix fragment or not
             return
         added_ncms.add(ts)
-        module = Node(("helix_stack", seq[i] + seq[j]), [i,j])
+        module = Node(("helix_stack", seq[i] + seq[j]), [i, j])
         module_assignment[i].append((module, 0))
         module_assignment[j].append((module, 1))
         nodes.append(module)
@@ -340,43 +358,6 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
             module = Node(("nucleotide", seq[i]), [i])
             module_assignment[i].append((module, 0))
             nodes.append(module)
-
-
-class Edge:
-    def __init__(self, a: Node, b: Node) -> None:
-        self.a = a
-        self.b = b
-        self.nucls = set()
-
-
-edges_by_nodes = {}
-
-
-def generate_edges() -> None:
-    for i, ass in enumerate(module_assignment):
-        for mod, pos in ass:
-            print(mod.kind, mod.nucs)
-        # I comment this line out to start implementing arcs:
-        # assert len(ass)>=1, "nucleotide "+repr(i)+" isn't assigned to a node"
-        # assert len(ass)<=2, "nucleotide "+repr(i)+" is assigned to more than 2 components"
-        if len(ass) == 2:
-            a = ass[0][0]
-            b = ass[1][0]
-            ts = tuple(sorted((a.id, b.id)))
-            if ts in edges_by_nodes:
-                edge = edges_by_nodes[ts]
-            else:
-                edge = Edge(a, b)
-                a.edges.append(edge)
-                b.edges.append(edge)
-                edges_by_nodes[ts] = edge
-            edge.nucls.add(i)
-
-    for edge in edges_by_nodes.values():
-        # assert len(edge.nucls) == 2, "edge has "+repr(len(edge.nucls))+" nucleotides"
-        assert len(edge.nucls) in (1, 2), (
-            "edge has " + repr(len(edge.nucls)) + " nucleotides"
-        )
 
 
 import vpython as vp
@@ -835,8 +816,7 @@ def assemble() -> None:
         central_node = None
         for node in nodes:
             if not node.visited and (
-                central_node is None
-                or (len(node.nucs) > len(central_node.nucs))
+                central_node is None or (len(node.nucs) > len(central_node.nucs))
             ):
                 central_node = node
         if central_node is None:
@@ -1077,6 +1057,7 @@ def getNextPath(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
             return traverseToGetPath(seq, nuc)
 
     return None
+
 
 import inscribed_polygon
 
@@ -1360,7 +1341,6 @@ def main(argv: List[str]) -> None:
     generate_motif_nodes(rass_data)
     generate_auto_nodes(rass_data, pairing)
 
-    generate_edges()
     assign_models(rass_data.seq, rass_filename)
     assemble()
     generate_unplaced_nucleotides(
