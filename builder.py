@@ -172,7 +172,9 @@ class Builder:
 
         self.rigids: List["Rigid"] = []
         self.chain_of_nucleotides: Dict[int, "Nucleotide"] = {}
-        self.rigidCounter = 0
+        self.rigidCounter: int = 0
+
+        self.models_used: List[Tuple[List[int], ModelSourceInfo]] = []
 
 def new_node_from_motif_info(info: MotifInfo) -> Node:
     return Node(("module", info.filename), info.nucs)
@@ -584,18 +586,20 @@ def map_residues(node: Node) -> Dict[int, Residue]:
     return ret
 
 
+def load_substitution_model() -> Model:
+    return PDB.PDBParser().get_structure(
+        "substitution_model", "bases.pdb"
+    )[0]
+
 # Model contains only the 4 bases, used for base substitution
-substitution_model: Optional[Model] = None
+# Each base is in its own chain, where the chain name is the name of the base.
+SUBSTITUTION_MODEL: Model = load_substitution_model()
 
-# Returns (a reference to) the reference base of the given letter, used for base substitution
 def get_reference_base(letter: str) -> Residue:
-    global substitution_model
-    if substitution_model is None:
-        substitution_model = PDB.PDBParser().get_structure(
-            "substitution_model", "bases.pdb"
-        )[0]
-
-    return substitution_model[letter][1]
+    """Returns (a reference to) a Residue representing the base of the given letter.
+    Please don't modify it.
+    """
+    return SUBSTITUTION_MODEL[letter][1]
 
 
 BB_SUGAR_ATOMS = {
@@ -653,10 +657,9 @@ def substitute_base(residue: Residue, newResname: str) -> None:
     superimposer.apply(freshBaseAtoms)
 
 
-models_used = []
-
-
-def assign_models(nodes: List[Node], seq: str, rass_filename: str) -> None:
+def assign_models(builder: Builder, seq: str, rass_filename: str) -> None:
+    nodes = builder.nodes
+    models_used = builder.models_used
     for node in nodes:
         print(node.kind, node.nucs)
         node.model, model_filename = load_model_kind(node.kind, rass_filename)
@@ -1342,7 +1345,7 @@ def main(argv: List[str]) -> None:
     generate_nodes_from_rnamoip_components(builder)
     generate_auto_nodes(builder, pairing)
 
-    assign_models(builder.nodes, builder.rass_data.seq, rass_filename)
+    assign_models(builder, builder.rass_data.seq, rass_filename)
     assemble(builder)
     generate_unplaced_nucleotides(
         builder, 
@@ -1360,7 +1363,7 @@ def main(argv: List[str]) -> None:
 
     if False:
         visualize_stuff()
-    for a in models_used:
+    for a in builder.models_used:
         print(a)
 
     output_structure = generate_biopython_structure(builder)
