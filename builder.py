@@ -40,8 +40,7 @@ class RassData:
 
 
 def parse_and_expand_ranges(ranges: str) -> List[int]:
-    """ Takes in a string like "1, 2,5-8" and returns [1,2,5,6,7,8]
-    """
+    """Takes in a string like "1, 2,5-8" and returns [1,2,5,6,7,8]"""
     ret = []
     for r in ranges.split(","):
         r = r.strip()
@@ -222,8 +221,8 @@ def have_overlapping_module(nucls: Tuple[int, ...]) -> bool:
 
 
 def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> None:
-    """ Generate and add nodes related to ncm's and loose ends and lonely pairs
-    and lonely nucleotides """
+    """Generate and add nodes related to ncm's and loose ends and lonely pairs
+    and lonely nucleotides"""
     # TODO: split this function
     global module_assignment
     global nodes
@@ -400,8 +399,8 @@ from Bio.PDB.Structure import Structure
 
 # Creates a new model that has canonical atom representation
 def canonicalize_model(model: Model) -> Model:
-    """ Given a Biopython Model of RNA, returns a new Biopython Model that has
-    all its atom names canonicalized """
+    """Given a Biopython Model of RNA, returns a new Biopython Model that has
+    all its atom names canonicalized"""
     output_model = PDB.Model.Model(0)
     for chain in model:
         output_chain = PDB.Chain.Chain(chain.id)
@@ -938,7 +937,9 @@ def traverse_to_get_cycle(
             break
 
         for nn in nuc.rigid.nucleotides:
-            dist2 = dist + np.linalg.norm(get_c3prime(nn.model) - get_c3prime(nuc.model))
+            dist2 = dist + np.linalg.norm(
+                get_c3prime(nn.model) - get_c3prime(nuc.model)
+            )
             for j in (nn.pos + 1, nn.pos - 1):
                 if j not in chain_of_nucleotides:
                     continue
