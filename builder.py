@@ -40,6 +40,8 @@ class RassData:
 
 
 def parse_and_expand_ranges(ranges: str) -> List[int]:
+    """ Takes in a string like "1, 2,5-8" and returns [1,2,5,6,7,8]
+    """
     ret = []
     for r in ranges.split(","):
         r = r.strip()
@@ -159,8 +161,7 @@ class Node:
         self.residue_mapping: Optional[Dict[int, Residue]] = None
 
 
-# For each nucleotide, a list of the (module, component_number,
-# residue_in_component)s it corresponds to
+# For each nucleotide, a list of (module, residue_in_module)
 module_assignment: List[Tuple[Node, int]] = []
 
 # A list of all modules
@@ -171,7 +172,7 @@ def new_node_from_motif_info(info: MotifInfo) -> Node:
     return Node(("module", info.filename), info.nucs)
 
 
-def reset_nodes(seq) -> None:
+def reset_nodes(seq: str) -> None:
     global module_assignment
     global nodes
     module_assignment = [[] for _ in range(len(seq))]
@@ -221,6 +222,9 @@ def have_overlapping_module(nucls: Tuple[int, ...]) -> bool:
 
 
 def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> None:
+    """ Generate and add nodes related to ncm's and loose ends and lonely pairs
+    and lonely nucleotides """
+    # TODO: split this function
     global module_assignment
     global nodes
     added_ncms = set()
@@ -368,7 +372,7 @@ import os
 import gzip
 
 
-# TODO: take the correspondences from the RNA-Puzzles assessment source
+# TODO: take the correspondence files from RNA-Puzzles assessment
 def canonical_atom_name(name: str) -> str:
     if name == "O1P":
         return "OP1"
@@ -385,7 +389,7 @@ def canonical_residue_name(name: str) -> str:
 
 def canonical_unmodified_residue_name(name: str) -> str:
     # TODO
-    # Note: in this function we will rename modified nucleotide names
+    # Note: in this function we *will* rename modified nucleotide names
     return name
 
 
@@ -396,6 +400,8 @@ from Bio.PDB.Structure import Structure
 
 # Creates a new model that has canonical atom representation
 def canonicalize_model(model: Model) -> Model:
+    """ Given a Biopython Model of RNA, returns a new Biopython Model that has
+    all its atom names canonicalized """
     output_model = PDB.Model.Model(0)
     for chain in model:
         output_chain = PDB.Chain.Chain(chain.id)
@@ -556,8 +562,6 @@ def load_model_kind(
     assert False, "We don't recognize " + repr(kind)
 
 
-MAX_COMP_GAP = 4
-
 # returns a map target_nucleotide_id -> residue_in_the_model
 def map_residues(node: Node) -> Dict[int, Residue]:
     model = node.model
@@ -571,7 +575,7 @@ def map_residues(node: Node) -> Dict[int, Residue]:
         for residue in chain:
             res_list.append(residue)
 
-    # TODO: perhaps not need this, for example if we want to allow the possibility of adding ions in the fragments
+    # TODO: perhaps not enforce this, for example to allow adding ions in the fragments
     assert len(pos_list) == len(res_list)
 
     ret = {}
@@ -687,6 +691,7 @@ BB_ATOM_NAMES = ["P", "O5'", "C5'", "C4'", "C3'", "O3'"]
 def correspondNucleotideAtoms(
     a: Residue, b: Residue, only_bb: bool = False
 ) -> Tuple[List[Atom], List[Atom]]:
+    # TODO: Make this nicer
     a_canon = {atom.name: atom for atom in a}
     b_canon = {atom.name: atom for atom in b}
     assert len(a_canon) == len(a)
@@ -706,6 +711,7 @@ def correspondNucleotideAtoms(
 
 
 def superimpose_nodes(fixed, moving, nucls):
+    # TODO: this function isn't currently used; could we use it?
     fixed_list = []
     moving_list = []
     for n in nucls:
@@ -907,10 +913,12 @@ from numpy import float32, float64, ndarray
 def traverseToGetCycle(
     startNuc: Nucleotide, endNuc: Nucleotide
 ) -> Tuple[Optional[List[Tuple[Nucleotide, Nucleotide]]], float64]:
-    # The idea is to get the shortest path from startNuc to startNuc,
-    # but without passing the startNuc->endNuc link in that direction (but
-    # allowing the endNuc->startNuc direction), so that we find the shortest
-    # cycle containing that link.
+    """
+    The idea is to get the shortest path from startNuc to startNuc,
+    but without passing the startNuc->endNuc link in that direction (but
+    allowing the endNuc->startNuc direction), so that we find the shortest
+    cycle containing that link.
+    """
 
     prevMap = {}
 
@@ -1270,6 +1278,8 @@ def build_cycles(rass_data: RassData) -> None:
 
 def visualize_stuff():
     # visualize stuff
+    # Used for debug purposes a long time ago
+    # TODO: Does it even work?
     import vpython as vp
 
     def toVpVec(a):
