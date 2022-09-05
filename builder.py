@@ -678,17 +678,13 @@ def assign_models(seq: str, rass_filename: str) -> None:
 chain_of_nucleotides = {}
 
 
-def residueToCanonicalDict(res):
-    return {canonical_atom_name(atom.name): atom for atom in res}
-
-
 BB_ATOM_NAMES = ["P", "O5'", "C5'", "C4'", "C3'", "O3'"]
 
 
 # Given two nucleotides of the same type,
 # returns two lists of corresponding atoms
 # (references to the existing atoms, not copies)
-def correspondNucleotideAtoms(
+def correspond_nucleotide_atoms(
     a: Residue, b: Residue, only_bb: bool = False
 ) -> Tuple[List[Atom], List[Atom]]:
     # TODO: Make this nicer
@@ -717,7 +713,7 @@ def superimpose_nodes(fixed, moving, nucls):
     for n in nucls:
         fixed_res = fixed.residue_mapping[n]
         moving_res = moving.residue_mapping[n]
-        fixed_atoms, moving_atoms = correspondNucleotideAtoms(
+        fixed_atoms, moving_atoms = correspond_nucleotide_atoms(
             fixed_res, moving_res, False
         )
         fixed_list += fixed_atoms
@@ -788,7 +784,7 @@ def traverse_and_stack(node: Node, currentRigid: Rigid) -> None:
         aligning_atoms = []
 
         for fixed_res, aligning_res in zip(fixed_residues, aligning_residues):
-            fixed_a, aligning_a = correspondNucleotideAtoms(
+            fixed_a, aligning_a = correspond_nucleotide_atoms(
                 fixed_res, aligning_res, False
             )
             fixed_atoms += fixed_a
@@ -844,7 +840,7 @@ def assemble() -> None:
         traverse_and_stack(central_node, currentRigid)
 
 
-def createC3PrimeNuc(coord, letter, pos):
+def create_c3prime_nuc(coord, letter, pos):
     output_residue = PDB.Residue.Residue((" ", 0, " "), letter, "    ")
     # 'name', 'coord', 'bfactor', 'occupancy', 'altloc', 'fullname', 'serial_number', element=None
     output_atom = PDB.Atom.Atom("C3'", coord, 0.0, 1.0, " ", "C3'", 1, "C")
@@ -865,10 +861,10 @@ def generate_unplaced_nucleotides(seq: str) -> None:
 
             rigidCounter += 1
             coord = np.array([0.0, 0, 0]) - rigidCounter * 20.0
-            chain_of_nucleotides[i] = createC3PrimeNuc(coord, seq[i], i)
+            chain_of_nucleotides[i] = create_c3prime_nuc(coord, seq[i], i)
 
 
-def isRigidEdgeNuc(i: int) -> bool:
+def is_rigid_edge_nuc(i: int) -> bool:
     if (i + 1) in chain_of_nucleotides:
         if chain_of_nucleotides[i + 1].rigid is not chain_of_nucleotides[i].rigid:
             return True
@@ -878,11 +874,7 @@ def isRigidEdgeNuc(i: int) -> bool:
     return False
 
 
-def cycleNotDegenerate(stack):
-    return len(stack) > 2 or stack[0][0] != stack[0][1] or stack[1][0] != stack[1][1]
-
-
-def checkCycleNotDegenerate(
+def check_cycle_not_degenerate(
     prevMap: Dict[Nucleotide, Tuple[Nucleotide, Nucleotide]], startNuc: Nucleotide
 ) -> bool:
     assert startNuc in prevMap
@@ -910,7 +902,7 @@ import heapq
 from numpy import float32, float64, ndarray
 
 
-def traverseToGetCycle(
+def traverse_to_get_cycle(
     startNuc: Nucleotide, endNuc: Nucleotide
 ) -> Tuple[Optional[List[Tuple[Nucleotide, Nucleotide]]], float64]:
     """
@@ -939,14 +931,14 @@ def traverseToGetCycle(
         if (
             nuc is startNuc
             and prev is not None
-            and checkCycleNotDegenerate(prevMap, startNuc)
+            and check_cycle_not_degenerate(prevMap, startNuc)
         ):
             prevMap[nuc] = prev
             score = dist
             break
 
         for nn in nuc.rigid.nucleotides:
-            dist2 = dist + np.linalg.norm(getC3Prime(nn.model) - getC3Prime(nuc.model))
+            dist2 = dist + np.linalg.norm(get_c3prime(nn.model) - get_c3prime(nuc.model))
             for j in (nn.pos + 1, nn.pos - 1):
                 if j not in chain_of_nucleotides:
                     continue
@@ -979,12 +971,12 @@ def traverseToGetCycle(
 
 
 # Finds the next we want to process
-def getNextCycle(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
+def get_next_cycle(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
     print(chain_of_nucleotides)
     bestScore = math.inf
     bestCycle = None
     for i in range(len(seq)):
-        if isRigidEdgeNuc(i):
+        if is_rigid_edge_nuc(i):
             nuc = chain_of_nucleotides[i]
 
             for j in (i - 1, i + 1):
@@ -994,14 +986,14 @@ def getNextCycle(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
                 if nn.rigid is nuc.rigid:
                     continue
 
-                cycle, score = traverseToGetCycle(nuc, nn)
+                cycle, score = traverse_to_get_cycle(nuc, nn)
                 if score < bestScore:
                     bestScore = score
                     bestCycle = cycle
     return bestCycle
 
 
-def isTerminalRigid(seq: str, r: Rigid) -> bool:
+def is_terminal_rigid(seq: str, r: Rigid) -> bool:
     # TODO: make this work even when there's more than 1 strand
     return r in (
         chain_of_nucleotides[len(seq) - 1].rigid,
@@ -1009,27 +1001,27 @@ def isTerminalRigid(seq: str, r: Rigid) -> bool:
     )
 
 
-def traverseToGetPath(
+def traverse_to_get_path(
     seq: str, startNuc: Nucleotide
 ) -> List[Tuple[Nucleotide, Nucleotide]]:
     """Traverse to get a path between two rigids that are connected to only one edge each
     (to get an "outer loop")
     """
-    assert isTerminalRigid(seq, startNuc.rigid)
-    assert isRigidEdgeNuc(startNuc.pos)
+    assert is_terminal_rigid(seq, startNuc.rigid)
+    assert is_rigid_edge_nuc(startNuc.pos)
 
     visitedRigids = set()
     out = []
     nuc = startNuc
     visitedRigids.add(nuc.rigid)
-    while nuc is startNuc or not isTerminalRigid(seq, nuc.rigid):
+    while nuc is startNuc or not is_terminal_rigid(seq, nuc.rigid):
         print(nuc)
         print(out)
 
         result = None
 
         for nn in nuc.rigid.nucleotides:
-            # dist2 = dist + np.linalg.norm(getC3Prime(nn.model) - getC3Prime(nuc.model))
+            # dist2 = dist + np.linalg.norm(get_c3prime(nn.model) - get_c3prime(nuc.model))
             print(nuc, nn)
             for j in (nn.pos + 1, nn.pos - 1):
                 if j not in chain_of_nucleotides:
@@ -1055,14 +1047,14 @@ def traverseToGetPath(
     return out
 
 
-def getNextPath(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
+def get_next_path(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
     """Assumes that all cycles have been found.
     Finds the next "outer loop"
     """
     for i in range(len(seq)):
-        if isRigidEdgeNuc(i):
+        if is_rigid_edge_nuc(i):
             nuc = chain_of_nucleotides[i]
-            return traverseToGetPath(seq, nuc)
+            return traverse_to_get_path(seq, nuc)
 
     return None
 
@@ -1070,7 +1062,7 @@ def getNextPath(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
 import inscribed_polygon
 
 
-def getC3Prime(residue: Residue) -> Atom:
+def get_c3prime(residue: Residue) -> Atom:
     if "C3'" in residue:
         return residue["C3'"]
     if "C3*" in residue:
@@ -1124,7 +1116,7 @@ def create_rotation(s1: ndarray, s2: ndarray, d1: ndarray, d2: ndarray) -> ndarr
 
 def build_cycles(rass_data: RassData) -> None:
     while True:
-        cycle = getNextCycle(rass_data.seq)
+        cycle = get_next_cycle(rass_data.seq)
 
         if cycle is not None:
             print("Cycle", cycle)
@@ -1132,7 +1124,7 @@ def build_cycles(rass_data: RassData) -> None:
         else:
             # for i,nuc in sorted(chain_of_nucleotides.items()):
             # print(i+1, nuc.rigid.id)
-            cycle = getNextPath(rass_data.seq)
+            cycle = get_next_path(rass_data.seq)
             print("Chain", cycle)
             isPath = True
 
@@ -1141,8 +1133,8 @@ def build_cycles(rass_data: RassData) -> None:
 
         rigid_distances = []
         for (a, b) in cycle:
-            a_atom = getC3Prime(a.model)
-            b_atom = getC3Prime(b.model)
+            a_atom = get_c3prime(a.model)
+            b_atom = get_c3prime(b.model)
             rigid_distances.append(np_distance(a_atom.coord, b_atom.coord))
 
         distances = []
@@ -1200,8 +1192,8 @@ def build_cycles(rass_data: RassData) -> None:
             rb = cycle[i][1]
             assert ra.rigid is rb.rigid
 
-            spa = getC3Prime(ra.model).coord
-            spb = getC3Prime(rb.model).coord
+            spa = get_c3prime(ra.model).coord
+            spb = get_c3prime(rb.model).coord
 
             if (spb == spa).all():
                 sv1 = np.array([1.0, 0, 0])
