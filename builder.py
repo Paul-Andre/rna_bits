@@ -167,7 +167,9 @@ class Builder:
         self.seq: str = rass_data.seq
 
         # For each nucleotide, a list of (module, residue_in_module)
-        self.module_assignment: List[List[Tuple[Node, int]]] = [[] for _ in range(len(rass_data.seq))]
+        self.module_assignment: List[List[Tuple[Node, int]]] = [
+            [] for _ in range(len(rass_data.seq))
+        ]
         self.nodes: List[Node] = []
 
         self.rigids: List["Rigid"] = []
@@ -176,8 +178,10 @@ class Builder:
 
         self.models_used: List[Tuple[List[int], ModelSourceInfo]] = []
 
+
 def new_node_from_motif_info(info: MotifInfo) -> Node:
     return Node(("module", info.filename), info.nucs)
+
 
 def generate_motif_nodes(builder: Builder) -> None:
     for info in builder.rass_data.user_motifs:
@@ -191,7 +195,9 @@ def generate_nodes_from_rnamoip_components(builder: Builder) -> None:
     # TODO: Somehow take care of rnamoip components?
     # Thing is, mapping rnamoip style motifs requires to actually look at the
     # pdb file in order to see where there are gaps
-    assert len(builder.rass_data.rnamoip_components) == 0, "rnamoip style input temporarily unavailable"
+    assert (
+        len(builder.rass_data.rnamoip_components) == 0
+    ), "rnamoip style input temporarily unavailable"
     return
     modules_by_name = {}
     rnamoip_components = rass_data.rnamoip_components.copy()
@@ -214,8 +220,7 @@ def generate_nodes_from_rnamoip_components(builder: Builder) -> None:
 
 
 def have_overlapping_module(builder: Builder, nucls: Tuple[int, ...]) -> bool:
-    """Checks whether nucls are already covered in their entirety by at least one existing node
-    """
+    """Checks whether nucls are already covered in their entirety by at least one existing node"""
     b = [{node.id for (node, _) in builder.module_assignment[id]} for id in nucls]
     a = set.intersection(*b)
     return len(a) >= 1
@@ -587,13 +592,13 @@ def map_residues(node: Node) -> Dict[int, Residue]:
 
 
 def load_substitution_model() -> Model:
-    return PDB.PDBParser().get_structure(
-        "substitution_model", "bases.pdb"
-    )[0]
+    return PDB.PDBParser().get_structure("substitution_model", "bases.pdb")[0]
+
 
 # Model contains only the 4 bases, used for base substitution
 # Each base is in its own chain, where the chain name is the name of the base.
 SUBSTITUTION_MODEL: Model = load_substitution_model()
+
 
 def get_reference_base(letter: str) -> Residue:
     """Returns (a reference to) a Residue representing the base of the given letter.
@@ -674,8 +679,6 @@ def assign_models(builder: Builder, seq: str, rass_filename: str) -> None:
             if seq[k].isupper() and seq[k] != canonical_residue_name(v.resname):
                 did_substitute = True
                 substitute_base(v, seq[k])
-
-
 
 
 BB_ATOM_NAMES = ["P", "O5'", "C5'", "C4'", "C3'", "O3'"]
@@ -891,8 +894,8 @@ import heapq
 from numpy import float32, float64, ndarray
 
 
-def traverse_to_get_cycle(builder: Builder,
-    startNuc: Nucleotide, endNuc: Nucleotide
+def traverse_to_get_cycle(
+    builder: Builder, startNuc: Nucleotide, endNuc: Nucleotide
 ) -> Tuple[Optional[List[Tuple[Nucleotide, Nucleotide]]], float64]:
     """
     The idea is to get the shortest path from startNuc to startNuc,
@@ -996,7 +999,7 @@ def is_terminal_rigid(builder: Builder, r: Rigid) -> bool:
 
 
 def traverse_to_get_path(
-        builder: Builder, startNuc: Nucleotide
+    builder: Builder, startNuc: Nucleotide
 ) -> List[Tuple[Nucleotide, Nucleotide]]:
     """Traverse to get a path between two rigids that are connected to only one edge each
     (to get an "outer loop")
@@ -1348,8 +1351,7 @@ def main(argv: List[str]) -> None:
     assign_models(builder, builder.rass_data.seq, rass_filename)
     assemble(builder)
     generate_unplaced_nucleotides(
-        builder, 
-        rass_data.seq
+        builder, rass_data.seq
     )  # Probably unneeded because all lonely nucleotides should have been generated
     for _, b in sorted(builder.chain_of_nucleotides.items()):
         print(b, b.rigid)
