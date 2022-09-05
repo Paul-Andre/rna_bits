@@ -163,12 +163,16 @@ class Node:
 class Builder:
     def __init__(self, rass_data: RassData) -> None:
 
-        self.rass_data = rass_data
-        self.seq = rass_data.seq
+        self.rass_data: RassData = rass_data
+        self.seq: str = rass_data.seq
 
         # For each nucleotide, a list of (module, residue_in_module)
         self.module_assignment: List[List[Tuple[Node, int]]] = [[] for _ in range(len(rass_data.seq))]
         self.nodes: List[Node] = []
+
+        self.rigids: List["Rigid"] = []
+        self.chain_of_nucleotides: Dict[int, "Nucleotide"] = {}
+        self.rigidCounter = 0
 
 def new_node_from_motif_info(info: MotifInfo) -> Node:
     return Node(("module", info.filename), info.nucs)
@@ -669,8 +673,6 @@ def assign_models(nodes: List[Node], seq: str, rass_filename: str) -> None:
                 substitute_base(v, seq[k])
 
 
-# Before turning data into the BIO classes, I will represent the chain as a dict of nucleotides first
-chain_of_nucleotides = {}
 
 
 BB_ATOM_NAMES = ["P", "O5'", "C5'", "C4'", "C3'", "O3'"]
@@ -766,8 +768,8 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
     aligning_residues = []
     to_place_id = []
     for nuc_id in node.nucs:
-        if nuc_id in chain_of_nucleotides:
-            fixed_residues.append(chain_of_nucleotides[nuc_id].model)
+        if nuc_id in builder.chain_of_nucleotides:
+            fixed_residues.append(builder.chain_of_nucleotides[nuc_id].model)
             print(node.residue_mapping[nuc_id])
             aligning_residues.append(node.residue_mapping[nuc_id])
         else:
@@ -794,7 +796,7 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
     for k in to_place_id:
         v = node.residue_mapping[k]
         wrapper = Nucleotide(v.copy(), currentRigid, k)
-        chain_of_nucleotides[k] = wrapper
+        builder.chain_of_nucleotides[k] = wrapper
 
     for nuc_id in node.nucs:
         for (other, _) in builder.module_assignment[nuc_id]:
@@ -802,14 +804,8 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
                 traverse_and_stack(builder, other, currentRigid)
 
 
-rigidCounter = 0
-
-rigids = []
-
-
 def assemble(builder: Builder) -> None:
-    global rigidCounter
-    global rigids
+    rigids = builder.rigids
     while True:
         central_node = None
         for node in builder.nodes:
@@ -826,41 +822,42 @@ def assemble(builder: Builder) -> None:
         tot = sum(1 for atom in central_node.model.get_atoms())
         # pytype: enable=attribute-error
         centroid = acc / tot
-        rigidCounter += 1
+        builder.rigidCounter += 1
 
         currentRigid = Rigid()
         rigids.append(currentRigid)
 
         for atom in central_node.model.get_atoms():  # pytype: disable=attribute-error
-            atom.coord -= centroid + rigidCounter * 20.0
+            atom.coord -= centroid + builder.rigidCounter * 20.0
         traverse_and_stack(builder, central_node, currentRigid)
 
 
-def create_c3prime_nuc(coord, letter, pos):
+def generate_c3prime_nuc(builder: Builder, coord, letter, pos):
     output_residue = PDB.Residue.Residue((" ", 0, " "), letter, "    ")
     # 'name', 'coord', 'bfactor', 'occupancy', 'altloc', 'fullname', 'serial_number', element=None
     output_atom = PDB.Atom.Atom("C3'", coord, 0.0, 1.0, " ", "C3'", 1, "C")
     output_residue.add(output_atom)
     rigid = Rigid()
-    rigids.append(rigid)
+    builder.rigids.append(rigid)
     nucWrapper = Nucleotide(output_residue, rigid, pos)
     return nucWrapper
 
 
-def generate_unplaced_nucleotides(seq: str) -> None:
-    global rigidCounter
+def generate_unplaced_nucleotides(builder: Builder, seq: str) -> None:
+    chain_of_nucleotides = builder.chain_of_nucleotides
     # Find nucleotides that haven't been placed and turn them into rigids
     for i in range(0, len(seq)):
         # assert i in chain_of_nucleotides
         if i not in chain_of_nucleotides:
             print(i, "is not in chain of nucleotides for some reason")
 
-            rigidCounter += 1
-            coord = np.array([0.0, 0, 0]) - rigidCounter * 20.0
-            chain_of_nucleotides[i] = create_c3prime_nuc(coord, seq[i], i)
+            builder.rigidCounter += 1
+            coord = np.array([0.0, 0, 0]) - builder.rigidCounter * 20.0
+            chain_of_nucleotides[i] = generate_c3prime_nuc(builder, coord, seq[i], i)
 
 
-def is_rigid_edge_nuc(i: int) -> bool:
+def is_rigid_edge_nuc(builder: Builder, i: int) -> bool:
+    chain_of_nucleotides = builder.chain_of_nucleotides
     if (i + 1) in chain_of_nucleotides:
         if chain_of_nucleotides[i + 1].rigid is not chain_of_nucleotides[i].rigid:
             return True
@@ -888,17 +885,10 @@ NUCLEOTIDE_DISTANCE = 5.78
 
 import heapq
 
-# if want_chain and isTerminalRigid(nuc.rigid) and nuc.rigid is not startNuc.rigid:
-#     prevMap[nuc] = prev
-#     endNuc = nuc
-#     score = dist
-#     break;
-
-
 from numpy import float32, float64, ndarray
 
 
-def traverse_to_get_cycle(
+def traverse_to_get_cycle(builder: Builder,
     startNuc: Nucleotide, endNuc: Nucleotide
 ) -> Tuple[Optional[List[Tuple[Nucleotide, Nucleotide]]], float64]:
     """
@@ -907,6 +897,7 @@ def traverse_to_get_cycle(
     allowing the endNuc->startNuc direction), so that we find the shortest
     cycle containing that link.
     """
+    chain_of_nucleotides = builder.chain_of_nucleotides
 
     prevMap = {}
 
@@ -969,12 +960,14 @@ def traverse_to_get_cycle(
 
 
 # Finds the next we want to process
-def get_next_cycle(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
+def get_next_cycle(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
+    seq = builder.seq
+    chain_of_nucleotides = builder.chain_of_nucleotides
     print(chain_of_nucleotides)
     bestScore = math.inf
     bestCycle = None
     for i in range(len(seq)):
-        if is_rigid_edge_nuc(i):
+        if is_rigid_edge_nuc(builder, i):
             nuc = chain_of_nucleotides[i]
 
             for j in (i - 1, i + 1):
@@ -984,35 +977,38 @@ def get_next_cycle(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
                 if nn.rigid is nuc.rigid:
                     continue
 
-                cycle, score = traverse_to_get_cycle(nuc, nn)
+                cycle, score = traverse_to_get_cycle(builder, nuc, nn)
                 if score < bestScore:
                     bestScore = score
                     bestCycle = cycle
     return bestCycle
 
 
-def is_terminal_rigid(seq: str, r: Rigid) -> bool:
+def is_terminal_rigid(builder: Builder, r: Rigid) -> bool:
     # TODO: make this work even when there's more than 1 strand
     return r in (
-        chain_of_nucleotides[len(seq) - 1].rigid,
-        chain_of_nucleotides[0].rigid,
+        builder.chain_of_nucleotides[len(builder.seq) - 1].rigid,
+        builder.chain_of_nucleotides[0].rigid,
     )
 
 
 def traverse_to_get_path(
-    seq: str, startNuc: Nucleotide
+        builder: Builder, startNuc: Nucleotide
 ) -> List[Tuple[Nucleotide, Nucleotide]]:
     """Traverse to get a path between two rigids that are connected to only one edge each
     (to get an "outer loop")
     """
-    assert is_terminal_rigid(seq, startNuc.rigid)
-    assert is_rigid_edge_nuc(startNuc.pos)
+    seq = builder.seq
+    chain_of_nucleotides = builder.chain_of_nucleotides
+
+    assert is_terminal_rigid(builder, startNuc.rigid)
+    assert is_rigid_edge_nuc(builder, startNuc.pos)
 
     visitedRigids = set()
     out = []
     nuc = startNuc
     visitedRigids.add(nuc.rigid)
-    while nuc is startNuc or not is_terminal_rigid(seq, nuc.rigid):
+    while nuc is startNuc or not is_terminal_rigid(builder, nuc.rigid):
         print(nuc)
         print(out)
 
@@ -1045,14 +1041,14 @@ def traverse_to_get_path(
     return out
 
 
-def get_next_path(seq: str) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
+def get_next_path(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
     """Assumes that all cycles have been found.
     Finds the next "outer loop"
     """
-    for i in range(len(seq)):
-        if is_rigid_edge_nuc(i):
-            nuc = chain_of_nucleotides[i]
-            return traverse_to_get_path(seq, nuc)
+    for i in range(len(builder.seq)):
+        if is_rigid_edge_nuc(builder, i):
+            nuc = builder.chain_of_nucleotides[i]
+            return traverse_to_get_path(builder, nuc)
 
     return None
 
@@ -1112,9 +1108,9 @@ def create_rotation(s1: ndarray, s2: ndarray, d1: ndarray, d2: ndarray) -> ndarr
     return T
 
 
-def build_cycles(rass_data: RassData) -> None:
+def build_cycles(builder: Builder) -> None:
     while True:
-        cycle = get_next_cycle(rass_data.seq)
+        cycle = get_next_cycle(builder)
 
         if cycle is not None:
             print("Cycle", cycle)
@@ -1122,7 +1118,7 @@ def build_cycles(rass_data: RassData) -> None:
         else:
             # for i,nuc in sorted(chain_of_nucleotides.items()):
             # print(i+1, nuc.rigid.id)
-            cycle = get_next_path(rass_data.seq)
+            cycle = get_next_path(builder)
             print("Chain", cycle)
             isPath = True
 
@@ -1266,7 +1262,7 @@ def build_cycles(rass_data: RassData) -> None:
             first.rigid.merge(a.rigid)
 
 
-def visualize_stuff():
+def visualize_stuff(builder: Builder):
     # visualize stuff
     # Used for debug purposes a long time ago
     # TODO: Does it even work?
@@ -1275,7 +1271,7 @@ def visualize_stuff():
     def toVpVec(a):
         return vp.vector(a[0], a[1], a[2])
 
-    for k, residue in chain_of_nucleotides.items():
+    for k, residue in builder.chain_of_nucleotides.items():
         for atom in residue.model:
             vp.sphere(pos=toVpVec(atom.coord), radius=0.3, color=vp.vector(0, 0.5, 0))
             if canonical_atom_name(atom.name) == "P":
@@ -1285,7 +1281,9 @@ def visualize_stuff():
 
 
 # Now all we need is to write a pdb output!
-def generate_biopython_structure() -> Structure:
+def generate_biopython_structure(builder: Builder) -> Structure:
+    chain_of_nucleotides = builder.chain_of_nucleotides
+
     output_structure = PDB.Structure.Structure("output")
     output_model = PDB.Model.Model(0)
     output_chain = PDB.Chain.Chain("A")
@@ -1347,15 +1345,16 @@ def main(argv: List[str]) -> None:
     assign_models(builder.nodes, builder.rass_data.seq, rass_filename)
     assemble(builder)
     generate_unplaced_nucleotides(
+        builder, 
         rass_data.seq
     )  # Probably unneeded because all lonely nucleotides should have been generated
-    for _, b in sorted(chain_of_nucleotides.items()):
+    for _, b in sorted(builder.chain_of_nucleotides.items()):
         print(b, b.rigid)
 
-    build_cycles(rass_data)
+    build_cycles(builder)
 
     rigids_seen = set()
-    for nuc in chain_of_nucleotides.values():
+    for nuc in builder.chain_of_nucleotides.values():
         rigids_seen.add(nuc.rigid)
     print("rigids seen", [r.id for r in rigids_seen])
 
@@ -1364,7 +1363,7 @@ def main(argv: List[str]) -> None:
     for a in models_used:
         print(a)
 
-    output_structure = generate_biopython_structure()
+    output_structure = generate_biopython_structure(builder)
     out_filename = get_output_filename(rass_filename)
     write_output_pdb_file(output_structure, out_filename)
 
