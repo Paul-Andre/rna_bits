@@ -160,39 +160,32 @@ class Node:
         self.residue_mapping: Optional[Dict[int, Residue]] = None
 
 
-# For each nucleotide, a list of (module, residue_in_module)
-module_assignment: List[Tuple[Node, int]] = []
+class Builder:
+    def __init__(self, rass_data: RassData) -> None:
 
-# A list of all modules
-nodes: List[Node] = []
+        self.rass_data = rass_data
+        self.seq = rass_data.seq
 
+        # For each nucleotide, a list of (module, residue_in_module)
+        self.module_assignment: List[List[Tuple[Node, int]]] = [[] for _ in range(len(rass_data.seq))]
+        self.nodes: List[Node] = []
 
 def new_node_from_motif_info(info: MotifInfo) -> Node:
     return Node(("module", info.filename), info.nucs)
 
-
-def reset_nodes(seq: str) -> None:
-    global module_assignment
-    global nodes
-    module_assignment = [[] for _ in range(len(seq))]
-    nodes = []
-
-
-def generate_motif_nodes(rass_data: RassData) -> None:
-    global module_assignment
-    global nodes
-    for info in rass_data.user_motifs:
+def generate_motif_nodes(builder: Builder) -> None:
+    for info in builder.rass_data.user_motifs:
         n = new_node_from_motif_info(info)
-        nodes.append(n)
+        builder.nodes.append(n)
         for motif_nuc, target_nuc in enumerate(info.nucs):
-            module_assignment[target_nuc].append((n, motif_nuc))
+            builder.module_assignment[target_nuc].append((n, motif_nuc))
 
 
-def generate_nodes_from_rnamoip_components(rass_data: RassData) -> None:
+def generate_nodes_from_rnamoip_components(builder: Builder) -> None:
     # TODO: Somehow take care of rnamoip components?
     # Thing is, mapping rnamoip style motifs requires to actually look at the
     # pdb file in order to see where there are gaps
-    assert False, "rnamoip style input temporarily unavailable"
+    assert len(builder.rass_data.rnamoip_components) == 0, "rnamoip style input temporarily unavailable"
     return
     modules_by_name = {}
     rnamoip_components = rass_data.rnamoip_components.copy()
@@ -202,7 +195,7 @@ def generate_nodes_from_rnamoip_components(rass_data: RassData) -> None:
             module = modules_by_name[name]
         else:
             module = Node(("module", name))
-            nodes.append(module)
+            builder.nodes.append(module)
             modules_by_name[name] = module
         print(name, comp, first, last)
         assert (
@@ -210,22 +203,25 @@ def generate_nodes_from_rnamoip_components(rass_data: RassData) -> None:
         ), "Index of module component does not match order"
         module.components.append((first, last))
         for i in range(first, last + 1):
-            module_assignment[i].append((module, comp, i - first))
+            builder.module_assignment[i].append((module, comp, i - first))
             module.nucls.add(i)
 
 
-def have_overlapping_module(nucls: Tuple[int, ...]) -> bool:
-    b = [{node.id for (node, _) in module_assignment[id]} for id in nucls]
+def have_overlapping_module(builder: Builder, nucls: Tuple[int, ...]) -> bool:
+    """Checks whether nucls are already covered in their entirety by at least one existing node
+    """
+    b = [{node.id for (node, _) in builder.module_assignment[id]} for id in nucls]
     a = set.intersection(*b)
     return len(a) >= 1
 
 
-def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> None:
-    """Generate and add nodes related to ncm's and loose ends and lonely pairs
-    and lonely nucleotides"""
+def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
+    """Generate and add nodes related to ncm's, loose ends, lonely pairs and
+    lonely nucleotides"""
     # TODO: split this function
-    global module_assignment
-    global nodes
+    module_assignment = builder.module_assignment
+    nodes = builder.nodes
+    rass_data = builder.rass_data
     added_ncms = set()
     seq = rass_data.seq
     stacks = rass_data.stacks
@@ -239,7 +235,7 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
             module = None
             if ii < len(pairing) and pairing[ii] == jj:
                 ts = tuple(sorted((i, ii, jj, j)))
-                if ts in added_ncms or have_overlapping_module(ts):
+                if ts in added_ncms or have_overlapping_module(builder, ts):
                     continue
                 added_ncms.add(ts)
                 module = Node(
@@ -252,7 +248,7 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
 
             elif ii < len(pairing) and pairing[ii] == jjj:
                 ts = tuple(sorted((i, ii, jjj, jj, j)))
-                if ts in added_ncms or have_overlapping_module(ts):
+                if ts in added_ncms or have_overlapping_module(builder, ts):
                     continue
                 added_ncms.add(ts)
                 module = Node(
@@ -267,7 +263,7 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
 
             elif iii < len(pairing) and pairing[iii] == jj:
                 ts = tuple(sorted((i, iii, iii, jj, j)))
-                if ts in added_ncms or have_overlapping_module(ts):
+                if ts in added_ncms or have_overlapping_module(builder, ts):
                     continue
                 added_ncms.add(ts)
                 module = Node(
@@ -281,7 +277,7 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
                 module_assignment[j].append((module, 4))
             elif iii < len(pairing) and pairing[iii] == jjj:
                 ts = tuple(sorted((i, ii, iii, jjj, jj, j)))
-                if ts in added_ncms or have_overlapping_module(ts):
+                if ts in added_ncms or have_overlapping_module(builder, ts):
                     continue
                 added_ncms.add(ts)
                 module = Node(
@@ -307,7 +303,7 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
         if pairing[i] is not None:
             j = pairing[i]
             ts = tuple(sorted((i, j)))
-            if ts in added_ncms or have_overlapping_module(ts):
+            if ts in added_ncms or have_overlapping_module(builder, ts):
                 continue
             added_ncms.add(ts)
             module = Node(("pair", seq[i] + seq[j]), [i, j])
@@ -318,7 +314,7 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
     def add_helix_stack_module(i, j):
         assert j == i + 1
         ts = tuple(sorted((i, j)))
-        if ts in added_ncms or have_overlapping_module(ts):
+        if ts in added_ncms or have_overlapping_module(builder, ts):
             # TODO: check if the overlap is a helix fragment or not
             return
         added_ncms.add(ts)
@@ -355,7 +351,7 @@ def generate_auto_nodes(rass_data: RassData, pairing: List[Optional[int]]) -> No
     for i in range(0, len(seq)):
         if len(module_assignment[i]) == 0:
             ts = (i,)
-            if ts in added_ncms or have_overlapping_module(ts):
+            if ts in added_ncms or have_overlapping_module(builder, ts):
                 continue
             added_ncms.add(ts)
             module = Node(("nucleotide", seq[i]), [i])
@@ -656,7 +652,7 @@ def substitute_base(residue: Residue, newResname: str) -> None:
 models_used = []
 
 
-def assign_models(seq: str, rass_filename: str) -> None:
+def assign_models(nodes: List[Node], seq: str, rass_filename: str) -> None:
     for node in nodes:
         print(node.kind, node.nucs)
         node.model, model_filename = load_model_kind(node.kind, rass_filename)
@@ -760,7 +756,7 @@ class Rigid:
         other.parent = self
 
 
-def traverse_and_stack(node: Node, currentRigid: Rigid) -> None:
+def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> None:
     if node.visited:
         return
     print("Putting down", node.model_filename)
@@ -801,9 +797,9 @@ def traverse_and_stack(node: Node, currentRigid: Rigid) -> None:
         chain_of_nucleotides[k] = wrapper
 
     for nuc_id in node.nucs:
-        for (other, _) in module_assignment[nuc_id]:
+        for (other, _) in builder.module_assignment[nuc_id]:
             if not other.visited:
-                traverse_and_stack(other, currentRigid)
+                traverse_and_stack(builder, other, currentRigid)
 
 
 rigidCounter = 0
@@ -811,11 +807,12 @@ rigidCounter = 0
 rigids = []
 
 
-def assemble() -> None:
+def assemble(builder: Builder) -> None:
     global rigidCounter
+    global rigids
     while True:
         central_node = None
-        for node in nodes:
+        for node in builder.nodes:
             if not node.visited and (
                 central_node is None or (len(node.nucs) > len(central_node.nucs))
             ):
@@ -836,7 +833,7 @@ def assemble() -> None:
 
         for atom in central_node.model.get_atoms():  # pytype: disable=attribute-error
             atom.coord -= centroid + rigidCounter * 20.0
-        traverse_and_stack(central_node, currentRigid)
+        traverse_and_stack(builder, central_node, currentRigid)
 
 
 def create_c3prime_nuc(coord, letter, pos):
@@ -1340,12 +1337,15 @@ def main(argv: List[str]) -> None:
         f = sys.stdin
     rass_data = parse_rass_file(f)
     pairing = parse_parens(rass_data.dot_bracket)
-    reset_nodes(rass_data.seq)
-    generate_motif_nodes(rass_data)
-    generate_auto_nodes(rass_data, pairing)
 
-    assign_models(rass_data.seq, rass_filename)
-    assemble()
+    builder = Builder(rass_data)
+
+    generate_motif_nodes(builder)
+    generate_nodes_from_rnamoip_components(builder)
+    generate_auto_nodes(builder, pairing)
+
+    assign_models(builder.nodes, builder.rass_data.seq, rass_filename)
+    assemble(builder)
     generate_unplaced_nucleotides(
         rass_data.seq
     )  # Probably unneeded because all lonely nucleotides should have been generated
