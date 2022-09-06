@@ -141,6 +141,16 @@ NodeKind = Union[
 ]
 ModelSourceInfo = Union[str, Tuple[str, str]]
 
+Priority = Optional[int]
+
+
+def is_lhs_higher_priority(lhs: Priority, rhs: Priority) -> bool:
+    if lhs is None:
+        return False
+    if rhs is None:
+        return True
+    return lhs < rhs
+
 
 class Node:
     id_increment = 10000
@@ -152,6 +162,8 @@ class Node:
 
         self.id = Node.id_increment
         Node.id_increment += 1
+
+        self.priority: Priority = None
 
         self.visited = False
 
@@ -370,6 +382,11 @@ def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
             nodes.append(module)
 
 
+def assign_priorities(builder: Builder) -> None:
+    for i, node in enumerate(builder.nodes):
+        node.priority = i
+
+
 import vpython as vp
 import Bio.PDB as PDB
 
@@ -476,6 +493,7 @@ def choose_or_not(options: List[str]) -> str:
 # TODO: put the filename selection into a different file
 # TODO: add a caching layer
 # TODO: instead of passing the rass_filename, pass the directory to search for
+# TODO: Try to simplify
 # models in the "./" case
 def load_model_kind(
     kind: NodeKind, rass_filename: Optional[str]
@@ -729,10 +747,13 @@ def superimpose_nodes(fixed, moving, nucls):
 
 
 class Nucleotide:
-    def __init__(self, model: Residue, rigid: "Rigid", pos: int) -> None:
+    def __init__(
+        self, model: Residue, rigid: "Rigid", pos: int, priority: Priority
+    ) -> None:
         self.model = model
         self.rigid = rigid
         self.pos = pos
+        self.priority = priority
         rigid.nucleotides.add(self)
 
     def __repr__(self) -> str:
@@ -770,16 +791,20 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
     print("Putting down", node.model_filename)
     node.visited = True
 
-    fixed_residues = []
-    aligning_residues = []
-    to_place_id = []
+    fixed_residues: List[Residue] = []
+    aligning_residues: List[Residue] = []
+
+    to_place_ids: List[int] = []
+    fixed_ids: List[int] = []
+
     for nuc_id in node.nucs:
         if nuc_id in builder.chain_of_nucleotides:
             fixed_residues.append(builder.chain_of_nucleotides[nuc_id].model)
+            fixed_ids.append(nuc_id)
             print(node.residue_mapping[nuc_id])
             aligning_residues.append(node.residue_mapping[nuc_id])
         else:
-            to_place_id.append(nuc_id)
+            to_place_ids.append(nuc_id)
 
     if len(fixed_residues) != 0:
 
@@ -796,13 +821,21 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
         superimposer = PDB.Superimposer()
         superimposer.set_atoms(fixed_atoms, aligning_atoms)
 
+        # Apply the superimposer transformation to the fragment
         assert node.residue_mapping is not None
         superimposer.apply(node.residue_mapping.values())
 
-    for k in to_place_id:
+    for k in to_place_ids:
         v = node.residue_mapping[k]
-        wrapper = Nucleotide(v.copy(), currentRigid, k)
+        wrapper = Nucleotide(v.copy(), currentRigid, k, node.priority)
         builder.chain_of_nucleotides[k] = wrapper
+
+    for k in fixed_ids:
+        old_nucleotide = builder.chain_of_nucleotides[k]
+        if is_lhs_higher_priority(node.priority, old_nucleotide.priority):
+            v = node.residue_mapping[k]
+            wrapper = Nucleotide(v.copy(), currentRigid, k, node.priority)
+            builder.chain_of_nucleotides[k] = wrapper
 
     for nuc_id in node.nucs:
         for (other, _) in builder.module_assignment[nuc_id]:
@@ -813,6 +846,7 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
 def assemble(builder: Builder) -> None:
     rigids = builder.rigids
     while True:
+        # Find biggest node to place first
         central_node = None
         for node in builder.nodes:
             if not node.visited and (
@@ -835,6 +869,8 @@ def assemble(builder: Builder) -> None:
 
         for atom in central_node.model.get_atoms():  # pytype: disable=attribute-error
             atom.coord -= centroid + builder.rigidCounter * 20.0
+
+        # Actually assemble
         traverse_and_stack(builder, central_node, currentRigid)
 
 
@@ -845,7 +881,7 @@ def generate_c3prime_nuc(builder: Builder, coord, letter, pos):
     output_residue.add(output_atom)
     rigid = Rigid()
     builder.rigids.append(rigid)
-    nucWrapper = Nucleotide(output_residue, rigid, pos)
+    nucWrapper = Nucleotide(output_residue, rigid, pos, None)
     return nucWrapper
 
 
@@ -1348,7 +1384,9 @@ def main(argv: List[str]) -> None:
     generate_nodes_from_rnamoip_components(builder)
     generate_auto_nodes(builder, pairing)
 
+    assign_priorities(builder)
     assign_models(builder, builder.rass_data.seq, rass_filename)
+
     assemble(builder)
     generate_unplaced_nucleotides(
         builder, rass_data.seq
