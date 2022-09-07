@@ -384,7 +384,8 @@ def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
 
 def assign_priorities(builder: Builder) -> None:
     for i, node in enumerate(builder.nodes):
-        node.priority = i
+        if node.kind[0] == "module":
+            node.priority = i
 
 
 import vpython as vp
