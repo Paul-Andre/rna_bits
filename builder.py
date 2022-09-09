@@ -1,7 +1,7 @@
 import sys
 import numpy as np
 from dataclasses import dataclass
-from typing import Optional, Union, List, Tuple, Dict, TextIO, Literal
+from typing import Optional, Union, List, Tuple, Dict, TextIO, Literal, Container
 import io
 
 # internally, I use 0-based indexing for sequences
@@ -132,24 +132,27 @@ def parse_parens(dot_bracket: str) -> List[Optional[int]]:
     return pairing
 
 
-NodeKind = Union[
-    Tuple[Literal["ncm"], str, str],
-    Tuple[Literal["module"], str],
-    Tuple[Literal["pair"], str],
-    Tuple[Literal["helix_stack"], str],
-    Tuple[Literal["nucleotide"], str],
-]
-ModelSourceInfo = Union[str, Tuple[str, str]]
-
 Priority = Optional[int]
 
 
 def is_lhs_higher_priority(lhs: Priority, rhs: Priority) -> bool:
+    # The smaller the number, the higher the priority. None is the lowest priority
     if lhs is None:
         return False
     if rhs is None:
         return True
     return lhs < rhs
+
+
+NodeKind = Union[
+    Tuple[Literal["module"], str],
+    Tuple[Literal["ncm"], str, str],
+    Tuple[Literal["pair"], str],
+    Tuple[Literal["helix_stack"], str],
+    Tuple[Literal["nucleotide"], str],
+]
+
+ModelSourceInfo = Union[str, Tuple[str, str]]
 
 
 class Node:
@@ -241,7 +244,8 @@ def have_overlapping_module(builder: Builder, nucls: Tuple[int, ...]) -> bool:
 def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
     """Generate and add nodes related to ncm's, loose ends, lonely pairs and
     lonely nucleotides"""
-    # TODO: split this function
+    # TODO: split this function in ncm, pairs, etc...
+    # TODO: for ncms, check if they exist. Bulges and inner loops might not exist
     module_assignment = builder.module_assignment
     nodes = builder.nodes
     rass_data = builder.rass_data
@@ -338,7 +342,7 @@ def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
         assert j == i + 1
         ts = tuple(sorted((i, j)))
         if ts in added_ncms or have_overlapping_module(builder, ts):
-            # TODO: check if the overlap is a helix fragment or not
+            # TODO: check if the overlap is a helix fragment or not <- why?
             return
         added_ncms.add(ts)
         module = Node(("helix_stack", seq[i] + seq[j]), [i, j])
@@ -386,6 +390,14 @@ def assign_priorities(builder: Builder) -> None:
     for i, node in enumerate(builder.nodes):
         if node.kind[0] == "module":
             node.priority = i
+        #
+        # # The following removes some additional chainbreaks but adds a bunch of chainbreaks as well
+        #
+        # if node.kind[0] == "ncm" and node.kind[1] == "2_2":
+        #     seq = node.kind[2]
+        #     wobble = ("GU", "UG")
+        #     if (seq[0] + seq[3]) in wobble or (seq[1] + seq[2]) in wobble:
+        #         node.priority = i
 
 
 import vpython as vp
@@ -490,73 +502,112 @@ def choose_or_not(options: List[str]) -> str:
     return o[0]
 
 
+LIBRARY_MOTIFS_DIR = os.path.dirname(__file__)
+
+
+def resolve_filename(filename: str, user_motifs_dir: str) -> str:
+    """
+    The idea is that if motif files specified in a .rass file start with "./",
+    then search around the .rass file
+    """
+    if filename.startswith("./"):
+        return os.path.join(os.path.dirname(user_motifs_dir), user_motifs_dir)
+    if not filename.startswith("/"):
+        return os.path.join(os.path.dirname(user_motifs_dir), LIBRARY_MOTIFS_DIR)
+    return filename
+
+
+def get_struct_paths_from_path(path: str) -> List[str]:
+    """If path is a directory, return all the structure files within it.
+    If path is a structure file, then return that file.
+    """
+
+    def allow_filename(f: str) -> bool:
+        return is_struct_filename(f) and not f.startswith(".")
+
+    if os.path.isdir(path):
+        ret = [os.path.join(path, f) for f in os.listdir(path) if allow_filename(f)]
+        assert ret, f"No struct files found in {path}"
+        return ret
+    else:
+        assert is_struct_filename(path), f"Unknown file type {path}"
+        return [path]
+
+
+def load_model_from_path(resolved_path: str) -> Tuple[Model, str]:
+    struct_paths = get_struct_paths_from_path(resolved_path)
+    choice = choose_or_not(struct_paths)
+
+    model = load_struct_file(choice)[0]
+    model = canonicalize_model(model)
+    return model, choice
+
+
+def load_model_from_mcsym_db(shape: str, letters: str) -> Tuple[Model, str]:
+    """Shape is like "2_2" and letters is like "AGCU"."""
+    # Some folders in mcsym-db have lowercase letters (I'm not sure why.)
+    # Because of that I manually iterate over
+    struct_directory = None
+    ncm_shape_dir = os.path.join(LIBRARY_MOTIFS_DIR, "mcsym-db/", shape)
+    for folder in sorted(os.listdir(ncm_shape_dir)):
+        if folder.upper() == letters:
+            struct_directory = os.path.join(ncm_shape_dir, folder)
+            break
+    assert struct_directory is not None, f"Couldn't find files for {str}/{letters}"
+
+    # if the theoretical model exists:
+    theoretical_filename = os.path.join(
+        struct_directory, "1-" + shape + "-" + letters + "_t.pdb.gz"
+    )
+    if os.path.isfile(theoretical_filename):
+        chosen_path = theoretical_filename
+    else:
+        chosen_path = struct_directory
+
+    return load_model_from_path(struct_directory)
+
+
+def load_stack_model(letters: str) -> Tuple[Model, str]:
+    return load_model_from_mcsym_db("2_2", letters)
+
+
+def delete_residues_by_number(model: Model, to_delete: Container[int]) -> None:
+    """If to_delete is, say, (0,3), the function will delete the 0th and 3rd
+    residues in the model (regardless of the chain numbers and the residues'
+    formal positions in the chains)."""
+    i = 0
+    for chain in model:
+        residue_ids_to_delete = []
+        for residue in chain:
+            if i in to_delete:
+                residue_ids_to_delete.append(residue.id)
+            i += 1
+        for id in residue_ids_to_delete:
+            chain.detach_child(id)
+
+
 # returns (model, filename)
 # TODO: put the filename selection into a different file
 # TODO: add a caching layer
 # TODO: instead of passing the rass_filename, pass the directory to search for
 # TODO: Try to simplify
-# models in the "./" case
-def load_model_kind(
-    kind: NodeKind, rass_filename: Optional[str]
+def load_model_from_kind(
+    kind: NodeKind, user_motifs_dir: str
 ) -> Tuple[Model, ModelSourceInfo]:
     if kind[0] == "module":
-        name = kind[1]
-        directory = name
-        if directory.startswith("./") and rass_filename is not None:
-            directory = os.path.join(os.path.dirname(rass_filename), directory)
-        if os.path.isdir(directory):
-            options = [
-                os.path.join(directory, x)
-                for x in os.listdir(directory)
-                if is_struct_filename(x) and not x.startswith(".")
-            ]
-            choice = choose_or_not(options)
-        else:
-            choice = directory
-        model = load_struct_file(choice)[0]
-        model = canonicalize_model(model)
-        return model, choice
+        resolved_path = resolve_filename(kind[1], user_motifs_dir)
+        assert os.path.exists(
+            resolved_path
+        ), f"{repr(resolved_path)}, aka {repr(kind[1])}, does not exist"
+        return load_model_from_path(resolved_path)
     if kind[0] == "ncm":
-        directory = None
-        for folder in sorted(os.listdir("mcsym-db/" + kind[1] + "/")):
-            if folder.upper() == kind[2]:
-                directory = "mcsym-db/" + kind[1] + "/" + folder
-                break
-
-        assert directory is not None
-
-        # if the theoretical model exists:
-        theoretical_filename = os.path.join(
-            directory, "1-" + kind[1] + "-" + kind[2] + "_t.pdb.gz"
-        )
-        if os.path.isfile(theoretical_filename):
-            filename = theoretical_filename
-        else:
-            options = [
-                os.path.join(directory, x)
-                for x in os.listdir(directory)
-                if (x.endswith(".pdb.gz") and not x.startswith("."))
-            ]
-            filename = choose_or_not(options)
-        model = load_struct_file(filename)[0]
-        model = canonicalize_model(model)
-        return model, filename
+        # kind[1] looks like "2_2", aka shape
+        # kind[2] looks like "AGCU"
+        return load_model_from_mcsym_db(kind[1], kind[2])
     if kind[0] == "pair":
-        # load 2_2 from mcsym-db, and truncate
-        model, filename = load_model_kind(
-            ("ncm", "2_2", kind[1][0] + "GC" + kind[1][1]), None
-        )
-        i = 0
-        for chain in model:
-            residue_ids_to_delete = []
-            for residue in chain:
-                if i in (1, 2):
-                    residue_ids_to_delete.append(residue.id)
-                i += 1
-            for id in residue_ids_to_delete:
-                chain.detach_child(id)
-
-        model = canonicalize_model(model)
+        # Load a stack and truncate
+        model, filename = load_stack_model(kind[1][0] + "GC" + kind[1][1])
+        delete_residues_by_number(model, (1, 2))
         return model, (filename, "trimmed")
     if kind[0] == "helix_stack":
         complementary = {"A": "U", "U": "A", "G": "C", "C": "G"}
@@ -564,19 +615,9 @@ def load_model_kind(
         b = kind[1][1]
         c = complementary[b]
         d = complementary[a]
-        # load 2_2 from mcsym-db, and truncate
-        model, filename = load_model_kind(("ncm", "2_2", a + b + c + d), None)
-        i = 0
-        for chain in model:
-            residue_ids_to_delete = []
-            for residue in chain:
-                if i >= 2:
-                    residue_ids_to_delete.append(residue.id)
-                i += 1
-            for id in residue_ids_to_delete:
-                chain.detach_child(id)
-
-        model = canonicalize_model(model)
+        # Load a stack and truncate
+        model, filename = load_stack_model(a + b + c + d)
+        delete_residues_by_number(model, (2, 3))
         return model, (filename, "trimmed")
     if kind[0] == "nucleotide":
         name = kind[1]
@@ -599,6 +640,9 @@ def map_residues(node: Node) -> Dict[int, Residue]:
     for chain in model:
         for residue in chain:
             res_list.append(residue)
+
+    print(node.kind)
+    print(pos_list, res_list)
 
     # TODO: perhaps not enforce this, for example to allow adding ions in the fragments
     assert len(pos_list) == len(res_list)
@@ -661,8 +705,8 @@ def substitute_base(residue: Residue, newResname: str) -> None:
         residue.detach_child(atom.id)
 
     # Remove everything that isn't part of our known atoms.
-    # I use remove_list because I got the impression that removing stuff while
-    # iterating causes problems.
+    # I use remove_list because I got the impression that removing atoms from a
+    # Residue while iterating through it causes problems.
     remove_list = []
     for atom in residue:
         if atom.id not in BB_SUGAR_ATOMS:
@@ -681,19 +725,20 @@ def substitute_base(residue: Residue, newResname: str) -> None:
     superimposer.apply(freshBaseAtoms)
 
 
-def assign_models(builder: Builder, seq: str, rass_filename: str) -> None:
+def assign_models(builder: Builder, user_motifs_dir: str) -> None:
     nodes = builder.nodes
     models_used = builder.models_used
+    seq = builder.seq
     for node in nodes:
         print(node.kind, node.nucs)
-        node.model, model_filename = load_model_kind(node.kind, rass_filename)
+        node.model, model_filename = load_model_from_kind(node.kind, user_motifs_dir)
         node.model_filename = model_filename
         models_used.append((node.nucs, model_filename))
         node.residue_mapping = map_residues(node)
         print(node.residue_mapping)
 
         did_substitute = False
-        # TODO: instead of passing seq, add the sequence information with the Node object
+        # TODO: instead of passing seq, add the sequence information into the Node object
         for k, v in node.residue_mapping.items():
             if seq[k].isupper() and seq[k] != canonical_residue_name(v.resname):
                 did_substitute = True
@@ -1371,7 +1416,7 @@ def write_output_pdb_file(output_structure: Structure, out_filename: str) -> Non
 
 
 def main(argv: List[str]) -> None:
-    rass_filename = get_input_filename(argv)
+    rass_filename: Optional[str] = get_input_filename(argv)
     if rass_filename is not None:
         f = open(rass_filename)
     else:
@@ -1385,8 +1430,14 @@ def main(argv: List[str]) -> None:
     generate_nodes_from_rnamoip_components(builder)
     generate_auto_nodes(builder, pairing)
 
+    user_motifs_dir: str
+    if rass_filename is not None:
+        user_motifs_dir = os.path.dirname(rass_filename)
+    else:
+        user_motifs_dir = os.getcwd()
+
+    assign_models(builder, user_motifs_dir)
     assign_priorities(builder)
-    assign_models(builder, builder.rass_data.seq, rass_filename)
 
     assemble(builder)
     generate_unplaced_nucleotides(
@@ -1398,8 +1449,9 @@ def main(argv: List[str]) -> None:
     build_cycles(builder)
 
     rigids_seen = set()
-    for nuc in builder.chain_of_nucleotides.values():
+    for (_, nuc) in sorted(builder.chain_of_nucleotides.items()):
         rigids_seen.add(nuc.rigid)
+        print(nuc, nuc.priority)
     print("rigids seen", [r.id for r in rigids_seen])
 
     if False:
