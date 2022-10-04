@@ -502,7 +502,7 @@ def choose_or_not(options: List[str]) -> str:
     return o[0]
 
 
-LIBRARY_MOTIFS_DIR = os.path.dirname(__file__)
+LIBRARY_MOTIFS_DIR = os.path.join(os.path.dirname(__file__), "data", "database")
 
 
 def resolve_filename(filename: str, user_motifs_dir: str) -> str:
@@ -567,6 +567,11 @@ def load_model_from_mcsym_db(shape: str, letters: str) -> Tuple[Model, str]:
     return load_model_from_path(struct_directory)
 
 
+def load_model_from_rosetta_db(shape: str, letters: str) -> Tuple[Model, str]:
+    path = os.path.join(LIBRARY_MOTIFS_DIR, "rosetta_canonical", shape, letters)
+    return load_model_from_path(path)
+
+
 def load_stack_model(letters: str) -> Tuple[Model, str]:
     return load_model_from_mcsym_db("2_2", letters)
 
@@ -586,6 +591,13 @@ def delete_residues_by_number(model: Model, to_delete: Container[int]) -> None:
             chain.detach_child(id)
 
 
+def has_wobble_pair(letters: str) -> bool:
+    return letters[0] + letters[3] in ("GU", "UG") or letters[1] + letters[2] in (
+        "GU",
+        "UG",
+    )
+
+
 # returns (model, filename)
 # TODO: put the filename selection into a different file
 # TODO: add a caching layer
@@ -601,9 +613,11 @@ def load_model_from_kind(
         ), f"{repr(resolved_path)}, aka {repr(kind[1])}, does not exist"
         return load_model_from_path(resolved_path)
     if kind[0] == "ncm":
-        # kind[1] looks like "2_2", aka shape
-        # kind[2] looks like "AGCU"
-        return load_model_from_mcsym_db(kind[1], kind[2])
+        shape = kind[1]
+        letters = kind[2]
+        if has_wobble_pair(letters):
+            return load_model_from_rosetta_db(shape, letters)
+        return load_model_from_mcsym_db(shape, letters)
     if kind[0] == "pair":
         # Load a stack and truncate
         model, filename = load_stack_model(kind[1][0] + "GC" + kind[1][1])
