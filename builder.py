@@ -511,9 +511,9 @@ def resolve_filename(filename: str, user_motifs_dir: str) -> str:
     then search around the .rass file
     """
     if filename.startswith("./"):
-        return os.path.join(os.path.dirname(user_motifs_dir), user_motifs_dir)
+        return os.path.join(os.path.dirname(user_motifs_dir), filename)
     if not filename.startswith("/"):
-        return os.path.join(os.path.dirname(user_motifs_dir), LIBRARY_MOTIFS_DIR)
+        return os.path.join(LIBRARY_MOTIFS_DIR, filename)
     return filename
 
 
@@ -1479,4 +1479,5 @@ def main(argv: List[str]) -> None:
 
 
 if __name__ == "__main__":
+    sys.setrecursionlimit(10000)
     main(sys.argv)
