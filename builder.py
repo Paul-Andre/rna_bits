@@ -7,11 +7,8 @@ import io
 # internally, I use 0-based indexing for sequences
 
 
-def get_input_filename(argv: List[str]) -> Optional[str]:
-    if len(sys.argv) >= 2:
-        return sys.argv[1]
-    else:
-        return None
+def get_input_filenames(argv: List[str]) -> List[str]:
+    return sys.argv[1:]
 
 
 @dataclass(frozen=True)
@@ -104,7 +101,6 @@ def parse_rass_file(f: TextIO) -> RassData:
             for i in range(a, b):
                 stacks.append((i, i + 1))
 
-    f.close()
     return RassData(
         seq=seq,
         original_seq=original_seq,
@@ -511,7 +507,7 @@ def resolve_filename(filename: str, user_motifs_dir: str) -> str:
     then search around the .rass file
     """
     if filename.startswith("./"):
-        return os.path.join(os.path.dirname(user_motifs_dir), filename)
+        return os.path.join(user_motifs_dir, filename)
     if not filename.startswith("/"):
         return os.path.join(LIBRARY_MOTIFS_DIR, filename)
     return filename
@@ -1429,13 +1425,14 @@ def write_output_pdb_file(output_structure: Structure, out_filename: str) -> Non
     print("Wrote to", repr(out_filename))
 
 
-def main(argv: List[str]) -> None:
-    rass_filename: Optional[str] = get_input_filename(argv)
+def process_rass_filename(rass_filename):
     if rass_filename is not None:
         f = open(rass_filename)
     else:
         f = sys.stdin
+
     rass_data = parse_rass_file(f)
+    f.close()
     pairing = parse_parens(rass_data.dot_bracket)
 
     builder = Builder(rass_data)
@@ -1449,6 +1446,7 @@ def main(argv: List[str]) -> None:
         user_motifs_dir = os.path.dirname(rass_filename)
     else:
         user_motifs_dir = os.getcwd()
+    print(user_motifs_dir)
 
     assign_models(builder, user_motifs_dir)
     assign_priorities(builder)
@@ -1477,7 +1475,18 @@ def main(argv: List[str]) -> None:
     out_filename = get_output_filename(rass_filename)
     write_output_pdb_file(output_structure, out_filename)
 
+def main(argv: List[str]) -> None:
+    rass_filenames: List[str] = get_input_filenames(argv)
+
+    if len(rass_filenames) == 0:
+        process_rass_filename(None)
+    else:
+        for rass_filename in rass_filenames:
+            process_rass_filename(rass_filename)
+
+def main_wrapper():
+    sys.setrecursionlimit(10000)  # Was testing something; probably remove
+    main(sys.argv)
 
 if __name__ == "__main__":
-    sys.setrecursionlimit(10000)
-    main(sys.argv)
+    main_wrapper()
