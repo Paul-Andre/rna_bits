@@ -220,7 +220,7 @@ def generate_nodes_from_rnamoip_components(builder: Builder) -> None:
             module = Node(("module", name))
             builder.nodes.append(module)
             modules_by_name[name] = module
-        print(name, comp, first, last)
+        # print(name, comp, first, last)
         assert (
             len(module.components) == comp
         ), "Index of module component does not match order"
@@ -357,7 +357,7 @@ def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
             fp_start = i + 1
         else:
             break
-    print("fp_start", fp_start)
+    # print("fp_start", fp_start)
     for i in range(0, fp_start):
         add_helix_stack_module(i, i + 1)
 
@@ -470,20 +470,27 @@ def is_struct_filename(filename: str) -> bool:
     )
 
 
+import warnings
+from Bio.PDB.PDBExceptions import PDBConstructionWarning
+
+
 def load_struct_file(filename: str, struct_name: Optional[str] = None) -> Structure:
     if struct_name is None:
         struct_name = filename
 
-    if filename.endswith(".pdb"):
-        return PDB.PDBParser().get_structure(struct_name, filename)
-    elif filename.endswith(".pdb.gz"):
-        with gzip.open(filename, "rt") as f:
-            return PDB.PDBParser().get_structure(struct_name, f)
-    elif filename.endswith(".cif"):
-        return PDB.MMCIFParser().get_structure(struct_name, filename)
-    elif filename.endswith(".cif.gz"):
-        with gzip.open(filename, "rt") as f:
-            return PDB.MMCIFParser().get_structure(struct_name, f)
+    with warnings.catch_warnings():  # (Silence specific warnings)
+        warnings.simplefilter("ignore", category=PDBConstructionWarning)
+
+        if filename.endswith(".pdb"):
+            return PDB.PDBParser().get_structure(struct_name, filename)
+        elif filename.endswith(".pdb.gz"):
+            with gzip.open(filename, "rt") as f:
+                return PDB.PDBParser().get_structure(struct_name, f)
+        elif filename.endswith(".cif"):
+            return PDB.MMCIFParser().get_structure(struct_name, filename)
+        elif filename.endswith(".cif.gz"):
+            with gzip.open(filename, "rt") as f:
+                return PDB.MMCIFParser().get_structure(struct_name, f)
 
     assert False, "Not a proper filename"
 
@@ -651,8 +658,8 @@ def map_residues(node: Node) -> Dict[int, Residue]:
         for residue in chain:
             res_list.append(residue)
 
-    print(node.kind)
-    print(pos_list, res_list)
+    # print(node.kind)
+    # print(pos_list, res_list)
 
     # TODO: perhaps not enforce this, for example to allow adding ions in the fragments
     assert len(pos_list) == len(res_list)
@@ -740,12 +747,12 @@ def assign_models(builder: Builder, user_motifs_dir: str) -> None:
     models_used = builder.models_used
     seq = builder.seq
     for node in nodes:
-        print(node.kind, node.nucs)
+        # print(node.kind, node.nucs)
         node.model, model_filename = load_model_from_kind(node.kind, user_motifs_dir)
         node.model_filename = model_filename
         models_used.append((node.nucs, model_filename))
         node.residue_mapping = map_residues(node)
-        print(node.residue_mapping)
+        # print(node.residue_mapping)
 
         did_substitute = False
         # TODO: instead of passing seq, add the sequence information into the Node object
@@ -773,7 +780,7 @@ def correspond_nucleotide_atoms(
     common_atoms = set(a_canon.keys()) & set(b_canon.keys())
     diff = all_atoms - common_atoms
     if diff:
-        print("Some atoms were not shared", diff)
+        warnings.warn("Some atoms were not shared {diff}")
     a_ret = []
     b_ret = []
     for atom_name in common_atoms:
@@ -857,7 +864,7 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
         if nuc_id in builder.chain_of_nucleotides:
             fixed_residues.append(builder.chain_of_nucleotides[nuc_id].model)
             fixed_ids.append(nuc_id)
-            print(node.residue_mapping[nuc_id])
+            # print(node.residue_mapping[nuc_id])
             aligning_residues.append(node.residue_mapping[nuc_id])
         else:
             to_place_ids.append(nuc_id)
@@ -947,7 +954,7 @@ def generate_unplaced_nucleotides(builder: Builder, seq: str) -> None:
     for i in range(0, len(seq)):
         # assert i in chain_of_nucleotides
         if i not in chain_of_nucleotides:
-            print(i, "is not in chain of nucleotides for some reason")
+            warnings.warn(f"{i} is not in chain of nucleotides for some reason")
 
             builder.rigidCounter += 1
             coord = np.array([0.0, 0, 0]) - builder.rigidCounter * 20.0
@@ -1061,7 +1068,7 @@ def traverse_to_get_cycle(
 def get_next_cycle(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
     seq = builder.seq
     chain_of_nucleotides = builder.chain_of_nucleotides
-    print(chain_of_nucleotides)
+    # print(chain_of_nucleotides)
     bestScore = math.inf
     bestCycle = None
     for i in range(len(seq)):
@@ -1107,19 +1114,19 @@ def traverse_to_get_path(
     nuc = startNuc
     visitedRigids.add(nuc.rigid)
     while nuc is startNuc or not is_terminal_rigid(builder, nuc.rigid):
-        print(nuc)
-        print(out)
+        # print(nuc)
+        # print(out)
 
         result = None
 
         for nn in nuc.rigid.nucleotides:
             # dist2 = dist + np.linalg.norm(get_c3prime(nn.model) - get_c3prime(nuc.model))
-            print(nuc, nn)
+            # print(nuc, nn)
             for j in (nn.pos + 1, nn.pos - 1):
                 if j not in chain_of_nucleotides:
                     continue
                 nnn = chain_of_nucleotides[j]
-                print(nuc, nn, nnn)
+                # print(nuc, nn, nnn)
                 if nnn.rigid is nn.rigid:
                     continue
                 # dist3 = dist2 + NUCLEOTIDE_DISTANCE
@@ -1211,13 +1218,13 @@ def build_cycles(builder: Builder) -> None:
         cycle = get_next_cycle(builder)
 
         if cycle is not None:
-            print("Cycle", cycle)
+            # print("Cycle", cycle)
             isPath = False
         else:
             # for i,nuc in sorted(chain_of_nucleotides.items()):
             # print(i+1, nuc.rigid.id)
             cycle = get_next_path(builder)
-            print("Chain", cycle)
+            # print("Chain", cycle)
             isPath = True
 
         if cycle is None:
@@ -1237,7 +1244,7 @@ def build_cycles(builder: Builder) -> None:
         if isPath:
             distances.pop()
 
-        print(distances)
+        # print(distances)
 
         # To simplify things, if what I have is a path, I'll place it on a half-circle
         # It's guaranteed that a half circle is not going to be degenerate
@@ -1446,7 +1453,6 @@ def process_rass_filename(rass_filename):
         user_motifs_dir = os.path.dirname(rass_filename)
     else:
         user_motifs_dir = os.getcwd()
-    print(user_motifs_dir)
 
     assign_models(builder, user_motifs_dir)
     assign_priorities(builder)
@@ -1455,16 +1461,18 @@ def process_rass_filename(rass_filename):
     generate_unplaced_nucleotides(
         builder, rass_data.seq
     )  # Probably unneeded because all lonely nucleotides should have been generated
-    for _, b in sorted(builder.chain_of_nucleotides.items()):
-        print(b, b.rigid)
+
+    # for _, b in sorted(builder.chain_of_nucleotides.items()):
+    #     print(b, b.rigid)
 
     build_cycles(builder)
 
-    rigids_seen = set()
-    for (_, nuc) in sorted(builder.chain_of_nucleotides.items()):
-        rigids_seen.add(nuc.rigid)
-        print(nuc, nuc.priority)
-    print("rigids seen", [r.id for r in rigids_seen])
+    # rigids_seen = set()
+    # for (_, nuc) in sorted(builder.chain_of_nucleotides.items()):
+    #     rigids_seen.add(nuc.rigid)
+    #     print(nuc, nuc.priority)
+
+    # print(len(rigids_seen))
 
     if False:
         visualize_stuff()
@@ -1475,18 +1483,25 @@ def process_rass_filename(rass_filename):
     out_filename = get_output_filename(rass_filename)
     write_output_pdb_file(output_structure, out_filename)
 
+
 def main(argv: List[str]) -> None:
     rass_filenames: List[str] = get_input_filenames(argv)
 
     if len(rass_filenames) == 0:
         process_rass_filename(None)
     else:
-        for rass_filename in rass_filenames:
+        for i, rass_filename in enumerate(rass_filenames):
+            if len(rass_filenames) > 1:
+                if i > 0:
+                    print()
+                print("Processing", rass_filename)
             process_rass_filename(rass_filename)
+
 
 def main_wrapper():
     sys.setrecursionlimit(10000)  # Was testing something; probably remove
     main(sys.argv)
+
 
 if __name__ == "__main__":
     main_wrapper()
