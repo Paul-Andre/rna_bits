@@ -51,8 +51,6 @@ class Segmenter:
     def from_parens(cls, parens, start=0, remove_lonely_pairs=False):
         chains = parens_to_chains(parens, skip_separator=True, start=start)
         pairs = parse_parens(parens, start=start)
-        print(chains)
-        print(pairs)
         return Segmenter(chains, pairs, remove_lonely_pairs=remove_lonely_pairs)
 
     def __init__(self, chains: List[List[NucId]], pairs_original: Tuple[NucId, NucId], remove_lonely_pairs=True):
@@ -223,10 +221,10 @@ class Segmenter:
         #print(set(nucleotides)-set(seen_nucs))
         #print(seen_nucs)
         assert(set(seen_nucs) == set(nucleotides))
-        print(seen_nucs)
-        print([h.nucs for h in helices])
-        print([h.out for h in helices])
-        print([h.nucs for h in strands])
+        # print(seen_nucs)
+        # print([h.nucs for h in helices])
+        # print([h.out for h in helices])
+        # print([h.nucs for h in strands])
         assert(all(v == 1 for v in seen_nucs.values()))
 
         self.pairing = pairing
