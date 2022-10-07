@@ -45,10 +45,20 @@ def parse_args(argv):
         action="store_true",
         help="Generate the structure as shown in bp2's output svg",
     )
-    parser.add_argument("--secondary_structures", "--secondary_structure", "--ss", "-ss", nargs="+", help="Secondary structures to use.")
+    parser.add_argument(
+        "--secondary_structures",
+        "--secondary_structure",
+        "--ss",
+        "-ss",
+        nargs="+",
+        help="Secondary structures to use.",
+    )
 
     parser.add_argument(
-        "--output_file", "-o", default="./bp2b_out/out", help="Output .rass file. 'out' or 'out.rass' will be turned into 'out_0_0.rass when sampling multiple structures"
+        "--output_file",
+        "-o",
+        default="./bp2b_out/out",
+        help="Output .rass file. 'out' or 'out.rass' will be turned into 'out_0_0.rass when sampling multiple structures",
     )
     parser.add_argument(
         "--motif_directory",
@@ -71,13 +81,10 @@ def parse_args(argv):
     parser.add_argument(
         "--num_outputs",
         type=int,
-        help = "How many outputs to generate per provided secondary structure. "
+        help="How many outputs to generate per provided secondary structure. "
         "100 by default, except if --svg is selected, then it's 1.",
-        )
-    parser.add_argument(
-        "--random_seed",
-        type = int
     )
+    parser.add_argument("--random_seed", type=int)
 
     args = parser.parse_args(argv[1:])
 
@@ -117,12 +124,13 @@ def bp2_numbers_to_expansion(a):
         m = b // 100
         if m > pm:
             ret.append([])
-            prev = b-1
+            prev = b - 1
         for _ in range(b - prev - 1):
             ret[-1].append(False)
         ret[-1].append(True)
         prev = b
     return ret
+
 
 def partition_to_sizes(a, s):
     """
@@ -136,17 +144,21 @@ def partition_to_sizes(a, s):
             rr.append(next(it))
         ret.append(rr)
 
-    try: # Check that the iterator is empty
+    try:  # Check that the iterator is empty
         next(it)
         assert False, "Remaining elements after partitioning by sizes"
     except StopIteration:
         pass
     return ret
 
+
 class MotifInstanceUnsupportedError(Exception):
     pass
 
-def fill_gaps(original: List[Residue], chain:Chain) -> Tuple[List[Residue], List[bool]]:
+
+def fill_gaps(
+    original: List[Residue], chain: Chain
+) -> Tuple[List[Residue], List[bool]]:
     """
     Fills in the residues in between the original residues.
 
@@ -156,7 +168,7 @@ def fill_gaps(original: List[Residue], chain:Chain) -> Tuple[List[Residue], List
     Returns a list of the original residues with their gaps filled in, as well
     as a map indicating which of the returned residues are original.
     """
-    original_dict = {a.get_id():a for a in original}
+    original_dict = {a.get_id(): a for a in original}
 
     in_range = False
     ret = []
@@ -176,7 +188,7 @@ def fill_gaps(original: List[Residue], chain:Chain) -> Tuple[List[Residue], List
                 expansion.append(False)
             if seen_cnt == len(original):
                 break
-    assert(expansion[0] and expansion[-1])
+    assert expansion[0] and expansion[-1]
     return (ret, expansion)
 
 
@@ -216,9 +228,11 @@ def get_instances_units_from_bp2_PDBs(data) -> List[Tuple[str, List[UnitId]]]:
     return ret
 
 
-def get_motif_including_gap_content(structure: Structure, units_by_component: List[List[UnitId]]) -> Tuple[List[List[Residue]],List[List[bool]]]:
+def get_motif_including_gap_content(
+    structure: Structure, units_by_component: List[List[UnitId]]
+) -> Tuple[List[List[Residue]], List[List[bool]]]:
     model_id = units_by_component[0][0].model_id
-    model = structure[model_id-1]
+    model = structure[model_id - 1]
 
     ret_residues = []
     ret_expansion = []
@@ -244,11 +258,13 @@ def get_motif_directory(bp2_id, args):
         directory = os.path.join(args.motif_directory, "with_no_gap_contents", bp2_id)
     return directory
 
+
 @dataclass(frozen=True)
 class ReorderedDatasetInfo:
     bp2_expansions: Dict[str, List[List[bool]]]
     instance_id_mapping: Mapping[str, Mapping[Tuple[UnitId, ...], str]]
     bp2_ids_mapping: Mapping[str, Mapping[Tuple[UnitId, ...], List[str]]]
+
 
 def make_reordered_dataset_info(
     dataset, considered_motifs, args
@@ -313,13 +329,16 @@ def make_reordered_dataset_info(
         bp2_ids_mapping=bp2_ids_mapping,
     )
 
+
 def generate_models(dataset, considered_motifs, args):
     # Check which motif models have already been generated
     models_by_bp2_id = defaultdict(list)
     for bp2_id in considered_motifs:
         directory = get_motif_directory(bp2_id, args)
         if os.path.isfile(os.path.join(directory, "done")):
-            _ = models_by_bp2_id[bp2_id]  # Force defaultdict to create the entry if it doesn't exist
+            _ = models_by_bp2_id[
+                bp2_id
+            ]  # Force defaultdict to create the entry if it doesn't exist
             for f in os.listdir(directory):
                 if f.endswith(".pdb"):
                     model_path = os.path.join(directory, f)
@@ -343,13 +362,17 @@ def generate_models(dataset, considered_motifs, args):
             component_sizes = [sum(comp) for comp in some_expansion]
 
             if sum(component_sizes) != len(units):
-                warnings.warn(f"The number of units provided for {atlas_name} {instance_id} "
-                        f"does not match the number of units in the dataset "
-                        f"json file {repr(bp2_ids[0])} ({bp2_ids})")
+                warnings.warn(
+                    f"The number of units provided for {atlas_name} {instance_id} "
+                    f"does not match the number of units in the dataset "
+                    f"json file {repr(bp2_ids[0])} ({bp2_ids})"
+                )
                 continue
 
             units_by_component = partition_to_sizes(units, component_sizes)
-            residues, pdb_expansion = get_motif_including_gap_content(structure, units_by_component)
+            residues, pdb_expansion = get_motif_including_gap_content(
+                structure, units_by_component
+            )
             num_hits = 0
             model = utils.pdb.build_model_from_lists_of_residues(residues)
             for bp2_id in bp2_ids:
@@ -359,12 +382,12 @@ def generate_models(dataset, considered_motifs, args):
                     directory = get_motif_directory(bp2_id, args)
 
                     os.makedirs(directory, exist_ok=True)
-                    save_path = os.path.join(directory, instance_id+".pdb")
+                    save_path = os.path.join(directory, instance_id + ".pdb")
                     utils.pdb.save_model_as_pdb(model, save_path)
                     # models_by_bp2_id[bp2_id].append((save_path, model))
                     models_by_bp2_id[bp2_id].append((save_path, None))
-            did +=1
-            print("Generated", did,"/",tot_stuff, "motif instances")
+            did += 1
+            print("Generated", did, "/", tot_stuff, "motif instances")
 
     # Add a "done" file to indicate which motifs have been processed
     for bp2_id in considered_motifs:
@@ -376,25 +399,32 @@ def generate_models(dataset, considered_motifs, args):
 
     return models_by_bp2_id
 
+
 def make_correct_model_path(path, args):
     """
     Generates the model path as it will be included in the rass file.
     """
-    return os.path.join(".", os.path.relpath(path, start=os.path.dirname(args.output_file)))
+    return os.path.join(
+        ".", os.path.relpath(path, start=os.path.dirname(args.output_file))
+    )
+
 
 def ts(a):
     return tuple(sorted(a))
+
 
 @dataclass(frozen=True)
 class MotifInsertion:
     model: Union[str, PDB.Model.Model]
     positions: List[int]
 
+
 @dataclass
 class Assembly:
     seq: str
     ss: str
     motifs: List[MotifInsertion]
+
 
 def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
     if args.svg:
@@ -408,7 +438,7 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
     # Make the model paths be relative to the output rass file
     for l in models_by_bp2_id.values():
         for k, (path, model) in enumerate(l):
-            #path, model = l[k]
+            # path, model = l[k]
             path = make_correct_model_path(path, args)
             l[k] = (path, model)
 
@@ -439,12 +469,8 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
             continue
 
         for ins_d in insertion_datas:
-            ins_pos = get_bp2_insertion_positions(
-                ins_d, expand=(not args.leave_gaps)
-            )
-            exp_ins_pos = get_bp2_insertion_positions(
-                ins_d, expand=True
-            )
+            ins_pos = get_bp2_insertion_positions(ins_d, expand=(not args.leave_gaps))
+            exp_ins_pos = get_bp2_insertion_positions(ins_d, expand=True)
             ts_eip = ts(exp_ins_pos)
 
             for model_filename, _ in models:
@@ -458,7 +484,6 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
     for l in competing.values():
         l.sort()
 
-    
     # For each of the provided secondary structures, insert the motifs that fit into it
     assemblies = {}
     for ss in sss:
@@ -468,17 +493,16 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
         for loop_ss, loop_pos in loop_infos:
             loop_areas.add(ts(loop_pos))
 
-
-        num_outputs=args.num_outputs
+        num_outputs = args.num_outputs
 
         ss_assemblies = []
         for _ in range(num_outputs):
-            ass = Assembly(seq = seq, ss=ss, motifs=[])
+            ass = Assembly(seq=seq, ss=ss, motifs=[])
             ss_assemblies.append(ass)
 
         for la in loop_areas:
             possible_models = competing[la]
-            if len(possible_models)==0:
+            if len(possible_models) == 0:
                 warnings.warn(f"Loop {la} does not have any models")
                 continue
             for ass in ss_assemblies:
@@ -490,10 +514,9 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
     return assemblies
 
 
-
-
 def generate_filename(ss_inc, sample_inc, args):
-    return args.output_file + "_"+str(ss_inc)+"_"+str(sample_inc)+".rass"
+    return args.output_file + "_" + str(ss_inc) + "_" + str(sample_inc) + ".rass"
+
 
 def write_assembly(assembly, f):
     f.write(assembly.seq)
@@ -502,9 +525,10 @@ def write_assembly(assembly, f):
     f.write("\n")
 
     for motif in assembly.motifs:
-        shifted = [a+1 for a in motif.positions]
-        assert type(motif.model) is str 
+        shifted = [a + 1 for a in motif.positions]
+        assert type(motif.model) is str
         f.write(f"motif:{motif.model}: {','.join(map(str,shifted))}\n")
+
 
 def main(argv):
     make_warnings_nicer()
@@ -519,28 +543,31 @@ def main(argv):
         dataset = json.load(f)
 
     ss_inc = 0
+
     def output_ss_assemblies(ss_assemblies):
         nonlocal ss_inc
-        for i,ass in enumerate(ss_assemblies):
+        for i, ass in enumerate(ss_assemblies):
             fn = generate_filename(ss_inc, i, args)
             with open(fn, "w") as f:
                 write_assembly(ass, f)
-        ss_inc+=1
+        ss_inc += 1
 
     all_assemblies = process_bp2(result, dataset, args)
     if args.secondary_structures is not None:
         for ss in args.secondary_structures:
             output_ss_assemblies(all_assemblies[ss])
     else:
-        assert(len(all_assemblies) == 1)
+        assert len(all_assemblies) == 1
         # Here I assert so that if it ever happens that more than one ss is
         # used in this case, I remember to change the code to output them in an
         # order that isn't arbitrary.
         for ss_assemblies in all_assemblies.values():
             output_ss_assemblies(ss_assemblies)
 
+
 def main_wrapper():
     main(sys.argv)
+
 
 if __name__ == "__main__":
     main_wrapper()

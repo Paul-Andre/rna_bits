@@ -1,4 +1,4 @@
-import sys,os
+import sys, os
 import csv
 import logging
 import traceback
@@ -9,10 +9,12 @@ from typing import List, Hashable, Tuple, Union
 from Project.parser import parseParens as parse_parens
 from Project.parser import isSeparator as _is_separator
 
+
 class Helix:
     def __init__(self):
-        self.nucs = ([],[])
-        self.out = [None,None]
+        self.nucs = ([], [])
+        self.out = [None, None]
+
 
 class Strand:
     def __init__(self):
@@ -20,8 +22,10 @@ class Strand:
         self.out_helix = None
         self.out_helix_half = None
 
+
 def ts(*a):
     return tuple(sorted(a))
+
 
 def parens_to_chains(parens, skip_separator=True, start=1):
     """
@@ -36,16 +40,18 @@ def parens_to_chains(parens, skip_separator=True, start=1):
             chains.append(current)
             current = []
             if not skip_separator:
-                pos+=1
+                pos += 1
         else:
             current.append(pos)
-            pos+=1
+            pos += 1
     if len(current):
         chains.append(current)
     return chains
 
 
 NucId = Hashable
+
+
 class Segmenter:
     @classmethod
     def from_parens(cls, parens, start=0, remove_lonely_pairs=False):
@@ -53,7 +59,12 @@ class Segmenter:
         pairs = parse_parens(parens, start=start)
         return Segmenter(chains, pairs, remove_lonely_pairs=remove_lonely_pairs)
 
-    def __init__(self, chains: List[List[NucId]], pairs_original: Tuple[NucId, NucId], remove_lonely_pairs=True):
+    def __init__(
+        self,
+        chains: List[List[NucId]],
+        pairs_original: Tuple[NucId, NucId],
+        remove_lonely_pairs=True,
+    ):
         nucleotides = []
         fp_nucs = []  # 5' nucs
         next = {}
@@ -62,20 +73,21 @@ class Segmenter:
 
         for a in chains:
             fp_nucs.append(a[0])
-            for i in range(1,len(a)):
-                assert(a[i-1] not in next)
-                next[a[i-1]] = a[i]
+            for i in range(1, len(a)):
+                assert a[i - 1] not in next
+                next[a[i - 1]] = a[i]
             nucleotides += a
-        for (x,y) in pairs_original:
-            assert(pairing.get(x) != y)
-            assert(pairing.get(y) != x)
+        for (x, y) in pairs_original:
+            assert pairing.get(x) != y
+            assert pairing.get(y) != x
             if (x not in pairing) and (y not in pairing):
                 # (Don't add double basepairs)
                 pairing[x] = y
                 pairing[y] = x
-                pairs.append((x,y))
+                pairs.append((x, y))
 
         pair_to_helix = {}
+
         def has_helix_fragment(x):
             xx = next.get(x)
             if xx is None:
@@ -94,19 +106,19 @@ class Segmenter:
         # Remove lonely base pairs
         if remove_lonely_pairs:
             new_pairs = []
-            for x,y in pairs:
+            for x, y in pairs:
                 if not has_helix_fragment(x) and not has_helix_fragment(y):
                     del pairing[x]
                     del pairing[y]
                 else:
-                    new_pairs.append((x,y))
+                    new_pairs.append((x, y))
             pairs = new_pairs
 
         helices = []
 
-        seen_nucs = Counter() # Strictly for sanity checking
-        for (x,y) in pairs:
-            if ts(x,y) in pair_to_helix:
+        seen_nucs = Counter()  # Strictly for sanity checking
+        for (x, y) in pairs:
+            if ts(x, y) in pair_to_helix:
                 continue
 
             helix = Helix()
@@ -120,16 +132,16 @@ class Segmenter:
             bot_x = x
 
             # Now go "up"
-            pair_to_helix[ts(x,y)] = helix
+            pair_to_helix[ts(x, y)] = helix
             while has_helix_fragment(x):
                 x = next[x]
                 y = pairing[x]
-                pair_to_helix[ts(x,y)] = helix
+                pair_to_helix[ts(x, y)] = helix
 
             top_y = y
             top_x = x
 
-            #print(bot_x, top_x, top_y, bot_y)
+            # print(bot_x, top_x, top_y, bot_y)
 
             half_a = []
             curr = bot_x
@@ -149,12 +161,11 @@ class Segmenter:
             seen_nucs.update(half_b)
             helix.nucs = (half_a, half_b)
 
-            #print(half_a, half_b)
-            assert(len(half_a) == len(half_b))
-            #assert(len(half_a) >= 2)
+            # print(half_a, half_b)
+            assert len(half_a) == len(half_b)
+            # assert(len(half_a) >= 2)
 
             helices.append(helix)
-
 
         ignored_nucs = set()
         strands = []
@@ -176,11 +187,11 @@ class Segmenter:
             if x in pairing:
                 xx = x
                 yy = pairing[xx]
-                out_h = pair_to_helix[ts(xx,yy)]
+                out_h = pair_to_helix[ts(xx, yy)]
 
-                #print(xx)
-                #print(strand.nucs)
-                #print(out_h.nucs)
+                # print(xx)
+                # print(strand.nucs)
+                # print(out_h.nucs)
                 strand.out_helix = out_h
                 if xx == out_h.nucs[0][0]:
                     strand.out_helix_half = 0
@@ -211,21 +222,21 @@ class Segmenter:
         for x in fp_nucs:
             fp_strands.append(follow_strand(x))
 
-        #print(tuple(a.nucs for a in fp_strands))
+        # print(tuple(a.nucs for a in fp_strands))
 
-        #print("seen", sorted(seen_nucs))
-        #print("ignore", sorted(ignored_nucs))
-        #print(set(seen_nucs))
-        #print("################################")
-        #print(set(nucleotides))
-        #print(set(nucleotides)-set(seen_nucs))
-        #print(seen_nucs)
-        assert(set(seen_nucs) == set(nucleotides))
+        # print("seen", sorted(seen_nucs))
+        # print("ignore", sorted(ignored_nucs))
+        # print(set(seen_nucs))
+        # print("################################")
+        # print(set(nucleotides))
+        # print(set(nucleotides)-set(seen_nucs))
+        # print(seen_nucs)
+        assert set(seen_nucs) == set(nucleotides)
         # print(seen_nucs)
         # print([h.nucs for h in helices])
         # print([h.out for h in helices])
         # print([h.nucs for h in strands])
-        assert(all(v == 1 for v in seen_nucs.values()))
+        assert all(v == 1 for v in seen_nucs.values())
 
         self.pairing = pairing
         self.helices = helices
@@ -239,8 +250,9 @@ class Segmenter:
         self.pairs = pairs
         self.chains = chains
 
-
-    def traverse_strand(self, strand, target, target_half, loops, visited=set(), stack=[]):
+    def traverse_strand(
+        self, strand, target, target_half, loops, visited=set(), stack=[]
+    ):
 
         if strand is None:
             return
@@ -254,7 +266,7 @@ class Segmenter:
                 if helix is None:
                     loops.append(list(stack))
                 elif half == target_half:
-                    stack.append((helix.nucs[half][0], helix.nucs[1-half][-1]))
+                    stack.append((helix.nucs[half][0], helix.nucs[1 - half][-1]))
                     loops.append(list(stack))
                     stack.pop()
                 else:
@@ -273,8 +285,8 @@ class Segmenter:
             self.traverse_strand(helix.out[half], target, target_half, loops)
             stack.pop()
 
-            stack.append((helix.nucs[half][0], helix.nucs[1-half][-1]))
-            self.traverse_strand(helix.out[1-half], target, target_half, loops)
+            stack.append((helix.nucs[half][0], helix.nucs[1 - half][-1]))
+            self.traverse_strand(helix.out[1 - half], target, target_half, loops)
             stack.pop()
 
             visited.remove(helix)
@@ -295,33 +307,37 @@ class Segmenter:
             external = False
 
         if not external:
-            assert(self.pairing[l[-1][0]] == l[-1][1])
-            ss+="("
+            assert self.pairing[l[-1][0]] == l[-1][1]
+            ss += "("
             nucs.append(l[-1][1])
 
         pseudobrackets = "][}{><aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ"
         pbi = 0
 
         i = 0
-        while(i<len(l)):
+        while i < len(l):
             s_nucs = l[i]
-            ss+="."*len(s_nucs)
-            nucs+=s_nucs
+            ss += "." * len(s_nucs)
+            nucs += s_nucs
 
-            if (i+1<len(l)):
-                h_nucs = l[i+1]
-                if (len(h_nucs) == 2) and (h_nucs[0] in self.pairing) and (self.pairing[h_nucs[0]] == h_nucs[1]):
-                    if i+1 == len(l)-1:
-                        ss+=")"
+            if i + 1 < len(l):
+                h_nucs = l[i + 1]
+                if (
+                    (len(h_nucs) == 2)
+                    and (h_nucs[0] in self.pairing)
+                    and (self.pairing[h_nucs[0]] == h_nucs[1])
+                ):
+                    if i + 1 == len(l) - 1:
+                        ss += ")"
                         nucs.append(h_nucs[0])
                     else:
-                        ss+="()"
-                        nucs+=h_nucs
+                        ss += "()"
+                        nucs += h_nucs
                 else:
-                    ss+=pseudobrackets[pbi]*len(h_nucs)
-                    pbi+=1
-                    nucs+=h_nucs
-            i+=2
+                    ss += pseudobrackets[pbi] * len(h_nucs)
+                    pbi += 1
+                    nucs += h_nucs
+            i += 2
 
         return (ss, nucs)
 
@@ -339,4 +355,3 @@ class Segmenter:
             self.traverse_strand(strand, None, None, loops)
 
         return [self.display_loop(l) for l in loops]
-

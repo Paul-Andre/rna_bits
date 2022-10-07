@@ -28,16 +28,18 @@ _pdb_seen = set()
 
 _PDB_DIR = os.path.join(DATA_PATH, "original/PDB/")
 
+
 class HiddenPrints:
     """
     Used to block prints (useful when calling some Biopython functions)
     https://stackoverflow.com/a/45669280
     """
+
     def __enter__(self):
         self._original_stdout = sys.stdout
         self._original_stderr = sys.stderr
-        sys.stdout = open(os.devnull, 'w')
-        sys.stderr = open(os.devnull, 'w')
+        sys.stdout = open(os.devnull, "w")
+        sys.stderr = open(os.devnull, "w")
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         sys.stdout.close()
@@ -45,7 +47,10 @@ class HiddenPrints:
         sys.stdout = self._original_stdout
         sys.stderr = self._original_stderr
 
-def fetch_pdb(pdb_code: str, cache = _pdb_cache, pdb_path = _PDB_DIR) -> PDB.Structure.Structure:
+
+def fetch_pdb(
+    pdb_code: str, cache=_pdb_cache, pdb_path=_PDB_DIR
+) -> PDB.Structure.Structure:
     """
     Dowloads the pdb code.
     Please don't modify the returned object as by default it might be cached.
@@ -60,7 +65,7 @@ def fetch_pdb(pdb_code: str, cache = _pdb_cache, pdb_path = _PDB_DIR) -> PDB.Str
         # if pdb_code in _pdb_seen:
         #     print(pdb_code, "was seen but was evicted from cache")
 
-    pickle_path = os.path.join(pdb_path, pdb_code+".pickle")
+    pickle_path = os.path.join(pdb_path, pdb_code + ".pickle")
 
     # Since Biopython's MMCIFParser is slow, save files as pickles as well
     try:
@@ -70,13 +75,13 @@ def fetch_pdb(pdb_code: str, cache = _pdb_cache, pdb_path = _PDB_DIR) -> PDB.Str
         if isinstance(e, EOFError):
             warnings.warn(f"Failed to read {pickle_path}, redownloading.")
 
-        with HiddenPrints(): # (Silence prints)
+        with HiddenPrints():  # (Silence prints)
             pdb_filename = pdbl.retrieve_pdb_file(pdb_code, pdir=pdb_path)
 
-        with warnings.catch_warnings(): # (Silence specific warnings)
-            warnings.simplefilter("ignore", category = PDBConstructionWarning)
+        with warnings.catch_warnings():  # (Silence specific warnings)
+            warnings.simplefilter("ignore", category=PDBConstructionWarning)
             struct = mmcif_parser.get_structure(pdb_code, pdb_filename)
-        
+
         os.makedirs(pdb_path, exist_ok=True)
         with open(pickle_path, "wb") as f:
             pickle.dump(struct, f)
@@ -95,13 +100,13 @@ def build_model_from_lists_of_residues(a: Sequence[Sequence[Residue]]) -> Model:
     model = Model(0)
     for b in a:
         chain = Chain(chain_inc)
-        chain_inc = chr(ord(chain_inc)+1) # "Increment letter"
+        chain_inc = chr(ord(chain_inc) + 1)  # "Increment letter"
         res_inc = 1
         for residue in b:
             new_residue = residue.copy()
             # TODO: sus, I don't know if I'm allowed to assign to .id
             new_residue.id = (" ", res_inc, " ")
-            res_inc+=1
+            res_inc += 1
             chain.add(new_residue)
         model.add(chain)
     return model
@@ -110,8 +115,9 @@ def build_model_from_lists_of_residues(a: Sequence[Sequence[Residue]]) -> Model:
 class UnsupportedError(Exception):
     pass
 
+
 def get_residue_from_chain(chain: Chain, unit: UnitId) -> Residue:
-    """ Note: there's no validation that the UnitId actually references this
+    """Note: there's no validation that the UnitId actually references this
     specific chain
     """
     assert unit.atom_name is None
@@ -128,19 +134,25 @@ def get_residue_from_chain(chain: Chain, unit: UnitId) -> Residue:
         # there's two residues that have the same number but a different
         # residue name, hence we need to discern them using residue_name
         if isinstance(residue, PDB.Residue.DisorderedResidue):
-            raise UnsupportedError("Disordered residues not supported "
-                "(Yet. They shouldn't be too hard to implement)")
+            raise UnsupportedError(
+                "Disordered residues not supported "
+                "(Yet. They shouldn't be too hard to implement)"
+            )
         assert isinstance(residue, Residue)
-        assert residue.resname == unit.residue_name, "resname mismatch. pointwise mutation?"
+        assert (
+            residue.resname == unit.residue_name
+        ), "resname mismatch. pointwise mutation?"
     return residue
 
+
 def get_residue_from_model(model: Model, unit: UnitId) -> Residue:
-    """ Note: there's no validation that the UnitId actually references this
+    """Note: there's no validation that the UnitId actually references this
     specific model
     """
     chain = model[unit.chain_id]
     residue = get_residue_from_chain(chain, unit)
     return residue
+
 
 def fetch_residue(unit: UnitId) -> Residue:
     # Lore: if this raises a KeyError and you're sure the residue
@@ -148,7 +160,7 @@ def fetch_residue(unit: UnitId) -> Residue:
     # deleting that .cif file (and .pickle file?) from _PDB_DIR. (Or just nuke
     # _PDB_DIR)
     structure = fetch_pdb(unit.pdb_code)
-    model = structure[unit.model_id-1]
+    model = structure[unit.model_id - 1]
     residue = get_residue_from_model(model, unit)
     return residue
 
@@ -172,6 +184,7 @@ def fetch_residues(units: Sequence[UnitId], assert_same_model=True) -> List[Resi
 
     return ret
 
+
 def save_model_as_pdb(model: Model, path: str) -> None:
     structure = Structure("saving_as_pdb")
     structure.add(model)
@@ -179,7 +192,8 @@ def save_model_as_pdb(model: Model, path: str) -> None:
     io.set_structure(structure)
     io.save(path)
 
-def save_model_as_cif(model: Model, ) -> None:
+
+def save_model_as_cif(
+    model: Model,
+) -> None:
     assert False, "Not Implemented"
-
-

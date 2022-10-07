@@ -10,6 +10,7 @@ import time
 from Bio import PDB
 
 from .data_path import DATA_PATH
+
 MOTIF_GROUP_PATH = os.path.join(DATA_PATH, "original/rna3dhub/")
 
 
@@ -18,8 +19,11 @@ class UnitId:
     """
     https://www.bgsu.edu/research/rna/help/rna-3d-hub-help/unit-ids.html
     """
+
     pdb_code: Optional[str] = None
-    model_id: Optional[int] = None # Note: starts at 1, whereas Biopython models start at 0
+    model_id: Optional[
+        int
+    ] = None  # Note: starts at 1, whereas Biopython models start at 0
     chain_id: Optional[str] = None
     residue_name: Optional[str] = None
     residue_id: Optional[int] = None
@@ -29,7 +33,7 @@ class UnitId:
     symmetry: Optional[str] = None
 
     @classmethod
-    def parse(cls, s:str) -> "UnitId":
+    def parse(cls, s: str) -> "UnitId":
         """
         Parse a BGSU unit id as described here:
         https://www.bgsu.edu/research/rna/help/rna-3d-hub-help/unit-ids.html
@@ -40,8 +44,8 @@ class UnitId:
         a = s.split("|")
         if a[-1] == "":
             a.pop()
-        assert len(a)<=9, f"Can't understand BGSU unit id '{id}'"
-        while len(a)<9:
+        assert len(a) <= 9, f"Can't understand BGSU unit id '{id}'"
+        while len(a) < 9:
             a.append("")
 
         def str_or_none(t: str):
@@ -55,16 +59,16 @@ class UnitId:
             return None
 
         return UnitId(
-            pdb_code = str_or_none(a[0]),
-            model_id = int_or_none(a[1]),
-            chain_id = str_or_none(a[2]),
-            residue_name = str_or_none(a[3]),
-            residue_id = int_or_none(a[4]),
-            atom_name = str_or_none(a[5]),
-            atom_altloc = str_or_none(a[6]),
-            insertion_code = str_or_none(a[7]),
-            symmetry = str_or_none(a[8]),
-            )
+            pdb_code=str_or_none(a[0]),
+            model_id=int_or_none(a[1]),
+            chain_id=str_or_none(a[2]),
+            residue_name=str_or_none(a[3]),
+            residue_id=int_or_none(a[4]),
+            atom_name=str_or_none(a[5]),
+            atom_altloc=str_or_none(a[6]),
+            insertion_code=str_or_none(a[7]),
+            symmetry=str_or_none(a[8]),
+        )
 
     def __str__(self) -> str:
         """Print the id in the BGSU format"""
@@ -92,12 +96,11 @@ class UnitId:
         # Note: the first element is used to indicate hetero-residues
         # I assume that BGSU residues are never hetero but I didn't check
         return (" ", self.residue_id, ic)
-            
 
 
-def download_motif_group_info(group_id:str):
+def download_motif_group_info(group_id: str):
     url = f"http://rna.bgsu.edu/rna3dhub/motif/view/{group_id}/json"
-    path = MOTIF_GROUP_PATH+"/"+group_id+".json"
+    path = MOTIF_GROUP_PATH + "/" + group_id + ".json"
     try:
         with open(path, "rt") as f:
             data = json.load(f)
@@ -117,11 +120,10 @@ def download_motif_group_info(group_id:str):
                     print("retrying")
                     warnings.warn(f"Failed to get {url} , retrying in {wait_secs}")
                     time.sleep(wait_secs)
-                    wait_secs*=2
-                    retries-=1
+                    wait_secs *= 2
+                    retries -= 1
                 else:
                     raise
-
 
         data = json.loads(s)
         os.makedirs(MOTIF_GROUP_PATH, exist_ok=True)
@@ -130,6 +132,7 @@ def download_motif_group_info(group_id:str):
 
     return data
 
+
 # def get_unit_in_model(model: PDB.Model.Model, id: UnitId):
 #     chain = model[id.chain_id]
-#     residue = 
+#     residue =

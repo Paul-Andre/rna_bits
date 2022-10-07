@@ -2,6 +2,7 @@ import sys
 
 import parser
 
+
 def main():
     if len(sys.argv) <= 1:
         print("Need input file")
@@ -16,6 +17,6 @@ def main():
         error.print()
         exit(1)
 
+
 if __name__ == "__main__":
     main()
-
