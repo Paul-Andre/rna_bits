@@ -1,9 +1,0 @@
-secondary structure + 3d modules
->parse>
-graph of strands, helices, and modules
->build strands and helices>
->fold strands and helices and attach to modules>
->coarse grain simulated annealing>
->all-atom reconstruction>
->all-atom minimization>
-
