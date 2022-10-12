@@ -53,12 +53,11 @@ def parse_args(argv):
         nargs="+",
         help="Secondary structures to use.",
     )
-
     parser.add_argument(
         "--output_file",
         "-o",
         default="./bp2b_out/out",
-        help="Output .rass file. 'out' or 'out.rass' will be turned into 'out_0_0.rass when sampling multiple structures",
+        help="Output .rass file. 'out' will be turned into 'out_0_0.rass when sampling multiple structures",
     )
     parser.add_argument(
         "--motif_directory",
@@ -76,7 +75,7 @@ def parse_args(argv):
     parser.add_argument(
         "--leave_gaps",
         action="store_true",
-        help="Do not fill gaps ",
+        help="Do not fill gaps.",
     )
     parser.add_argument(
         "--num_outputs",
@@ -262,7 +261,9 @@ def get_motif_directory(bp2_id, args):
 @dataclass(frozen=True)
 class ReorderedDatasetInfo:
     bp2_expansions: Dict[str, List[List[bool]]]
+    # instance_id_mapping[pdb_code][unit_id_tuple] = instance_id
     instance_id_mapping: Mapping[str, Mapping[Tuple[UnitId, ...], str]]
+    # bp2_ids_mapping[pdb_code][unit_id_tuple] = list_of_bp2_motif_ids
     bp2_ids_mapping: Mapping[str, Mapping[Tuple[UnitId, ...], List[str]]]
 
 
@@ -475,9 +476,6 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
 
             for model_filename, _ in models:
                 competing[ts_eip].append((model_filename, ins_pos))
-
-                # shifted = [a+1 for a in ins_pos]
-                # out_f.write(f"motif:{model_filename}: {','.join(map(str,shifted))}\n")
 
     # Sort to have deterministic outputs
     # The exact way it's sorted isn't important
