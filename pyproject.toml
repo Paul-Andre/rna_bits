@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "example_package_PAUL_ANDRE_HENEGAR"
+version = "0.0.1"
+authors = [
+  { name="Paul-Andre Henegar", email="paul-andre.henegar@mail.mcgill.ca" },
+]
+description = "A small example package"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+]
+
+[project.scripts]
+rna_builder = "builder.builder:main_wrapper"
+bp2_bridge = "builder.bp2_bridge:main_wrapper"
+

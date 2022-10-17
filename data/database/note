@@ -1,0 +1,5 @@
+at the point in the commit history when the current file was added, I have:
+- mcsym-db
+- rosetta_canonical
+in this directory,
+(but can't include them in the version control, for size and/or copyright reasons)
