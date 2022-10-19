@@ -2,9 +2,17 @@ import sys
 import numpy as np
 from dataclasses import dataclass
 from typing import Optional, Union, List, Tuple, Dict, TextIO, Literal, Container
-import io
+import os
 
-# internally, I use 0-based indexing for sequences
+# A shim to make relative imports work when executing this file directly as a
+# script (python builder.py). Note, the package *still* needs to have been
+# installed.
+# This shim is for convenience only and I don't guarantee that it works. If it
+# fails, then go read the readme to see what the correct way of executing this
+# file is.
+if __name__ == "__main__" and __package__ is None:
+    __package__ = "builder"
+    sys.path.remove(os.path.abspath(os.path.dirname(__file__)))
 
 
 def get_input_filenames(argv: List[str]) -> List[str]:
@@ -399,7 +407,6 @@ def assign_priorities(builder: Builder) -> None:
 import vpython as vp
 import Bio.PDB as PDB
 
-import os
 
 import gzip
 
@@ -671,8 +678,17 @@ def map_residues(node: Node) -> Dict[int, Residue]:
     return ret
 
 
+import importlib.resources as importlib_resources
 def load_substitution_model() -> Model:
-    return PDB.PDBParser().get_structure("substitution_model", "bases.pdb")[0]
+    print(__name__,  __file__, __package__)
+    print(sys.path)
+    bases_fname = "bases.pdb"
+    if __package__ is not None:
+        with importlib_resources.open_text(__package__, bases_fname) as f:
+            return PDB.PDBParser().get_structure("substitution_model", f)[0]
+    else:
+        path = os.path.join(os.path.dirname(__file__), bases_fname)
+        return PDB.PDBParser().get_structure("substitution_model", path)[0]
 
 
 # Model contains only the 4 bases, used for base substitution
@@ -1158,8 +1174,7 @@ def get_next_path(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotid
     return None
 
 
-import inscribed_polygon
-
+from . import inscribed_polygon
 
 def get_c3prime(residue: Residue) -> Atom:
     if "C3'" in residue:
@@ -1174,7 +1189,6 @@ def np_distance(a_coord: ndarray, b_coord: ndarray) -> Union[float32, float64]:
 
 
 import math
-from io import TextIOWrapper
 
 
 def ortho_project(s: ndarray, d: ndarray) -> ndarray:
