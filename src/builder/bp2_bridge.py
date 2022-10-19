@@ -41,9 +41,9 @@ def parse_args(argv):
         help="Path to the bp2 result file, in json form, ie output.json",
     )
     parser.add_argument(
-        "--svg",
+        "--chefs_choice",
         action="store_true",
-        help="Generate the structure as shown in bp2's output svg",
+        help="Generate the structure as shown in bp2's output chef's choice and svg",
     )
     parser.add_argument(
         "--secondary_structures",
@@ -66,32 +66,30 @@ def parse_args(argv):
         help="Directory to store module .pdb's",
     )
     parser.add_argument(
-        "--get_instance_data_from_bgsu",
-        "--get_instances_data_from_bgsu",
+        "--use_bp2_instance_data",
         action="store_true",
-        help="Instead of relying on the dataset file for motif instance PDB information, fetch it from the GBSU's RNA 3d Motif Altas website.",
+        help=(
+            "Currently, by default, we fetch instance data (PDB code and "
+            "residue ids) from BGSU's webset. However, if this flag is set, "
+            "it will take that information from the bp2 dataset file "
+            "instead."
+        ),
     )
-    # TODO: make this parameter less confusing
     parser.add_argument(
-        "--leave_gaps",
+        "--dont_fill_gaps",
         action="store_true",
-        help="Do not fill gaps.",
+        help="Output only the core of the bgsu motif",
     )
     parser.add_argument(
         "--num_outputs",
         type=int,
+        default=100,
         help="How many outputs to generate per provided secondary structure. "
-        "100 by default, except if --svg is selected, then it's 1.",
+        "100 by default"
     )
     parser.add_argument("--random_seed", type=int)
 
     args = parser.parse_args(argv[1:])
-
-    if args.num_outputs is None:
-        if args.svg:
-            args.num_outputs = 1
-        else:
-            args.num_outputs = 100
 
     return args
 
@@ -251,7 +249,7 @@ def get_motif_including_gap_content(
 
 
 def get_motif_directory(bp2_id, args):
-    if not args.leave_gaps:
+    if not args.dont_fill_gaps:
         directory = os.path.join(args.motif_directory, "with_gap_contents", bp2_id)
     else:
         directory = os.path.join(args.motif_directory, "with_no_gap_contents", bp2_id)
@@ -304,11 +302,11 @@ def make_reordered_dataset_info(
         expansion = bp2_numbers_to_expansion(bp2_numbers)  # [[T,T,F,T], [T,F,T,F,F,T]]
         bp2_expansions[bp2_motif_id] = expansion
 
-        if args.get_instance_data_from_bgsu:
+        if args.use_bp2_instance_data:
+            instances = get_instances_units_from_bp2_PDBs(motif_data["PDBs"])
+        else:
             group_id = motif_data["atlas_name"]
             instances = fetch_instances_units_from_bgsu(group_id)
-        else:
-            instances = get_instances_units_from_bp2_PDBs(motif_data["PDBs"])
 
         for instance_id, units in instances:
             has_symmetry = any(x.symmetry is not None for x in units)
@@ -428,7 +426,7 @@ class Assembly:
 
 
 def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
-    if args.svg:
+    if args.chefs_choice:
         hits = result["svg_hits"]["input_seq"]
     else:
         hits = result["all_hits"]["input_seq"]
@@ -470,7 +468,9 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
             continue
 
         for ins_d in insertion_datas:
-            ins_pos = get_bp2_insertion_positions(ins_d, expand=(not args.leave_gaps))
+            ins_pos = get_bp2_insertion_positions(
+                ins_d, expand=(not args.dont_fill_gaps)
+            )
             exp_ins_pos = get_bp2_insertion_positions(ins_d, expand=True)
             ts_eip = ts(exp_ins_pos)
 

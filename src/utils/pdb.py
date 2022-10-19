@@ -17,7 +17,6 @@ from Bio.PDB.PDBExceptions import PDBConstructionWarning
 from .bgsu import UnitId
 from .data_path import DATA_PATH
 
-pdbl = PDB.PDBList()
 mmcif_parser = PDB.MMCIFParser()
 
 # "Opportunistic" cache for PDBs that were downloaded
@@ -27,6 +26,7 @@ _pdb_seen = set()
 
 
 _PDB_DIR = os.path.join(DATA_PATH, "original/PDB/")
+pdbl = PDB.PDBList(pdb=_PDB_DIR)
 
 
 class HiddenPrints:
