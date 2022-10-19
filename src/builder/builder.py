@@ -511,8 +511,9 @@ def choose_or_not(options: List[str]) -> str:
     o = sorted(options)
     return o[0]
 
+from utils.data_path import DATA_PATH
 
-LIBRARY_MOTIFS_DIR = os.path.join(os.path.dirname(__file__), "data", "database")
+LIBRARY_MOTIFS_DIR = os.path.join(DATA_PATH, "database")
 
 
 def resolve_filename(filename: str, user_motifs_dir: str) -> str:
@@ -645,8 +646,9 @@ def load_model_from_kind(
         return model, (filename, "trimmed")
     if kind[0] == "nucleotide":
         name = kind[1]
+
         directory = name + ".pdb"
-        model = load_struct_file(directory)[0]
+        model = load_resource_structure(directory)[0]
         model = canonicalize_model(model)
         return model, directory
     assert False, "We don't recognize " + repr(kind)
@@ -679,17 +681,19 @@ def map_residues(node: Node) -> Dict[int, Residue]:
 
 
 import importlib.resources as importlib_resources
-def load_substitution_model() -> Model:
-    print(__name__,  __file__, __package__)
-    print(sys.path)
-    bases_fname = "bases.pdb"
-    if __package__ is not None:
-        with importlib_resources.open_text(__package__, bases_fname) as f:
-            return PDB.PDBParser().get_structure("substitution_model", f)[0]
-    else:
-        path = os.path.join(os.path.dirname(__file__), bases_fname)
-        return PDB.PDBParser().get_structure("substitution_model", path)[0]
 
+def load_resource_structure(fname: str) -> Model:
+    if __package__:
+        with importlib_resources.open_text(__package__, fname) as f:
+            return PDB.PDBParser().get_structure(fname, f)
+    else:
+        path = os.path.join(os.path.dirname(__file__), fname)
+        with open(path) as f:
+            return PDB.PDBParser().get_structure(fname, f)
+
+
+def load_substitution_model() -> Model:
+    return load_resource_structure("bases.pdb")[0]
 
 # Model contains only the 4 bases, used for base substitution
 # Each base is in its own chain, where the chain name is the name of the base.
