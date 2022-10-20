@@ -82,10 +82,11 @@ def parse_args(argv):
     )
     parser.add_argument(
         "--num_outputs",
+        "--sample",
         type=int,
-        default=100,
+        default=20,
         help="How many outputs to generate per provided secondary structure. "
-        "100 by default"
+        "20 by default"
     )
     parser.add_argument("--random_seed", type=int)
 
@@ -224,6 +225,8 @@ def get_instances_units_from_bp2_PDBs(data) -> List[Tuple[str, List[UnitId]]]:
 
     return ret
 
+class CannotCreateMotifError(Exception):
+    pass
 
 def get_motif_including_gap_content(
     structure: Structure, units_by_component: List[List[UnitId]]
@@ -240,7 +243,14 @@ def get_motif_including_gap_content(
         for unit in comp_units:
             assert unit.model_id == model_id
             assert unit.chain_id == chain_id
-            residue = utils.pdb.get_residue_from_chain(chain, unit)
+            try:
+                residue = utils.pdb.get_residue_from_chain(chain, unit)
+            except KeyError:
+                warnings.warn(
+                f"Residue {str(unit)} does not exist, hence instance cannot be generated."
+                )
+                raise CannotCreateMotifError
+                
             comp_residues.append(residue)
         comp_residues, comp_expansion = fill_gaps(comp_residues, chain)
         ret_residues.append(comp_residues)
@@ -369,9 +379,16 @@ def generate_models(dataset, considered_motifs, args):
                 continue
 
             units_by_component = partition_to_sizes(units, component_sizes)
-            residues, pdb_expansion = get_motif_including_gap_content(
-                structure, units_by_component
-            )
+            try:
+                residues, pdb_expansion = get_motif_including_gap_content(
+                    structure, units_by_component
+                )
+            except CannotCreateMotifError:
+                warnings.warn(
+                f"Instance {instance_id} of motifs {bp2_ids} could not be generated."
+                )
+                continue
+
             num_hits = 0
             model = utils.pdb.build_model_from_lists_of_residues(residues)
             for bp2_id in bp2_ids:

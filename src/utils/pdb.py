@@ -56,6 +56,7 @@ def fetch_pdb(
     Please don't modify the returned object as by default it might be cached.
     To avoid caching set cache=None
     """
+    pdb_code = pdb_code.lower()
     # Using get() to make sure the object won't be garbage collected between
     # the check and the retrieval (if using WeakValueDictionary)
     if cache is not None:
