@@ -49,8 +49,27 @@ def parens_to_chains(parens, skip_separator=True, start=1):
     return chains
 
 
+
 NucId = Hashable
 
+def parse_ss_file(f) -> Tuple[ List[List[str]], List[Tuple[str, str]]]:
+    """ Parses the ".ss" file as used in some pipelines"""
+    mode = None
+    chains = []
+    pairs = []
+    for l in f:
+        l = l.strip()
+        if l.endswith(":"):
+            mode = l
+        else:
+            if mode == "chains:":
+                a = list(l.split())
+                chains.append(a)
+            elif mode == "pairs:":
+                x,y = l.split()
+                pairs.append((x,y))
+
+    return chains, pairs
 
 class Segmenter:
     @classmethod
@@ -62,13 +81,14 @@ class Segmenter:
     def __init__(
         self,
         chains: List[List[NucId]],
-        pairs_original: Tuple[NucId, NucId],
+        pairs: List[Tuple[NucId, NucId]],
         remove_lonely_pairs=True,
     ):
         nucleotides = []
         fp_nucs = []  # 5' nucs
         next = {}
         pairing = {}
+        pairs_original = pairs
         pairs = []
 
         for a in chains:

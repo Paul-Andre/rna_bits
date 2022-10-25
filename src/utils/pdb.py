@@ -1,5 +1,5 @@
 from weakref import WeakValueDictionary
-from typing import List, Sequence, Tuple
+from typing import List, Sequence, Tuple, TypeVar, Callable
 import warnings
 import os
 import sys
@@ -186,6 +186,7 @@ def fetch_residues(units: Sequence[UnitId], assert_same_model=True) -> List[Resi
     return ret
 
 
+# TODO: make path accept a file handle
 def save_model_as_pdb(model: Model, path: str) -> None:
     structure = Structure("saving_as_pdb")
     structure.add(model)
@@ -198,3 +199,22 @@ def save_model_as_cif(
     model: Model,
 ) -> None:
     assert False, "Not Implemented"
+
+
+T = TypeVar("T")
+def query_segmented(pattern: str, ids: Sequence[T], querying_function:Callable[[T], Residue], copy=False)-> List[List[Residue]]:
+    """ pattern is something like '(...()..().....)'
+    ids are given in whatever format querying_function understands
+    """
+    assert len(pattern) == len(ids)
+    chains = [[]]
+    for i, (id, c) in enumerate(zip(ids, pattern)):
+        if c == ")" and i!=len(pattern)-1:
+            chains.append([])
+        residue = querying_function(id)
+        if copy:
+            residue = residue.copy()
+        chains[-1].append(residue)
+
+    return chains
+

@@ -12,3 +12,13 @@ else:
     assert os.path.isdir(DATA_PATH + "/original")
     # assert os.path.isdir(DATA_PATH + "/interim")
     assert os.path.isdir(DATA_PATH + "/database")
+
+def get_path(s: str, create=False, exist_ok=True) -> str:
+    path = os.path.join(DATA_PATH, s)
+    if create:
+        os.makedirs(path, exist_ok = exist_ok)
+    else:
+        assert(os.path.isdir(path)), f"Path {path} does not exist"
+    return path
+
+
