@@ -76,31 +76,14 @@ class MCOut:
             elif line.startswith("Number of "):
                 pass
             else:
-                current_dest.append(line)
+                current_dest.append(line) # pytype: disable=attribute-error
+
 
         self.proper_nucs = set()
         for line in self.resconf_lines:
             a, b = line.split(":")
             nuc_name = a.strip()
             b = b.strip()
-            if (
-                (
-                    b.startswith("G")
-                    or b.startswith("C")
-                    or b.startswith("A")
-                    or b.startswith("U")
-                )
-                and "unknown" in b
-                and "unknown unknown" not in b
-            ):
-                weird_unknown.append((fn, line))
-            if (
-                b.startswith("G")
-                or b.startswith("C")
-                or b.startswith("A")
-                or b.startswith("U")
-            ) and "unknown unknown" in b:
-                full_unknown.append((fn, line))
 
             if is_valid_nucleotide_conformation(b):
                 self.proper_nucs.add(nuc_name)
