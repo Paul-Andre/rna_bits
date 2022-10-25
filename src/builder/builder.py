@@ -511,6 +511,7 @@ def choose_or_not(options: List[str]) -> str:
     o = sorted(options)
     return o[0]
 
+
 from utils.data_path import DATA_PATH
 from utils.data_path import get_path
 
@@ -583,8 +584,10 @@ def load_model_from_db(db: str, shape: str, letters: str) -> Tuple[Model, str]:
     path = os.path.join(LIBRARY_MOTIFS_DIR, db, shape, letters)
     return load_model_from_path(path)
 
+
 def load_model_from_rosetta_db(shape: str, letters: str) -> Tuple[Model, str]:
     return load_model_from_path("rosetta_canonical", shape, letters)
+
 
 def load_stack_model(letters: str) -> Tuple[Model, str]:
     return load_model_from_mcsym_db("2_2", letters)
@@ -685,6 +688,7 @@ def map_residues(node: Node) -> Dict[int, Residue]:
 
 import importlib.resources as importlib_resources
 
+
 def load_resource_structure(fname: str) -> Model:
     if __package__:
         with importlib_resources.open_text(__package__, fname) as f:
@@ -697,6 +701,7 @@ def load_resource_structure(fname: str) -> Model:
 
 def load_substitution_model() -> Model:
     return load_resource_structure("bases.pdb")[0]
+
 
 # Model contains only the 4 bases, used for base substitution
 # Each base is in its own chain, where the chain name is the name of the base.
@@ -1182,6 +1187,7 @@ def get_next_path(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotid
 
 
 from . import inscribed_polygon
+
 
 def get_c3prime(residue: Residue) -> Atom:
     if "C3'" in residue:

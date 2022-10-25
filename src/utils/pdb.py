@@ -202,14 +202,21 @@ def save_model_as_cif(
 
 
 T = TypeVar("T")
-def query_segmented(pattern: str, ids: Sequence[T], querying_function:Callable[[T], Residue], copy=False)-> List[List[Residue]]:
-    """ pattern is something like '(...()..().....)'
+
+
+def query_segmented(
+    pattern: str,
+    ids: Sequence[T],
+    querying_function: Callable[[T], Residue],
+    copy=False,
+) -> List[List[Residue]]:
+    """pattern is something like '(...()..().....)'
     ids are given in whatever format querying_function understands
     """
     assert len(pattern) == len(ids)
     chains = [[]]
     for i, (id, c) in enumerate(zip(ids, pattern)):
-        if c == ")" and i!=len(pattern)-1:
+        if c == ")" and i != len(pattern) - 1:
             chains.append([])
         residue = querying_function(id)
         if copy:
@@ -217,4 +224,3 @@ def query_segmented(pattern: str, ids: Sequence[T], querying_function:Callable[[
         chains[-1].append(residue)
 
     return chains
-

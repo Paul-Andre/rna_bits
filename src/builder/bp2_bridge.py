@@ -86,7 +86,7 @@ def parse_args(argv):
         type=int,
         default=20,
         help="How many outputs to generate per provided secondary structure. "
-        "20 by default"
+        "20 by default",
     )
     parser.add_argument("--random_seed", type=int)
 
@@ -225,8 +225,10 @@ def get_instances_units_from_bp2_PDBs(data) -> List[Tuple[str, List[UnitId]]]:
 
     return ret
 
+
 class CannotCreateMotifError(Exception):
     pass
+
 
 def get_motif_including_gap_content(
     structure: Structure, units_by_component: List[List[UnitId]]
@@ -247,10 +249,10 @@ def get_motif_including_gap_content(
                 residue = utils.pdb.get_residue_from_chain(chain, unit)
             except KeyError:
                 warnings.warn(
-                f"Residue {str(unit)} does not exist, hence instance cannot be generated."
+                    f"Residue {str(unit)} does not exist, hence instance cannot be generated."
                 )
                 raise CannotCreateMotifError
-                
+
             comp_residues.append(residue)
         comp_residues, comp_expansion = fill_gaps(comp_residues, chain)
         ret_residues.append(comp_residues)
@@ -385,7 +387,7 @@ def generate_models(dataset, considered_motifs, args):
                 )
             except CannotCreateMotifError:
                 warnings.warn(
-                f"Instance {instance_id} of motifs {bp2_ids} could not be generated."
+                    f"Instance {instance_id} of motifs {bp2_ids} could not be generated."
                 )
                 continue
 

@@ -16,4 +16,3 @@ DEST_DIR = os.path.join(DATABASE_DIR, "2_2")
 if os.path.exists(DEST_DIR):
     shutil.rmtree(DEST_DIR)
 shutil.copytree(MODEL_DIR, DEST_DIR)
-

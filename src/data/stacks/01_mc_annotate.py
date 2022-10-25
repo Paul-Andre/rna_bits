@@ -18,16 +18,18 @@ filenames = [a for a in os.listdir(in_path) if a.endswith(".pdb")]
 filenames.sort()
 assert filenames
 
-for i,fn in enumerate(filenames):
-    print(fn, str(i+1)+"/"+str(len(filenames)))
+for i, fn in enumerate(filenames):
+    print(fn, str(i + 1) + "/" + str(len(filenames)))
     pdb_code = remove_string_end(fn, ".pdb")
 
-    pdb_fn = os.path.join(in_path, pdb_code +".pdb")
-    mcout_fn = os.path.join(out_path, pdb_code+".mcout")
+    pdb_fn = os.path.join(in_path, pdb_code + ".pdb")
+    mcout_fn = os.path.join(out_path, pdb_code + ".mcout")
 
-    fp = subprocess.run([MCA_DIR, "-f", "0", pdb_fn], capture_output=True, encoding="ascii")
+    fp = subprocess.run(
+        [MCA_DIR, "-f", "0", pdb_fn], capture_output=True, encoding="ascii"
+    )
     mcout = fp.stdout
-    assert("Invalid" not in mcout)
+    assert "Invalid" not in mcout
 
     with open(mcout_fn, "w") as f:
         f.write(mcout)
