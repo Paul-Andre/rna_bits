@@ -512,6 +512,7 @@ def choose_or_not(options: List[str]) -> str:
     return o[0]
 
 from utils.data_path import DATA_PATH
+from utils.data_path import get_path
 
 LIBRARY_MOTIFS_DIR = os.path.join(DATA_PATH, "database")
 
@@ -578,10 +579,12 @@ def load_model_from_mcsym_db(shape: str, letters: str) -> Tuple[Model, str]:
     return load_model_from_path(struct_directory)
 
 
-def load_model_from_rosetta_db(shape: str, letters: str) -> Tuple[Model, str]:
-    path = os.path.join(LIBRARY_MOTIFS_DIR, "rosetta_canonical", shape, letters)
+def load_model_from_db(db: str, shape: str, letters: str) -> Tuple[Model, str]:
+    path = os.path.join(LIBRARY_MOTIFS_DIR, db, shape, letters)
     return load_model_from_path(path)
 
+def load_model_from_rosetta_db(shape: str, letters: str) -> Tuple[Model, str]:
+    return load_model_from_path("rosetta_canonical", shape, letters)
 
 def load_stack_model(letters: str) -> Tuple[Model, str]:
     return load_model_from_mcsym_db("2_2", letters)
@@ -627,7 +630,7 @@ def load_model_from_kind(
         shape = kind[1]
         letters = kind[2]
         if has_wobble_pair(letters):
-            return load_model_from_rosetta_db(shape, letters)
+            return load_model_from_db("rna_bits/canonical", shape, letters)
         return load_model_from_mcsym_db(shape, letters)
     if kind[0] == "pair":
         # Load a stack and truncate
