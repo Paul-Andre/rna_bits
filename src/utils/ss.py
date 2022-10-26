@@ -4,7 +4,7 @@ import logging
 import traceback
 from collections import Counter
 import numpy as np
-from typing import List, Hashable, Tuple, Union
+from typing import List, Hashable, Tuple, Union, Iterable, Dict, Optional
 
 from Project.parser import parseParens as parse_parens
 from Project.parser import isSeparator as _is_separator
@@ -27,7 +27,27 @@ def ts(*a):
     return tuple(sorted(a))
 
 
-def parens_to_chains(parens, skip_separator=True, start=1):
+def pairs_to_pairing_list(
+    pairs: Iterable[Tuple[int, int]], length: int
+) -> List[Optional[int]]:
+    # TODO: do intelligent handling of multiple pairings
+    pairing = [None] * length
+    for a, b in pairs:
+        pairing[a] = b
+        pairing[b] = a
+    return pairing
+
+
+def pairs_to_pairing_dict(pairs: Iterable[Tuple[int, int]]) -> Dict[int, int]:
+    # TODO: do intelligent handling of multiple pairings
+    pairing = {}
+    for a, b in pairs:
+        pairing[a] = b
+        pairing[b] = a
+    return pairing
+
+
+def parens_to_chains(parens, skip_separator=True, start=1) -> List[List[int]]:
     """
     ".((&))",skip_separator=True -> [[1,2,3],[4,5]]
     ".((&))",skip_separator=False -> [[1,2,3],[5,6]]

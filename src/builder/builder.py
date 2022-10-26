@@ -1,7 +1,7 @@
 import sys
 import numpy as np
 from dataclasses import dataclass
-from typing import Optional, Union, List, Tuple, Dict, TextIO, Literal, Container
+from typing import Optional, Union, List, Tuple, Dict, TextIO, Literal, Container, Set
 import os
 
 # A shim to make relative imports work when executing this file directly as a
@@ -36,6 +36,8 @@ class MotifInfo:
 @dataclass(frozen=True)
 class RassData:
     seq: str
+    # TODO: RassData has no business modifying seq. It should keep data as-is
+    # as much as possible
     original_seq: str
     dot_bracket: str
     # TODO: Maybe make these all a single list to keep their priority
@@ -80,16 +82,13 @@ def parse_rass_file(f: TextIO) -> RassData:
             info = line.split("-")
             _, name, first, last, comp = info
             first, last, comp = map(int, (first, last, comp))
-            first -= 1
-            last -= 1
-            comp -= 1
             rnamoip_components.append(
                 RnamoipCompInfo(name=name, comp_id=comp, first_nuc=first, last_nuc=last)
             )
         elif line.startswith("motif:"):
             _, name, ranges = line.split(":")
             nucs = parse_and_expand_ranges(ranges)
-            nucs = [n - 1 for n in nucs]
+            nucs = [n for n in nucs]
             user_motifs.append(MotifInfo(filename=name, nucs=nucs))
         elif line.startswith("stack"):
             # The same kind of stack that would form in a helix.
@@ -104,8 +103,6 @@ def parse_rass_file(f: TextIO) -> RassData:
             assert a >= 1
             assert b <= len(seq)
             assert b > a
-            a -= 1
-            b -= 1
             for i in range(a, b):
                 stacks.append((i, i + 1))
 
@@ -119,20 +116,12 @@ def parse_rass_file(f: TextIO) -> RassData:
     )
 
 
-import Project.parser
+import utils.ss
 
 
-def parse_parens(dot_bracket: str) -> List[Optional[int]]:
-    pairing = [None] * len(dot_bracket)
-
-    pos = 0
-
-    for a, b in Project.parser.parseParens(dot_bracket):
-        a -= 1
-        b -= 1
-        pairing[a] = b
-        pairing[b] = a
-
+def parse_parens(dot_bracket: str) -> Dict[int, int]:
+    pairs = utils.ss.parse_parens(dot_bracket, skip_separator=False, start=1)
+    pairing = utils.ss.pairs_to_pairing_dict(pairs)
     return pairing
 
 
@@ -185,10 +174,37 @@ class Builder:
         self.rass_data: RassData = rass_data
         self.seq: str = rass_data.seq
 
-        # For each nucleotide, a list of (module, residue_in_module)
-        self.module_assignment: List[List[Tuple[Node, int]]] = [
-            [] for _ in range(len(rass_data.seq))
+        self.chain_nuc_ids = utils.ss.parens_to_chains(
+            rass_data.dot_bracket, skip_separator=False, start=1
+        )
+
+        ids_list = [aa for a in self.chain_nuc_ids for aa in a]
+
+        self.next_dict = {}
+        self.prev_dict = {}
+        for l in self.chain_nuc_ids:
+            for a, b in zip(l[:-1], l[1:]):
+                self.next_dict[a] = b
+                self.prev_dict[b] = a
+
+        seq_mapping_list = [
+            aa
+            for a in utils.ss.parens_to_chains(
+                rass_data.dot_bracket, skip_separator=False, start=0
+            )
+            for aa in a
         ]
+
+        self.letters: Dict[int, str] = {
+            a: self.seq[b] for (a, b) in zip(ids_list, seq_mapping_list)
+        }
+
+        self.valid_nuc_ids: Set[int] = set(ids_list)
+
+        # For each nucleotide, a list of (module, residue_in_module)
+        self.module_assignment: Dict[int, List[Tuple[Node, int]]] = {
+            k: [] for k in self.valid_nuc_ids
+        }
         self.nodes: List[Node] = []
 
         self.rigids: List["Rigid"] = []
@@ -196,6 +212,13 @@ class Builder:
         self.rigidCounter: int = 0
 
         self.models_used: List[Tuple[List[int], ModelSourceInfo]] = []
+
+    # TODO: perhaps add the nucs numbering in this function instead of Node
+    # initialization
+    def assign_module(self, module: Node) -> None:
+        for i, n in enumerate(module.nucs):
+            self.module_assignment[n].append((module, i))
+        self.nodes.append(module)
 
 
 def new_node_from_motif_info(info: MotifInfo) -> Node:
@@ -245,7 +268,7 @@ def have_overlapping_module(builder: Builder, nucls: Tuple[int, ...]) -> bool:
     return len(a) >= 1
 
 
-def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
+def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
     """Generate and add nodes related to ncm's, loose ends, lonely pairs and
     lonely nucleotides"""
     # TODO: split this function in ncm, pairs, etc...
@@ -254,93 +277,72 @@ def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
     nodes = builder.nodes
     rass_data = builder.rass_data
     added_ncms = set()
-    seq = rass_data.seq
     stacks = rass_data.stacks
-    for i in range(0, len(seq)):
-        if pairing[i] is not None:
-            j = pairing[i]
-            ii = i + 1
-            jj = j - 1
-            iii = i + 2
-            jjj = j - 2
-            module = None
-            if ii < len(pairing) and pairing[ii] == jj:
-                ts = tuple(sorted((i, ii, jj, j)))
-                if ts in added_ncms or have_overlapping_module(builder, ts):
-                    continue
-                added_ncms.add(ts)
-                module = Node(
-                    ("ncm", "2_2", seq[i] + seq[ii] + seq[jj] + seq[j]), [i, ii, jj, j]
-                )
-                module_assignment[i].append((module, 0))
-                module_assignment[ii].append((module, 1))
-                module_assignment[jj].append((module, 2))
-                module_assignment[j].append((module, 3))
+    letters = builder.letters
 
-            elif ii < len(pairing) and pairing[ii] == jjj:
-                ts = tuple(sorted((i, ii, jjj, jj, j)))
-                if ts in added_ncms or have_overlapping_module(builder, ts):
-                    continue
-                added_ncms.add(ts)
-                module = Node(
-                    ("ncm", "2_3", seq[i] + seq[ii] + seq[jjj] + seq[jj] + seq[j]),
-                    [i, ii, jjj, jj, j],
-                )
-                module_assignment[i].append((module, 0))
-                module_assignment[ii].append((module, 1))
-                module_assignment[jjj].append((module, 2))
-                module_assignment[jj].append((module, 3))
-                module_assignment[j].append((module, 4))
+    def make_ncm_node(shape, ids):
+        assert all(type(i) is int for i in ids)
+        return Node(("ncm", shape, "".join(letters[i] for i in ids)), ids)
 
-            elif iii < len(pairing) and pairing[iii] == jj:
-                ts = tuple(sorted((i, iii, iii, jj, j)))
-                if ts in added_ncms or have_overlapping_module(builder, ts):
-                    continue
-                added_ncms.add(ts)
-                module = Node(
-                    ("ncm", "3_2", seq[i] + seq[ii] + seq[iii] + seq[jj] + seq[j]),
-                    [i, ii, iii, jj, j],
-                )
-                module_assignment[i].append((module, 0))
-                module_assignment[ii].append((module, 1))
-                module_assignment[iii].append((module, 2))
-                module_assignment[jj].append((module, 3))
-                module_assignment[j].append((module, 4))
-            elif iii < len(pairing) and pairing[iii] == jjj:
-                ts = tuple(sorted((i, ii, iii, jjj, jj, j)))
-                if ts in added_ncms or have_overlapping_module(builder, ts):
-                    continue
-                added_ncms.add(ts)
-                module = Node(
-                    (
-                        "ncm",
-                        "3_3",
-                        seq[i] + seq[ii] + seq[iii] + seq[jjj] + seq[jj] + seq[j],
-                    ),
-                    [i, ii, iii, jjj, jj, j],
-                )
-                module_assignment[i].append((module, 0))
-                module_assignment[ii].append((module, 1))
-                module_assignment[iii].append((module, 2))
-                module_assignment[jjj].append((module, 3))
-                module_assignment[jj].append((module, 4))
-                module_assignment[j].append((module, 5))
+    assert None not in pairing
+    for i in sorted(pairing.keys()):
+        j = pairing[i]
+        ii = builder.next_dict.get(i)
+        jj = builder.prev_dict.get(j)
+        iii = builder.next_dict.get(ii)
+        jjj = builder.prev_dict.get(jj)
 
-            if module:
-                nodes.append(module)
-
-    # Add isolated pairs
-    for i in range(0, len(seq)):
-        if pairing[i] is not None:
-            j = pairing[i]
-            ts = tuple(sorted((i, j)))
+        # Note the "assert ii is not None ..." is to appease pytype
+        # TODO: perhaps there is a better way?
+        # "Crazy" idea: make the segmentation generic such that stacks are
+        # considered as a type of loop. Then this stuff won't be needed.
+        if ii in pairing and pairing[ii] == jj:
+            ts = tuple(sorted((i, ii, jj, j)))
             if ts in added_ncms or have_overlapping_module(builder, ts):
                 continue
             added_ncms.add(ts)
-            module = Node(("pair", seq[i] + seq[j]), [i, j])
-            module_assignment[i].append((module, 0))
-            module_assignment[j].append((module, 1))
-            nodes.append(module)
+            assert ii is not None and jj is not None
+            module = make_ncm_node("2_2", [i, ii, jj, j])
+            builder.assign_module(module)
+
+        elif ii in pairing and pairing[ii] == jjj:
+            ts = tuple(sorted((i, ii, jjj, jj, j)))
+            if ts in added_ncms or have_overlapping_module(builder, ts):
+                continue
+            added_ncms.add(ts)
+            assert ii is not None and jjj is not None and jj is not None
+            module = make_ncm_node("2_2", [i, ii, jjj, jj, j])
+            builder.assign_module(module)
+
+        elif iii in pairing and pairing[iii] == jj:
+            ts = tuple(sorted((i, iii, iii, jj, j)))
+            if ts in added_ncms or have_overlapping_module(builder, ts):
+                continue
+            added_ncms.add(ts)
+            assert ii is not None and jjj is not None and jj is not None
+            module = make_ncm_node("2_3", [i, ii, iii, jj, j])
+
+        elif iii in pairing and pairing[iii] == jjj:
+            ts = tuple(sorted((i, ii, iii, jjj, jj, j)))
+            if ts in added_ncms or have_overlapping_module(builder, ts):
+                continue
+            added_ncms.add(ts)
+            assert (
+                ii is not None
+                and iii is not None
+                and jjj is not None
+                and jj is not None
+            )
+            module = make_ncm_node("2_3", [i, ii, iii, jjj, jj, j])
+            builder.assign_module(module)
+
+    for i, j in pairing.items():
+        ts = tuple(sorted((i, j)))
+        if ts in added_ncms or have_overlapping_module(builder, ts):
+            continue
+        added_ncms.add(ts)
+        module = Node(("pair", letters[i] + letters[j]), [i, j])
+        builder.assign_module(module)
 
     def add_helix_stack_module(i, j):
         assert j == i + 1
@@ -349,10 +351,8 @@ def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
             # TODO: check if the overlap is a helix fragment or not <- why?
             return
         added_ncms.add(ts)
-        module = Node(("helix_stack", seq[i] + seq[j]), [i, j])
-        module_assignment[i].append((module, 0))
-        module_assignment[j].append((module, 1))
-        nodes.append(module)
+        module = Node(("helix_stack", letters[i] + letters[j]), [i, j])
+        builder.assign_module(module)
 
     # Add stacking that was given by the instructions
     for i, j in stacks:
@@ -360,48 +360,42 @@ def generate_auto_nodes(builder: Builder, pairing: List[Optional[int]]) -> None:
 
     # Turn dangling ends into stacks
     fp_start = 0
-    for i in range(0, len(seq) - 1):
-        if len(module_assignment[i]) == 0:
-            fp_start = i + 1
-        else:
-            break
-    # print("fp_start", fp_start)
-    for i in range(0, fp_start):
-        add_helix_stack_module(i, i + 1)
+    for ch in builder.chain_nuc_ids:
+        if len(ch) == 0:
+            continue
+        for i in ch[:-1]:
+            if len(module_assignment[i]) == 0:
+                fp_start = i + 1
+            else:
+                break
+        # print("fp_start", fp_start)
+        for i in range(ch[0], fp_start):
+            add_helix_stack_module(i, i + 1)
 
-    tp_start = len(seq) - 1
-    for i in range(len(seq) - 1, 0, -1):
-        if len(module_assignment[i]) == 0:
-            tp_start = i - 1
-        else:
-            break
-    for i in range(len(seq) - 1, tp_start, -1):
-        add_helix_stack_module(i - 1, i)
+        tp_start = ch[-1]
+        for i in reversed(ch[1:]):
+            if len(module_assignment[i]) == 0:
+                tp_start = i - 1
+            else:
+                break
+        for i in range(ch[-1], tp_start, -1):
+            add_helix_stack_module(i - 1, i)
 
     # Add single nucleotides
-    for i in range(0, len(seq)):
+    for i in builder.valid_nuc_ids:
         if len(module_assignment[i]) == 0:
             ts = (i,)
             if ts in added_ncms or have_overlapping_module(builder, ts):
                 continue
             added_ncms.add(ts)
-            module = Node(("nucleotide", seq[i]), [i])
-            module_assignment[i].append((module, 0))
-            nodes.append(module)
+            module = Node(("nucleotide", letters[i]), [i])
+            builder.assign_module(module)
 
 
 def assign_priorities(builder: Builder) -> None:
     for i, node in enumerate(builder.nodes):
         if node.kind[0] == "module":
             node.priority = i
-        #
-        # # The following removes some additional chainbreaks but adds a bunch of chainbreaks as well
-        #
-        # if node.kind[0] == "ncm" and node.kind[1] == "2_2":
-        #     seq = node.kind[2]
-        #     wobble = ("GU", "UG")
-        #     if (seq[0] + seq[3]) in wobble or (seq[1] + seq[2]) in wobble:
-        #         node.priority = i
 
 
 import vpython as vp
@@ -511,6 +505,7 @@ def choose_or_not(options: List[str]) -> str:
     o = sorted(options)
     return o[0]
 
+
 from utils.data_path import DATA_PATH
 from utils.data_path import get_path
 
@@ -583,8 +578,10 @@ def load_model_from_db(db: str, shape: str, letters: str) -> Tuple[Model, str]:
     path = os.path.join(LIBRARY_MOTIFS_DIR, db, shape, letters)
     return load_model_from_path(path)
 
+
 def load_model_from_rosetta_db(shape: str, letters: str) -> Tuple[Model, str]:
     return load_model_from_db("rosetta_canonical", shape, letters)
+
 
 def load_stack_model(letters: str) -> Tuple[Model, str]:
     return load_model_from_mcsym_db("2_2", letters)
@@ -685,6 +682,7 @@ def map_residues(node: Node) -> Dict[int, Residue]:
 
 import importlib.resources as importlib_resources
 
+
 def load_resource_structure(fname: str) -> Model:
     if __package__:
         with importlib_resources.open_text(__package__, fname) as f:
@@ -697,6 +695,7 @@ def load_resource_structure(fname: str) -> Model:
 
 def load_substitution_model() -> Model:
     return load_resource_structure("bases.pdb")[0]
+
 
 # Model contains only the 4 bases, used for base substitution
 # Each base is in its own chain, where the chain name is the name of the base.
@@ -768,7 +767,7 @@ def substitute_base(residue: Residue, newResname: str) -> None:
 def assign_models(builder: Builder, user_motifs_dir: str) -> None:
     nodes = builder.nodes
     models_used = builder.models_used
-    seq = builder.seq
+    letters = builder.letters
     for node in nodes:
         # print(node.kind, node.nucs)
         node.model, model_filename = load_model_from_kind(node.kind, user_motifs_dir)
@@ -780,9 +779,9 @@ def assign_models(builder: Builder, user_motifs_dir: str) -> None:
         did_substitute = False
         # TODO: instead of passing seq, add the sequence information into the Node object
         for k, v in node.residue_mapping.items():
-            if seq[k].isupper() and seq[k] != canonical_residue_name(v.resname):
+            if letters[k].isupper() and letters[k] != canonical_residue_name(v.resname):
                 did_substitute = True
-                substitute_base(v, seq[k])
+                substitute_base(v, letters[k])
 
 
 BB_ATOM_NAMES = ["P", "O5'", "C5'", "C4'", "C3'", "O3'"]
@@ -971,26 +970,32 @@ def generate_c3prime_nuc(builder: Builder, coord, letter, pos):
     return nucWrapper
 
 
-def generate_unplaced_nucleotides(builder: Builder, seq: str) -> None:
+def generate_unplaced_nucleotides(builder: Builder) -> None:
     chain_of_nucleotides = builder.chain_of_nucleotides
     # Find nucleotides that haven't been placed and turn them into rigids
-    for i in range(0, len(seq)):
+    for i in builder.valid_nuc_ids:
         # assert i in chain_of_nucleotides
         if i not in chain_of_nucleotides:
             warnings.warn(f"{i} is not in chain of nucleotides for some reason")
 
             builder.rigidCounter += 1
             coord = np.array([0.0, 0, 0]) - builder.rigidCounter * 20.0
-            chain_of_nucleotides[i] = generate_c3prime_nuc(builder, coord, seq[i], i)
+            chain_of_nucleotides[i] = generate_c3prime_nuc(
+                builder, coord, builder.letters[i], i
+            )
 
 
 def is_rigid_edge_nuc(builder: Builder, i: int) -> bool:
     chain_of_nucleotides = builder.chain_of_nucleotides
-    if (i + 1) in chain_of_nucleotides:
-        if chain_of_nucleotides[i + 1].rigid is not chain_of_nucleotides[i].rigid:
+    fp = builder.valid_nuc_ids - builder.prev_dict.keys()
+    tp = builder.valid_nuc_ids - builder.next_dict.keys()
+    if i in builder.next_dict:
+        ii = builder.next_dict[i]
+        if chain_of_nucleotides[ii].rigid is not chain_of_nucleotides[i].rigid:
             return True
-    if (i - 1) in chain_of_nucleotides:
-        if chain_of_nucleotides[i - 1].rigid is not chain_of_nucleotides[i].rigid:
+    if i in builder.prev_dict:
+        ii = builder.prev_dict[i]
+        if chain_of_nucleotides[ii].rigid is not chain_of_nucleotides[i].rigid:
             return True
     return False
 
@@ -1089,12 +1094,11 @@ def traverse_to_get_cycle(
 
 # Finds the next we want to process
 def get_next_cycle(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
-    seq = builder.seq
     chain_of_nucleotides = builder.chain_of_nucleotides
     # print(chain_of_nucleotides)
     bestScore = math.inf
     bestCycle = None
-    for i in range(len(seq)):
+    for i in builder.valid_nuc_ids:
         if is_rigid_edge_nuc(builder, i):
             nuc = chain_of_nucleotides[i]
 
@@ -1113,11 +1117,14 @@ def get_next_cycle(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleoti
 
 
 def is_terminal_rigid(builder: Builder, r: Rigid) -> bool:
-    # TODO: make this work even when there's more than 1 strand
-    return r in (
-        builder.chain_of_nucleotides[len(builder.seq) - 1].rigid,
-        builder.chain_of_nucleotides[0].rigid,
-    )
+    # Get all the terminal nucleotides
+    # TODO: do this only once
+    fp = builder.valid_nuc_ids - builder.prev_dict.keys()
+    tp = builder.valid_nuc_ids - builder.next_dict.keys()
+    term_nucs = fp | tp
+    print("term_nucs", term_nucs)
+
+    return r in (builder.chain_of_nucleotides[i].rigid for i in term_nucs)
 
 
 def traverse_to_get_path(
@@ -1126,7 +1133,6 @@ def traverse_to_get_path(
     """Traverse to get a path between two rigids that are connected to only one edge each
     (to get an "outer loop")
     """
-    seq = builder.seq
     chain_of_nucleotides = builder.chain_of_nucleotides
 
     assert is_terminal_rigid(builder, startNuc.rigid)
@@ -1173,7 +1179,7 @@ def get_next_path(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotid
     """Assumes that all cycles have been found.
     Finds the next "outer loop"
     """
-    for i in range(len(builder.seq)):
+    for i in builder.valid_nuc_ids:
         if is_rigid_edge_nuc(builder, i):
             nuc = builder.chain_of_nucleotides[i]
             return traverse_to_get_path(builder, nuc)
@@ -1182,6 +1188,7 @@ def get_next_path(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotid
 
 
 from . import inscribed_polygon
+
 
 def get_c3prime(residue: Residue) -> Atom:
     if "C3'" in residue:
@@ -1417,7 +1424,7 @@ def generate_biopython_structure(builder: Builder) -> Structure:
     atom_serial_inc = 1
     for (i, rw) in sorted(chain_of_nucleotides.items()):
         r = rw.model
-        output_residue = PDB.Residue.Residue((" ", i + 1, " "), r.resname, "    ")
+        output_residue = PDB.Residue.Residue((" ", i, " "), r.resname, "    ")
         for atom in r:
             # 'name', 'coord', 'bfactor', 'occupancy', 'altloc', 'fullname', and 'serial_number'
             output_atom = PDB.Atom.Atom(
@@ -1480,7 +1487,7 @@ def process_rass_filename(rass_filename):
 
     assemble(builder)
     generate_unplaced_nucleotides(
-        builder, rass_data.seq
+        builder
     )  # Probably unneeded because all lonely nucleotides should have been generated
 
     # for _, b in sorted(builder.chain_of_nucleotides.items()):

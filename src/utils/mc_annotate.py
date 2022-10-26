@@ -76,8 +76,7 @@ class MCOut:
             elif line.startswith("Number of "):
                 pass
             else:
-                current_dest.append(line) # pytype: disable=attribute-error
-
+                current_dest.append(line)  # pytype: disable=attribute-error
 
         self.proper_nucs = set()
         for line in self.resconf_lines:

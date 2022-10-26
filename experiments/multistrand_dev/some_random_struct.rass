@@ -1,0 +1,14 @@
+GUCCCAUCUGAUAGA+++CUUUAGUCUCACCGGUGUUGCGGCGCAUCGGCCCGGAC
+((((...((((.((.+++)))))).....(((((((......)))))))...))))
+
+# Excluding None
+
+# wanted: CCAUCGUCUCACGCCCG (...().....()...)  found: CGGCCGGCUAGAUGACG (...().....()...)  score: -14.0
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_98268.1.pdb/71.pdb:  4,5,6,7,8,24,25,26,27,28,29,30,49,50,51,52,53
+
+# wanted: AUAUU (.())  found: AUAUU (.())  score: 0.0
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_07902.3.pdb/4.pdb:  11,12,13,20,21
+
+# wanted: UUGCGGCG (......)  found: GCGCGACC (......)  score: -3.0
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_56778.1.pdb/225.pdb:  36,37,38,39,40,41,42,43
+

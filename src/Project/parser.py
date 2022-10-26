@@ -4,6 +4,8 @@ from collections import defaultdict
 
 from .representation import *
 
+# TODO most of this should be transferred to utils
+
 
 class ParseError(Exception):
     def __init__(self, message=None, text=None, column=None, line=None):
@@ -90,16 +92,19 @@ def isDot(c):
 
 def isSeparator(c):
     assert len(c) == 1
-    return c == "&" or c == " "
+    return c in "+& "
 
 
-def parseParens(s: Union[List[str], str], start=1) -> List[Tuple[int, int]]:
+def parseParens(
+    s: Union[List[str], str], skip_separator=True, start=1
+) -> List[Tuple[int, int]]:
     stacks: DefaultDict[str, List[int]] = defaultdict(list)
     links = []
     pos = start
     for c in s:
         if isSeparator(c):
-            pass
+            if not skip_separator:
+                pos += 1
         else:
             if isDot(c):
                 pass
