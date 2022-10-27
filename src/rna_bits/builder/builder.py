@@ -312,7 +312,7 @@ def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
                 continue
             added_ncms.add(ts)
             assert ii is not None and jjj is not None and jj is not None
-            module = make_ncm_node("2_2", [i, ii, jjj, jj, j])
+            module = make_ncm_node("2_3", [i, ii, jjj, jj, j])
             builder.assign_module(module)
 
         elif iii in pairing and pairing[iii] == jj:
@@ -321,7 +321,7 @@ def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
                 continue
             added_ncms.add(ts)
             assert ii is not None and jjj is not None and jj is not None
-            module = make_ncm_node("2_3", [i, ii, iii, jj, j])
+            module = make_ncm_node("3_2", [i, ii, iii, jj, j])
 
         elif iii in pairing and pairing[iii] == jjj:
             ts = tuple(sorted((i, ii, iii, jjj, jj, j)))
@@ -334,7 +334,7 @@ def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
                 and jjj is not None
                 and jj is not None
             )
-            module = make_ncm_node("2_3", [i, ii, iii, jjj, jj, j])
+            module = make_ncm_node("3_3", [i, ii, iii, jjj, jj, j])
             builder.assign_module(module)
 
     for i, j in pairing.items():
@@ -493,6 +493,9 @@ def load_struct_file(filename: str, struct_name: Optional[str] = None) -> Struct
         elif filename.endswith(".cif.gz"):
             with gzip.open(filename, "rt") as f:
                 return PDB.MMCIFParser().get_structure(struct_name, f)
+        else:
+            warnings.warn(f"Extension of '{filename}' not recognize; assuming it's a pdb")
+            return PDB.PDBParser().get_structure(struct_name, filename)
 
     assert False, "Not a proper filename"
 
@@ -524,6 +527,8 @@ def resolve_filename(filename: str, user_motifs_dir: str) -> str:
         return os.path.join(LIBRARY_MOTIFS_DIR, filename)
     return filename
 
+class ModelFailedToLoadError(Exception):
+    pass
 
 def get_struct_paths_from_path(path: str) -> List[str]:
     """If path is a directory, return all the structure files within it.
@@ -535,10 +540,16 @@ def get_struct_paths_from_path(path: str) -> List[str]:
 
     if os.path.isdir(path):
         ret = [os.path.join(path, f) for f in os.listdir(path) if allow_filename(f)]
-        assert ret, f"No struct files found in {path}"
+        if not ret:
+            warnings.warn(f"No struct files found in {path}")
+            raise ModelFailedToLoadError
         return ret
     else:
-        assert is_struct_filename(path), f"Unknown file type {path}"
+        if not os.path.isfile(path):
+            warnings.warn(f"Path {path} does not exist")
+            raise ModelFailedToLoadError
+        if not is_struct_filename(path):
+            warnings.warn(f"Unknown file type {path}")
         return [path]
 
 
@@ -578,10 +589,6 @@ def load_model_from_mcsym_db(shape: str, letters: str) -> Tuple[Model, str]:
 def load_model_from_db(db: str, shape: str, letters: str) -> Tuple[Model, str]:
     path = os.path.join(LIBRARY_MOTIFS_DIR, db, shape, letters)
     return load_model_from_path(path)
-
-
-def load_model_from_rosetta_db(shape: str, letters: str) -> Tuple[Model, str]:
-    return load_model_from_db("rosetta_canonical", shape, letters)
 
 
 def load_stack_model(letters: str) -> Tuple[Model, str]:
@@ -771,7 +778,12 @@ def assign_models(builder: Builder, user_motifs_dir: str) -> None:
     letters = builder.letters
     for node in nodes:
         # print(node.kind, node.nucs)
-        node.model, model_filename = load_model_from_kind(node.kind, user_motifs_dir)
+        try: 
+            model, model_filename = load_model_from_kind(node.kind, user_motifs_dir)
+        except ModelFailedToLoadError:
+            warnings.warn(f"Model with kind {node.kind} (used for nucs {node.nucs}) failed to load.")
+            continue
+        node.model = model
         node.model_filename = model_filename
         models_used.append((node.nucs, model_filename))
         node.residue_mapping = map_residues(node)
@@ -803,7 +815,7 @@ def correspond_nucleotide_atoms(
     common_atoms = set(a_canon.keys()) & set(b_canon.keys())
     diff = all_atoms - common_atoms
     if diff:
-        warnings.warn("Some atoms were not shared {diff}")
+        warnings.warn(f"Some atoms were not shared {diff}")
     a_ret = []
     b_ret = []
     for atom_name in common_atoms:
@@ -925,6 +937,8 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
 
     for nuc_id in node.nucs:
         for (other, _) in builder.module_assignment[nuc_id]:
+            if other.model is None:
+                continue
             if not other.visited:
                 traverse_and_stack(builder, other, currentRigid)
 
@@ -935,6 +949,8 @@ def assemble(builder: Builder) -> None:
         # Find biggest node to place first
         central_node = None
         for node in builder.nodes:
+            if node.model is None:
+                continue
             if not node.visited and (
                 central_node is None or (len(node.nucs) > len(central_node.nucs))
             ):
