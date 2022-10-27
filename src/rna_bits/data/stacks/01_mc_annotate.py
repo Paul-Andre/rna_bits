@@ -1,15 +1,13 @@
-import utils.pdb
-from Bio.PDB.PDBList import PDBList
-from utils.data_path import get_path
 import subprocess
 import os
 
-from utils.misc import remove_string_end
+from Bio.PDB.PDBList import PDBList
+
+from rna_bits.utils.misc import remove_string_end
+from rna_bits.utils.data_path import get_path
 
 # TODO put it in its utility file
 MCA_DIR = "/home/paul/MC-Annotate"
-
-pdb_code = "1jj2"
 
 in_path = get_path("interim/stacks/pdb")
 out_path = get_path("interim/stacks/mcout", create=True)

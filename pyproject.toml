@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "example_package_PAUL_ANDRE_HENEGAR"
+name = "rna-bits"
 version = "0.0.1"
 authors = [
   { name="Paul-Andre Henegar", email="paul-andre.henegar@mail.mcgill.ca" },
@@ -17,6 +17,6 @@ classifiers = [
 ]
 
 [project.scripts]
-rna_builder = "builder.builder:main_wrapper"
-bp2_bridge = "builder.bp2_bridge:main_wrapper"
+rna_builder = "rna_bits.builder.builder:main_wrapper"
+bp2_bridge = "rna_bits.builder.bp2_bridge:main_wrapper"
 

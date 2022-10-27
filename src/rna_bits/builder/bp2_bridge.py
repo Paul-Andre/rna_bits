@@ -15,12 +15,13 @@ from Bio.PDB.Model import Model
 from Bio.PDB.Chain import Chain
 from Bio.PDB.Residue import Residue
 
-import utils.pdb
-import utils.bgsu
-from utils.bgsu import UnitId
-from utils.data_path import DATA_PATH
-import utils.ss
-from utils.misc import make_warnings_nicer
+import rna_bits.utils as utils
+import rna_bits.utils.pdb
+import rna_bits.utils.bgsu
+import rna_bits.utils.ss
+from rna_bits.utils.bgsu import UnitId
+from rna_bits.utils.data_path import DATA_PATH
+from rna_bits.utils.misc import make_warnings_nicer
 
 
 def parse_args(argv):

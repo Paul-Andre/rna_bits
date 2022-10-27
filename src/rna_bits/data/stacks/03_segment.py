@@ -1,6 +1,3 @@
-import utils.pdb
-from Bio.PDB.PDBList import PDBList
-from utils.data_path import get_path
 import subprocess
 import os
 from collections import Counter
@@ -10,10 +7,12 @@ import warnings
 import numpy as np
 from Bio.PDB import PDBParser
 from Bio.PDB.PDBExceptions import PDBConstructionWarning
+from Bio.PDB.PDBList import PDBList
 
-from utils import mc_annotate
-from utils.misc import remove_string_end
-from utils import ss
+from rna_bits.utils import mc_annotate
+from rna_bits.utils import ss
+from rna_bits.utils.data_path import get_path
+from rna_bits.utils.misc import remove_string_end
 
 STRUCT_DIR = get_path("interim/stacks/pdb")
 # MCOUT_DIR = get_path("interim/stacks/mcout")

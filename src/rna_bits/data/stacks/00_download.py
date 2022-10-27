@@ -1,12 +1,13 @@
-import utils.pdb
-from Bio.PDB.PDBList import PDBList
-from utils.data_path import get_path
 import os
 
-# The codes that seem to be used in Rosetta
+from Bio.PDB.PDBList import PDBList
+
+from rna_bits.utils.data_path import get_path
+
+# The codes that seem to have been used to generate stacks in Rosetta
 pdb_codes = [
-    "2pxp",
     "1jj2",
+    "2pxp",
     "2pxl",
     "2pxe",
     "2pxt",

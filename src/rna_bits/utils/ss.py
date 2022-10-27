@@ -6,8 +6,8 @@ from collections import Counter
 import numpy as np
 from typing import List, Hashable, Tuple, Union, Iterable, Dict, Optional
 
-from Project.parser import parseParens as parse_parens
-from Project.parser import isSeparator as _is_separator
+from rna_bits.Project.parser import parseParens as parse_parens
+from rna_bits.Project.parser import isSeparator as _is_separator
 
 
 class Helix:

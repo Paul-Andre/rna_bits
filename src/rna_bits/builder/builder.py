@@ -116,7 +116,8 @@ def parse_rass_file(f: TextIO) -> RassData:
     )
 
 
-import utils.ss
+import rna_bits.utils as utils
+import rna_bits.utils.ss
 
 
 def parse_parens(dot_bracket: str) -> Dict[int, int]:
@@ -506,8 +507,8 @@ def choose_or_not(options: List[str]) -> str:
     return o[0]
 
 
-from utils.data_path import DATA_PATH
-from utils.data_path import get_path
+from rna_bits.utils.data_path import DATA_PATH
+from rna_bits.utils.data_path import get_path
 
 LIBRARY_MOTIFS_DIR = os.path.join(DATA_PATH, "database")
 

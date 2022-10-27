@@ -1,6 +1,3 @@
-import utils.pdb
-from Bio.PDB.PDBList import PDBList
-from utils.data_path import get_path
 import subprocess
 import os
 from collections import Counter
@@ -9,9 +6,11 @@ import warnings
 
 import numpy as np
 from Bio.PDB import PDBParser
+from Bio.PDB.PDBList import PDBList
 from Bio.PDB.PDBExceptions import PDBConstructionWarning
 
-from utils import mc_annotate
+from rna_bits.utils.data_path import get_path
+from rna_bits.utils import mc_annotate
 
 STRUCT_DIR = get_path("interim/stacks/pdb")
 MCOUT_DIR = get_path("interim/stacks/mcout")
@@ -19,8 +18,6 @@ SS_DIR = get_path("interim/stacks/ss", create=True)
 
 mcout_filenames = [a for a in os.listdir(MCOUT_DIR) if a.endswith(".mcout")]
 mcout_filenames.sort()
-# struct_filenames = struct_filenames[:10]
-# seen_pairings = {p:Counter() for p in possible_pairs}
 assert mcout_filenames
 
 
