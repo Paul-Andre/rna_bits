@@ -4,6 +4,11 @@ from dataclasses import dataclass
 from typing import Optional, Union, List, Tuple, Dict, TextIO, Literal, Container, Set
 import os
 
+from rna_bits.utils.data_path import DATA_PATH
+from rna_bits.utils.data_path import get_path
+
+LIBRARY_MOTIFS_DIR = os.path.join(DATA_PATH, "database")
+
 # A shim to make relative imports work when executing this file directly as a
 # script (python builder.py). Note, the package *still* needs to have been
 # installed.
@@ -269,6 +274,22 @@ def have_overlapping_module(builder: Builder, nucls: Tuple[int, ...]) -> bool:
     return len(a) >= 1
 
 
+def get_mcsym_path(shape: str, letters: str) -> Optional[str]:
+    struct_directory = None
+    ncm_shape_dir = os.path.join(LIBRARY_MOTIFS_DIR, "mcsym-db/", shape)
+    for folder in sorted(os.listdir(ncm_shape_dir)):
+        if folder.upper() == letters:
+            struct_directory = os.path.join(ncm_shape_dir, folder)
+            break
+    return struct_directory
+
+NCM_DB_PATH = os.path.join(LIBRARY_MOTIFS_DIR, "rna_bits/canonical")
+
+def check_ncm_exists(shape, letters) -> bool:
+    # TODO: this needs to be in the same place as loading the model (?)
+    path = os.path.join(NCM_DB_PATH, shape, letters)
+    return os.path.isdir(path)
+
 def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
     """Generate and add nodes related to ncm's, loose ends, lonely pairs and
     lonely nucleotides"""
@@ -283,7 +304,11 @@ def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
 
     def make_ncm_node(shape, ids):
         assert all(type(i) is int for i in ids)
-        return Node(("ncm", shape, "".join(letters[i] for i in ids)), ids)
+        let = "".join(builder.letters[i] for i in ids)
+        if check_ncm_exists(shape, let):
+            return Node(("ncm", shape, let), ids)
+        else:
+            return None
 
     assert None not in pairing
     for i in sorted(pairing.keys()):
@@ -304,7 +329,8 @@ def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
             added_ncms.add(ts)
             assert ii is not None and jj is not None
             module = make_ncm_node("2_2", [i, ii, jj, j])
-            builder.assign_module(module)
+            if module is not None:
+                builder.assign_module(module)
 
         elif ii in pairing and pairing[ii] == jjj:
             ts = tuple(sorted((i, ii, jjj, jj, j)))
@@ -313,7 +339,8 @@ def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
             added_ncms.add(ts)
             assert ii is not None and jjj is not None and jj is not None
             module = make_ncm_node("2_3", [i, ii, jjj, jj, j])
-            builder.assign_module(module)
+            if module is not None:
+                builder.assign_module(module)
 
         elif iii in pairing and pairing[iii] == jj:
             ts = tuple(sorted((i, iii, iii, jj, j)))
@@ -322,6 +349,8 @@ def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
             added_ncms.add(ts)
             assert ii is not None and jjj is not None and jj is not None
             module = make_ncm_node("3_2", [i, ii, iii, jj, j])
+            if module is not None:
+                builder.assign_module(module)
 
         elif iii in pairing and pairing[iii] == jjj:
             ts = tuple(sorted((i, ii, iii, jjj, jj, j)))
@@ -335,7 +364,8 @@ def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
                 and jj is not None
             )
             module = make_ncm_node("3_3", [i, ii, iii, jjj, jj, j])
-            builder.assign_module(module)
+            if module is not None:
+                builder.assign_module(module)
 
     for i, j in pairing.items():
         ts = tuple(sorted((i, j)))
@@ -510,10 +540,6 @@ def choose_or_not(options: List[str]) -> str:
     return o[0]
 
 
-from rna_bits.utils.data_path import DATA_PATH
-from rna_bits.utils.data_path import get_path
-
-LIBRARY_MOTIFS_DIR = os.path.join(DATA_PATH, "database")
 
 
 def resolve_filename(filename: str, user_motifs_dir: str) -> str:
@@ -566,12 +592,7 @@ def load_model_from_mcsym_db(shape: str, letters: str) -> Tuple[Model, str]:
     """Shape is like "2_2" and letters is like "AGCU"."""
     # Some folders in mcsym-db have lowercase letters (I'm not sure why.)
     # Because of that I manually iterate over
-    struct_directory = None
-    ncm_shape_dir = os.path.join(LIBRARY_MOTIFS_DIR, "mcsym-db/", shape)
-    for folder in sorted(os.listdir(ncm_shape_dir)):
-        if folder.upper() == letters:
-            struct_directory = os.path.join(ncm_shape_dir, folder)
-            break
+    struct_directory = get_mcsym_path(shape, letters)
     assert struct_directory is not None, f"Couldn't find files for {str}/{letters}"
 
     # if the theoretical model exists:
@@ -611,11 +632,11 @@ def delete_residues_by_number(model: Model, to_delete: Container[int]) -> None:
 
 
 def has_wobble_pair(letters: str) -> bool:
+    # TODO: this is not even right
     return letters[0] + letters[3] in ("GU", "UG") or letters[1] + letters[2] in (
         "GU",
         "UG",
     )
-
 
 # returns (model, filename)
 # TODO: put the filename selection into a different file
@@ -634,9 +655,7 @@ def load_model_from_kind(
     if kind[0] == "ncm":
         shape = kind[1]
         letters = kind[2]
-        if has_wobble_pair(letters):
-            return load_model_from_db("rna_bits/canonical", shape, letters)
-        return load_model_from_mcsym_db(shape, letters)
+        return load_model_from_db(NCM_DB_PATH, shape, letters)
     if kind[0] == "pair":
         # Load a stack and truncate
         model, filename = load_stack_model(kind[1][0] + "GC" + kind[1][1])
@@ -1544,7 +1563,9 @@ def main(argv: List[str]) -> None:
 
 
 def main_wrapper():
-    sys.setrecursionlimit(10000)  # Was testing something; probably remove
+    # Was testing something; probably remove
+    # TODO: change traverse_and_stack to not be recursive or to be more intelligent about it
+    sys.setrecursionlimit(10000)
     main(sys.argv)
 
 
