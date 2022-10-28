@@ -429,7 +429,6 @@ def assign_priorities(builder: Builder) -> None:
             node.priority = i
 
 
-import vpython as vp
 import Bio.PDB as PDB
 
 
@@ -1431,24 +1430,6 @@ def build_cycles(builder: Builder) -> None:
             first.rigid.merge(a.rigid)
 
 
-def visualize_stuff(builder: Builder):
-    # visualize stuff
-    # Used for debug purposes a long time ago
-    # TODO: Does it even work?
-    import vpython as vp
-
-    def toVpVec(a):
-        return vp.vector(a[0], a[1], a[2])
-
-    for k, residue in builder.chain_of_nucleotides.items():
-        for atom in residue.model:
-            vp.sphere(pos=toVpVec(atom.coord), radius=0.3, color=vp.vector(0, 0.5, 0))
-            if canonical_atom_name(atom.name) == "P":
-                vp.sphere(
-                    pos=toVpVec(atom.coord), radius=0.5, color=vp.vector(1, 0.25, 0)
-                )
-
-
 # Now all we need is to write a pdb output!
 def generate_biopython_structure(builder: Builder) -> Structure:
     chain_of_nucleotides = builder.chain_of_nucleotides
@@ -1538,8 +1519,6 @@ def process_rass_filename(rass_filename):
 
     # print(len(rigids_seen))
 
-    if False:
-        visualize_stuff()
     for a in builder.models_used:
         print(a)
 
