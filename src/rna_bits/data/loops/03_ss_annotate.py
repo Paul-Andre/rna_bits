@@ -1,23 +1,26 @@
 import sys, os
 import csv
-from Bio import PDB
 import logging
 import traceback
-from Bio.PDB.PDBParser import PDBParser
 from collections import Counter
 import numpy as np
+
+from Bio import PDB
+from Bio.PDB.PDBParser import PDBParser
+
+from rna_bits.utils.data_path import get_path
+
 from utils import *
 
-STRUCT_DIR = "norm_representative/"
-MCOUT_DIR = "mca_out/"
-OUT_DIR = "ss_annotation/"
-
-if not os.path.isdir(OUT_DIR):
-    os.mkdir(OUT_DIR)
+STRUCT_DIR = get_path("interim/loops/norm_representative/")
+MCOUT_DIR = get_path("interim/loops/mca_out/")
+OUT_DIR = get_path("interim/loops/ss_annotation/", create=True)
 
 weird_unknown = []
 full_unknown = []
 
+
+# TODO: Use rna_bits.utils versions of stuff that's here
 
 # Takes an input that looks like A149-A151.A or A-44-A-33 or A12-B12-C2324
 # Returns ["A149", "A151.A"]
@@ -194,6 +197,8 @@ def tuple_to_mc_name(t):
 mcout_filenames = [a for a in os.listdir(MCOUT_DIR) if a.endswith(".txt")]
 mcout_filenames.sort()
 # struct_filenames = struct_filenames[:10]
+assert mcout_filenames
+
 seen_pairings = {p: Counter() for p in possible_pairs}
 
 for i, fn in enumerate(mcout_filenames):

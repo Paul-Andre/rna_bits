@@ -1,30 +1,28 @@
 import sys, os
 import csv
-from Bio import PDB
 import logging
 import traceback
-from Bio.PDB.PDBParser import PDBParser
 from collections import Counter
 from collections import defaultdict
-import numpy as np
-from utils import *
-
 import json
 
-STRUCT_DIR = "norm_representative/"
-SEGMENTATION_DIR = "segmentations/"
-MODEL_DIR = "loop_models/"
-JSON_DIR = "json/"
+from Bio import PDB
+from Bio.PDB.PDBParser import PDBParser
+import numpy as np
 
-if not os.path.isdir(MODEL_DIR):
-    os.mkdir(MODEL_DIR)
+from rna_bits.utils.data_path import get_path
 
-if not os.path.isdir(JSON_DIR):
-    os.mkdir(JSON_DIR)
+from utils import *
+
+STRUCT_DIR = get_path("interim/loops/norm_representative/")
+SEGMENTATION_DIR = get_path("interim/loops/segmentations/")
+MODEL_DIR = get_path("out/loops/loop_models/", create=True)
+JSON_DIR = get_path("out/loops/json/", create=True)
 
 filenames = [a for a in os.listdir(SEGMENTATION_DIR) if a.endswith(".txt")]
 filenames.sort()
 # filenames= filenames[:10]
+assert filenames
 
 
 def query_mc_name(model, name):

@@ -1,20 +1,20 @@
 import sys, os
 import csv
-from Bio import PDB
 import logging
 import traceback
-from Bio.PDB.PDBParser import PDBParser
 from collections import Counter
 import numpy as np
 
-STRUCT_DIR = "representative/"
-SAVE_DIR = "norm_representative/"
-MCA_DIR = "/home/paul/MC-Annotate"
+from Bio import PDB
+from Bio.PDB.PDBParser import PDBParser
 
+from rna_bits.utils.data_path import get_path
+
+STRUCT_DIR = get_path("interim/loops/representative/")
+SAVE_DIR = get_path("interim/loops/norm_representative/", create=True)
 
 DELETE_RESIDUES = True
 DELETE_ATOMS = True
-
 
 def get_conv(d):
     with open(d) as f:
@@ -24,6 +24,7 @@ def get_conv(d):
             if not l.startswith("#") and len(l.strip()) != 0
         )
 
+# TODO: Put normalization into utils
 
 res_dict = get_conv("data/residues.list")
 atom_dict = get_conv("data/atoms.list")
@@ -109,7 +110,8 @@ def is_nuc(residue):
 
 struct_filenames = [a for a in os.listdir(STRUCT_DIR) if a.endswith(".pdb")]
 struct_filenames.sort()
-struct_filenames = struct_filenames  # [:10]
+# struct_filenames = struct_filenames[:10]
+assert struct_filenames
 
 failed = []
 

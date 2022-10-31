@@ -3,24 +3,22 @@ import csv
 import logging
 import traceback
 from collections import Counter
+
 import numpy as np
+
+from rna_bits.utils.data_path import get_path
 
 from Segmenter import Segmenter
 
-# from utils import *
-
-SS_DIR = "ss_annotation/"
-OUT_DIR = "segmentations/"
+SS_DIR = get_path("interim/loops/ss_annotation/")
+OUT_DIR = get_path("interim/loops/segmentations/", create=True)
 
 SEGMENT_EXTERNAL_LOOPS = False
 
 filenames = [a for a in os.listdir(SS_DIR) if a.endswith(".txt")]
 filenames.sort()
 # filenames = filenames[:10]
-
-if not os.path.isdir(OUT_DIR):
-    os.mkdir(OUT_DIR)
-
+assert filenames
 
 for i, fn in enumerate(filenames):
     print(fn, str(i + 1) + "/" + str(len(filenames)))

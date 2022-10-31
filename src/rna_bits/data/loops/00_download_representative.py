@@ -1,12 +1,18 @@
 import sys, os
 import csv
-from Bio import PDB
-import Bio.PDB.mmtf
 import logging
 import traceback
 
+from Bio import PDB
+import Bio.PDB.mmtf
+
+from rna_bits.utils.data_path import get_path
+
+# TODO: put this file somewhere else?
+# TODO: I think I might have edited the file by hand to fix a model numbering issue, don't do that
 LIST_FILE = "nrlist_3.226_4.0A.csv"
-SAVE_DIR = "representative/"
+
+SAVE_DIR = get_path("interim/loops/representative/", create=True)
 
 
 def parse_rep_s(a):
@@ -59,13 +65,33 @@ for i, (name, rep_s, _) in enumerate(rows):
             c = m[cn].copy()
             c.id = new_chain_id
             new_chain_id = chr(ord(new_chain_id) + 1)
+
+            # There are some cases where there were more hetero residues than
+            # the .pdb file format allows.
+            # I could have deleted the hetero residues, but I decided to keep them.
+            # To reduce their number, I delete waters and renumber the rest of the
+            # hetero residues.
             to_del = []
-            # Remove waters (strictly to fit in the .pdb constraints)
+            to_renum = []
+            max_id = 0
             for r in c:
                 if r.resname == "HOH":
                     to_del.append(r.id)
+                else:
+                    if r.id[0].startswith("H_"):
+                        to_renum.append(r)
+                    else:
+                        max_id = max(max_id, r.id[1])
             for rid in to_del:
                 c.detach_child(rid)
+            for r in to_renum:
+                c.detach_child(r.id)
+            for i,r in enumerate(to_renum):
+                prev_id = r.id
+                new_id = (prev_id[0], max_id+i, prev_id[2])
+                r.id = new_id
+                c.add(r)
+            # end of the code for hetero residue reduction
 
             out_model.add(c)
 
