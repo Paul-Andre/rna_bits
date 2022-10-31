@@ -8,6 +8,9 @@ version = "0.0.1"
 authors = [
   { name="Paul-Andre Henegar", email="paul-andre.henegar@mail.mcgill.ca" },
 ]
+dependencies = [
+  "biopython",
+]
 description = "A small example package"
 readme = "README.md"
 requires-python = ">=3.7"
