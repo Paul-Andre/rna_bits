@@ -49,8 +49,8 @@ class HiddenPrints:
 
 
 def fetch_pdb(
-    pdb_code: str, cache=_pdb_cache, pickle_dir=_PDB_DIR
-) -> PDB.Structure.Structure:
+        pdb_code: str, cache:MutableMapping[str, Structure]=_pdb_cache, pickle_dir=_PDB_DIR
+) -> Structure
     """
     Dowloads the pdb code.
     Allows both an in-memory cache and an on-disk cache in form of pickle files.
@@ -65,12 +65,9 @@ def fetch_pdb(
         res = cache.get(pdb_code)
         if res is not None:
             return res
-        # if pdb_code in _pdb_seen:
-        #     print(pdb_code, "was seen but was evicted from cache")
 
     pickle_path = os.path.join(pickle_dir, pdb_code + ".pickle")
 
-    # Since Biopython's MMCIFParser is slow, save files as pickles as well
     try:
         with open(pickle_path, "rb") as f:
             struct = pickle.load(f)
@@ -90,7 +87,6 @@ def fetch_pdb(
 
     if cache is not None:
         cache[pdb_code] = struct
-        _pdb_seen.add(pdb_code)
     return struct
 
 def build_model_from_lists_of_residues(a: Sequence[Sequence[Residue]]) -> Model:
@@ -156,10 +152,6 @@ def get_residue_from_model(model: Model, unit: UnitId) -> Residue:
 
 
 def fetch_residue(unit: UnitId) -> Residue:
-    # Lore: if this raises a KeyError and you're sure the residue
-    # actually exists, it could be that the saved .cif file was truncated. Try
-    # deleting that .cif file (and .pickle file?) from _PDB_DIR. (Or just nuke
-    # _PDB_DIR)
     structure = fetch_pdb(unit.pdb_code)
     model = structure[unit.model_id - 1]
     residue = get_residue_from_model(model, unit)
@@ -202,8 +194,6 @@ def save_model_as_cif(
 
 
 T = TypeVar("T")
-
-
 def query_segmented(
     pattern: str,
     ids: Sequence[T],
@@ -224,3 +214,5 @@ def query_segmented(
         chains[-1].append(residue)
 
     return chains
+
+
