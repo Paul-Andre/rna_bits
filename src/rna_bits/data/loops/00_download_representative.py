@@ -50,6 +50,7 @@ for i, (name, rep_s, _) in enumerate(rows):
             assert r[1] == model_id
             accepted_chain_names.append(r[2])
 
+        
         print("starting download")
         m = PDB.mmtf.MMTFParser.get_structure_from_url(pdb_id)[model_id - 1]
         print("finished download")

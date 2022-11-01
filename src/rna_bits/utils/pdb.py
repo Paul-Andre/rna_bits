@@ -6,6 +6,7 @@ import sys
 import pickle
 
 from Bio import PDB
+import Bio.PDB.mmtf
 from Bio.PDB.Structure import Structure
 from Bio.PDB.Model import Model
 from Bio.PDB.Chain import Chain
@@ -14,19 +15,18 @@ from Bio.PDB.Atom import Atom
 
 from Bio.PDB.PDBExceptions import PDBConstructionWarning
 
-from .bgsu import UnitId
-from .data_path import DATA_PATH
+from rna_bits.utils.bgsu import UnitId
+from rna_bits.utils.data_path import DATA_PATH
 
 mmcif_parser = PDB.MMCIFParser()
 
 # "Opportunistic" cache for PDBs that were downloaded
 # Objects stay in the cache as long as they haven't been garbage collected.
 _pdb_cache = WeakValueDictionary()
-_pdb_seen = set()
+_pdb_seen = set() # For debugging; can probably remove
 
 
 _PDB_DIR = os.path.join(DATA_PATH, "original/PDB/")
-pdbl = PDB.PDBList(pdb=_PDB_DIR)
 
 
 class HiddenPrints:
@@ -49,15 +49,15 @@ class HiddenPrints:
 
 
 def fetch_pdb(
-    pdb_code: str, cache=_pdb_cache, pdb_path=_PDB_DIR
+    pdb_code: str, cache=_pdb_cache, pickle_dir=_PDB_DIR
 ) -> PDB.Structure.Structure:
     """
     Dowloads the pdb code.
-    Please don't modify the returned object as by default it might be cached.
+    Allows both an in-memory cache and an on-disk cache in form of pickle files.
+    By default, the returned object might be cached, so copy() it before
+    modifying it.
     To avoid caching set cache=None
     """
-    # TODO: use Biopython's built-in mmtf downloader (and ideally check that it
-    # performs better)
     pdb_code = pdb_code.lower()
     # Using get() to make sure the object won't be garbage collected between
     # the check and the retrieval (if using WeakValueDictionary)
@@ -68,24 +68,23 @@ def fetch_pdb(
         # if pdb_code in _pdb_seen:
         #     print(pdb_code, "was seen but was evicted from cache")
 
-    pickle_path = os.path.join(pdb_path, pdb_code + ".pickle")
+    pickle_path = os.path.join(pickle_dir, pdb_code + ".pickle")
 
     # Since Biopython's MMCIFParser is slow, save files as pickles as well
     try:
         with open(pickle_path, "rb") as f:
             struct = pickle.load(f)
-    except (EOFError, FileNotFoundError) as e:
-        if isinstance(e, EOFError):
+    except (EOFError, OSError) as e:
+        if not isinstance(e, FileNotFoundError):
             warnings.warn(f"Failed to read {pickle_path}, redownloading.")
 
         with HiddenPrints():  # (Silence prints)
-            pdb_filename = pdbl.retrieve_pdb_file(pdb_code, pdir=pdb_path)
+            with warnings.catch_warnings():  # (Warning silencing context)
+                warnings.simplefilter("ignore", category=PDBConstructionWarning)
+                struct = PDB.mmtf.MMTFParser.get_structure_from_url(pdb_code)
 
-        with warnings.catch_warnings():  # (Silence specific warnings)
-            warnings.simplefilter("ignore", category=PDBConstructionWarning)
-            struct = mmcif_parser.get_structure(pdb_code, pdb_filename)
 
-        os.makedirs(pdb_path, exist_ok=True)
+        os.makedirs(pickle_dir, exist_ok=True)
         with open(pickle_path, "wb") as f:
             pickle.dump(struct, f)
 
@@ -93,7 +92,6 @@ def fetch_pdb(
         cache[pdb_code] = struct
         _pdb_seen.add(pdb_code)
     return struct
-
 
 def build_model_from_lists_of_residues(a: Sequence[Sequence[Residue]]) -> Model:
     """
