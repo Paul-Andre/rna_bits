@@ -283,12 +283,15 @@ def get_mcsym_path(shape: str, letters: str) -> Optional[str]:
             break
     return struct_directory
 
+
 NCM_DB_PATH = os.path.join(LIBRARY_MOTIFS_DIR, "rna_bits/canonical")
+
 
 def check_ncm_exists(shape, letters) -> bool:
     # TODO: this needs to be in the same place as loading the model (?)
     path = os.path.join(NCM_DB_PATH, shape, letters)
     return os.path.isdir(path)
+
 
 def generate_auto_nodes(builder: Builder, pairing: Dict[int, int]) -> None:
     """Generate and add nodes related to ncm's, loose ends, lonely pairs and
@@ -523,7 +526,9 @@ def load_struct_file(filename: str, struct_name: Optional[str] = None) -> Struct
             with gzip.open(filename, "rt") as f:
                 return PDB.MMCIFParser().get_structure(struct_name, f)
         else:
-            warnings.warn(f"Extension of '{filename}' not recognize; assuming it's a pdb")
+            warnings.warn(
+                f"Extension of '{filename}' not recognize; assuming it's a pdb"
+            )
             return PDB.PDBParser().get_structure(struct_name, filename)
 
     assert False, "Not a proper filename"
@@ -539,8 +544,6 @@ def choose_or_not(options: List[str]) -> str:
     return o[0]
 
 
-
-
 def resolve_filename(filename: str, user_motifs_dir: str) -> str:
     """
     The idea is that if motif files specified in a .rass file start with "./",
@@ -552,8 +555,10 @@ def resolve_filename(filename: str, user_motifs_dir: str) -> str:
         return os.path.join(LIBRARY_MOTIFS_DIR, filename)
     return filename
 
+
 class ModelFailedToLoadError(Exception):
     pass
+
 
 def get_struct_paths_from_path(path: str) -> List[str]:
     """If path is a directory, return all the structure files within it.
@@ -636,6 +641,7 @@ def has_wobble_pair(letters: str) -> bool:
         "GU",
         "UG",
     )
+
 
 # returns (model, filename)
 # TODO: put the filename selection into a different file
@@ -796,10 +802,12 @@ def assign_models(builder: Builder, user_motifs_dir: str) -> None:
     letters = builder.letters
     for node in nodes:
         # print(node.kind, node.nucs)
-        try: 
+        try:
             model, model_filename = load_model_from_kind(node.kind, user_motifs_dir)
         except ModelFailedToLoadError:
-            warnings.warn(f"Model with kind {node.kind} (used for nucs {node.nucs}) failed to load.")
+            warnings.warn(
+                f"Model with kind {node.kind} (used for nucs {node.nucs}) failed to load."
+            )
             continue
         node.model = model
         node.model_filename = model_filename

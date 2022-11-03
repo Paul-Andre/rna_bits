@@ -50,7 +50,6 @@ for i, (name, rep_s, _) in enumerate(rows):
             assert r[1] == model_id
             accepted_chain_names.append(r[2])
 
-        
         print("starting download")
         m = PDB.mmtf.MMTFParser.get_structure_from_url(pdb_id)[model_id - 1]
         print("finished download")
@@ -87,9 +86,9 @@ for i, (name, rep_s, _) in enumerate(rows):
                 c.detach_child(rid)
             for r in to_renum:
                 c.detach_child(r.id)
-            for i,r in enumerate(to_renum):
+            for i, r in enumerate(to_renum):
                 prev_id = r.id
-                new_id = (prev_id[0], max_id+i, prev_id[2])
+                new_id = (prev_id[0], max_id + i, prev_id[2])
                 r.id = new_id
                 c.add(r)
             # end of the code for hetero residue reduction

@@ -23,7 +23,7 @@ mmcif_parser = PDB.MMCIFParser()
 # "Opportunistic" cache for PDBs that were downloaded
 # Objects stay in the cache as long as they haven't been garbage collected.
 _pdb_cache = WeakValueDictionary()
-_pdb_seen = set() # For debugging; can probably remove
+_pdb_seen = set()  # For debugging; can probably remove
 
 
 _PDB_DIR = os.path.join(DATA_PATH, "original/PDB/")
@@ -49,8 +49,10 @@ class HiddenPrints:
 
 
 def fetch_pdb(
-        pdb_code: str, cache:MutableMapping[str, Structure]=_pdb_cache, pickle_dir=_PDB_DIR
-) -> Structure
+    pdb_code: str,
+    cache: MutableMapping[str, Structure] = _pdb_cache,
+    pickle_dir=_PDB_DIR,
+) -> Structure:
     """
     Dowloads the pdb code.
     Allows both an in-memory cache and an on-disk cache in form of pickle files.
@@ -80,7 +82,6 @@ def fetch_pdb(
                 warnings.simplefilter("ignore", category=PDBConstructionWarning)
                 struct = PDB.mmtf.MMTFParser.get_structure_from_url(pdb_code)
 
-
         os.makedirs(pickle_dir, exist_ok=True)
         with open(pickle_path, "wb") as f:
             pickle.dump(struct, f)
@@ -88,6 +89,7 @@ def fetch_pdb(
     if cache is not None:
         cache[pdb_code] = struct
     return struct
+
 
 def build_model_from_lists_of_residues(a: Sequence[Sequence[Residue]]) -> Model:
     """
@@ -194,6 +196,8 @@ def save_model_as_cif(
 
 
 T = TypeVar("T")
+
+
 def query_segmented(
     pattern: str,
     ids: Sequence[T],
@@ -214,5 +218,3 @@ def query_segmented(
         chains[-1].append(residue)
 
     return chains
-
-
