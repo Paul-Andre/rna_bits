@@ -95,62 +95,89 @@ def is_nuc(
         return False
 
 
-def normalize_structure(
-    structure: Structure,
-    residue_renames: Dict[str, Optional[str]] = RESIDUE_RENAMES,
-    atom_renames: Dict[str, Optional[str]] = ATOM_RENAMES,
-    keep_unknown_residues=False,
-    keep_unknown_atoms=False,
-    delete_hydrogens=True,
-) -> Structure:
-    """Creates a new, normalized, structure."""
-    out_struct = Structure(structure.id)
+class Normalizer:
+    def __init__(
+        self,
+        residue_renames: Dict[str, Optional[str]] = RESIDUE_RENAMES,
+        atom_renames: Dict[str, Optional[str]] = ATOM_RENAMES,
+        keep_unknown_residues=False,
+        keep_unknown_atoms=False,
+        delete_hydrogens=True,
+    ):
+        self.residue_renames = residue_renames
+        self.atom_renames = atom_renames
+        self.keep_unknown_residues = keep_unknown_residues
+        self.keep_unknown_atoms = keep_unknown_atoms
+        self.delete_hydrogens = delete_hydrogens
 
-    for model in structure:
+
+    # TODO: do this
+    # def normalize_nucleotide(self, residue: Residue) -> 
+
+    def normalize_chain(self, chain: Chain) -> Chain:
+        """Creates a new, normalized, chain."""
+        out_chain = PDB.Chain.Chain(chain.id)
+        for residue in chain:
+            new_res_name = choose_rename(
+                residue.resname, self.residue_renames, self.keep_unknown_residues
+            )
+            if new_res_name is None:
+                continue
+
+            out_residue = PDB.Residue.Residue(
+                residue.id, new_res_name, residue.segid
+            )
+            out_chain.add(out_residue)
+
+            for atom in residue:
+                if self.delete_hydrogens:
+                    if atom.element == "H":
+                        continue
+
+                if is_nuc(residue, self.residue_renames):
+                    new_atom_name = choose_rename(
+                        atom.name, self.atom_renames, self.keep_unknown_atoms
+                    )
+                    if new_atom_name is None:
+                        continue
+                else:
+                    new_atom_name = atom.name
+
+                full_atom_name = new_atom_name
+                out_atom = PDB.Atom.Atom(
+                    name=new_atom_name,
+                    coord=atom.coord,
+                    bfactor=atom.bfactor,
+                    occupancy=atom.occupancy,
+                    altloc=atom.altloc,
+                    fullname=full_atom_name,
+                    serial_number=atom.serial_number,
+                    element=atom.element,
+                )
+                out_residue.add(out_atom)
+
+        return out_chain
+
+
+    def normalize_model(self, model: Model) -> Model:
+        """Creates a new, normalized, model."""
         out_model = PDB.Model.Model(model.id)
-        out_struct.add(out_model)
 
         for chain in model:
-            out_chain = PDB.Chain.Chain(chain.id)
+            out_chain = self.normalize_chain(chain)
             out_model.add(out_chain)
 
-            for residue in chain:
-                new_res_name = choose_rename(
-                    residue.resname, residue_renames, keep_unknown_residues
-                )
-                if new_res_name is None:
-                    continue
+        return out_model
 
-                out_residue = PDB.Residue.Residue(
-                    residue.id, new_res_name, residue.segid
-                )
-                out_chain.add(out_residue)
+    def normalize_structure(
+        self,
+        structure: Structure,
+    ) -> Structure:
+        """Creates a new, normalized, structure."""
+        out_struct = Structure(structure.id)
 
-                for atom in residue:
-                    if delete_hydrogens:
-                        if atom.element == "H":
-                            continue
+        for model in structure:
+            out_model = self.normalize_model(model)
+            out_struct.add(out_model)
 
-                    if is_nuc(residue, residue_renames):
-                        new_atom_name = choose_rename(
-                            atom.name, atom_renames, keep_unknown_atoms
-                        )
-                        if new_atom_name is None:
-                            continue
-                    else:
-                        new_atom_name = atom.name
-
-                    full_atom_name = new_atom_name
-                    out_atom = PDB.Atom.Atom(
-                        name=new_atom_name,
-                        coord=atom.coord,
-                        bfactor=atom.bfactor,
-                        occupancy=atom.occupancy,
-                        altloc=atom.altloc,
-                        fullname=full_atom_name,
-                        serial_number=atom.serial_number,
-                        element=atom.element,
-                    )
-                    out_residue.add(out_atom)
-
-    return out_struct
+        return out_struct

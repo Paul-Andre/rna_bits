@@ -9,7 +9,7 @@ from Bio import PDB
 from Bio.PDB.PDBParser import PDBParser
 
 from rna_bits.utils.data_path import get_path
-from rna_bits.utils.normalize import normalize_structure
+from rna_bits.utils.normalize import Normalizer
 
 STRUCT_DIR = get_path("interim/loops/representative/")
 SAVE_DIR = get_path("interim/loops/norm_representative/", create=True)
@@ -25,7 +25,7 @@ failed = []
 for i, sf in enumerate(struct_filenames):
     print(sf, str(i + 1) + "/" + str(len(struct_filenames)))
     s = PDBParser().get_structure(sf, os.path.join(STRUCT_DIR, sf))
-    out_s = normalize_structure(s)
+    out_s = Normalizer().normalize_structure(s)
     io = PDB.PDBIO()
     io.set_structure(out_s)
     io.save(os.path.join(SAVE_DIR, sf))
