@@ -6,6 +6,7 @@ import os
 
 from rna_bits.utils.data_path import DATA_PATH
 from rna_bits.utils.data_path import get_path
+from rna_bits.utils.normalize import Normalizer
 
 LIBRARY_MOTIFS_DIR = os.path.join(DATA_PATH, "database")
 
@@ -438,14 +439,6 @@ import Bio.PDB as PDB
 import gzip
 
 
-# TODO: take the correspondence files from RNA-Puzzles assessment
-def canonical_atom_name(name: str) -> str:
-    if name == "O1P":
-        return "OP1"
-    if name == "O2P":
-        return "OP2"
-    return name.replace("*", "'")
-
 
 def canonical_residue_name(name: str) -> str:
     # TODO
@@ -464,37 +457,8 @@ from Bio.PDB.Model import Model
 from Bio.PDB.Residue import Residue
 from Bio.PDB.Structure import Structure
 
-# Creates a new model that has canonical atom representation
-def canonicalize_model(model: Model) -> Model:
-    """Given a Biopython Model of RNA, returns a new Biopython Model that has
-    all its atom names canonicalized"""
-    output_model = PDB.Model.Model(0)
-    for chain in model:
-        output_chain = PDB.Chain.Chain(chain.id)
-        output_model.add(output_chain)
-        for residue in chain:
-            output_residue = PDB.Residue.Residue(
-                residue.id, canonical_residue_name(residue.resname), residue.segid
-            )
-            output_chain.add(output_residue)
-            for atom in residue:
-                can_name = canonical_atom_name(atom.name)
-                full_can_name = can_name
-                output_atom = PDB.Atom.Atom(
-                    name=can_name,
-                    coord=atom.coord,
-                    bfactor=atom.bfactor,
-                    occupancy=atom.occupancy,
-                    altloc=atom.altloc,
-                    fullname=full_can_name,
-                    serial_number=atom.serial_number,
-                    element=atom.element,
-                )
-                output_residue.add(output_atom)
 
-    return output_model
-
-
+# TODO: put into utils
 def is_struct_filename(filename: str) -> bool:
     return (
         filename.endswith(".pdb")
@@ -508,6 +472,7 @@ import warnings
 from Bio.PDB.PDBExceptions import PDBConstructionWarning
 
 
+# TODO: put into utils
 def load_struct_file(filename: str, struct_name: Optional[str] = None) -> Structure:
     if struct_name is None:
         struct_name = filename
@@ -588,7 +553,7 @@ def load_model_from_path(resolved_path: str) -> Tuple[Model, str]:
     choice = choose_or_not(struct_paths)
 
     model = load_struct_file(choice)[0]
-    model = canonicalize_model(model)
+    model = Normalizer().normalize_model(model)
     return model, choice
 
 
@@ -681,7 +646,7 @@ def load_model_from_kind(
 
         directory = name + ".pdb"
         model = load_resource_structure(directory)[0]
-        model = canonicalize_model(model)
+        model = Normalizer().normalize_model(model)
         return model, directory
     assert False, "We don't recognize " + repr(kind)
 
