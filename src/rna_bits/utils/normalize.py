@@ -1,5 +1,15 @@
 from weakref import WeakValueDictionary
-from typing import Union, List, Sequence, Tuple, TypeVar, Callable, TextIO, Dict
+from typing import (
+    Union,
+    List,
+    Sequence,
+    Tuple,
+    TypeVar,
+    Callable,
+    TextIO,
+    Dict,
+    Optional,
+)
 import warnings
 import os
 import sys
@@ -13,61 +23,90 @@ from Bio.PDB.Model import Model
 from Bio.PDB.Chain import Chain
 from Bio.PDB.Residue import Residue
 from Bio.PDB.Atom import Atom
-
 from Bio.PDB.PDBExceptions import PDBConstructionWarning
 
 from rna_bits.utils.bgsu import UnitId
 from rna_bits.utils.data_path import DATA_PATH
 
+from . import resources
 
-def parse_rename_list(s: Union[str, TextIO]):
+
+def load_rename_list(filename):
+    with open(filename) as f:
+        return parse_rename_list(f)
+
+
+def parse_rename_list(s: Union[str, TextIO]) -> Dict[str, Optional[str]]:
+    """Takes the contents of file of the form:
+
+    # heavy atoms
+    C2  C2
+    C4  C4
+    C5  C5
+    # ...
+    # backbone
+    C1' C1'
+    C1* C1'
+    # ...
+    P1 -
+
+    and return a dict. If the atom is renamed to "-" it is set to None in
+    the dict."""
     if isinstance(s, str):
         s = io.StringIO(s)
 
-    return dict(
-        l.strip().split()
-        for l in s
-        if not l.startswith("#") and len(l.strip()) != 0
-    )
+    ret = {}
+    for l in s:
+        l = l.strip()
+        if len(l) == 0 or l.startswith("#"):
+            continue
+        a, b = l.split()
+        if b == "-":
+            ret[a] = None
+        else:
+            ret[a] = b
 
+    return ret
 
-from . import resources
 
 with importlib_resources.open_text(resources, "residues.list") as f:
-    RES_RENAMES: Dict[str, str] = parse_rename_list(f)
+    RESIDUE_RENAMES: Dict[str, str] = parse_rename_list(f)
 
 with importlib_resources.open_text(resources, "atoms.list") as f:
     ATOM_RENAMES: Dict[str, str] = parse_rename_list(f)
 
-DELETE_RESIDUES = True
-DELETE_ATOMS = True
+
+def choose_rename(
+    name: str, renames: Dict[str, Optional[str]], keep_unknown=False
+) -> Optional[str]:
+    if name in renames:
+        return renames[name]
+    if keep_unknown:
+        return name
+    return None
 
 
-def canonicalize_res_name(name, res_dict):
-    if name in res_dict and res_dict[name] != "-":
-        return res_dict[name]
+def is_nuc(
+    residue: Residue, residue_renames: Dict[str, Optional[str]] = RESIDUE_RENAMES
+) -> bool:
+    if residue_renames.get(residue.resname, "-") in "AUCG":
+        return True
     else:
-        if DELETE_RESIDUES:
-            return None
-        else:
-            return name
+        return False
 
 
-def canonicalize_atom_name(name, atom_dict):
-    if name in atom_dict and atom_dict[name] != "-":
-        return atom_dict[name]
-    else:
-        if DELETE_ATOMS:
-            return None
-        else:
-            return name
+def normalize_structure(
+    structure: Structure,
+    residue_renames: Dict[str, Optional[str]] = RESIDUE_RENAMES,
+    atom_renames: Dict[str, Optional[str]] = ATOM_RENAMES,
+    keep_unknown_residues=False,
+    keep_unknown_atoms=False,
+    delete_hydrogens=True,
+) -> Structure:
+    """Creates a new, normalized, structure."""
+    out_struct = Structure(structure.id)
 
-
-# Creates a new model that has canonical atom representation
-def canonicalize_structure(struct, res_renames=RES_RENAMES, atom_renames=ATOM_RENAMES):
-    out_struct = PDB.Structure.Structure(struct.id)
-
-    for model in struct:
+    for model in structure:
         out_model = PDB.Model.Model(model.id)
         out_struct.add(out_model)
 
@@ -76,23 +115,26 @@ def canonicalize_structure(struct, res_renames=RES_RENAMES, atom_renames=ATOM_RE
             out_model.add(out_chain)
 
             for residue in chain:
-                if residue.resname == "HOH":
-                    continue
-
-                new_res_name = canonicalize_res_name(residue.resname, res_renames)
+                new_res_name = choose_rename(
+                    residue.resname, residue_renames, keep_unknown_residues
+                )
                 if new_res_name is None:
                     continue
+
                 out_residue = PDB.Residue.Residue(
                     residue.id, new_res_name, residue.segid
                 )
                 out_chain.add(out_residue)
 
                 for atom in residue:
-                    if atom.element == "H":
-                        continue
+                    if delete_hydrogens:
+                        if atom.element == "H":
+                            continue
 
-                    if is_nuc(residue, res_renames):
-                        new_atom_name = canonicalize_atom_name(atom.name, atom_renames)
+                    if is_nuc(residue, residue_renames):
+                        new_atom_name = choose_rename(
+                            atom.name, atom_renames, keep_unknown_atoms
+                        )
                         if new_atom_name is None:
                             continue
                     else:
@@ -112,14 +154,3 @@ def canonicalize_structure(struct, res_renames=RES_RENAMES, atom_renames=ATOM_RE
                     out_residue.add(out_atom)
 
     return out_struct
-
-
-def normalize(struct):
-    return canonicalize_structure(struct)
-
-
-def is_nuc(residue, res_dict):
-    if res_dict.get(residue.resname, "-") in "AUCG":
-        return True
-    else:
-        return False

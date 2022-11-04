@@ -7,8 +7,8 @@ from collections import Counter
 import numpy as np
 
 from rna_bits.utils.data_path import get_path
-
-from Segmenter import Segmenter
+from rna_bits.utils.ss import parse_ss_file
+from rna_bits.utils.ss import Segmenter
 
 SS_DIR = get_path("interim/loops/ss_annotation/")
 OUT_DIR = get_path("interim/loops/segmentations/", create=True)
@@ -23,7 +23,9 @@ assert filenames
 for i, fn in enumerate(filenames):
     print(fn, str(i + 1) + "/" + str(len(filenames)))
     with open(os.path.join(SS_DIR, fn)) as f:
-        segmenter = Segmenter(f)
+        chains, pairs = parse_ss_file(f)
+
+    segmenter = Segmenter(chains, pairs)
 
     loops = segmenter.segment_loops()
     if SEGMENT_EXTERNAL_LOOPS:
