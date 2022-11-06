@@ -1,5 +1,5 @@
 from weakref import WeakValueDictionary
-from typing import List, Sequence, Tuple, TypeVar, Callable
+from typing import List, Sequence, Tuple, TypeVar, Callable, MutableMapping
 import warnings
 import os
 import sys

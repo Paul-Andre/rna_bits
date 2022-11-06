@@ -504,7 +504,7 @@ import random
 
 def choose_or_not(options: List[str]) -> str:
     """A hack to switch between deterministic and randomized fragment choice."""
-    # return random.choice(options)
+    return random.choice(options)
     o = sorted(options)
     return o[0]
 
@@ -568,12 +568,14 @@ def load_model_from_mcsym_db(shape: str, letters: str) -> Tuple[Model, str]:
     theoretical_filename = os.path.join(
         struct_directory, "1-" + shape + "-" + letters + "_t.pdb.gz"
     )
+    print(theoretical_filename)
     if os.path.isfile(theoretical_filename):
         chosen_path = theoretical_filename
     else:
         chosen_path = struct_directory
 
-    return load_model_from_path(struct_directory)
+    print(chosen_path)
+    return load_model_from_path(chosen_path)
 
 
 def load_model_from_db(db: str, shape: str, letters: str) -> Tuple[Model, str]:
@@ -625,6 +627,7 @@ def load_model_from_kind(
     if kind[0] == "ncm":
         shape = kind[1]
         letters = kind[2]
+        return load_model_from_mcsym_db(shape, letters)  # XXX
         return load_model_from_db(NCM_DB_PATH, shape, letters)
     if kind[0] == "pair":
         # Load a stack and truncate
