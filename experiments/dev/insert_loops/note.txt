@@ -1,0 +1,6 @@
+Since at the current time loop insertion removes lonely base-pairs, I remove the
+lonely basepair myself when inputting into bp2 to have apple-to-apple comparison
+
+
+I tried rerunning the same thing with bp2 to see if the quality of the model (chainbreaks) is higher or lower. 
+What I found is that bp2 gives *much* less variety

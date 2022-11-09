@@ -23,4 +23,5 @@ classifiers = [
 [project.scripts]
 rna_builder = "rna_bits.builder.builder:main_wrapper"
 bp2_bridge = "rna_bits.builder.bp2_bridge:main_wrapper"
+rna_insert_loops = "rna_bits.insert_loops.insert_loops_multiple:main_cli"
 
