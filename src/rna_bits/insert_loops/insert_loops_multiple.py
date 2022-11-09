@@ -10,18 +10,19 @@ from rna_bits.utils.ss import parse_parens
 
 def parse_args(argv):
     parser = argparse.ArgumentParser(
-        description="Inserts loop motifs into a secondary structure based on sequence match."
+        description="Inserts loop motifs into a secondary structure based on sequence match.\n"
+        "Works with an input .rass file, or with --seq and --ss provided via command line."
     )
 
     parser.add_argument(
         "in_file",
-        default=None,
+        nargs="?",
         help=".rass file taken as input",
     )
     parser.add_argument(
         "--out_dir",
         "-o",
-        default="out",
+        default="il_out",
         help="Path into which output .rass files will be written",
     )
     parser.add_argument(
@@ -31,9 +32,36 @@ def parse_args(argv):
         type = int,
         help="How many different possibilities to generate",
     )
+    parser.add_argument(
+        "--sequence",
+        "--seq",
+    )
+    parser.add_argument(
+        "--secondary_structure",
+        "--ss",
+    )
+    parser.add_argument(
+            "--stdin",
+            action = "store_true",
+            help="Read .rass file from stdin"
+            )
+
+    # TODO: implement
+    # parser.add_argument(
+    #     "--exclude",
+    #     nargs= "+",
+    # )
     parser.add_argument("--random_seed", type=int)
 
     args = parser.parse_args(argv[1:])
+    if (args.secondary_structure or args.sequence) and (args.in_file or args.stdin):
+        parser.error("Either specify sequence and secondary_structure through the cli, or through an input .rass file, not both")
+        
+    if bool(args.secondary_structure) != bool(args.sequence):
+        parser.error("Please specify both sequence and secondary_structure")
+
+    if not args.stdin and args.in_file is None and args.sequence is None:
+        parser.error("do one of the following: provide an input file, provide a sequence and secondary structure via the command line, or use the --stdin flag")
 
     return args
 
@@ -178,20 +206,37 @@ def in_and_out(in_f, out_fs, exclude=None):
     seq = in_f.readline().strip()
     dot_bracket = in_f.readline().strip()
     rest = in_f.read()
+    in_f.close()
     for l in rest.split("\n"):
         if l.startswith("native:") and exclude is None:
             exclude = [s.strip() for s in l[len("native:") :].split(",")]
     insert_loops(seq, dot_bracket, out_fs, rest, exclude=exclude)
 
 
+def need_to_read_from_stdin(args):
+    return args.stdin
+
+
 def main_cli():
 
     args = parse_args(sys.argv)
 
-    f = open(args.in_file)
+    if need_to_read_from_stdin(args):
+        f = sys.stdin
+    elif args.in_file:
+        f = open(args.in_file)
+    else:
+        # TODO: remove hack
+        simulated_rass = args.sequence + "\n" + args.secondary_structure
+        f = io.StringIO(simulated_rass)
+
+    if args.random_seed is not None:
+        random.seed(args.random_seed)
 
     out_dir = args.out_dir
     num_times = args.num_outputs
+
+    os.makedirs(out_dir, exist_ok=True)
 
     out_fs = []
     for i_ in range(num_times):
