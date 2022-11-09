@@ -44,7 +44,7 @@ def parse_args(argv):
     parser.add_argument(
         "--chefs_choice",
         action="store_true",
-        help="Generate the structure as shown in bp2's output chef's choice and svg",
+        help="Generate the structure from bp2's 'chef's choice' and depicted in the output svg",
     )
     parser.add_argument(
         "--secondary_structures",
@@ -85,9 +85,9 @@ def parse_args(argv):
         "--num_outputs",
         "--samples",
         type=int,
-        default=20,
+        default=10,
         help="How many outputs to generate per provided secondary structure. "
-        "20 by default",
+        "10 by default",
     )
     parser.add_argument("--random_seed", type=int)
 
