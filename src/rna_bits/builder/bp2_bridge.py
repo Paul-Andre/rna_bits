@@ -83,7 +83,7 @@ def parse_args(argv):
     )
     parser.add_argument(
         "--num_outputs",
-        "--sample",
+        "--samples",
         type=int,
         default=20,
         help="How many outputs to generate per provided secondary structure. "

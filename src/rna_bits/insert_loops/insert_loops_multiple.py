@@ -3,9 +3,39 @@ import os
 import numpy as np
 import random
 import io
+import argparse
 
 import rna_bits.insert_loops.match as match
 from rna_bits.utils.ss import parse_parens
+
+def parse_args(argv):
+    parser = argparse.ArgumentParser(
+        description="Inserts loop motifs into a secondary structure based on sequence match."
+    )
+
+    parser.add_argument(
+        "in_file",
+        default=None,
+        help=".rass file taken as input",
+    )
+    parser.add_argument(
+        "--out_dir",
+        "-o",
+        default="out",
+        help="Path into which output .rass files will be written",
+    )
+    parser.add_argument(
+        "--num_outputs",
+        "--samples",
+        default=10,
+        type = int,
+        help="How many different possibilities to generate",
+    )
+    parser.add_argument("--random_seed", type=int)
+
+    args = parser.parse_args(argv[1:])
+
+    return args
 
 def output_match(out_f, loop_seq, loop_ss, loop_nuc_ids, match):
     filename = match[1]
@@ -155,13 +185,13 @@ def in_and_out(in_f, out_fs, exclude=None):
 
 
 def main_cli():
-    if len(sys.argv) >= 2:
-        f = open(sys.argv[1])
-    else:
-        f = sys.stdin
 
-    out_dir = sys.argv[2]
-    num_times = int(sys.argv[3])
+    args = parse_args(sys.argv)
+
+    f = open(args.in_file)
+
+    out_dir = args.out_dir
+    num_times = args.num_outputs
 
     out_fs = []
     for i_ in range(num_times):
