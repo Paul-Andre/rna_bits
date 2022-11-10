@@ -4,6 +4,7 @@ import numpy as np
 
 import rna_bits.insert_loops.match as match
 
+
 def insert_loops(seq, dot_bracket, out_f, rest_of_file, exclude=None):
     assert len(seq) == len(dot_bracket)
 

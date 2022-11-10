@@ -439,7 +439,6 @@ import Bio.PDB as PDB
 import gzip
 
 
-
 def canonical_residue_name(name: str) -> str:
     # TODO
     # Note: in this function we won't rename modified nucleotide names

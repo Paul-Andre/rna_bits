@@ -110,9 +110,8 @@ class Normalizer:
         self.keep_unknown_atoms = keep_unknown_atoms
         self.delete_hydrogens = delete_hydrogens
 
-
     # TODO: do this
-    # def normalize_nucleotide(self, residue: Residue) -> 
+    # def normalize_nucleotide(self, residue: Residue) ->
 
     def normalize_chain(self, chain: Chain) -> Chain:
         """Creates a new, normalized, chain."""
@@ -124,9 +123,7 @@ class Normalizer:
             if new_res_name is None:
                 continue
 
-            out_residue = PDB.Residue.Residue(
-                residue.id, new_res_name, residue.segid
-            )
+            out_residue = PDB.Residue.Residue(residue.id, new_res_name, residue.segid)
             out_chain.add(out_residue)
 
             for atom in residue:
@@ -157,7 +154,6 @@ class Normalizer:
                 out_residue.add(out_atom)
 
         return out_chain
-
 
     def normalize_model(self, model: Model) -> Model:
         """Creates a new, normalized, model."""

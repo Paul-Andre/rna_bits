@@ -8,6 +8,7 @@ import argparse
 import rna_bits.insert_loops.match as match
 from rna_bits.utils.ss import parse_parens
 
+
 def parse_args(argv):
     parser = argparse.ArgumentParser(
         description="Inserts loop motifs into a secondary structure based on sequence match.\n"
@@ -29,7 +30,7 @@ def parse_args(argv):
         "--num_outputs",
         "--samples",
         default=10,
-        type = int,
+        type=int,
         help="How many different possibilities to generate",
     )
     parser.add_argument(
@@ -41,10 +42,8 @@ def parse_args(argv):
         "--ss",
     )
     parser.add_argument(
-            "--stdin",
-            action = "store_true",
-            help="Read .rass file from stdin"
-            )
+        "--stdin", action="store_true", help="Read .rass file from stdin"
+    )
 
     # TODO: implement
     # parser.add_argument(
@@ -55,15 +54,20 @@ def parse_args(argv):
 
     args = parser.parse_args(argv[1:])
     if (args.secondary_structure or args.sequence) and (args.in_file or args.stdin):
-        parser.error("Either specify sequence and secondary_structure through the cli, or through an input .rass file, not both")
-        
+        parser.error(
+            "Either specify sequence and secondary_structure through the cli, or through an input .rass file, not both"
+        )
+
     if bool(args.secondary_structure) != bool(args.sequence):
         parser.error("Please specify both sequence and secondary_structure")
 
     if not args.stdin and args.in_file is None and args.sequence is None:
-        parser.error("do one of the following: provide an input file, provide a sequence and secondary structure via the command line, or use the --stdin flag")
+        parser.error(
+            "do one of the following: provide an input file, provide a sequence and secondary structure via the command line, or use the --stdin flag"
+        )
 
     return args
+
 
 def output_match(out_f, loop_seq, loop_ss, loop_nuc_ids, match):
     filename = match[1]
@@ -99,7 +103,6 @@ def insert_loops(seq, dot_bracket, out_fs, rest_of_file, exclude=None):
     seq = seq.upper()
 
     full_pairing = [None] * len(seq)
-
 
     for a, b in parse_parens(dot_bracket, start=0):
         full_pairing[a] = b
@@ -254,6 +257,7 @@ def main_cli():
             string_io.seek(0)
             text = string_io.read()
             out_f.write(text)
+
 
 if __name__ == "__main__":
     main_cli()
