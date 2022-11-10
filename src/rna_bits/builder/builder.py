@@ -439,7 +439,6 @@ import Bio.PDB as PDB
 import gzip
 
 
-
 def canonical_residue_name(name: str) -> str:
     # TODO
     # Note: in this function we won't rename modified nucleotide names
@@ -504,7 +503,7 @@ import random
 
 def choose_or_not(options: List[str]) -> str:
     """A hack to switch between deterministic and randomized fragment choice."""
-    return random.choice(options)
+    # return random.choice(options)
     o = sorted(options)
     return o[0]
 
@@ -693,6 +692,7 @@ def load_resource_structure(fname: str) -> Model:
             return PDB.PDBParser().get_structure(fname, f)
 
 
+# TODO: put loading of model all in the same place
 def load_substitution_model() -> Model:
     return load_resource_structure("bases.pdb")[0]
 
@@ -791,15 +791,47 @@ def assign_models(builder: Builder, user_motifs_dir: str) -> None:
                 substitute_base(v, letters[k])
 
 
-BB_ATOM_NAMES = ["P", "O5'", "C5'", "C4'", "C3'", "O3'"]
+# BASE_ATOMS_BY_RESNAME = {}
+# for c in SUBSTITUTION_MODEL:
+#     cn = c.id
+#     r = c[1]
+#     BASE_ATOMS_BY_RESNAME[cn] = [a.id for a in r]
+# print(BASE_ATOMS_BY_RESNAME)
+BASE_ATOMS_BY_RESNAME = {
+    "A": ["N1", "C2", "N3", "C4", "C5", "C6", "N6", "N7", "C8", "N9"],
+    "U": ["N1", "C2", "O2", "N3", "C4", "O4", "C5", "C6"],
+    "G": ["N1", "C2", "N2", "N3", "C4", "C5", "C6", "O6", "N7", "C8", "N9"],
+    "C": ["N1", "C2", "O2", "N3", "C4", "N4", "C5", "C6"],
+}
+BASE_ATOMS_ALL = list(set().union(*(BASE_ATOMS_BY_RESNAME.values())))
+
+SUGAR_ATOMS_PROPER = ["C1'", "C2'", "C3'", "C4'", "O4'"]
+# Sugar atoms + the atoms that are rigidly attached to the sugar, but excluding
+# the base atom N1/N9
+SUGAR_ATOMS_EXTENDED = SUGAR_ATOMS_PROPER + ["O2'", "O3'", "C5'"]
+
+ATOMS_FOR_ALIGNMENT = BASE_ATOMS_ALL + SUGAR_ATOMS_EXTENDED
 
 
-# Given two nucleotides of the same type,
-# returns two lists of corresponding atoms
-# (references to the existing atoms, not copies)
+class EverythingType:
+    def __contains__(self, a):
+        return True
+
+
+Everything = EverythingType()
+
+
 def correspond_nucleotide_atoms(
-    a: Residue, b: Residue, only_bb: bool = False
+    a: Residue, b: Residue, use_atom_names=ATOMS_FOR_ALIGNMENT
 ) -> Tuple[List[Atom], List[Atom]]:
+    """
+    Given two nucleotides of the same type,
+    returns two lists of corresponding atoms
+    (references to the existing atoms, not copies)
+    """
+    if use_atom_names is None:
+        use_atom_names = Everything
+    only_bb = False
     # TODO: Make this nicer
     a_canon = {atom.name: atom for atom in a}
     b_canon = {atom.name: atom for atom in b}
@@ -809,11 +841,12 @@ def correspond_nucleotide_atoms(
     common_atoms = set(a_canon.keys()) & set(b_canon.keys())
     diff = all_atoms - common_atoms
     if diff:
+        # TODO: add information to this warning
         warnings.warn(f"Some atoms were not shared {diff}")
     a_ret = []
     b_ret = []
     for atom_name in common_atoms:
-        if (not only_bb) or atom_name in BB_ATOM_NAMES:
+        if atom_name in use_atom_names:
             a_ret.append(a_canon[atom_name])
             b_ret.append(b_canon[atom_name])
     return (a_ret, b_ret)
@@ -826,9 +859,7 @@ def superimpose_nodes(fixed, moving, nucls):
     for n in nucls:
         fixed_res = fixed.residue_mapping[n]
         moving_res = moving.residue_mapping[n]
-        fixed_atoms, moving_atoms = correspond_nucleotide_atoms(
-            fixed_res, moving_res, False
-        )
+        fixed_atoms, moving_atoms = correspond_nucleotide_atoms(fixed_res, moving_res)
         fixed_list += fixed_atoms
         moving_list += moving_atoms
 
@@ -883,9 +914,11 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
     print("Putting down", node.model_filename)
     node.visited = True
 
+    # TODO: probably makes more sense as a list of pairs instead of two lists
     fixed_residues: List[Residue] = []
     aligning_residues: List[Residue] = []
 
+    # TODO: also here
     to_place_ids: List[int] = []
     fixed_ids: List[int] = []
 
@@ -904,9 +937,7 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
         aligning_atoms = []
 
         for fixed_res, aligning_res in zip(fixed_residues, aligning_residues):
-            fixed_a, aligning_a = correspond_nucleotide_atoms(
-                fixed_res, aligning_res, False
-            )
+            fixed_a, aligning_a = correspond_nucleotide_atoms(fixed_res, aligning_res)
             fixed_atoms += fixed_a
             aligning_atoms += aligning_a
 
@@ -1518,7 +1549,7 @@ def main(argv: List[str]) -> None:
 
 
 def main_wrapper():
-    # Was testing something; probably remove
+    # Was testing something; probably remove the setrecursionlimit
     # TODO: change traverse_and_stack to not be recursive or to be more intelligent about it
     sys.setrecursionlimit(10000)
     main(sys.argv)
