@@ -215,7 +215,7 @@ class Builder:
         self.nodes: List[Node] = []
 
         self.rigids: List["Rigid"] = []
-        self.chain_of_nucleotides: Dict[int, "Nucleotide"] = {}
+        self.placed_nucleotides: Dict[int, "Nucleotide"] = {}
         self.rigidCounter: int = 0
 
         self.models_used: List[Tuple[List[int], ModelSourceInfo]] = []
@@ -923,8 +923,8 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
     fixed_ids: List[int] = []
 
     for nuc_id in node.nucs:
-        if nuc_id in builder.chain_of_nucleotides:
-            fixed_residues.append(builder.chain_of_nucleotides[nuc_id].model)
+        if nuc_id in builder.placed_nucleotides:
+            fixed_residues.append(builder.placed_nucleotides[nuc_id].model)
             fixed_ids.append(nuc_id)
             # print(node.residue_mapping[nuc_id])
             aligning_residues.append(node.residue_mapping[nuc_id])
@@ -951,14 +951,14 @@ def traverse_and_stack(builder: Builder, node: Node, currentRigid: Rigid) -> Non
     for k in to_place_ids:
         v = node.residue_mapping[k]
         wrapper = Nucleotide(v.copy(), currentRigid, k, node.priority)
-        builder.chain_of_nucleotides[k] = wrapper
+        builder.placed_nucleotides[k] = wrapper
 
     for k in fixed_ids:
-        old_nucleotide = builder.chain_of_nucleotides[k]
+        old_nucleotide = builder.placed_nucleotides[k]
         if is_lhs_higher_priority(node.priority, old_nucleotide.priority):
             v = node.residue_mapping[k]
             wrapper = Nucleotide(v.copy(), currentRigid, k, node.priority)
-            builder.chain_of_nucleotides[k] = wrapper
+            builder.placed_nucleotides[k] = wrapper
 
     for nuc_id in node.nucs:
         for (other, _) in builder.module_assignment[nuc_id]:
@@ -1013,31 +1013,31 @@ def generate_c3prime_nuc(builder: Builder, coord, letter, pos):
 
 
 def generate_unplaced_nucleotides(builder: Builder) -> None:
-    chain_of_nucleotides = builder.chain_of_nucleotides
+    placed_nucleotides = builder.placed_nucleotides
     # Find nucleotides that haven't been placed and turn them into rigids
     for i in builder.valid_nuc_ids:
-        # assert i in chain_of_nucleotides
-        if i not in chain_of_nucleotides:
+        # assert i in placed_nucleotides
+        if i not in placed_nucleotides:
             warnings.warn(f"{i} is not in chain of nucleotides for some reason")
 
             builder.rigidCounter += 1
             coord = np.array([0.0, 0, 0]) - builder.rigidCounter * 20.0
-            chain_of_nucleotides[i] = generate_c3prime_nuc(
+            placed_nucleotides[i] = generate_c3prime_nuc(
                 builder, coord, builder.letters[i], i
             )
 
 
 def is_rigid_edge_nuc(builder: Builder, i: int) -> bool:
-    chain_of_nucleotides = builder.chain_of_nucleotides
+    placed_nucleotides = builder.placed_nucleotides
     fp = builder.valid_nuc_ids - builder.prev_dict.keys()
     tp = builder.valid_nuc_ids - builder.next_dict.keys()
     if i in builder.next_dict:
         ii = builder.next_dict[i]
-        if chain_of_nucleotides[ii].rigid is not chain_of_nucleotides[i].rigid:
+        if placed_nucleotides[ii].rigid is not placed_nucleotides[i].rigid:
             return True
     if i in builder.prev_dict:
         ii = builder.prev_dict[i]
-        if chain_of_nucleotides[ii].rigid is not chain_of_nucleotides[i].rigid:
+        if placed_nucleotides[ii].rigid is not placed_nucleotides[i].rigid:
             return True
     return False
 
@@ -1072,7 +1072,7 @@ def traverse_to_get_cycle(
     allowing the endNuc->startNuc direction), so that we find the shortest
     cycle containing that link.
     """
-    chain_of_nucleotides = builder.chain_of_nucleotides
+    placed_nucleotides = builder.placed_nucleotides
 
     prevMap = {}
 
@@ -1104,9 +1104,9 @@ def traverse_to_get_cycle(
                 get_c3prime(nn.model) - get_c3prime(nuc.model)
             )
             for j in (nn.pos + 1, nn.pos - 1):
-                if j not in chain_of_nucleotides:
+                if j not in placed_nucleotides:
                     continue
-                nnn = chain_of_nucleotides[j]
+                nnn = placed_nucleotides[j]
                 if nnn.rigid is nn.rigid:
                     continue
 
@@ -1136,18 +1136,18 @@ def traverse_to_get_cycle(
 
 # Finds the next we want to process
 def get_next_cycle(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotide]]]:
-    chain_of_nucleotides = builder.chain_of_nucleotides
-    # print(chain_of_nucleotides)
+    placed_nucleotides = builder.placed_nucleotides
+    # print(placed_nucleotides)
     bestScore = math.inf
     bestCycle = None
     for i in builder.valid_nuc_ids:
         if is_rigid_edge_nuc(builder, i):
-            nuc = chain_of_nucleotides[i]
+            nuc = placed_nucleotides[i]
 
             for j in (i - 1, i + 1):
-                if j not in chain_of_nucleotides:
+                if j not in placed_nucleotides:
                     continue
-                nn = chain_of_nucleotides[j]
+                nn = placed_nucleotides[j]
                 if nn.rigid is nuc.rigid:
                     continue
 
@@ -1166,7 +1166,7 @@ def is_terminal_rigid(builder: Builder, r: Rigid) -> bool:
     term_nucs = fp | tp
     print("term_nucs", term_nucs)
 
-    return r in (builder.chain_of_nucleotides[i].rigid for i in term_nucs)
+    return r in (builder.placed_nucleotides[i].rigid for i in term_nucs)
 
 
 def traverse_to_get_path(
@@ -1175,7 +1175,7 @@ def traverse_to_get_path(
     """Traverse to get a path between two rigids that are connected to only one edge each
     (to get an "outer loop")
     """
-    chain_of_nucleotides = builder.chain_of_nucleotides
+    placed_nucleotides = builder.placed_nucleotides
 
     assert is_terminal_rigid(builder, startNuc.rigid)
     assert is_rigid_edge_nuc(builder, startNuc.pos)
@@ -1194,9 +1194,9 @@ def traverse_to_get_path(
             # dist2 = dist + np.linalg.norm(get_c3prime(nn.model) - get_c3prime(nuc.model))
             # print(nuc, nn)
             for j in (nn.pos + 1, nn.pos - 1):
-                if j not in chain_of_nucleotides:
+                if j not in placed_nucleotides:
                     continue
-                nnn = chain_of_nucleotides[j]
+                nnn = placed_nucleotides[j]
                 # print(nuc, nn, nnn)
                 if nnn.rigid is nn.rigid:
                     continue
@@ -1223,7 +1223,7 @@ def get_next_path(builder: Builder) -> Optional[List[Tuple[Nucleotide, Nucleotid
     """
     for i in builder.valid_nuc_ids:
         if is_rigid_edge_nuc(builder, i):
-            nuc = builder.chain_of_nucleotides[i]
+            nuc = builder.placed_nucleotides[i]
             return traverse_to_get_path(builder, nuc)
 
     return None
@@ -1291,7 +1291,7 @@ def build_cycles(builder: Builder) -> None:
             # print("Cycle", cycle)
             isPath = False
         else:
-            # for i,nuc in sorted(chain_of_nucleotides.items()):
+            # for i,nuc in sorted(placed_nucleotides.items()):
             # print(i+1, nuc.rigid.id)
             cycle = get_next_path(builder)
             # print("Chain", cycle)
@@ -1439,14 +1439,14 @@ def build_cycles(builder: Builder) -> None:
 
 # Now all we need is to write a pdb output!
 def generate_biopython_structure(builder: Builder) -> Structure:
-    chain_of_nucleotides = builder.chain_of_nucleotides
+    placed_nucleotides = builder.placed_nucleotides
 
     output_structure = PDB.Structure.Structure("output")
     output_model = PDB.Model.Model(0)
     output_chain = PDB.Chain.Chain("A")
 
     atom_serial_inc = 1
-    for (i, rw) in sorted(chain_of_nucleotides.items()):
+    for (i, rw) in sorted(placed_nucleotides.items()):
         r = rw.model
         output_residue = PDB.Residue.Residue((" ", i, " "), r.resname, "    ")
         for atom in r:
@@ -1514,13 +1514,13 @@ def process_rass_filename(rass_filename):
         builder
     )  # Probably unneeded because all lonely nucleotides should have been generated
 
-    # for _, b in sorted(builder.chain_of_nucleotides.items()):
+    # for _, b in sorted(builder.placed_nucleotides.items()):
     #     print(b, b.rigid)
 
     build_cycles(builder)
 
     # rigids_seen = set()
-    # for (_, nuc) in sorted(builder.chain_of_nucleotides.items()):
+    # for (_, nuc) in sorted(builder.placed_nucleotides.items()):
     #     rigids_seen.add(nuc.rigid)
     #     print(nuc, nuc.priority)
 
