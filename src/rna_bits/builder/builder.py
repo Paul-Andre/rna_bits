@@ -3,6 +3,7 @@ import numpy as np
 from dataclasses import dataclass
 from typing import Optional, Union, List, Tuple, Dict, TextIO, Literal, Container, Set
 import os
+import argparse
 
 from rna_bits.utils.data_path import DATA_PATH
 from rna_bits.utils.data_path import get_path
@@ -19,10 +20,6 @@ LIBRARY_MOTIFS_DIR = os.path.join(DATA_PATH, "database")
 if __name__ == "__main__" and __package__ is None:
     __package__ = "builder"
     sys.path.remove(os.path.abspath(os.path.dirname(__file__)))
-
-
-def get_input_filenames(argv: List[str]) -> List[str]:
-    return sys.argv[1:]
 
 
 @dataclass(frozen=True)
@@ -1535,8 +1532,83 @@ def process_rass_filename(rass_filename):
     write_output_pdb_file(output_structure, out_filename)
 
 
+def parse_args(argv):
+    parser = argparse.ArgumentParser(
+        description="Convert the output of BayesPairing2 into the input for the 3d builder, including downloading the module PDB files."
+    )
+
+    parser.add_argument(
+        "rass_filenames",
+        nargs="*",
+        help="Path to the bp2 dataset used, in json form, ie models/ALL.json",
+    )
+    # parser.add_argument(
+    #     "--bp2_result",
+    #     "-r",
+    #     required=True,
+    #     help="Path to the bp2 result file, in json form, ie output.json",
+    # )
+    # parser.add_argument(
+    #     "--chefs_choice",
+    #     action="store_true",
+    #     help="Generate the structure from bp2's 'chef's choice' and depicted in the output svg",
+    # )
+    # parser.add_argument(
+    #     "--secondary_structures",
+    #     "--secondary_structure",
+    #     "--ss",
+    #     "-ss",
+    #     nargs="+",
+    #     help="Secondary structures to use.",
+    # )
+    # parser.add_argument(
+    #     "--output_file",
+    #     "-o",
+    #     default="./bp2b_out/out",
+    #     help="Output .rass file. 'out' will be turned into 'out_0_0.rass when sampling multiple structures",
+    # )
+    # parser.add_argument(
+    #     "--motif_directory",
+    #     "-m",
+    #     default="./bp2b_out/motifs",
+    #     help="Directory to store module .pdb's",
+    # )
+    # parser.add_argument(
+    #     "--use_bp2_instance_data",
+    #     action="store_true",
+    #     help=(
+    #         "Currently, by default, we fetch instance data (PDB code and "
+    #         "residue ids) from BGSU's webset. However, if this flag is set, "
+    #         "it will take that information from the bp2 dataset file "
+    #         "instead."
+    #     ),
+    # )
+    # parser.add_argument(
+    #     "--dont_fill_gaps",
+    #     action="store_true",
+    #     help="Output only the core of the bgsu motif",
+    # )
+    # parser.add_argument(
+    #     "--num_outputs",
+    #     "--samples",
+    #     type=int,
+    #     default=10,
+    #     help="How many outputs to generate per provided secondary structure. "
+    #     "10 by default",
+    # )
+    parser.add_argument("--random_seed", type=int)
+
+    args = parser.parse_args(argv[1:])
+
+    return args
+
+
 def main(argv: List[str]) -> None:
-    rass_filenames: List[str] = get_input_filenames(argv)
+    args = parse_args(argv)
+    rass_filenames: List[str] = args.rass_filenames
+
+    if args.random_seed is not None:
+        random.seed(args.random_seed)
 
     if len(rass_filenames) == 0:
         process_rass_filename(None)
