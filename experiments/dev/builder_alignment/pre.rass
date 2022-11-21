@@ -1,0 +1,37 @@
+CGUCUUUAUAGCCCAAGGGUAGCCGUAACAAACGCCAAAGCUCCGUAGUAACUGAAAAGAAGAUAACUCAUGAGUAGUCACCCACCCACUAGCCACCAGG
+..(((((.(((......((.((((((.....))).....))))).......))).)))))......((..((..((((.........))))..))..)).
+
+# Excluding None
+
+# top 5, selected uniformly at random from the top 10 matches
+# wanted: UAUGAA (.().)  selected: UACGAA (.().)  score: -0.25
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_21280.19.pdb/89.pdb:  7,8,9,54,55,56
+
+# top 4, selected uniformly at random from the top 10 matches
+# wanted: GCCCAAGGCGUAGUAAC (......().......)  selected: GAACGUAGUGUUAUAGC (......().......)  score: -12.25
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_14483.1.pdb/84.pdb:  11,12,13,14,15,16,17,18,44,45,46,47,48,49,50,51,52
+
+# top 3, selected uniformly at random from the top 10 matches
+# wanted: GUAUC (.())  selected: GUAUC (.())  score: 0.0
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_25467.1.pdb/63.pdb:  19,20,21,42,43
+
+# top 4, selected uniformly at random from the top 10 matches
+# wanted: CCGCCAAAG (().....)  selected: AGCAUAUAU (().....)  score: -7.0
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_76090.3.pdb/300.pdb:  23,24,34,35,36,37,38,39,40
+
+# top 4, selected uniformly at random from the top 10 matches
+# wanted: UAACAAA (.....)  selected: UGAUAAA (.....)  score: -2.0
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_56726.82.pdb/156.pdb:  26,27,28,29,30,31,32
+
+# top 5, selected uniformly at random from the top 10 matches
+# wanted: UCAUACCA (..()..)  selected: UCAGCCAA (..()..)  score: -3.0
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_94750.1.pdb/186.pdb:  68,69,70,71,95,96,97,98
+
+# top 3, selected uniformly at random from the top 10 matches
+# wanted: GAGUAGCC (..()..)  selected: GAGUAAUU (..()..)  score: -2.25
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_33014.4.pdb/119.pdb:  72,73,74,75,91,92,93,94
+
+# top 9, selected uniformly at random from the top 10 matches
+# wanted: UCACCCACCCA (.........)  selected: CAGCCCGGUAG (.........)  score: -9.5
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_29074.1.pdb/1.pdb:  78,79,80,81,82,83,84,85,86,87,88
+

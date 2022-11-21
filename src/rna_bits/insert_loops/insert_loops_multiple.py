@@ -34,6 +34,12 @@ def parse_args(argv):
         help="How many different possibilities to generate",
     )
     parser.add_argument(
+        "--top",
+        default=10,
+        type=int,
+        help="How many structures for each loop to sample from.",
+    )
+    parser.add_argument(
         "--sequence",
         "--seq",
     )
@@ -96,7 +102,7 @@ def output_match(out_f, loop_seq, loop_ss, loop_nuc_ids, match):
     out_f.write("\n")
 
 
-def insert_loops(seq, dot_bracket, out_fs, rest_of_file, exclude=None):
+def insert_loops(seq, dot_bracket, out_fs, rest_of_file, args, exclude=None):
     assert len(seq) == len(dot_bracket)
 
     original_seq = seq
@@ -205,7 +211,7 @@ def insert_loops(seq, dot_bracket, out_fs, rest_of_file, exclude=None):
                 print("Couldn't find a motif for ", loop_seq, loop_ss)
 
 
-def in_and_out(in_f, out_fs, exclude=None):
+def in_and_out(in_f, out_fs, args, exclude=None):
     seq = in_f.readline().strip()
     dot_bracket = in_f.readline().strip()
     rest = in_f.read()
@@ -213,7 +219,7 @@ def in_and_out(in_f, out_fs, exclude=None):
     for l in rest.split("\n"):
         if l.startswith("native:") and exclude is None:
             exclude = [s.strip() for s in l[len("native:") :].split(",")]
-    insert_loops(seq, dot_bracket, out_fs, rest, exclude=exclude)
+    insert_loops(seq, dot_bracket, out_fs, rest, args, exclude=exclude)
 
 
 def need_to_read_from_stdin(args):
@@ -247,7 +253,7 @@ def main_cli():
         # "files" we can write to at the same time
         out_fs.append(io.StringIO())
 
-    in_and_out(f, out_fs, exclude=None)
+    in_and_out(f, out_fs, args, exclude=None)
 
     # Write the strings to files
     for (i_, string_io) in enumerate(out_fs):

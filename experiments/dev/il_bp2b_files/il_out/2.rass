@@ -1,0 +1,9 @@
+GGGGGGCCCCCC
+((((....))))
+
+# Excluding None
+
+# top 4, selected uniformly at random from the top 10 matches
+# wanted: GGGCCC (....)  selected: GAGUCC (....)  score: -2.0
+motif:/home/paul/LoopLibrary/loop_models/NR_4.0_91105.1.pdb/1.pdb:  4,5,6,7,8,9
+

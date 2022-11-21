@@ -216,6 +216,7 @@ class Builder:
 
         self.rigids: List["Rigid"] = []
         self.placed_nucleotides: Dict[int, "Nucleotide"] = {}
+        self.nucleotides_placed_for_backbone: Dict[int, "Nucleotide"] = {}
         self.rigidCounter: int = 0
 
         self.models_used: List[Tuple[List[int], ModelSourceInfo]] = []
