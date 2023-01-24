@@ -1,6 +1,6 @@
 import pickle
 from collections import Counter
-import rna_bits.utils.pdb as rna_pdb
+import rna_bits.utils.pdb
 import os
 
 f = open("3drins_by_id.pickle", "rb")
@@ -21,7 +21,7 @@ def fetch(k,v, parent):
     assert(pk == sk)
     code, chain_id = pk.split(".")
     print("fetching", code)
-    c = rna_pdb.fetch_pdb(code)[0][chain_id]
+    c = rna_bits.utils.pdb.fetch_pdb(code)[0][chain_id]
     print("fetched")
     collect = []
     letters = []
@@ -50,7 +50,7 @@ def fetch(k,v, parent):
     
     model = rna_pdb.build_model_from_lists_of_residues([collect])
 
-    save_file = parent+"/"+pk+"_"+str(pi)+".pdb"  # pv[0] = Me being lazy and not using a proper increment
+    save_file = parent+"/"+pk+"_"+str(pi)+".pdb"
     print(save_file)
     assert(save_file not in already_saved)
     rna_pdb.save_model_as_pdb(model, save_file)
@@ -64,11 +64,17 @@ def fetch(k,v, parent):
 
 def get_loop_order(g, considered_set=None):
     """
-    Interprets the motif as a cycle of only B53 and CWW interactions that
-    covers all graph nodes (or considered_set if provided).
+    NOTE!!!: this function doesn't detect all loops because not all backbone connections are 
+    labelled as B53
 
-    Returns None if it cannot.
-    Otherwise returns a list of lists representing the "strands" of the cycle
+    g is an interaction network given as a networkx.classes.digraph.DiGraph 
+    considered_set, if given, is a set of integers representing the nodes in the graph to consider
+
+    Checks if the interaction network is a "loop", e.g. a cycle of only B53 and CWW interactions that
+    covers all considered graph nodes
+
+    If the graph forms such a cycle, returns a list of lists representing the "strands" of the cycle
+    Otherwise, returns None
     """
 
     if considered_set is None:
@@ -82,10 +88,9 @@ def get_loop_order(g, considered_set=None):
     
     have_incoming = set()
     for i in considered_set:
-        j = follow_label("B53")
+        j = follow_label(i, "B53")
         if j is not None:
             have_incoming.add(j)
-
 
     strand_beginnings = set(considered_set) - have_incoming
     print(strand_beginnings, "strand_beginnings")
@@ -102,11 +107,12 @@ def get_loop_order(g, considered_set=None):
     vis.add(current)
     ret[-1].append(current)
 
+    prev = None
     while True:
         next = follow_label(current, "B53")
         if next is None:
             next = follow_label(current, "CWW")
-            if next is None:
+            if next is None or next is prev:
                 # Couldn't find a B53 or CWW edge
                 return None
             if next == first:
@@ -114,26 +120,57 @@ def get_loop_order(g, considered_set=None):
             ret.append([])
         if next in vis:
             # if we have already visited next, and it's not the first node,
-            # what we have is not a cycle
+            # what we have is not a cycle that covers the whole graph
             return None
+        prev = current
         current = next
         vis.add(current)
         ret[-1].append(current)
 
-    if vis != considered_set:
+    if set(vis) != set(considered_set):
         return None
 
     return ret
 
 failed_list = []
 for k, v in sorted(p.items()):
-    parent = "motifs_from_graph/"+str(k)
-    os.makedirs(parent, exist_ok=True)
+    if k != 202:
+        continue
 
+    print()
+    print()
     g = v["graphs"]
-    if is_loop_motif(g, 
+    has_cww = 0
+    for sk, sv in g.succ.items():
+        for svk, svv in sv.items():
+            label = svv["label"]
+            #print(sk, svk, label)
+            if label == "CWW":
+                has_cww +=1
+
+    if has_cww==2:
+        continue
+
+    loop_order = get_loop_order(g)
+    print (k)
+    print (g)
+
+    if loop_order is not None:
+        continue
+    for sk, sv in g.succ.items():
+        for svk, svv in sv.items():
+            label = svv["label"]
+            if label == "B53" or sk<svk:
+                print(sk, svk, label)
+
+    continue;
+    print(loop_order)
+    if loop_order is None:
+        continue
 
     try:
+        parent = "motifs_from_graph_but_only_cycles/"+str(k)
+        os.makedirs(parent, exist_ok=True)
         fetch(k,v,parent)
     except Exception as e:
         
