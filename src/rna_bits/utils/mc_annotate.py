@@ -6,6 +6,37 @@ import traceback
 from Bio.PDB.PDBParser import PDBParser
 from collections import Counter
 import numpy as np
+import subprocess
+
+
+MCA_DIR = None
+# Change this line to the location of MC-Annotate:
+MCA_DIR = "/home/paul/MC-Annotate"
+
+if "MCA_DIR" in os.environ:
+    MCA_DIR = os.environ["MCA_DIR"]
+
+
+class NoMcAnnotateError(Exception):
+    pass
+
+
+def run_mc_annotate(pdb_fname):
+    """
+    Returns the stdout of McAnnotate
+    """
+    if MCA_DIR is None:
+        print("Directory of MC-Annotate not set")
+        print("Either manually set it in the file", __file__)
+        print("or provided it via the environment variable MCA_DIR")
+        raise NoMcAnnotateError()
+
+    fp = subprocess.run(
+        [MCA_DIR, "-f", "0", pdb_fname], capture_output=True
+    )
+    fp.check_returncode()
+    return fp.stdout
+
 
 
 def split_nuc_name_pair(s):
