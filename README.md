@@ -34,6 +34,12 @@ NOTE: Installing the python library is required in order to run the data generat
 # rna_builder
 Builds a 3d RNA structure from a given .rass file and .pdb files of fragments.
 
+## Example
+```
+cd examples/rna_builder
+rna_builder *.rass
+```
+
 # rna_insert_loops
 Given an RNA secondary structure and sequence, creates a .rass file with loops 
 
