@@ -82,9 +82,10 @@ A81 : U C3p_endo anti
 A82 : A C3p_endo anti
 A83 : U C3p_endo anti
 A84 : C C2p_endo anti
-A84 : G C3p_endo anti
+A85 : G C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
+A2-A85 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A6-A7 : adjacent_5p upward 
 A7-A8 : adjacent_5p upward 
@@ -135,6 +136,7 @@ A79-A80 : adjacent_5p inward
 A80-A81 : adjacent_5p outward 
 A81-A82 : adjacent_5p upward 
 A82-A83 : adjacent_5p upward 
+A83-A84 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A4-A6 : upward pairing 
 A4-A82 : outward 
@@ -155,8 +157,8 @@ A50-A69 : outward
 A54-A63 : outward 
 A55-A62 : outward 
 A56-A58 : upward 
-Number of stackings = 70
-Number of adjacent stackings = 51
+Number of stackings = 72
+Number of adjacent stackings = 53
 Number of non adjacent stackings = 19
 Base-pairs ------------------------------------------------------
 A2-A83 : G-U Ww/Ws pairing antiparallel cis XXVIII 
@@ -205,3 +207,4 @@ A54-A62 : C-G Ww/Ww pairing antiparallel cis XIX
 A55-A61 : U-A Ww/Ww pairing antiparallel cis XX 
 A56-A60 : C-G Ww/Ww pairing antiparallel cis XIX 
 A77-A78 : G-A Sw/Hh adjacent_5p pairing parallel cis one_hbond 53 
+A84-A85 : C-G Ww/Ww pairing antiparallel cis XIX 

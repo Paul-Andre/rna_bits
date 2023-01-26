@@ -7,11 +7,12 @@ A5 : A C2p_endo anti
 A6 : A C2p_endo anti
 A7 : A C2p_endo syn
 A8 : A C3p_endo anti
+A9 : A C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A3-A4 : adjacent_5p upward 
-A7-A8 : adjacent_5p inward 
 Non-Adjacent stackings ------------------------------------------
+A7-A9 : inward 
 Number of stackings = 2
-Number of adjacent stackings = 2
-Number of non adjacent stackings = 0
+Number of adjacent stackings = 1
+Number of non adjacent stackings = 1
 Base-pairs ------------------------------------------------------

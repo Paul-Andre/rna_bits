@@ -46,9 +46,10 @@ A135 : A C2p_exo anti
 A136 : G C2p_endo anti
 A137 : U C1p_exo anti
 A138 : G C2p_exo anti
+A139 : G C2p_exo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
-A2-A138 : adjacent_3p downward 
+A2-A139 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
 A6-A7 : adjacent_5p upward 

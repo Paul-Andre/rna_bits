@@ -76,10 +76,10 @@ A75 : A C3p_endo anti
 A76 : A C3p_endo anti
 A77 : A C3p_endo anti
 A78 : A C3p_endo anti
-A83 : G C3p_endo anti
+A84 : G C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
-A2-A83 : adjacent_3p downward 
+A2-A84 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A4-A5 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
@@ -186,4 +186,4 @@ A48-A71 : U-A Ww/Ww pairing antiparallel cis XX
 A49-A70 : U-A Ww/Ww pairing antiparallel cis XX 
 A50-A69 : U-A Ww/Ww pairing antiparallel cis XX 
 A54-A67 : C-A O2'/Ss pairing 
-A58-A83 : C-G Hw/Hw pairing parallel trans one_hbond 121 
+A58-A84 : C-G Hw/Hw pairing parallel trans one_hbond 121 

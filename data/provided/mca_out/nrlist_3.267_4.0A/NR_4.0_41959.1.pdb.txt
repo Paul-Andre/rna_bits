@@ -38,9 +38,10 @@ A37 : A C3p_endo anti
 A38 : G C3p_endo anti
 A39 : U C3p_endo anti
 A40 : C C3p_endo anti
-A40 : G C3p_endo anti
+A41 : G C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
+A2-A41 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A4-A5 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
@@ -71,10 +72,11 @@ A35-A36 : adjacent_5p upward
 A36-A37 : adjacent_5p upward 
 A37-A38 : adjacent_5p upward 
 A38-A39 : adjacent_5p upward 
+A39-A40 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A5-A37 : outward 
-Number of stackings = 32
-Number of adjacent stackings = 31
+Number of stackings = 34
+Number of adjacent stackings = 33
 Number of non adjacent stackings = 1
 Base-pairs ------------------------------------------------------
 A2-A39 : G-U Ww/Ws pairing antiparallel cis XXVIII 
@@ -90,3 +92,4 @@ A16-A23 : U-A Ww/Ww pairing antiparallel cis XX
 A17-A22 : C-G Ww/Ww pairing antiparallel cis XIX 
 A18-A20 : G-A O2'/Hh Ss/O2P pairing 
 A18-A21 : G-A Sw/Hh Bs/O2P pairing antiparallel trans one_hbond 
+A40-A41 : C-G Ww/Ww pairing antiparallel cis XIX 

@@ -63,10 +63,11 @@ A83 : A C3p_endo anti
 A84 : A C3p_endo anti
 A85 : G C3p_endo anti
 A86 : U C3p_endo anti
-A86 : G C3p_endo anti
-A87 : C O4p_endo anti
+A87 : G C3p_endo anti
+A88 : C O4p_endo anti
 Adjacent stackings ----------------------------------------------
 A23-A24 : adjacent_5p upward 
+A23-A87 : adjacent_3p downward 
 A24-A25 : adjacent_5p upward 
 A25-A26 : adjacent_5p upward 
 A26-A27 : adjacent_5p upward 
@@ -106,6 +107,7 @@ A81-A82 : adjacent_5p upward
 A82-A83 : adjacent_5p upward 
 A83-A84 : adjacent_5p upward 
 A84-A85 : adjacent_5p upward 
+A85-A86 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A27-A83 : outward 
 A29-A81 : outward 
@@ -118,10 +120,11 @@ A42-A44 : outward
 A42-A68 : downward pairing 
 A45-A71 : upward 
 A64-A74 : outward 
-Number of stackings = 51
-Number of adjacent stackings = 40
+Number of stackings = 53
+Number of adjacent stackings = 42
 Number of non adjacent stackings = 11
 Base-pairs ------------------------------------------------------
+A23-A86 : G-U Ww/Ws pairing antiparallel cis XXVIII 
 A24-A85 : C-G Ww/Ww pairing antiparallel cis XIX 
 A25-A84 : U-A Ww/Ww pairing antiparallel cis XX 
 A26-A83 : U-A Ww/Ww pairing antiparallel cis XX 
@@ -152,3 +155,4 @@ A63-A74 : C-G Ww/Ww pairing antiparallel cis XIX
 A64-A73 : A-U Ww/Ww pairing antiparallel cis XX 
 A65-A72 : A-U Ww/Ww pairing antiparallel cis XX 
 A66-A71 : A-U Ww/Ws pairing antiparallel cis 
+A87-A88 : G-C Ww/Ww pairing antiparallel cis XIX 

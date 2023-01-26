@@ -132,7 +132,7 @@ A135 : G C3p_endo anti
 A136 : C C3p_endo anti
 A137 : C C3p_endo anti
 A138 : U C3p_endo anti
-A138 : C C4p_exo anti
+A139 : C C4p_exo anti
 Adjacent stackings ----------------------------------------------
 A6-A7 : adjacent_5p upward 
 A7-A8 : adjacent_5p upward 
@@ -226,6 +226,7 @@ A132-A133 : adjacent_5p upward
 A133-A134 : adjacent_5p upward 
 A135-A136 : adjacent_5p upward 
 A136-A137 : adjacent_5p upward 
+A137-A138 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A12-A67 : outward 
 A17-A36 : outward 
@@ -240,10 +241,12 @@ A73-A129 : outward
 A87-A113 : inward pairing 
 A88-A114 : outward 
 A101-A103 : outward 
-Number of stackings = 105
-Number of adjacent stackings = 92
+Number of stackings = 106
+Number of adjacent stackings = 93
 Number of non adjacent stackings = 13
 Base-pairs ------------------------------------------------------
+A6-A139 : G-C Ww/Ww pairing antiparallel cis XIX 
+A7-A138 : G-U Ww/Ws pairing antiparallel cis XXVIII 
 A8-A137 : G-C Ww/Ww pairing antiparallel cis XIX 
 A9-A136 : G-C Ww/Ww pairing antiparallel cis XIX 
 A10-A67 : C-A Bh/O2P pairing 

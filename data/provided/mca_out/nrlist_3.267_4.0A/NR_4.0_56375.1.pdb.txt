@@ -60,7 +60,7 @@ B20 : A C2p_endo anti
 B21 : A C3p_endo anti
 B22 : A C3p_endo anti
 B23 : G C3p_endo anti
-B23 : C C3p_endo anti
+B24 : C C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A1-A2 : adjacent_5p inward 
 A16-A17 : adjacent_5p upward 
@@ -81,16 +81,19 @@ B15-B16 : adjacent_5p upward
 B17-B18 : adjacent_5p upward 
 B18-B19 : adjacent_5p upward 
 B21-B22 : adjacent_5p upward 
+B22-B23 : adjacent_5p upward 
+B23-B24 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A7-A10 : inward 
 A8-A10 : outward pairing 
 A22-B17 : outward 
-Number of stackings = 22
-Number of adjacent stackings = 19
+Number of stackings = 24
+Number of adjacent stackings = 21
 Number of non adjacent stackings = 3
 Base-pairs ------------------------------------------------------
 A1-A3 : U-A Ws/Hw pairing parallel cis one_hbond 47 
 A8-A10 : A-G O2P/Bs outward pairing 
+A15-B23 : C-G Ww/Ww pairing antiparallel cis XIX 
 A16-B22 : U-A Ww/Ww pairing antiparallel cis XX 
 A17-B21 : U-A Ww/Ww pairing antiparallel cis XX 
 A19-B19 : G-C Ww/Ww pairing antiparallel cis XIX 

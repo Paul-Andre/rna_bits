@@ -45,7 +45,7 @@ A91 : G C3p_endo anti
 A92 : C C3p_endo anti
 A93 : G C3p_endo anti
 A94 : U C2p_exo anti
-A94 : C C4p_exo anti
+A95 : C C4p_exo anti
 B1 : G C2p_exo anti
 B2 : A C3p_endo anti
 B3 : C C3p_endo anti
@@ -89,7 +89,7 @@ B40 : G C3p_endo anti
 B41 : C C3p_endo anti
 B42 : U C3p_endo anti
 B43 : G C3p_endo anti
-B43 : C C2p_exo anti
+B44 : C C2p_exo anti
 Adjacent stackings ----------------------------------------------
 A49-A50 : adjacent_5p upward 
 A50-A51 : adjacent_5p upward 
@@ -114,6 +114,8 @@ A87-A88 : adjacent_5p upward
 A88-A89 : adjacent_5p upward 
 A89-A90 : adjacent_5p upward 
 A91-A92 : adjacent_5p upward 
+A93-A94 : adjacent_5p upward 
+A94-A95 : adjacent_5p upward 
 B1-B2 : adjacent_5p upward 
 B2-B3 : adjacent_5p upward 
 B4-B5 : adjacent_5p upward 
@@ -140,7 +142,10 @@ B37-B38 : adjacent_5p upward
 B39-B40 : adjacent_5p upward 
 B40-B41 : adjacent_5p upward 
 B41-B42 : adjacent_5p upward 
+B42-B43 : adjacent_5p upward 
+B43-B44 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
+A51-B43 : outward 
 A55-B39 : outward 
 A60-A63 : upward 
 A60-B35 : outward 
@@ -161,10 +166,11 @@ A91-B6 : outward
 A93-B4 : outward 
 B10-B12 : downward pairing 
 B14-B17 : upward 
-Number of stackings = 69
-Number of adjacent stackings = 49
-Number of non adjacent stackings = 20
+Number of stackings = 74
+Number of adjacent stackings = 53
+Number of non adjacent stackings = 21
 Base-pairs ------------------------------------------------------
+A50-B43 : C-G Ww/Ww pairing antiparallel cis XIX 
 A51-B42 : A-U Ww/Ww pairing antiparallel cis XX 
 A52-B41 : G-C Ww/Ww pairing antiparallel cis XIX 
 A53-B40 : C-G Ww/Ww pairing antiparallel cis XIX 
@@ -207,6 +213,8 @@ A90-B6 : C-G Ww/Ww pairing antiparallel cis XIX
 A91-B5 : G-C Ww/Ww pairing antiparallel cis XIX 
 A92-B4 : C-G Ww/Ww pairing antiparallel cis XIX 
 A93-B3 : G-C Ww/Ww pairing antiparallel cis XIX 
+A94-B2 : U-A Ww/Ww pairing antiparallel cis XX 
+A95-B1 : C-G Ww/Ww pairing antiparallel cis XIX 
 B10-B12 : G-A Ss/O2' downward pairing 
 B10-B14 : G-G Ww/Hh pairing parallel cis VI 
 B25-B29 : G-G Ww/Hh pairing parallel cis VI 

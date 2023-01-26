@@ -41,9 +41,10 @@ A40 : C C3p_endo anti
 A41 : G C3p_endo anti
 A42 : C C3p_endo anti
 A43 : C C3p_endo anti
-A43 : G C3p_endo anti
+A44 : G C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
+A2-A44 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A4-A5 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
@@ -67,6 +68,7 @@ A38-A39 : adjacent_5p upward
 A39-A40 : adjacent_5p upward 
 A40-A41 : adjacent_5p upward 
 A41-A42 : adjacent_5p upward 
+A42-A43 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A7-A27 : inward 
 A7-A28 : outward pairing 
@@ -74,8 +76,8 @@ A8-A32 : outward
 A9-A31 : downward 
 A15-A19 : upward 
 A21-A37 : outward 
-Number of stackings = 30
-Number of adjacent stackings = 24
+Number of stackings = 32
+Number of adjacent stackings = 26
 Number of non adjacent stackings = 6
 Base-pairs ------------------------------------------------------
 A6-A28 : U-A Ws/Hh pairing antiparallel trans XXIV 

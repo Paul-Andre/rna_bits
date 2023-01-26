@@ -139,9 +139,10 @@ A138 : A C2p_exo anti
 A139 : U C3p_endo anti
 A140 : G C2p_exo anti
 A141 : A C2p_exo anti
-A141 : G C3p_endo anti
+A142 : G C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A13-A14 : adjacent_5p upward 
+A13-A142 : adjacent_3p downward 
 A14-A15 : adjacent_5p upward 
 A15-A16 : adjacent_5p upward 
 A16-A17.A : adjacent_5p upward 
@@ -230,9 +231,11 @@ A132-A133 : adjacent_5p upward
 A133-A134 : adjacent_5p upward 
 A137-A138 : adjacent_5p upward 
 A138-A139 : adjacent_5p upward 
+A140-A141 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A15-A20 : outward 
 A17.B-A17.L : outward 
+A23-A142 : outward 
 A33-A59 : inward pairing 
 A34-A59 : outward 
 A35-A84 : downward 
@@ -247,15 +250,16 @@ A98-A123 : outward
 A103-A119 : outward 
 A105-A117 : outward 
 A106-A116 : outward 
-Number of stackings = 105
-Number of adjacent stackings = 89
-Number of non adjacent stackings = 16
+Number of stackings = 108
+Number of adjacent stackings = 91
+Number of non adjacent stackings = 17
 Base-pairs ------------------------------------------------------
 A13-A21 : G-C Ww/Ww pairing antiparallel cis XIX 
 A14-A20 : C-G Ww/Ww pairing antiparallel cis XIX 
 A15-A19 : A-U Ww/Ww pairing antiparallel cis XX 
 A16-A18 : C-G Ww/Ww pairing antiparallel cis XIX 
 A17.A-A17.L : C-G Ww/Ww pairing antiparallel cis XIX 
+A22-A142 : C-G Ww/Ww pairing antiparallel cis XIX 
 A24-A112 : G-A Ss/Ss O2'/Ww pairing parallel trans 57 
 A27-A52 : G-C O2'/Bh pairing 
 A28-A29 : A-C Ss/Hw adjacent_5p pairing parallel cis one_hbond 
@@ -314,4 +318,5 @@ A107-A114 : A-U Ww/Ww pairing antiparallel cis XX
 A108-A113 : G-C Ww/Ww pairing antiparallel cis XIX 
 A109-A111 : G-G O2'/Hh pairing 
 A109-A112 : G-A Ww/O2P Bs/O2P pairing 
+A110-A142 : U-G Ww/O2' pairing 
 A139-A140 : U-G Ww/Hw adjacent_5p pairing parallel cis one_hbond 

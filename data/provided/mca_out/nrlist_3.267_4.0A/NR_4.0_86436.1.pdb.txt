@@ -41,8 +41,8 @@ B114 : C C3p_endo anti
 B115 : C C3p_endo anti
 B116 : G C3p_endo anti
 B117 : G C3p_endo anti
-B117 : U C3p_endo anti
 B118 : U C3p_endo anti
+B119 : U C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A48-A49 : adjacent_5p upward 
 A49-A50 : adjacent_5p upward 
@@ -62,13 +62,16 @@ A66-A67 : adjacent_5p upward
 A68-A69 : adjacent_5p upward 
 B98-B99 : adjacent_5p upward 
 B99-B100 : adjacent_5p upward 
+B100-B118 : adjacent_5p upward 
 B102-B103 : adjacent_5p upward 
+B102-B118 : adjacent_3p downward 
 B104-B105 : adjacent_5p upward 
 B107-B108 : adjacent_5p upward 
 B108-B109 : adjacent_5p upward 
 B109-B110 : adjacent_5p upward 
-B114-B118 : adjacent_3p downward 
+B114-B119 : adjacent_3p downward 
 B115-B116 : adjacent_5p upward 
+B116-B117 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A48-B116 : outward 
 A60-B109 : outward 
@@ -76,14 +79,14 @@ A64-B104 : outward
 A66-B102 : outward 
 A68-B100 : outward 
 B105-B107 : upward 
-Number of stackings = 31
-Number of adjacent stackings = 25
+Number of stackings = 34
+Number of adjacent stackings = 28
 Number of non adjacent stackings = 6
 Base-pairs ------------------------------------------------------
 A47-B116 : C-G Ww/Ww pairing antiparallel cis XIX 
 A48-B115 : G-C Ww/Ww pairing antiparallel cis XIX 
 A49-B114 : G-C Ww/Ww pairing antiparallel cis XIX 
-A50-B118 : A-U Ww/Ww pairing antiparallel cis XX 
+A50-B119 : A-U Ww/Ww pairing antiparallel cis XX 
 A51-B112 : G-C Ww/Ww pairing antiparallel cis XIX 
 A52-B111 : G-C Ww/Ww pairing antiparallel cis XIX 
 A55-A57 : C-A O2'/Hh pairing 
@@ -95,6 +98,7 @@ A62-B105 : C-G Ww/Ww pairing antiparallel cis XIX
 A63-B104 : U-C Ww/Ww pairing antiparallel cis XVIII 
 A64-B103 : U-U Ww/Ws pairing antiparallel cis XVI 
 A65-B102 : C-G Ww/Ww pairing antiparallel cis 
+A66-B118 : A-U Ww/Ww pairing antiparallel cis XX 
 A67-B100 : C-G Ww/Ww pairing antiparallel cis XIX 
 A68-B99 : G-C Ww/Ww pairing antiparallel cis XIX 
 A69-B98 : C-G Ww/Ww pairing antiparallel cis XIX 

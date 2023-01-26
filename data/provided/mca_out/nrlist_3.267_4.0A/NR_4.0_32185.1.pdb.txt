@@ -85,7 +85,7 @@ A84 : G C3p_endo anti
 A85 : A C3p_endo anti
 A86 : G C3p_endo anti
 A87 : U C2p_exo anti
-A88 : C C1p_exo anti
+A89 : C C1p_exo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
 A3-A4 : adjacent_5p upward 

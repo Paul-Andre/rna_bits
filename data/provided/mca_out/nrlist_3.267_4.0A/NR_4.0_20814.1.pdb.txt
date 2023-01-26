@@ -99,7 +99,7 @@ A97 : U C3p_endo anti
 A98 : G C3p_endo anti
 A99 : U C3p_endo anti
 A100 : U C2p_exo anti
-A100 : C O4p_endo anti
+A101 : C O4p_endo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
 A3-A4 : adjacent_5p upward 

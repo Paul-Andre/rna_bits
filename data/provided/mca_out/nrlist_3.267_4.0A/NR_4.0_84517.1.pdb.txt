@@ -91,10 +91,11 @@ A90 : A C3p_endo anti
 A91 : G C3p_endo anti
 A92 : C C3p_endo anti
 A93 : C C3p_endo anti
-A94 : G C2p_exo anti
+A94 : G C3p_endo anti
+A95 : G C2p_exo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
-A2-A94 : adjacent_3p downward 
+A2-A95 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A4-A5 : adjacent_5p upward 
 A6-A7 : adjacent_5p upward 
@@ -154,6 +155,7 @@ A87-A88 : adjacent_5p upward
 A89-A90 : adjacent_5p upward 
 A90-A91 : adjacent_5p upward 
 A91-A92 : adjacent_5p upward 
+A93-A94 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A6-A89 : outward 
 A13-A42 : outward 
@@ -165,9 +167,10 @@ A33-A35 : upward
 A49-A55 : outward 
 A70-A82 : outward 
 A73-A79 : outward 
-Number of stackings = 71
-Number of adjacent stackings = 61
-Number of non adjacent stackings = 10
+A94-A95 : outward 
+Number of stackings = 73
+Number of adjacent stackings = 62
+Number of non adjacent stackings = 11
 Base-pairs ------------------------------------------------------
 A2-A92 : G-C Ww/Ww pairing antiparallel cis XIX 
 A3-A91 : C-G Ww/Ww pairing antiparallel cis XIX 
@@ -220,4 +223,4 @@ A72-A79 : C-G Ww/Ww pairing antiparallel cis XIX
 A73-A78 : G-C Ww/Ww pairing antiparallel cis XIX 
 A74-A76 : G-A O2'/Bh O2'/Hh Ss/O2P pairing 
 A74-A77 : G-A Sw/Hh Bs/O2P pairing antiparallel trans one_hbond 
-A93-A94 : C-G Ww/Ww adjacent_5p pairing antiparallel cis XIX 
+A93-A95 : C-G Ww/Ww pairing antiparallel cis XIX 

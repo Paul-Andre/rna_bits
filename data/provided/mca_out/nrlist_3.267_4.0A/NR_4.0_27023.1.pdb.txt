@@ -47,6 +47,7 @@ A174 : G C3p_endo anti
 A175 : A C3p_endo anti
 A176 : G C3p_endo anti
 A177 : C C3p_endo anti
+A178 : C C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A130-A131 : adjacent_5p upward 
 A131-A132 : adjacent_5p upward 
@@ -85,16 +86,19 @@ A172-A173 : adjacent_5p upward
 A173-A174 : adjacent_5p upward 
 A174-A175 : adjacent_5p upward 
 A175-A176 : adjacent_5p upward 
+A176-A177 : adjacent_5p upward 
+A177-A178 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A136-A173 : outward 
 A147-A162 : inward 
 A148-A164 : outward 
 A154-A158 : outward 
-Number of stackings = 41
-Number of adjacent stackings = 37
+Number of stackings = 43
+Number of adjacent stackings = 39
 Number of non adjacent stackings = 4
 Base-pairs ------------------------------------------------------
-A130-A177 : G-C Ww/Ww pairing antiparallel cis XIX 
+A130-A178 : G-C Ww/Ww pairing antiparallel cis XIX 
+A131-A177 : G-C Ww/Ww pairing antiparallel cis XIX 
 A132-A176 : C-G Ww/Ww pairing antiparallel cis XIX 
 A133-A175 : U-A Ww/Ww pairing antiparallel cis XX 
 A134-A174 : C-G Ww/Ww pairing antiparallel cis XIX 

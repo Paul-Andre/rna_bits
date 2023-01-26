@@ -90,9 +90,10 @@ A95 : A C2p_endo syn
 A96 : U C3p_endo anti
 A97 : G C2p_exo anti
 A98 : G C2p_endo anti
-A669 : G C3p_endo anti
+A670 : G C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A9-A10 : adjacent_5p upward 
+A9-A670 : adjacent_3p downward 
 A10-A11 : adjacent_5p upward 
 A11-A12 : adjacent_5p upward 
 A12-A13 : adjacent_5p upward 
@@ -151,6 +152,7 @@ A97-A98 : adjacent_5p upward
 A660-A661 : adjacent_5p upward 
 A665-A666 : adjacent_5p upward 
 A667-A668 : adjacent_5p upward 
+A668-A669 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A12-A98 : outward 
 A15-A95 : upward 
@@ -168,8 +170,8 @@ A53-A82 : outward pairing
 A56-A85 : outward 
 A61-A78 : outward 
 A75-A660 : outward 
-Number of stackings = 75
-Number of adjacent stackings = 59
+Number of stackings = 77
+Number of adjacent stackings = 61
 Number of non adjacent stackings = 16
 Base-pairs ------------------------------------------------------
 A11-A98 : C-G Ww/Ww pairing antiparallel cis XIX 

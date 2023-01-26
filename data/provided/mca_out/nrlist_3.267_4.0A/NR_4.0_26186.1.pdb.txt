@@ -55,9 +55,10 @@ A77 : U C3p_endo anti
 A78 : U C3p_endo anti
 A79 : C C3p_endo anti
 A80 : C C3p_endo anti
-A80 : G C4p_exo anti
+A81 : G C4p_exo anti
 Adjacent stackings ----------------------------------------------
 A25-A26 : adjacent_5p upward 
+A25-A81 : adjacent_3p downward 
 A26-A27 : adjacent_5p upward 
 A27-A28 : adjacent_5p upward 
 A31-A32 : adjacent_5p upward 
@@ -102,8 +103,8 @@ A45-A61 : outward
 A46-A69 : outward 
 A49-A66 : outward 
 A73-A75 : upward pairing 
-Number of stackings = 44
-Number of adjacent stackings = 37
+Number of stackings = 45
+Number of adjacent stackings = 38
 Number of non adjacent stackings = 7
 Base-pairs ------------------------------------------------------
 A25-A79 : G-C Ww/Ww pairing antiparallel cis XIX 
@@ -142,3 +143,4 @@ A58-A60 : G-G O2'/Hh pairing
 A58-A61 : G-A Ww/O2P pairing 
 A73-A74 : A-C Ss/O2' adjacent_5p pairing 
 A73-A75 : A-G O2'/Hh upward pairing 
+A80-A81 : C-G Ww/Ww pairing antiparallel cis XIX 

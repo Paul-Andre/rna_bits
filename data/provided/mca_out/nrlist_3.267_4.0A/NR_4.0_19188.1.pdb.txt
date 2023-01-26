@@ -66,10 +66,11 @@ A67 : C C3p_endo anti
 A68 : G C3p_endo anti
 A69 : G C3p_endo anti
 A70 : C C3p_endo anti
-A71 : G C2p_exo anti
+A71 : G C3p_endo anti
+A72 : G C2p_exo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
-A2-A71 : adjacent_3p downward 
+A2-A72 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
 A6-A7 : adjacent_5p upward 
@@ -108,7 +109,9 @@ A65-A66 : adjacent_5p upward
 A66-A67 : adjacent_5p upward 
 A68-A69 : adjacent_5p upward 
 A69-A70 : adjacent_5p upward 
+A70-A71 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
+A3-A71 : outward 
 A6-A68 : outward 
 A9-A45 : inward pairing 
 A9-A46 : outward 
@@ -123,10 +126,11 @@ A28-A43 : outward
 A48-A59 : upward 
 A51-A64 : outward 
 A58-A61 : outward pairing 
-Number of stackings = 54
-Number of adjacent stackings = 40
-Number of non adjacent stackings = 14
+Number of stackings = 56
+Number of adjacent stackings = 41
+Number of non adjacent stackings = 15
 Base-pairs ------------------------------------------------------
+A2-A71 : C-G Ww/Ww pairing antiparallel cis XIX 
 A4-A69 : C-G Ww/Ww pairing antiparallel cis 
 A5-A68 : C-G Ww/Ww pairing antiparallel cis XIX 
 A6-A67 : G-C Ww/Ww pairing antiparallel cis XIX 

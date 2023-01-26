@@ -106,7 +106,7 @@ A105 : A C3p_endo anti
 A106 : U C3p_endo anti
 A107 : C C3p_endo anti
 A108 : C C3p_endo anti
-A119 : G C2p_exo anti
+A120 : G C2p_exo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
 A3-A4 : adjacent_5p upward 
@@ -187,7 +187,7 @@ A103-A104 : adjacent_5p upward
 A104-A105 : adjacent_5p upward 
 A105-A106 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
-A2-A119 : downward 
+A2-A120 : downward 
 A7-A103 : outward 
 A10-A13 : upward 
 A11-A45 : downward 
@@ -262,4 +262,4 @@ A80-A87 : A-U Ww/Ww pairing antiparallel cis XX
 A81-A86 : A-U Ww/Ww pairing antiparallel cis XX 
 A82-A84 : G-A O2'/Hh pairing 
 A82-A85 : G-A Sw/Hh Bs/O2P pairing antiparallel trans one_hbond 
-A108-A119 : C-G Ww/Wh pairing antiparallel cis one_hbond 
+A108-A120 : C-G Ww/Wh pairing antiparallel cis one_hbond 

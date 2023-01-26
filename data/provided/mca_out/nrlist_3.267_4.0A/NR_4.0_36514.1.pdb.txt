@@ -160,10 +160,11 @@ A168 : C C3p_endo anti
 A169 : C C3p_endo anti
 A170 : G C3p_endo anti
 A171 : U C3p_endo anti
-A171 : G C3p_endo anti
-A172 : C C4p_endo anti
+A172 : G C3p_endo anti
+A173 : C C4p_endo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
+A2-A172 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A4-A5 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
@@ -256,6 +257,7 @@ A163-A164 : adjacent_5p upward
 A164-A165 : adjacent_5p upward 
 A167-A168 : adjacent_5p upward 
 A169-A170 : adjacent_5p upward 
+A170-A171 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A4-A170 : outward 
 A7-A167 : outward 
@@ -286,10 +288,11 @@ A109-A121 : outward
 A124-A157 : outward 
 A150-A153 : upward 
 A157-A159 : upward 
-Number of stackings = 122
-Number of adjacent stackings = 93
+Number of stackings = 124
+Number of adjacent stackings = 95
 Number of non adjacent stackings = 29
 Base-pairs ------------------------------------------------------
+A2-A171 : G-U Ww/Ws pairing antiparallel cis XXVIII 
 A3-A170 : C-G Ww/Ws pairing antiparallel cis one_hbond 
 A4-A169 : G-C Ww/Ww pairing antiparallel cis XIX 
 A5-A168 : G-C Ws/Ww pairing antiparallel cis one_hbond 
@@ -376,3 +379,4 @@ A124-A156 : A-G Ss/O2' pairing
 A125-A155 : A-G Ss/Sw pairing antiparallel cis one_hbond 
 A143-A144 : G-A O2'/Hh adjacent_5p pairing 
 A152-A153 : U-C O2P/Bh adjacent_5p pairing 
+A172-A173 : G-C Ww/Ww pairing antiparallel cis 

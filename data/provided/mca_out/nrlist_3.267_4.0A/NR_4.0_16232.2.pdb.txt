@@ -11,6 +11,7 @@ A13 : C C3p_endo anti
 A14 : G C3p_endo anti
 A15 : G C3p_endo anti
 A16 : G C3p_endo anti
+A17 : G C3p_endo anti
 B5 : A C3p_endo anti
 B6 : C C3p_endo anti
 B7 : U C3p_endo anti
@@ -31,6 +32,7 @@ A9-A10 : adjacent_5p upward
 A10-A11 : adjacent_5p upward 
 A11-A12 : adjacent_5p upward 
 A12-A13 : adjacent_5p upward 
+A14-A15 : adjacent_5p upward 
 B5-B6 : adjacent_5p upward 
 B6-B7 : adjacent_5p upward 
 B7-B8 : adjacent_5p upward 
@@ -43,10 +45,11 @@ B13-B14 : adjacent_5p upward
 B14-B15 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A9-B9 : outward 
-A16-B15 : inward 
-Number of stackings = 20
-Number of adjacent stackings = 18
-Number of non adjacent stackings = 2
+A15-A16 : upward 
+A17-B15 : inward 
+Number of stackings = 22
+Number of adjacent stackings = 19
+Number of non adjacent stackings = 3
 Base-pairs ------------------------------------------------------
 A5-B12 : A-U Ww/Ww pairing antiparallel cis XX 
 A6-B11 : C-G Ww/Ww pairing antiparallel cis XIX 

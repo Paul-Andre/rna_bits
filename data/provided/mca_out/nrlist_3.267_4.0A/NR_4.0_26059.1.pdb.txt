@@ -20,7 +20,7 @@ A20 : U C3p_endo anti
 A21 : C C4p_exo anti
 A22 : G C3p_endo anti
 A23 : C C3p_endo anti
-A23 : U C3p_endo anti
+A24 : U C3p_endo anti
 B26 : G C3p_endo anti
 B27 : C C3p_endo anti
 B28 : G C3p_endo anti
@@ -41,28 +41,32 @@ B43 : U C4p_exo anti
 B44 : C C2p_exo anti
 B45 : G C2p_exo anti
 B46 : C C3p_endo anti
-B46 : U C3p_endo anti
+B47 : U C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A3-A4 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
 A6-A7 : adjacent_5p upward 
 A8-A9 : adjacent_5p upward 
 A9-A10 : adjacent_5p upward 
+A10-A24 : adjacent_5p upward 
 A13-A14 : adjacent_5p upward 
 A16-A17 : adjacent_5p upward 
 A19-A20 : adjacent_5p upward 
 A21-A22 : adjacent_5p upward 
+A22-A23 : adjacent_5p upward 
 B26-B27 : adjacent_5p upward 
 B27-B28 : adjacent_5p upward 
 B29-B30 : adjacent_5p upward 
 B31-B32 : adjacent_5p upward 
 B32-B33 : adjacent_5p upward 
+B33-B47 : adjacent_5p upward 
 B35-B36 : adjacent_5p upward 
 B36-B37 : adjacent_5p upward 
 B37-B38 : adjacent_5p upward 
 B38-B39 : adjacent_5p upward 
 B39-B40 : adjacent_5p upward 
 B42-B43 : adjacent_5p upward 
+B45-B46 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A5-B45 : outward 
 A10-B39 : outward 
@@ -71,10 +75,11 @@ A16-B33 : outward
 A17-A19 : upward 
 A22-B28 : outward 
 B40-B42 : upward 
-Number of stackings = 27
-Number of adjacent stackings = 20
+Number of stackings = 31
+Number of adjacent stackings = 24
 Number of non adjacent stackings = 7
 Base-pairs ------------------------------------------------------
+A3-B46 : G-C Ww/Ww pairing antiparallel cis XIX 
 A4-B45 : C-G Ww/Ww pairing antiparallel cis XIX 
 A5-B44 : G-C Ww/Ww pairing antiparallel cis XIX 
 A6-B43 : U-U Ww/Ws pairing antiparallel cis XVI 
@@ -84,6 +89,7 @@ A9-B39 : C-G Ww/Ww pairing antiparallel cis XIX
 A10-B38 : G-C Ww/Ww pairing antiparallel cis XIX 
 A12-B36 : C-G Ww/Ww pairing antiparallel cis XIX 
 A13-B35 : G-C Ww/Ww pairing antiparallel cis XIX 
+A14-B47 : A-U Ww/Ww pairing antiparallel cis XX 
 A15-B33 : C-G Ww/Ww pairing antiparallel cis XIX 
 A16-B32 : G-C Ww/Ww pairing antiparallel cis XIX 
 A17-B31 : A-U Ww/Ww pairing antiparallel cis XX 
@@ -91,3 +97,5 @@ A19-B30 : G-C Ww/Ww pairing antiparallel cis XIX
 A20-B29 : U-U Ww/Wh pairing antiparallel cis one_hbond 
 A21-B28 : C-G Ww/Ww pairing antiparallel cis XIX 
 A22-B27 : G-C Ww/Ww pairing antiparallel cis XIX 
+A23-B26 : C-G Ww/Ww pairing antiparallel cis XIX 
+A24-B37 : U-A Ww/Ww pairing antiparallel cis one_hbond 

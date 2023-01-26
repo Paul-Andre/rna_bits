@@ -45,9 +45,10 @@ A44 : A C3p_endo anti
 A45 : A C3p_endo anti
 A46 : U C3p_endo anti
 A47 : U C3p_endo anti
-A47 : G C2p_exo anti
+A48 : G C2p_exo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
+A2-A48 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A4-A5 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
@@ -86,10 +87,11 @@ A17-A35 : outward
 A19-A29 : upward pairing 
 A24-A26 : upward 
 A32-A34 : upward 
-Number of stackings = 38
-Number of adjacent stackings = 31
+Number of stackings = 39
+Number of adjacent stackings = 32
 Number of non adjacent stackings = 7
 Base-pairs ------------------------------------------------------
+A3-A47 : A-U Ww/Ww pairing antiparallel cis XX 
 A4-A46 : G-U Ww/Ws pairing antiparallel cis XXVIII 
 A5-A45 : U-A Ww/Ww pairing antiparallel cis XX 
 A6-A44 : U-A Ww/Ww pairing antiparallel cis XX 

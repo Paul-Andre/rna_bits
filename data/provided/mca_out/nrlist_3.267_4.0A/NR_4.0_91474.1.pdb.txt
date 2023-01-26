@@ -115,8 +115,8 @@ A120 : G C3p_endo anti
 A121 : A C3p_endo anti
 A122 : G C3p_endo anti
 A123 : G C2p_endo anti
-A124 : A C2p_exo anti
-A125 : A C4p_exo anti
+A125 : A C2p_exo anti
+A126 : A C4p_exo anti
 Adjacent stackings ----------------------------------------------
 A3-A4 : adjacent_5p upward 
 A4-A5 : adjacent_5p upward 
@@ -212,8 +212,8 @@ A57-A61 : outward
 A73-A115 : upward 
 A79-A120 : outward 
 A83-A116 : outward 
-A97-A125 : outward 
-A114-A124 : outward 
+A97-A126 : outward 
+A114-A125 : outward 
 Number of stackings = 95
 Number of adjacent stackings = 79
 Number of non adjacent stackings = 16
@@ -221,7 +221,7 @@ Base-pairs ------------------------------------------------------
 A3-A73 : C-A O2'/Ww pairing 
 A3-A113 : C-G Ww/Ww pairing antiparallel cis XIX 
 A4-A112 : G-C Ww/Ww pairing antiparallel cis XIX 
-A4-A124 : G-A Ss/Ss O2'/Ww pairing parallel trans 57 
+A4-A125 : G-A Ss/Ss O2'/Ww pairing parallel trans 57 
 A5-A111 : C-G Ww/Ww pairing antiparallel cis XIX 
 A6-A110 : U-A Ww/Ww pairing antiparallel cis XX 
 A7-A9 : G-A O2'/Hh pairing 
@@ -238,11 +238,11 @@ A24-A108 : A-U Ww/Ww pairing antiparallel cis XX
 A25-A107 : C-G Ww/Ww pairing antiparallel cis XIX 
 A26-A106 : G-C Ww/Ww pairing antiparallel cis XIX 
 A27-A105 : G-U Ww/Ws pairing antiparallel cis XXVIII 
-A27-A125 : G-A Bs/O2P pairing 
+A27-A126 : G-A Bs/O2P pairing 
 A28-A104 : G-C Ww/Ww pairing antiparallel cis XIX 
-A28-A125 : G-A O2'/Hh pairing 
+A28-A126 : G-A O2'/Hh pairing 
 A29-A103 : G-C Ww/Ww pairing antiparallel cis XIX 
-A29-A125 : G-A O2P/Bh pairing 
+A29-A126 : G-A O2P/Bh pairing 
 A30-A101 : G-A Ww/O2P pairing 
 A30-A102 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
 A31-A100 : A-U O2P/Ww Hh/O2' pairing 
@@ -252,7 +252,7 @@ A43-A96 : G-C Ww/Ww pairing antiparallel cis XIX
 A44-A93 : G-C Ww/Ww pairing antiparallel cis XIX 
 A44-A97 : G-A Sw/Ww pairing antiparallel cis one_hbond 55 
 A45-A92 : G-C Ww/Ww pairing antiparallel cis XIX 
-A45-A125 : G-A Sw/Ss O2'/Ww pairing parallel trans one_hbond 57 
+A45-A126 : G-A Sw/Ss O2'/Ww pairing parallel trans one_hbond 57 
 A46-A91 : G-C Ww/Ww pairing antiparallel cis XIX 
 A47-A90 : U-A Ww/Ww pairing antiparallel cis XX 
 A48-A50 : G-A O2'/Hh pairing 
@@ -271,11 +271,11 @@ A67-A88 : A-G Hh/Ss Bh/O2' pairing antiparallel trans XI
 A68-A87 : G-C Ww/Ww pairing antiparallel cis XIX 
 A69-A86 : G-C Ww/Ww pairing antiparallel cis XIX 
 A70-A85 : G-C Ww/Ww pairing antiparallel cis XIX 
-A70-A124 : G-A Bs/O2P pairing 
+A70-A125 : G-A Bs/O2P pairing 
 A71-A84 : C-G Ww/Ww pairing antiparallel cis XIX 
-A71-A124 : C-A O2'/Hh pairing 
+A71-A125 : C-A O2'/Hh pairing 
 A72-A83 : U-G Ws/Ww pairing antiparallel cis XXVIII 
-A72-A124 : U-A O2P/Bh pairing 
+A72-A125 : U-A O2P/Bh pairing 
 A73-A114 : A-U Hh/Ww pairing parallel cis XXIII 
 A75-A76 : U-C Bs/Hh adjacent_5p pairing parallel cis 99 
 A76-A122 : C-G Ww/Ww pairing antiparallel cis XIX 
@@ -286,5 +286,5 @@ A80-A118 : U-A Ww/Ww pairing antiparallel cis XX
 A81-A117 : U-A Ww/Ww pairing antiparallel cis XX 
 A82-A116 : C-G Ww/Ww pairing antiparallel cis XIX 
 A93-A97 : C-A Ss/Wh O2'/Bh pairing parallel trans one_hbond 76 
-A111-A124 : G-A Bs/O2' pairing 
+A111-A125 : G-A Bs/O2' pairing 
 A113-A114 : G-U Sw/Hw adjacent_5p pairing parallel cis one_hbond 89 

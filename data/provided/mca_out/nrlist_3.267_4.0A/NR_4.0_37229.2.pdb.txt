@@ -126,7 +126,7 @@ A235 : G C3p_endo anti
 A236 : U C3p_endo anti
 A237 : G C3p_endo anti
 A238 : U C3p_endo anti
-A238 : C C3p_endo anti
+A239 : C C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A112-A113 : adjacent_5p upward 
 A113-A114 : adjacent_5p upward 
@@ -209,6 +209,8 @@ A231-A232 : adjacent_5p upward
 A234-A235 : adjacent_5p upward 
 A235-A236 : adjacent_5p upward 
 A236-A237 : adjacent_5p upward 
+A237-A238 : adjacent_5p upward 
+A238-A239 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A115-A237 : outward 
 A118-A234 : outward 
@@ -228,10 +230,12 @@ A187-A215 : outward
 A191-A206 : inward 
 A192-A208 : outward 
 A197-A203 : outward 
-Number of stackings = 99
-Number of adjacent stackings = 81
+Number of stackings = 101
+Number of adjacent stackings = 83
 Number of non adjacent stackings = 18
 Base-pairs ------------------------------------------------------
+A112-A239 : G-C Ww/Ww pairing antiparallel cis XIX 
+A113-A238 : A-U Ww/Ww pairing antiparallel cis XX 
 A114-A237 : C-G Ww/Ww pairing antiparallel cis XIX 
 A115-A236 : A-U Ww/Ww pairing antiparallel cis XX 
 A116-A235 : C-G Ws/Ww pairing antiparallel cis one_hbond 130 

@@ -84,9 +84,10 @@ A92 : U C3p_endo anti
 A93 : U C3p_endo anti
 A94 : C C3p_endo anti
 A95 : C C3p_endo anti
-A95 : G C3p_endo anti
+A96 : G C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A11-A12 : adjacent_5p upward 
+A11-A96 : adjacent_3p downward 
 A12-A13 : adjacent_5p upward 
 A13-A14 : adjacent_5p upward 
 A16-A17 : adjacent_5p outward 
@@ -144,6 +145,7 @@ A90-A91 : adjacent_5p upward
 A91-A92 : adjacent_5p upward 
 A92-A93 : adjacent_5p upward 
 A93-A94 : adjacent_5p upward 
+A94-A95 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A18-A85 : inward 
 A19-A21 : outward 
@@ -156,8 +158,8 @@ A45-A60 : inward
 A45-A61 : outward 
 A49-A66 : outward 
 A73-A75 : upward 
-Number of stackings = 69
-Number of adjacent stackings = 58
+Number of stackings = 71
+Number of adjacent stackings = 60
 Number of non adjacent stackings = 11
 Base-pairs ------------------------------------------------------
 A11-A94 : G-C Ww/Ww pairing antiparallel cis XIX 
@@ -202,3 +204,4 @@ A53-A61 : G-A Bs/O2P pairing
 A57-A61 : U-A Ws/Hh pairing antiparallel trans XXIV 
 A58-A60 : G-G O2'/Hh pairing 
 A58-A61 : G-A Ww/O2P Bs/O2P pairing 
+A95-A96 : C-G Ww/Ww pairing antiparallel cis XIX 

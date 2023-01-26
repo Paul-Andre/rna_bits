@@ -104,8 +104,8 @@ A105 : C C3p_endo anti
 A106 : G C3p_endo anti
 A107 : G C3p_endo anti
 A108 : U C3p_endo anti
-A108 : G C2p_endo anti
-A109 : C O4p_exo anti
+A109 : G C2p_endo anti
+A110 : C O4p_exo anti
 Adjacent stackings ----------------------------------------------
 A4-A5 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
@@ -176,6 +176,7 @@ A102-A103 : adjacent_5p upward
 A104-A105 : adjacent_5p upward 
 A105-A106 : adjacent_5p upward 
 A106-A107 : adjacent_5p upward 
+A107-A108 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A7-A106 : outward 
 A9-A104 : outward 
@@ -190,10 +191,11 @@ A64-A67 : upward
 A74-A92 : inward 
 A75-A93 : outward 
 A81-A87 : outward 
-Number of stackings = 82
-Number of adjacent stackings = 69
+Number of stackings = 83
+Number of adjacent stackings = 70
 Number of non adjacent stackings = 13
 Base-pairs ------------------------------------------------------
+A4-A108 : G-U Ww/Ws pairing antiparallel cis XXVIII 
 A5-A107 : C-G Ww/Ww pairing antiparallel cis XIX 
 A6-A106 : C-G Ww/Ww pairing antiparallel cis XIX 
 A7-A105 : G-C Ww/Ww pairing antiparallel cis XIX 

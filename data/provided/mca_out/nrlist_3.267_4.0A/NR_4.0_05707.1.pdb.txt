@@ -45,7 +45,8 @@ A70 : U C3p_endo anti
 A71 : C C3p_endo anti
 A72 : G C4p_exo anti
 A73 : C C3p_endo anti
-A74 : G C3p_endo anti
+A74 : G C4p_exo anti
+A75 : G C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A28-A29 : adjacent_5p upward 
 A30-A31 : adjacent_5p upward 

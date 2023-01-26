@@ -45,9 +45,10 @@ A70 : U C3p_endo anti
 A71 : A C3p_endo anti
 A72 : U C3p_endo anti
 A73 : A C2p_exo anti
-A73 : G C3p_endo anti
+A74 : G C3p_endo anti
 Adjacent stackings ----------------------------------------------
 A28-A29 : adjacent_5p upward 
+A28-A74 : adjacent_3p downward 
 A29-A30 : adjacent_5p upward 
 A30-A31 : adjacent_5p upward 
 A31-A32 : adjacent_5p upward 
@@ -76,14 +77,15 @@ A67-A68 : adjacent_5p upward
 A68-A69 : adjacent_5p upward 
 A69-A70 : adjacent_5p upward 
 A71-A72 : adjacent_5p upward 
+A72-A73 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A39-A50 : upward 
 A42-A54 : outward 
 A46-A69 : outward 
 A49-A52 : outward 
 A56-A58 : outward 
-Number of stackings = 34
-Number of adjacent stackings = 29
+Number of stackings = 36
+Number of adjacent stackings = 31
 Number of non adjacent stackings = 5
 Base-pairs ------------------------------------------------------
 A40-A55 : C-G Ww/Ww pairing antiparallel cis XIX 

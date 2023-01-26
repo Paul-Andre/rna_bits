@@ -50,9 +50,10 @@ A49 : A C3p_endo anti
 A50 : G C3p_endo anti
 A51 : C C3p_endo anti
 A52 : C C3p_endo anti
-A52 : G C4p_exo anti
+A53 : G C4p_exo anti
 Adjacent stackings ----------------------------------------------
 A2-A3 : adjacent_5p upward 
+A2-A53 : adjacent_3p downward 
 A3-A4 : adjacent_5p upward 
 A4-A5 : adjacent_5p upward 
 A5-A6 : adjacent_5p upward 
@@ -83,6 +84,7 @@ A47-A48 : adjacent_5p upward
 A48-A49 : adjacent_5p upward 
 A49-A50 : adjacent_5p upward 
 A50-A51 : adjacent_5p upward 
+A51-A52 : adjacent_5p upward 
 Non-Adjacent stackings ------------------------------------------
 A5-A49 : outward 
 A9-A32 : inward 
@@ -91,8 +93,8 @@ A13-A15 : outward
 A15-A41 : outward 
 A20-A28 : outward 
 A22-A24 : upward 
-Number of stackings = 38
-Number of adjacent stackings = 31
+Number of stackings = 40
+Number of adjacent stackings = 33
 Number of non adjacent stackings = 7
 Base-pairs ------------------------------------------------------
 A2-A51 : G-C Ww/Ww pairing antiparallel cis XIX 
@@ -125,3 +127,4 @@ A32-A37 : G-G Ww/Hh pairing parallel cis VI
 A34-A44 : U-C Hw/Hw pairing parallel cis one_hbond 101 
 A36-A42 : G-G Hh/Ww pairing parallel cis VI 
 A37-A41 : G-G Ww/Hh pairing parallel cis VI 
+A52-A53 : C-G Ww/Ww pairing antiparallel cis XIX 
