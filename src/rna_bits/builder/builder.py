@@ -1540,7 +1540,7 @@ def parse_args(argv):
     parser.add_argument(
         "rass_filenames",
         nargs="*",
-        help="Path to the bp2 dataset used, in json form, ie models/ALL.json",
+        help="Path to the .rass files. If more than one is provided, will build all of them.",
     )
     # parser.add_argument(
     #     "--bp2_result",
