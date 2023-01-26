@@ -37,6 +37,7 @@ def parse_args(argv):
     )
     parser.add_argument(
         "--bp2_result",
+        "--result",
         "-r",
         required=True,
         help="Path to the bp2 result file, in json form, ie output.json",

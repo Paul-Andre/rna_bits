@@ -581,7 +581,8 @@ def load_model_from_db(db: str, shape: str, letters: str) -> Tuple[Model, str]:
 
 
 def load_stack_model(letters: str) -> Tuple[Model, str]:
-    return load_model_from_mcsym_db("2_2", letters)
+    # return load_model_from_mcsym_db("2_2", letters)
+    return load_model_from_db(NCM_DB_PATH, "2_2", letters)
 
 
 def delete_residues_by_number(model: Model, to_delete: Container[int]) -> None:
@@ -624,7 +625,7 @@ def load_model_from_kind(
     if kind[0] == "ncm":
         shape = kind[1]
         letters = kind[2]
-        return load_model_from_mcsym_db(shape, letters)  # XXX
+        # return load_model_from_mcsym_db(shape, letters)  # XXX
         return load_model_from_db(NCM_DB_PATH, shape, letters)
     if kind[0] == "pair":
         # Load a stack and truncate
