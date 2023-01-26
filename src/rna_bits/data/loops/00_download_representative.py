@@ -7,12 +7,16 @@ from Bio import PDB
 import Bio.PDB.mmtf
 
 from rna_bits.utils.data_path import get_path
+from rna_bits.utils.pdb import fetch_pdb
 
 # TODO: put this file somewhere else?
 # TODO: I think I might have edited the file by hand to fix a model numbering issue, don't do that
-LIST_FILE = "nrlist_3.226_4.0A.csv"
+LIST_FILE = "nrlist_3.267_4.0A.csv"
 
 SAVE_DIR = get_path("interim/loops/representative/", create=True)
+
+with open(SAVE_DIR + "/version.txt", "w") as f:
+    f.write(LIST_FILE[:-4])
 
 
 def parse_rep_s(a):
@@ -34,6 +38,10 @@ for i, (name, rep_s, _) in enumerate(rows):
     # if name not in ['NR_4.0_06650.22', 'NR_4.0_26150.2', 'NR_4.0_50188.1', 'NR_4.0_52597.1']:
     #    continue
 
+    if name == "NR_4.0_28129.1":
+        # This file has too many atoms for the .pdb file format!
+       continue
+
     try:
         # each row in the csv file looks like:
         # ['NR_4.0_07561.2', '6ZQD|1|D4+6ZQD|1|D2', '6ZQD|1|D4+6ZQD|1|D2,7AJU|1|D4+7AJU|1|D2']
@@ -50,9 +58,14 @@ for i, (name, rep_s, _) in enumerate(rows):
             assert r[1] == model_id
             accepted_chain_names.append(r[2])
 
-        print("starting download")
-        m = PDB.mmtf.MMTFParser.get_structure_from_url(pdb_id)[model_id - 1]
+        print("starting download", pdb_id)
+        s = fetch_pdb(pdb_id)
         print("finished download")
+        if model_id == 0:
+            model_id = 1
+            print("for some reason", name, "has model_id", 0)
+            print("I assume it was supposed to be 1")
+        m = s[model_id - 1]
 
         out_struct = PDB.Structure.Structure(name)
 
@@ -67,10 +80,14 @@ for i, (name, rep_s, _) in enumerate(rows):
             new_chain_id = chr(ord(new_chain_id) + 1)
 
             # There are some cases where there were more hetero residues than
-            # the .pdb file format allows.
+            # the .pdb file format allows. (MC-Annotate only accepts the .pdb format)
             # I could have deleted the hetero residues, but I decided to keep them.
             # To reduce their number, I delete waters and renumber the rest of the
             # hetero residues.
+            #
+            # To be honest, at this time I don't actually use the hetero
+            # residues anywhere, so they could be as well deleted for simplicity
+
             to_del = []
             to_renum = []
             max_id = 0
@@ -94,6 +111,8 @@ for i, (name, rep_s, _) in enumerate(rows):
             # end of the code for hetero residue reduction
 
             out_model.add(c)
+
+
 
         io = PDB.PDBIO()
         io.set_structure(out_struct)
