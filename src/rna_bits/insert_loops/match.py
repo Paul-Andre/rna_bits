@@ -5,8 +5,9 @@ import os
 
 from rna_bits.utils.data_path import get_path
 
-LOOP_LIBRARY_DIR = "/home/paul/LoopLibrary/"
-JSON_DIR = LOOP_LIBRARY_DIR + "/json"
+
+LOOP_LIBRARY_DIR = get_path("out/loops/")
+JSON_DIR = get_path("out/loops/json/")
 
 
 def get_simple_ss(ss):
