@@ -31,12 +31,9 @@ def run_mc_annotate(pdb_fname):
         print("or provided it via the environment variable MCA_DIR")
         raise NoMcAnnotateError()
 
-    fp = subprocess.run(
-        [MCA_DIR, "-f", "0", pdb_fname], capture_output=True
-    )
+    fp = subprocess.run([MCA_DIR, "-f", "0", pdb_fname], capture_output=True)
     fp.check_returncode()
     return fp.stdout
-
 
 
 def split_nuc_name_pair(s):

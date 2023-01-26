@@ -119,7 +119,9 @@ class Normalizer:
         for residue in chain:
 
             new_res_name = choose_rename(
-                residue.resname.strip(), self.residue_renames, self.keep_unknown_residues
+                residue.resname.strip(),
+                self.residue_renames,
+                self.keep_unknown_residues,
             )
             if new_res_name is None:
                 continue

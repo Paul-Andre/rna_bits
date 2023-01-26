@@ -40,7 +40,7 @@ for i, (name, rep_s, _) in enumerate(rows):
 
     if name == "NR_4.0_28129.1":
         # This file has too many atoms for the .pdb file format!
-       continue
+        continue
 
     try:
         # each row in the csv file looks like:
@@ -108,8 +108,6 @@ for i, (name, rep_s, _) in enumerate(rows):
             # end of the code for hetero residue reduction
 
             out_model.add(c)
-
-
 
         io = PDB.PDBIO()
         io.set_structure(out_struct)
