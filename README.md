@@ -25,7 +25,7 @@ As of now, I have only tested on Linux.
 # Installation
 Make sure you're inside the directory and run:
 ```bash
-pip install -e .
+pip3 install -e .
 ```
 It will automatically install the python requirements, and make the python library and command line utilities available.
 
