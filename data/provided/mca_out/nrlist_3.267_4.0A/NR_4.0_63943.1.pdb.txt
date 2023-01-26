@@ -1,0 +1,54 @@
+Residue conformations -------------------------------------------
+A70 : C C3p_endo anti
+A71 : C C3p_endo anti
+A72 : G C3p_endo anti
+A73 : A C3p_endo anti
+A74 : U C3p_endo anti
+A75 : G C3p_endo anti
+A76 : G C3p_endo anti
+A77 : U C3p_endo anti
+A78 : A C3p_endo anti
+A79 : G C3p_endo anti
+A80 : U C3p_endo anti
+A81 : G C3p_endo anti
+B96 : G C3p_endo anti
+B97 : C C3p_endo anti
+B98 : G C3p_endo anti
+B99 : A C3p_endo anti
+B100 : G C3p_endo anti
+B101 : A C3p_endo anti
+B102 : G C3p_endo anti
+B103 : U C3p_endo anti
+B104 : A C3p_endo anti
+B107 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A71-A72 : adjacent_5p upward 
+A73-A74 : adjacent_5p upward 
+A74-A75 : adjacent_5p upward 
+A75-A76 : adjacent_5p upward 
+A76-A77 : adjacent_5p upward 
+A78-A79 : adjacent_5p upward 
+A79-A80 : adjacent_5p upward 
+B96-B97 : adjacent_5p upward 
+B97-B98 : adjacent_5p upward 
+B99-B100 : adjacent_5p upward 
+B100-B101 : adjacent_5p upward 
+B101-B102 : adjacent_5p upward 
+B102-B103 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A73-B104 : outward 
+A78-B99 : outward 
+A81-B96 : outward 
+Number of stackings = 16
+Number of adjacent stackings = 13
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A72-B104 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A73-B103 : A-U Hh/Ws pairing antiparallel trans XXIV 
+A74-B102 : U-G Bh/Ww pairing antiparallel trans 91 
+A75-B101 : G-A Wh/Wh pairing antiparallel cis one_hbond 
+A76-B100 : G-G Ww/Bh pairing antiparallel trans 115 
+A77-B99 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A78-B98 : A-G Hh/Ss Bh/O2' pairing antiparallel trans XI 
+A79-B97 : G-C Ww/Ww pairing antiparallel cis XIX 
+A80-B96 : U-G Ws/Ww pairing antiparallel cis XXVIII 

@@ -1,0 +1,20 @@
+Residue conformations -------------------------------------------
+A1936 : A C2p_endo anti
+A1937 : A C2p_exo anti
+A1938 : A C1p_exo anti
+A1940 : U C3p_endo anti
+A1941 : C C3p_endo anti
+A1942 : C C3p_endo anti
+A1943 : U C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A1937-A1938 : adjacent_5p outward 
+A1941-A1942 : adjacent_5p upward pairing 
+Non-Adjacent stackings ------------------------------------------
+A1938-A1942 : inward pairing 
+Number of stackings = 3
+Number of adjacent stackings = 2
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A1938-A1942 : A-C O2'/Bh inward pairing 
+A1938-A1943 : A-U Bh/O2P pairing 
+A1941-A1942 : C-C O2P/Bh adjacent_5p upward pairing 

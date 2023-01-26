@@ -1,0 +1,46 @@
+Residue conformations -------------------------------------------
+A27 : G C3p_endo anti
+A28 : C C3p_endo anti
+A29 : A C3p_endo anti
+A30 : G C3p_endo anti
+A31 : A C3p_endo anti
+A32 : C C3p_endo anti
+A33 : U C3p_endo anti
+A35 : U C2p_endo anti
+A36 : A C2p_endo anti
+A37 : A C2p_endo syn
+A38 : A C3p_endo anti
+A39 : U C3p_endo anti
+A40 : C C3p_endo anti
+A41 : U C3p_endo anti
+A42 : G C3p_endo anti
+A43 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A27-A28 : adjacent_5p upward 
+A28-A29 : adjacent_5p upward 
+A29-A30 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A31-A32 : adjacent_5p upward 
+A32-A33 : adjacent_5p upward 
+A36-A37 : adjacent_5p outward 
+A37-A38 : adjacent_5p upward 
+A38-A39 : adjacent_5p upward 
+A39-A40 : adjacent_5p upward 
+A40-A41 : adjacent_5p upward 
+A41-A42 : adjacent_5p upward 
+A42-A43 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A29-A42 : outward 
+A33-A35 : upward 
+Number of stackings = 15
+Number of adjacent stackings = 13
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A27-A43 : G-C Ww/Ww pairing antiparallel cis XIX 
+A28-A42 : C-G Ww/Ww pairing antiparallel cis XIX 
+A29-A41 : A-U Ww/Ww pairing antiparallel cis XX 
+A30-A40 : G-C Ww/Ww pairing antiparallel cis XIX 
+A31-A39 : A-U Ww/Ww pairing antiparallel cis XX 
+A32-A38 : C-A Ww/Wh pairing antiparallel cis one_hbond 75 
+A33-A37 : U-A Ww/Ww pairing antiparallel cis XX 
+A35-A36 : U-A Ws/Hw adjacent_5p pairing parallel cis one_hbond 47 

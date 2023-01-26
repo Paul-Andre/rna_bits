@@ -1,0 +1,21 @@
+Residue conformations -------------------------------------------
+A84 : G C2p_endo anti
+A85 : G C3p_endo anti
+A86 : C C3p_endo anti
+A87 : U C3p_endo anti
+A88 : U C3p_endo anti
+A89 : U C3p_endo anti
+A90 : U C3p_endo anti
+A91 : U C3p_endo anti
+A92 : U C3p_endo anti
+A93 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A84-A85 : adjacent_5p upward 
+A85-A86 : adjacent_5p upward 
+A88-A89 : adjacent_5p upward 
+A92-A93 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 4
+Number of adjacent stackings = 4
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

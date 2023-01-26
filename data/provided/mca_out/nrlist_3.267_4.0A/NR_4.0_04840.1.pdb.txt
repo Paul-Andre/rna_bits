@@ -1,0 +1,16 @@
+Residue conformations -------------------------------------------
+A47 : C C3p_endo anti
+A48 : C C3p_endo anti
+A49 : A C4p_exo anti
+A50 : U C4p_exo anti
+A51 : A C4p_exo anti
+A52 : C C3p_endo syn
+A53 : G unknown unknown
+Adjacent stackings ----------------------------------------------
+A48-A49 : adjacent_5p upward 
+A49-A50 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 2
+Number of adjacent stackings = 2
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

@@ -1,0 +1,132 @@
+Residue conformations -------------------------------------------
+A43 : A C3p_endo anti
+A44 : A C3p_endo anti
+A45 : C C3p_endo anti
+A46 : G C3p_endo anti
+A47 : C C3p_endo anti
+A48 : A C2p_endo syn
+A49 : G C3p_endo anti
+A50 : C C3p_endo anti
+A51 : U C2p_endo syn
+A52 : A C3p_endo anti
+A53 : G C3p_endo anti
+A54 : C C3p_endo anti
+A55 : U C3p_endo anti
+A56 : G C3p_endo anti
+A57 : C C3p_endo anti
+A58 : G C2p_endo anti
+A59 : A C2p_endo syn
+A60 : G C2p_endo anti
+A61 : A C3p_endo anti
+A62 : A C2p_endo syn
+A63 : U C3p_endo anti
+A64 : U C3p_endo anti
+A65 : A C3p_endo anti
+A66 : A C3p_endo anti
+A67 : U C3p_endo anti
+A68 : G C3p_endo anti
+A69 : U C3p_endo anti
+A70 : G C2p_endo anti
+A71 : A C2p_endo anti
+A72 : A C3p_endo anti
+A73 : U C3p_endo anti
+A74 : U C3p_endo anti
+A75 : G C3p_endo anti
+A76 : C C3p_endo anti
+A77 : A C3p_endo anti
+A78 : G C3p_endo anti
+A79 : G C3p_endo anti
+A80 : A C3p_endo syn
+A81 : C C3p_endo anti
+A82 : A C2p_exo anti
+A83 : C C2p_endo anti
+A84 : A C2p_endo anti
+A85 : U C3p_endo anti
+A86 : U C2p_endo anti
+A87 : G C2p_endo anti
+A88 : A C3p_endo anti
+A89 : U C3p_endo anti
+A90 : C C3p_endo anti
+A91 : A C3p_endo anti
+A92 : U C3p_endo anti
+A93 : C C3p_endo anti
+A94 : G C2p_endo syn
+A95 : A C3p_endo anti
+A96 : C C3p_endo anti
+A97 : A C3p_endo anti
+A98 : C C3p_endo anti
+A99 : U C3p_endo anti
+A100 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A43-A44 : adjacent_5p upward 
+A44-A45 : adjacent_5p upward 
+A45-A46 : adjacent_5p upward 
+A46-A47 : adjacent_5p upward 
+A49-A50 : adjacent_5p upward 
+A52-A53 : adjacent_5p upward 
+A53-A54 : adjacent_5p upward 
+A54-A55 : adjacent_5p upward 
+A55-A56 : adjacent_5p upward 
+A56-A57 : adjacent_5p upward 
+A65-A66 : adjacent_5p upward 
+A66-A67 : adjacent_5p upward 
+A67-A68 : adjacent_5p upward 
+A68-A69 : adjacent_5p upward 
+A69-A70 : adjacent_5p upward 
+A72-A73 : adjacent_5p upward 
+A73-A74 : adjacent_5p upward 
+A75-A76 : adjacent_5p upward 
+A76-A77 : adjacent_5p upward 
+A77-A78 : adjacent_5p upward 
+A78-A79 : adjacent_5p upward 
+A79-A80 : adjacent_5p inward 
+A80-A81 : adjacent_5p outward 
+A88-A89 : adjacent_5p upward 
+A89-A90 : adjacent_5p upward 
+A90-A91 : adjacent_5p upward 
+A91-A92 : adjacent_5p upward 
+A92-A93 : adjacent_5p upward 
+A95-A96 : adjacent_5p upward 
+A96-A97 : adjacent_5p upward 
+A97-A98 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A46-A58 : outward 
+A48-A51 : upward 
+A48-A62 : outward 
+A49-A77 : outward 
+A56-A62 : downward 
+A58-A99 : upward 
+A59-A61 : upward 
+A65-A95 : outward 
+A68-A91 : outward 
+A70-A87 : inward pairing 
+A71-A88 : outward 
+Number of stackings = 42
+Number of adjacent stackings = 31
+Number of non adjacent stackings = 11
+Base-pairs ------------------------------------------------------
+A43-A100 : A-U Ww/Ww pairing antiparallel cis XX 
+A44-A99 : A-U Ww/Ww pairing antiparallel cis XX 
+A45-A58 : C-G Ww/Ww pairing antiparallel cis XIX 
+A46-A57 : G-C Ww/Ww pairing antiparallel cis XIX 
+A46-A61 : G-A Ss/Ss O2'/Ww pairing parallel trans one_hbond 
+A47-A56 : C-G Ww/Ww pairing antiparallel cis XIX 
+A49-A76 : G-C Ww/Ww pairing antiparallel cis XIX 
+A50-A75 : C-G Ww/Ww pairing antiparallel cis XIX 
+A55-A62 : U-A Ww/Hh pairing parallel cis XXIII 
+A58-A59 : G-A Sw/Ww adjacent_5p pairing antiparallel cis one_hbond 55 
+A60-A96 : G-C Ww/Bs pairing parallel trans 129 
+A64-A95 : U-A Ww/Ww pairing antiparallel cis XX 
+A66-A92 : A-U Ww/Ww pairing antiparallel cis one_hbond 
+A67-A91 : U-A Ww/Ww pairing antiparallel cis XX 
+A68-A90 : G-C Ww/Ww pairing antiparallel cis XIX 
+A69-A89 : U-U Ws/Ww pairing antiparallel cis XVI 
+A70-A87 : G-G O2'/Bs Bs/O2' inward pairing 
+A70-A88 : G-A Ss/Hh pairing antiparallel trans XI 
+A71-A81 : A-C Ww/O2' pairing 
+A71-A83 : A-C O2P/Bh pairing 
+A71-A87 : A-G Hh/Sw pairing antiparallel trans one_hbond 
+A72-A88 : A-A Ss/O2' pairing 
+A82-A83 : A-C Ww/O2' adjacent_5p pairing 
+A82-A85 : A-U Hh/O2P pairing 
+A84-A87 : A-G O2P/Hh pairing 

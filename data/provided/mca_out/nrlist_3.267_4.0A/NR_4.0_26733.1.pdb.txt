@@ -1,0 +1,14 @@
+Residue conformations -------------------------------------------
+A1 : U C3p_exo anti
+A2 : U C3p_exo anti
+A3 : U C3p_exo anti
+A4 : U C4p_exo anti
+A5 : U O4p_endo anti
+A6 : U C3p_endo anti
+A7 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

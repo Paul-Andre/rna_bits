@@ -1,0 +1,52 @@
+Residue conformations -------------------------------------------
+A75 : G C3p_endo anti
+A76 : A C3p_endo anti
+A77 : G C3p_endo anti
+A78 : U C3p_endo anti
+A79 : G C3p_endo anti
+A80 : C C3p_endo anti
+A81 : C C3p_endo anti
+A82 : A C3p_endo anti
+A83 : G C3p_endo anti
+A84 : A C3p_endo anti
+B204 : C C3p_endo anti
+B205 : U C3p_endo anti
+B206 : G C3p_endo anti
+B207 : G C3p_endo anti
+B208 : U C3p_endo anti
+B209 : A C3p_endo anti
+B210 : C C3p_endo anti
+B211 : U C3p_endo anti
+B212 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A75-A76 : adjacent_5p upward 
+A76-A77 : adjacent_5p upward 
+A77-A78 : adjacent_5p upward 
+A79-A80 : adjacent_5p upward 
+A80-A81 : adjacent_5p upward 
+A81-A82 : adjacent_5p upward 
+A82-A83 : adjacent_5p upward 
+A83-A84 : adjacent_5p upward 
+B204-B205 : adjacent_5p upward 
+B205-B206 : adjacent_5p upward 
+B206-B207 : adjacent_5p upward 
+B207-B208 : adjacent_5p upward 
+B209-B210 : adjacent_5p upward 
+B210-B211 : adjacent_5p upward 
+B211-B212 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A79-B209 : outward 
+A82-B206 : outward 
+Number of stackings = 17
+Number of adjacent stackings = 15
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A75-B212 : G-C Ww/Ww pairing antiparallel cis XIX 
+A76-B211 : A-U Ww/Ww pairing antiparallel cis XX 
+A77-B210 : G-C Ww/Ww pairing antiparallel cis XIX 
+A78-B209 : U-A Ww/Ww pairing antiparallel cis XX 
+A79-B208 : G-U Ww/Ws pairing antiparallel cis one_hbond 
+A80-B207 : C-G Ww/Ww pairing antiparallel cis XIX 
+A81-B206 : C-G Ww/Ww pairing antiparallel cis XIX 
+A82-B205 : A-U Ww/Ww pairing antiparallel cis XX 
+A83-B204 : G-C Ww/Ww pairing antiparallel cis XIX 

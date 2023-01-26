@@ -1,0 +1,17 @@
+Residue conformations -------------------------------------------
+A1 : A C2p_endo anti
+A2 : A C2p_endo anti
+A3 : A C3p_endo anti
+A4 : A C1p_exo anti
+A5 : A C2p_endo anti
+A6 : A C2p_endo anti
+A7 : A C2p_endo syn
+A8 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A3-A4 : adjacent_5p upward 
+A7-A8 : adjacent_5p inward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 2
+Number of adjacent stackings = 2
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

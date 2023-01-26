@@ -1,0 +1,121 @@
+Residue conformations -------------------------------------------
+A3751 : A C2p_endo anti
+A3752 : G C2p_endo anti
+A3753 : C C2p_endo anti
+A3754 : A C3p_endo anti
+A3755 : U C2p_endo anti
+A3756 : C C3p_endo anti
+A3757 : G C3p_endo anti
+A3758 : A C3p_endo anti
+A3759 : G C3p_endo anti
+A3760 : G C3p_endo anti
+A3761 : C C2p_endo anti
+A3762 : A C2p_endo anti
+A3763 : G C3p_endo anti
+A3764 : A C3p_endo anti
+A3765 : G C3p_endo anti
+A3766 : C C3p_endo anti
+A3767 : A C3p_endo anti
+A3768 : G C3p_endo anti
+A3769 : U C2p_endo anti
+A3770 : A C3p_endo anti
+A3771 : C C3p_endo anti
+A3772 : C C3p_endo anti
+A3773 : C C2p_endo anti
+A3774 : U C2p_endo anti
+A3775 : U C2p_endo syn
+A3776 : C C2p_endo anti
+A3778 : G C2p_endo anti
+A3779 : G C3p_endo anti
+A3780 : G C3p_endo anti
+A3781 : U C3p_endo anti
+A3782 : C C3p_endo anti
+A3783 : U C3p_endo anti
+A3784 : G C3p_endo anti
+A3785 : C C2p_endo anti
+A3786 : G C3p_endo anti
+A3787 : C C3p_endo anti
+A3788 : C C3p_endo anti
+A3789 : A C2p_endo syn
+A3790 : A C3p_endo anti
+A3791 : C C3p_endo syn
+A3792 : A C3p_endo anti
+A3793 : C C3p_endo anti
+A3794 : C C3p_endo anti
+A3795 : A C3p_endo syn
+A3796 : A C3p_endo anti
+A3797 : C C3p_endo syn
+A3798 : U C2p_endo anti
+A3799 : G C2p_endo anti
+A3800 : G C2p_endo anti
+A3801 : A C3p_endo anti
+A3802 : U C3p_endo anti
+A3803 : C C3p_endo anti
+A3804 : U C3p_endo anti
+A3805 : G C3p_endo syn
+A3806 : A C2p_endo anti
+A3807 : A C2p_endo anti
+A3808 : C C2p_endo anti
+A3809 : U C3p_endo anti
+A3810 : G C3p_endo anti
+A3811 : G C3p_endo anti
+A3812 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A3754-A3755 : adjacent_5p upward 
+A3757-A3758 : adjacent_5p upward 
+A3758-A3759 : adjacent_5p upward 
+A3759-A3760 : adjacent_5p upward 
+A3760-A3761 : adjacent_5p upward 
+A3764-A3765 : adjacent_5p upward 
+A3765-A3766 : adjacent_5p upward 
+A3766-A3767 : adjacent_5p upward 
+A3767-A3768 : adjacent_5p upward 
+A3770-A3771 : adjacent_5p upward 
+A3772-A3773 : adjacent_5p upward 
+A3778-A3779 : adjacent_5p upward 
+A3779-A3780 : adjacent_5p upward 
+A3780-A3781 : adjacent_5p upward 
+A3781-A3782 : adjacent_5p upward 
+A3782-A3783 : adjacent_5p upward 
+A3783-A3784 : adjacent_5p upward 
+A3784-A3785 : adjacent_5p upward 
+A3786-A3787 : adjacent_5p upward 
+A3790-A3791 : adjacent_5p inward 
+A3791-A3792 : adjacent_5p outward 
+A3793-A3794 : adjacent_5p upward 
+A3796-A3797 : adjacent_5p inward 
+A3801-A3802 : adjacent_5p upward 
+A3802-A3803 : adjacent_5p upward 
+A3803-A3804 : adjacent_5p upward 
+A3810-A3811 : adjacent_5p upward 
+A3811-A3812 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A3752-A3754 : upward 
+A3764-A3795 : downward 
+A3767-A3784 : outward 
+A3768-A3770 : upward 
+A3788-A3792 : inward 
+A3788-A3793 : outward 
+A3794-A3796 : upward 
+A3799-A3801 : outward 
+A3805-A3807 : downward pairing 
+Number of stackings = 37
+Number of adjacent stackings = 28
+Number of non adjacent stackings = 9
+Base-pairs ------------------------------------------------------
+A3752-A3803 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3752-A3806 : G-A O2P/Bh pairing 
+A3754-A3802 : A-U Ww/Ww pairing antiparallel cis XX 
+A3755-A3801 : U-A Ww/Ww pairing antiparallel cis XX 
+A3765-A3785 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3766-A3784 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3766-A3787 : C-C Bs/Wh O2'/Ww pairing antiparallel cis one_hbond 137 
+A3767-A3783 : A-U Ww/Ww pairing antiparallel cis XX 
+A3768-A3782 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3770-A3781 : A-U Ww/Ww pairing antiparallel cis XX 
+A3771-A3780 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3772-A3779 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3773-A3778 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3784-A3786 : G-G Sw/Hw pairing parallel cis one_hbond 
+A3786-A3789 : G-A Ss/Ww O2'/Ss pairing antiparallel cis 55 
+A3805-A3807 : G-A Bs/O2' downward pairing 

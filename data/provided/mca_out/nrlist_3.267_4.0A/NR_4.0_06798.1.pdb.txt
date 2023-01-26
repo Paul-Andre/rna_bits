@@ -1,0 +1,149 @@
+Residue conformations -------------------------------------------
+A1 : C C3p_endo anti
+A2 : C C3p_endo anti
+A3 : C C3p_endo anti
+A4 : C C3p_endo anti
+A5 : C C3p_endo anti
+A6 : C C3p_endo anti
+A7 : C C3p_endo anti
+A8 : C C3p_endo anti
+A9 : C C3p_endo anti
+A10 : C C3p_endo anti
+A11 : C C3p_endo anti
+A12 : C C3p_endo anti
+A13 : C C3p_endo anti
+A14 : C C3p_endo anti
+A15 : C C3p_endo anti
+A16 : C C3p_endo anti
+A17 : C C3p_endo anti
+A18 : C C3p_endo anti
+A19 : C C3p_endo anti
+A20 : C C3p_endo anti
+A21 : C C3p_endo anti
+A22 : C C3p_endo anti
+A23 : C C3p_endo anti
+A24 : C C3p_endo anti
+A25 : C C3p_endo anti
+A26 : C C3p_endo anti
+A27 : C C3p_endo anti
+A28 : C C3p_endo anti
+A29 : C C3p_endo anti
+A30 : C C3p_endo anti
+A31 : C C3p_endo anti
+A32 : C C3p_endo anti
+A33 : C C3p_endo anti
+A34 : C C3p_endo anti
+A35 : C C3p_endo anti
+A36 : C C3p_endo anti
+A37 : C C3p_endo anti
+A38 : C C3p_endo anti
+A39 : C C3p_endo anti
+A40 : C C3p_endo anti
+A41 : C C3p_endo anti
+A42 : C C3p_endo anti
+A43 : C C3p_endo anti
+A44 : C C3p_endo anti
+A45 : C C3p_endo anti
+A46 : C C3p_endo anti
+A47 : C C3p_endo anti
+A48 : C C3p_endo anti
+A49 : C C3p_endo anti
+A50 : C C3p_endo anti
+A51 : C C3p_endo anti
+A52 : C C3p_endo anti
+A53 : C C3p_endo anti
+A54 : C C3p_endo anti
+A55 : C C3p_endo anti
+A56 : C C3p_endo anti
+A57 : C C3p_endo anti
+A58 : C C3p_endo anti
+A59 : C C3p_endo anti
+A60 : C C3p_endo anti
+A61 : C C3p_endo anti
+A62 : C C3p_endo anti
+A63 : C C3p_endo anti
+A64 : C C3p_endo anti
+A65 : C C3p_endo anti
+A66 : C C3p_endo anti
+A67 : C C3p_endo anti
+A68 : C C3p_endo anti
+A69 : C C3p_endo anti
+A70 : C C3p_endo anti
+A71 : C C3p_endo anti
+A72 : C C3p_endo anti
+A73 : C C3p_endo anti
+A74 : C C3p_endo anti
+A75 : C C3p_endo anti
+A76 : C C3p_endo anti
+A77 : C C3p_endo anti
+A78 : C C3p_endo anti
+A79 : C C3p_endo anti
+A80 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A3-A4 : adjacent_5p upward 
+A7-A8 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+A9-A10 : adjacent_5p upward 
+A11-A12 : adjacent_5p upward 
+A12-A13 : adjacent_5p upward 
+A14-A15 : adjacent_5p upward 
+A15-A16 : adjacent_5p upward 
+A16-A17 : adjacent_5p upward 
+A17-A18 : adjacent_5p upward 
+A18-A19 : adjacent_5p upward 
+A19-A20 : adjacent_5p upward 
+A20-A21 : adjacent_5p upward 
+A21-A22 : adjacent_5p upward 
+A22-A23 : adjacent_5p upward 
+A23-A24 : adjacent_5p upward 
+A24-A25 : adjacent_5p upward 
+A25-A26 : adjacent_5p upward 
+A26-A27 : adjacent_5p upward 
+A27-A28 : adjacent_5p upward 
+A28-A29 : adjacent_5p upward 
+A29-A30 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A31-A32 : adjacent_5p upward 
+A32-A33 : adjacent_5p upward 
+A33-A34 : adjacent_5p upward 
+A34-A35 : adjacent_5p upward 
+A35-A36 : adjacent_5p upward 
+A36-A37 : adjacent_5p upward 
+A37-A38 : adjacent_5p upward 
+A40-A41 : adjacent_5p upward 
+A41-A42 : adjacent_5p upward 
+A43-A44 : adjacent_5p upward 
+A45-A46 : adjacent_5p upward 
+A46-A47 : adjacent_5p upward 
+A47-A48 : adjacent_5p upward 
+A48-A49 : adjacent_5p upward 
+A49-A50 : adjacent_5p upward 
+A50-A51 : adjacent_5p upward 
+A51-A52 : adjacent_5p upward 
+A52-A53 : adjacent_5p upward 
+A53-A54 : adjacent_5p upward 
+A54-A55 : adjacent_5p upward 
+A55-A56 : adjacent_5p upward 
+A57-A58 : adjacent_5p upward 
+A58-A59 : adjacent_5p upward 
+A59-A60 : adjacent_5p upward 
+A61-A62 : adjacent_5p upward 
+A62-A63 : adjacent_5p upward 
+A63-A64 : adjacent_5p upward 
+A64-A65 : adjacent_5p upward 
+A65-A66 : adjacent_5p upward 
+A66-A67 : adjacent_5p upward 
+A67-A68 : adjacent_5p upward 
+A68-A69 : adjacent_5p upward 
+A69-A70 : adjacent_5p upward 
+A70-A71 : adjacent_5p upward 
+A71-A72 : adjacent_5p upward 
+A72-A73 : adjacent_5p upward 
+A75-A76 : adjacent_5p upward 
+A78-A79 : adjacent_5p upward 
+A79-A80 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 62
+Number of adjacent stackings = 62
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

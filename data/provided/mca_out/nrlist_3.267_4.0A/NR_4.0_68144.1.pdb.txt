@@ -1,0 +1,137 @@
+Residue conformations -------------------------------------------
+A128 : A C2p_endo syn
+A129 : A C2p_endo anti
+A130 : G C2p_endo anti
+A131 : U C2p_endo syn
+A132 : G C3p_endo unknown
+A133 : G C3p_endo anti
+A134 : G C3p_endo anti
+A135 : U C3p_endo anti
+A136 : G C3p_endo anti
+A137 : C C3p_endo anti
+A138 : G C3p_endo anti
+A139 : C C3p_endo anti
+A140 : G C3p_endo anti
+A141 : U C3p_endo anti
+A142 : U C3p_endo anti
+A144 : G C3p_endo anti
+A145 : G C3p_endo anti
+A146 : C C3p_endo anti
+A147 : G C3p_endo anti
+A148 : C C3p_endo anti
+A149 : A C3p_endo anti
+A150 : U C3p_endo anti
+A151 : C C3p_endo anti
+A153 : A C3p_endo anti
+A154 : C C3p_endo anti
+A155 : U C3p_endo anti
+A156 : C C3p_endo anti
+A157 : G C2p_exo anti
+A158 : G C3p_endo anti
+A159 : G C3p_endo anti
+A160 : U C3p_endo anti
+A161 : G C3p_endo anti
+A162 : G C3p_endo anti
+A163 : A C2p_endo anti
+A164 : A C3p_endo syn
+A165 : C C2p_endo anti
+A166 : C C3p_endo anti
+A167 : G C3p_endo anti
+A168 : C C3p_endo anti
+A169 : G C3p_endo anti
+A170 : G C3p_endo anti
+A171 : G C3p_endo anti
+A172 : A C3p_endo anti
+A173 : G C3p_endo anti
+A174 : C C2p_endo anti
+A175 : U C2p_endo anti
+A178 : G C3p_endo anti
+A179 : C C3p_endo anti
+A180 : U C3p_endo anti
+A181 : C C3p_endo anti
+A182 : U C3p_endo anti
+A183 : C C3p_endo anti
+A184 : G C3p_endo anti
+A185 : U C3p_endo anti
+A186 : C C3p_endo anti
+A187 : C C3p_endo anti
+A188 : C C3p_endo anti
+A189 : G C3p_endo anti
+A190 : A C3p_endo anti
+A191 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A128-A129 : adjacent_5p inward 
+A133-A134 : adjacent_5p upward 
+A134-A135 : adjacent_5p upward 
+A135-A136 : adjacent_5p upward 
+A136-A137 : adjacent_5p upward 
+A138-A139 : adjacent_5p upward 
+A140-A141 : adjacent_5p upward 
+A144-A145 : adjacent_5p upward 
+A145-A146 : adjacent_5p upward 
+A146-A147 : adjacent_5p upward 
+A147-A148 : adjacent_5p upward 
+A148-A149 : adjacent_5p upward 
+A149-A150 : adjacent_5p upward 
+A155-A156 : adjacent_5p upward 
+A157-A158 : adjacent_5p upward 
+A158-A159 : adjacent_5p upward 
+A159-A160 : adjacent_5p upward 
+A161-A162 : adjacent_5p upward 
+A162-A163 : adjacent_5p upward 
+A167-A168 : adjacent_5p upward 
+A169-A170 : adjacent_5p upward 
+A170-A171 : adjacent_5p upward 
+A171-A172 : adjacent_5p upward 
+A172-A173 : adjacent_5p upward 
+A173-A174 : adjacent_5p upward 
+A178-A179 : adjacent_5p upward 
+A181-A182 : adjacent_5p upward 
+A182-A183 : adjacent_5p upward 
+A183-A184 : adjacent_5p upward 
+A184-A185 : adjacent_5p upward 
+A189-A190 : adjacent_5p upward 
+A190-A191 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A130-A164 : upward 
+A130-A166 : outward 
+A131-A167 : upward pairing 
+A136-A149 : outward 
+A138-A147 : outward 
+A140-A145 : outward 
+A151-A153 : upward 
+A157-A189 : outward 
+A169-A184 : outward 
+Number of stackings = 41
+Number of adjacent stackings = 32
+Number of non adjacent stackings = 9
+Base-pairs ------------------------------------------------------
+A129-A160 : A-U Bh/O2' Hh/O2' pairing 
+A131-A166 : U-C Hh/Ww pairing parallel cis 103 
+A131-A167 : U-G O2'/Bs O2'/Ss upward pairing 
+A133-A151 : G-C Wh/Wh pairing antiparallel cis one_hbond 
+A133-A167 : G-G O2'/Bs pairing 
+A133-A184 : G-G Bs/O2' pairing 
+A134-A150 : G-U Ws/Ws pairing antiparallel cis one_hbond 
+A135-A149 : U-A Ww/Ww pairing antiparallel cis XX 
+A136-A148 : G-C Ww/Ww pairing antiparallel cis XIX 
+A137-A147 : C-G Ww/Ww pairing antiparallel cis XIX 
+A138-A146 : G-C Ww/Ww pairing antiparallel cis XIX 
+A139-A145 : C-G Ww/Ww pairing antiparallel cis XIX 
+A140-A144 : G-G Ww/Wh pairing antiparallel cis one_hbond 
+A153-A169 : A-G Bs/Ss Ww/O2' pairing parallel trans one_hbond 
+A154-A191 : C-G Ww/Ww pairing antiparallel cis XIX 
+A155-A190 : U-A Ww/Ww pairing antiparallel cis XX 
+A156-A189 : C-G Ww/Ww pairing antiparallel cis XIX 
+A157-A188 : G-C Ww/Ww pairing antiparallel cis XIX 
+A158-A187 : G-C Ww/Ww pairing antiparallel cis XIX 
+A159-A186 : G-C Ww/Ww pairing antiparallel cis XIX 
+A162-A164 : G-A Sw/Ww pairing parallel trans one_hbond 
+A167-A185 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A168-A184 : C-G Ww/Ww pairing antiparallel cis XIX 
+A169-A183 : G-C Ww/Ww pairing antiparallel cis XIX 
+A170-A182 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A171-A181 : G-C Ww/Ww pairing antiparallel cis XIX 
+A172-A180 : A-U Ww/Ww pairing antiparallel cis XX 
+A173-A179 : G-C Ww/Ww pairing antiparallel cis XIX 
+A174-A178 : C-G Ww/Ww pairing antiparallel cis XIX 

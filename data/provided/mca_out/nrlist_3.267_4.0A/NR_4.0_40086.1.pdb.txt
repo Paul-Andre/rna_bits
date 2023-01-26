@@ -1,0 +1,42 @@
+Residue conformations -------------------------------------------
+A502 : U C2p_endo anti
+A503 : U C3p_endo anti
+A504 : G C3p_endo anti
+A505 : C C3p_endo anti
+A506 : U C3p_endo anti
+A507 : G C3p_endo anti
+A508 : C C3p_endo anti
+A509 : U C3p_endo anti
+A510 : G C3p_endo anti
+A511 : C C3p_endo anti
+A512 : U C3p_endo anti
+A513 : G C3p_endo anti
+A514 : C C3p_endo anti
+A515 : U C3p_endo anti
+A516 : G C3p_endo anti
+A517 : C C3p_endo anti
+A518 : U C2p_exo anti
+A519 : G C3p_endo anti
+A520 : C C2p_exo anti
+A521 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A503-A504 : adjacent_5p upward 
+A504-A505 : adjacent_5p upward 
+A506-A507 : adjacent_5p upward 
+A507-A508 : adjacent_5p upward 
+A508-A509 : adjacent_5p upward 
+A509-A510 : adjacent_5p upward 
+A510-A511 : adjacent_5p upward 
+A512-A513 : adjacent_5p upward 
+A513-A514 : adjacent_5p upward 
+A515-A516 : adjacent_5p upward 
+A516-A517 : adjacent_5p upward 
+A517-A518 : adjacent_5p upward 
+A518-A519 : adjacent_5p upward 
+A519-A520 : adjacent_5p upward 
+A520-A521 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 15
+Number of adjacent stackings = 15
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

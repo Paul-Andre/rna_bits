@@ -1,0 +1,41 @@
+Residue conformations -------------------------------------------
+A695 : A C3p_endo anti
+A696 : G C3p_endo anti
+A697 : A C3p_endo anti
+A698 : G C3p_endo anti
+A699 : A C3p_endo anti
+A700 : C C3p_endo anti
+A701 : C C3p_endo anti
+A702 : U C3p_endo anti
+B599 : C C3p_endo anti
+B600 : A C3p_endo anti
+B601 : G C3p_endo anti
+B602 : G C3p_endo anti
+B603 : U C3p_endo anti
+B604 : C C3p_endo anti
+B605 : U C3p_endo anti
+B606 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A695-A696 : adjacent_5p upward 
+A696-A697 : adjacent_5p upward 
+A697-A698 : adjacent_5p upward 
+A698-A699 : adjacent_5p upward 
+A699-A700 : adjacent_5p upward 
+A700-A701 : adjacent_5p upward 
+A701-A702 : adjacent_5p upward 
+B600-B601 : adjacent_5p upward 
+B601-B602 : adjacent_5p upward 
+B602-B603 : adjacent_5p upward 
+B604-B605 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 11
+Number of adjacent stackings = 11
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A696-B606 : G-C Ww/Ww pairing antiparallel cis XIX 
+A697-B605 : A-U Ww/Ww pairing antiparallel cis XX 
+A698-B604 : G-C Ww/Ww pairing antiparallel cis XIX 
+A699-B603 : A-U Ww/Ww pairing antiparallel cis XX 
+A700-B602 : C-G Ww/Ww pairing antiparallel cis XIX 
+A701-B601 : C-G Ww/Ww pairing antiparallel cis XIX 
+A702-B600 : U-A Ww/Ww pairing antiparallel cis XX 

@@ -1,0 +1,206 @@
+Residue conformations -------------------------------------------
+A582 : A C3p_endo anti
+A583 : A C3p_endo anti
+A584 : G C3p_endo anti
+A585 : G C2p_exo anti
+A586 : C C3p_endo anti
+A587 : G C3p_endo anti
+A588 : G C3p_endo anti
+A589 : C C3p_endo anti
+A590 : C C3p_endo anti
+A591 : G C3p_endo anti
+A592 : A C3p_endo anti
+A593 : A C3p_endo anti
+A594 : A C3p_endo anti
+A649 : G C3p_endo anti
+A650 : G C3p_endo anti
+A651 : C C3p_endo anti
+A652 : U C3p_endo anti
+A653 : A C3p_endo anti
+A654 : G C3p_endo anti
+A655 : A C3p_endo anti
+A656 : C C3p_endo anti
+A657 : G C3p_endo anti
+A658 : G C3p_endo anti
+A659 : U C3p_endo anti
+A660 : G C3p_endo anti
+A661 : G C2p_exo anti
+A662 : G C3p_endo anti
+A663 : A C3p_endo anti
+A664 : G C3p_endo anti
+A665 : A C3p_endo anti
+A666 : G C3p_endo anti
+A667 : G C3p_endo anti
+A668 : G C3p_endo anti
+A669 : U C3p_endo anti
+A670 : G C3p_endo anti
+A671 : G C3p_endo anti
+A672 : U C3p_endo anti
+A673 : G C3p_endo anti
+A674 : G C3p_endo anti
+A675 : A C3p_endo anti
+B716 : A C3p_endo anti
+B717 : C C4p_exo anti
+B718 : G C2p_exo anti
+B719 : C C3p_endo anti
+B720 : C C3p_endo anti
+B721 : G C4p_exo anti
+B722 : A C3p_endo syn
+B723 : U C3p_endo anti
+B724 : G C3p_endo anti
+B725 : G C3p_endo anti
+B726 : C C3p_endo anti
+B727 : G C3p_endo anti
+B728 : A C3p_endo anti
+B729 : A C3p_endo anti
+B730 : G C3p_endo anti
+B731 : G C3p_endo anti
+B732 : C C3p_endo anti
+B733 : A C4p_exo anti
+B734 : G C3p_endo anti
+B735 : C C3p_endo anti
+B736 : C C3p_endo anti
+B737 : A C3p_endo anti
+B738 : C C3p_endo anti
+B739 : C C3p_endo anti
+B740 : U C3p_endo anti
+B741 : G C3p_endo anti
+B742 : G C3p_endo anti
+B743 : U C3p_endo anti
+B744 : C C3p_endo anti
+B745 : C C3p_endo anti
+B746 : A C3p_endo anti
+B747 : C C3p_endo anti
+B748 : C C4p_exo anti
+B749 : C C3p_endo anti
+B750 : G C3p_endo anti
+B751 : U C3p_endo anti
+B752 : G O4p_endo anti
+B753 : A O4p_endo anti
+B754 : C C3p_endo syn
+B755 : G C3p_endo anti
+B756 : C C3p_endo anti
+B757 : U C4p_exo anti
+B758 : U C3p_endo anti
+B759 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A582-A583 : adjacent_5p upward 
+A584-A585 : adjacent_5p upward 
+A585-A586 : adjacent_5p upward 
+A588-A589 : adjacent_5p upward 
+A589-A590 : adjacent_5p upward 
+A590-A591 : adjacent_5p upward 
+A592-A593 : adjacent_5p upward 
+A593-A594 : adjacent_5p upward 
+A594-A649 : adjacent_5p upward 
+A649-A650 : adjacent_5p upward 
+A650-A651 : adjacent_5p upward 
+A651-A652 : adjacent_5p upward 
+A654-A655 : adjacent_5p upward 
+A655-A656 : adjacent_5p upward 
+A656-A657 : adjacent_5p upward 
+A657-A658 : adjacent_5p upward 
+A658-A659 : adjacent_5p upward 
+A659-A660 : adjacent_5p upward 
+A660-A661 : adjacent_5p upward 
+A661-A662 : adjacent_5p upward 
+A662-A663 : adjacent_5p upward 
+A663-A664 : adjacent_5p upward 
+A666-A667 : adjacent_5p upward 
+A667-A668 : adjacent_5p upward 
+A668-A669 : adjacent_5p upward 
+A670-A671 : adjacent_5p upward 
+A671-A672 : adjacent_5p upward 
+A673-A674 : adjacent_5p upward 
+A674-A675 : adjacent_5p upward 
+B718-B719 : adjacent_5p upward 
+B719-B720 : adjacent_5p upward pairing 
+B720-B721 : adjacent_5p inward 
+B724-B725 : adjacent_5p upward 
+B725-B726 : adjacent_5p upward 
+B726-B727 : adjacent_5p upward 
+B728-B729 : adjacent_5p upward 
+B729-B730 : adjacent_5p upward 
+B731-B732 : adjacent_5p upward 
+B734-B735 : adjacent_5p upward 
+B736-B737 : adjacent_5p upward 
+B737-B738 : adjacent_5p upward 
+B738-B739 : adjacent_5p upward 
+B739-B740 : adjacent_5p upward 
+B741-B742 : adjacent_5p upward 
+B742-B743 : adjacent_5p upward 
+B745-B746 : adjacent_5p upward 
+B746-B747 : adjacent_5p upward 
+B747-B748 : adjacent_5p upward 
+B750-B751 : adjacent_5p upward 
+B751-B752 : adjacent_5p upward 
+B755-B756 : adjacent_5p upward 
+B756-B757 : adjacent_5p upward 
+B758-B759 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A584-B758 : outward 
+A587-B755 : outward 
+A588-B753 : downward 
+A590-A650 : outward 
+A591-A649 : outward 
+A652-B752 : inward 
+A654-B753 : outward 
+A657-B750 : outward 
+A660-B746 : outward 
+A662-B744 : outward 
+A665-B732 : inward 
+A665-B733 : outward 
+A666-B741 : outward 
+A670-B737 : outward 
+A673-B734 : outward 
+B721-B733 : downward 
+B722-B724 : outward 
+B727-B731 : outward 
+Number of stackings = 71
+Number of adjacent stackings = 53
+Number of non adjacent stackings = 18
+Base-pairs ------------------------------------------------------
+A582-B759 : A-U Ww/Ww pairing antiparallel cis XX 
+A583-B758 : A-U Ww/Ww pairing antiparallel cis one_hbond 
+A584-B757 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A585-B756 : G-C Ww/Ww pairing antiparallel cis XIX 
+A586-B755 : C-G Ww/Ww pairing antiparallel cis XIX 
+A587-B753 : G-A Bs/O2' pairing 
+A587-B754 : G-C Ww/O2P Bs/O2P pairing 
+A588-A651 : G-C Ww/Ww pairing antiparallel cis XIX 
+A589-A650 : C-G Ww/Ww pairing antiparallel cis XIX 
+A590-A649 : C-G Ww/Ww pairing antiparallel cis XIX 
+A591-A593 : G-A O2'/Bh O2'/Hh pairing 
+A591-A594 : G-A Sw/Hh Bs/O2P pairing antiparallel trans one_hbond 
+A651-B753 : C-A Bh/O2P pairing 
+A652-A653 : U-A Ss/C8 O2'/Hh adjacent_5p pairing antiparallel cis one_hbond 
+A652-B753 : U-A Ww/Hh pairing antiparallel trans XXIV 
+A654-B752 : G-G Hw/Sw pairing antiparallel trans one_hbond 112 
+A654-B754 : G-C Ww/Ww pairing antiparallel cis XIX 
+A655-B751 : A-U Ww/Ww pairing antiparallel cis XX 
+A656-B750 : C-G Ww/Ww pairing antiparallel cis XIX 
+A657-B749 : G-C Ww/Ww pairing antiparallel cis XIX 
+A658-B747 : G-C Ww/Ww pairing antiparallel cis XIX 
+A659-B746 : U-A Ww/Ww pairing antiparallel cis XX 
+A660-B745 : G-C Ww/Ww pairing antiparallel cis XIX 
+A661-B744 : G-C Ww/Ww pairing antiparallel cis XIX 
+A662-B743 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A663-B742 : A-G Ww/Ww pairing antiparallel cis VIII 
+A664-B741 : G-G Ww/Wh pairing antiparallel cis one_hbond 
+A665-B724 : A-G Hh/Ww pairing parallel cis IX 
+A666-B725 : G-G O2P/Bs pairing 
+A666-B740 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A667-B739 : G-C Ww/Ww pairing antiparallel cis XIX 
+A668-B738 : G-C Ww/Ww pairing antiparallel cis XIX 
+A669-B737 : U-A Ww/Ww pairing antiparallel cis XX 
+A670-B736 : G-C Ww/Ww pairing antiparallel cis XIX 
+A671-B735 : G-C Ww/Ww pairing antiparallel cis XIX 
+A672-B734 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A673-B717 : G-C Ws/Ws pairing antiparallel cis one_hbond 
+A675-B716 : A-A O2'/Hh pairing 
+B719-B720 : C-C O2P/Bh adjacent_5p upward pairing 
+B722-B733 : A-A Ww/Ww pairing parallel trans I 
+B725-B732 : G-C Ww/Ww pairing antiparallel cis XIX 
+B726-B731 : C-G Ww/Ww pairing antiparallel cis XIX 
+B727-B729 : G-A Ss/O2P pairing 
+B727-B730 : G-G Sw/Hh Bs/O2P pairing antiparallel trans one_hbond 108 

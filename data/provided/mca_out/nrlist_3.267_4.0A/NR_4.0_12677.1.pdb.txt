@@ -1,0 +1,44 @@
+Residue conformations -------------------------------------------
+A101 : C C3p_endo anti
+A102 : G C3p_endo anti
+A103 : C C3p_endo anti
+A104 : C C3p_endo anti
+A105 : A C3p_endo anti
+A106 : G C3p_endo anti
+A107 : C C3p_endo anti
+A108 : G C3p_endo anti
+B109 : C C3p_endo anti
+B110 : G C3p_endo anti
+B111 : C C3p_endo anti
+B112 : C C3p_endo anti
+B113 : A C2p_exo anti
+B114 : G C3p_endo anti
+B115 : C C3p_endo anti
+B116 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A102-A103 : adjacent_5p upward 
+A103-A104 : adjacent_5p upward 
+A105-A106 : adjacent_5p upward 
+A106-A107 : adjacent_5p upward 
+B109-B110 : adjacent_5p upward 
+B110-B111 : adjacent_5p upward 
+B111-B112 : adjacent_5p upward 
+B113-B114 : adjacent_5p upward 
+B114-B115 : adjacent_5p upward 
+B115-B116 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A102-B116 : outward 
+A105-B113 : outward 
+A108-B110 : outward 
+Number of stackings = 13
+Number of adjacent stackings = 10
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A101-B116 : C-G Ww/Ww pairing antiparallel cis XIX 
+A102-B115 : G-C Ww/Ww pairing antiparallel cis XIX 
+A103-B114 : C-G Ww/Ww pairing antiparallel cis XIX 
+A104-B113 : C-A Ws/Wh pairing antiparallel cis one_hbond 78 
+A105-B112 : A-C Wh/Ww pairing antiparallel cis one_hbond 78 
+A106-B111 : G-C Ww/Ww pairing antiparallel cis XIX 
+A107-B110 : C-G Ww/Ww pairing antiparallel cis XIX 
+A108-B109 : G-C Ww/Ww pairing antiparallel cis XIX 

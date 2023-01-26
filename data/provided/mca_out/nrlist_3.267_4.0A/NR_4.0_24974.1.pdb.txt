@@ -1,0 +1,65 @@
+Residue conformations -------------------------------------------
+A117 : C C3p_endo anti
+A118 : C C3p_endo anti
+A119 : U C3p_endo anti
+A120 : G C3p_endo anti
+A121 : A C3p_endo anti
+A122 : C C3p_endo anti
+A123 : G C3p_endo anti
+A124 : G C1p_exo syn
+A125 : U C3p_endo anti
+A126 : A C3p_endo anti
+A127 : C C3p_endo anti
+A128 : A C3p_endo anti
+A129 : G C3p_endo anti
+A130 : C C3p_endo anti
+B101 : G C3p_endo anti
+B102 : C C3p_endo anti
+B103 : U C3p_endo anti
+B104 : G C3p_endo anti
+B105 : G C3p_endo anti
+B106 : G C3p_endo anti
+B107 : C C3p_endo anti
+B108 : G C3p_endo anti
+B109 : C C3p_endo anti
+B110 : A C3p_endo anti
+B111 : G C3p_endo anti
+B112 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A117-A118 : adjacent_5p upward 
+A123-A124 : adjacent_5p inward 
+A126-A127 : adjacent_5p upward 
+A128-A129 : adjacent_5p upward 
+A129-A130 : adjacent_5p upward 
+B101-B102 : adjacent_5p upward 
+B102-B103 : adjacent_5p upward 
+B103-B104 : adjacent_5p upward 
+B104-B105 : adjacent_5p upward 
+B105-B106 : adjacent_5p upward 
+B106-B107 : adjacent_5p upward 
+B107-B108 : adjacent_5p upward 
+B108-B109 : adjacent_5p upward 
+B110-B111 : adjacent_5p upward 
+B111-B112 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A120-A122 : upward 
+A120-B110 : outward 
+A123-B108 : outward 
+A124-A126 : outward 
+A128-B104 : outward 
+Number of stackings = 20
+Number of adjacent stackings = 15
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------
+A117-B112 : C-G Ww/Ww pairing antiparallel cis XIX 
+A118-B111 : C-G Ww/Ww pairing antiparallel cis XIX 
+A119-B110 : U-A Ww/Ww pairing antiparallel cis XX 
+A120-B109 : G-C Ww/Ww pairing antiparallel cis XIX 
+A122-B108 : C-G Ww/Ww pairing antiparallel cis XIX 
+A123-B107 : G-C Ww/Ww pairing antiparallel cis XIX 
+A124-B106 : G-G Hh/Ww pairing parallel cis VI 
+A126-B105 : A-G Ww/Ww pairing antiparallel cis VIII 
+A127-B104 : C-G Ww/Ww pairing antiparallel cis XIX 
+A128-B103 : A-U Ww/Ww pairing antiparallel cis XX 
+A129-B102 : G-C Ww/Ww pairing antiparallel cis XIX 
+A130-B101 : C-G Ww/Ww pairing antiparallel cis XIX 

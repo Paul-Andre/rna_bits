@@ -1,0 +1,178 @@
+Residue conformations -------------------------------------------
+A1601 : G C3p_endo anti
+A1602 : G C3p_endo anti
+A1603 : G C3p_endo anti
+A1604 : C C3p_endo anti
+A1605 : U C3p_endo anti
+A1606 : C C3p_endo anti
+A1607 : G C2p_endo anti
+A1608 : U C3p_endo anti
+A1609 : A C2p_endo syn
+A1610 : G C3p_endo anti
+A1611 : C C3p_endo anti
+A1612 : U C3p_endo anti
+A1613 : C C3p_endo anti
+A1614 : A C3p_endo anti
+A1615 : G C2p_exo anti
+A1616 : C C2p_endo anti
+A1618 : G C2p_endo anti
+A1619 : G C2p_endo anti
+A1620 : G C3p_exo anti
+A1621 : A C2p_exo anti
+A1622 : G C3p_endo anti
+A1623 : A C3p_endo anti
+A1624 : G C3p_endo anti
+A1625 : C C3p_endo anti
+A1626 : G C3p_endo anti
+A1627 : C C3p_endo anti
+A1628 : C C3p_endo anti
+A1629 : G C3p_endo anti
+A1630 : C C3p_endo anti
+A1631 : C C3p_endo anti
+A1632 : U C3p_endo anti
+A1633 : U C3p_endo anti
+A1634 : U C2p_endo anti
+A1635 : G C2p_endo syn
+A1636 : C C2p_endo anti
+A1637 : G C2p_exo anti
+A1638 : A C3p_endo anti
+A1639 : G C3p_endo anti
+A1640 : G C3p_endo anti
+A1641 : C C3p_endo anti
+A1642 : G C3p_endo anti
+A1643 : G C3p_endo anti
+A1644 : A C3p_endo anti
+A1645 : G C3p_endo anti
+A1646 : G C2p_endo syn
+A1647 : C C3p_endo anti
+A1648 : C C2p_endo anti
+A1649 : G C3p_endo anti
+A1650 : C C3p_endo anti
+A1651 : G C3p_endo anti
+A1652 : G C3p_endo anti
+A1653 : G C3p_endo anti
+A1654 : U C3p_endo anti
+A1655 : U C3p_endo anti
+A1656 : C C3p_endo anti
+A1657 : A C3p_endo anti
+A1658 : A C2p_endo syn
+A1659 : A C3p_endo anti
+A1660 : U C2p_endo anti
+A1661 : C C3p_endo anti
+A1662 : C C3p_endo anti
+A1663 : C C3p_endo anti
+A1664 : G C3p_endo anti
+A1665 : C C3p_endo anti
+A1666 : C C3p_endo anti
+A1667 : G C3p_endo anti
+A1668 : A C3p_endo anti
+A1669 : G C3p_endo anti
+A1670 : U C3p_endo anti
+A1671 : C C3p_endo anti
+A1672 : C C3p_endo anti
+A1673 : A C3p_endo anti
+A1674 : C C2p_endo anti
+A1675 : C C2p_endo anti
+A1676 : A C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A1601-A1602 : adjacent_5p upward 
+A1602-A1603 : adjacent_5p upward 
+A1603-A1604 : adjacent_5p upward 
+A1610-A1611 : adjacent_5p upward 
+A1611-A1612 : adjacent_5p upward 
+A1612-A1613 : adjacent_5p upward 
+A1614-A1615 : adjacent_5p upward 
+A1622-A1623 : adjacent_5p upward 
+A1623-A1624 : adjacent_5p upward 
+A1624-A1625 : adjacent_5p upward 
+A1625-A1626 : adjacent_5p upward 
+A1626-A1627 : adjacent_5p upward 
+A1627-A1628 : adjacent_5p upward 
+A1629-A1630 : adjacent_5p upward 
+A1630-A1631 : adjacent_5p upward 
+A1631-A1632 : adjacent_5p upward 
+A1636-A1637 : adjacent_5p outward 
+A1637-A1638 : adjacent_5p upward 
+A1638-A1639 : adjacent_5p upward 
+A1639-A1640 : adjacent_5p upward 
+A1640-A1641 : adjacent_5p upward 
+A1642-A1643 : adjacent_5p upward 
+A1643-A1644 : adjacent_5p upward 
+A1644-A1645 : adjacent_5p upward 
+A1649-A1650 : adjacent_5p upward 
+A1651-A1652 : adjacent_5p upward 
+A1652-A1653 : adjacent_5p upward 
+A1653-A1654 : adjacent_5p upward 
+A1654-A1655 : adjacent_5p upward 
+A1656-A1657 : adjacent_5p upward 
+A1659-A1660 : adjacent_5p upward 
+A1661-A1662 : adjacent_5p upward 
+A1664-A1665 : adjacent_5p upward 
+A1665-A1666 : adjacent_5p upward 
+A1667-A1668 : adjacent_5p upward 
+A1668-A1669 : adjacent_5p upward 
+A1669-A1670 : adjacent_5p upward 
+A1671-A1672 : adjacent_5p upward 
+A1672-A1673 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A1601-A1673 : outward 
+A1605-A1669 : outward 
+A1607-A1649 : upward 
+A1607-A1667 : outward 
+A1609-A1645 : inward 
+A1609-A1646 : outward 
+A1610-A1626 : outward 
+A1614-A1622 : outward 
+A1615-A1659 : upward 
+A1618-A1657 : inward 
+A1618-A1658 : outward 
+A1619-A1657 : outward 
+A1621-A1646 : inward 
+A1621-A1648 : outward 
+A1629-A1642 : outward 
+A1631-A1640 : outward 
+A1651-A1664 : outward 
+A1658-A1661 : upward 
+Number of stackings = 57
+Number of adjacent stackings = 39
+Number of non adjacent stackings = 18
+Base-pairs ------------------------------------------------------
+A1601-A1672 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1602-A1671 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1603-A1670 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A1604-A1669 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1605-A1668 : U-A Ww/Ww pairing antiparallel cis XX 
+A1606-A1667 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1607-A1666 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1608-A1614 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A1608-A1621 : U-A O2'/Ww pairing 
+A1609-A1610 : A-G O2'/Hh adjacent_5p pairing 
+A1609-A1623 : A-A Hh/Hw pairing parallel trans one_hbond 
+A1610-A1625 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1611-A1624 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1612-A1623 : U-A Ww/Ww pairing antiparallel cis XX 
+A1613-A1622 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1615-A1648 : G-C Ww/Ww pairing parallel trans XXII 
+A1618-A1655 : G-U Ww/Bs pairing parallel trans 87 
+A1619-A1656 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1619-A1659 : G-A O2P/Bh pairing 
+A1619-A1660 : G-U O2P/Ww pairing 
+A1622-A1646 : G-G Hh/Ww pairing antiparallel trans VII 
+A1626-A1644 : G-A Ww/Ww pairing antiparallel cis VIII 
+A1627-A1643 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1628-A1642 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1629-A1641 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1630-A1640 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1631-A1639 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1632-A1638 : U-A Ww/Ww pairing antiparallel cis XX 
+A1633-A1636 : U-C Wh/Wh pairing parallel cis one_hbond 105 
+A1633-A1637 : U-G Ws/Ww pairing antiparallel cis one_hbond 
+A1635-A1637 : G-G O2'/Bs O2'/Ss pairing 
+A1649-A1665 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1650-A1664 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1651-A1663 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1652-A1662 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1653-A1661 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1654-A1658 : U-A Ww/Hh pairing antiparallel trans XXIV 
+A1655-A1657 : U-A O2'/Hh Hh/O2P pairing 
+A1655-A1658 : U-A Ww/O2P pairing 

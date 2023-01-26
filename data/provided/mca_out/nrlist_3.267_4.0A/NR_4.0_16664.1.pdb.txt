@@ -1,0 +1,54 @@
+Residue conformations -------------------------------------------
+A1 : A C3p_endo anti
+A2 : U C3p_endo anti
+A3 : A C3p_endo anti
+A4 : U C3p_endo anti
+A5 : A C3p_endo anti
+A6 : U C3p_endo anti
+A7 : A C3p_endo anti
+A8 : U C3p_endo anti
+A9 : A C3p_endo anti
+A10 : U C3p_endo anti
+A21 : U C3p_endo anti
+A22 : A C3p_endo anti
+A23 : U C3p_endo anti
+A24 : A C3p_endo anti
+A25 : U C3p_endo anti
+A26 : A C3p_endo anti
+A27 : U C3p_endo anti
+A28 : A C3p_endo anti
+A29 : U C3p_endo anti
+A30 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A1-A2 : adjacent_5p upward 
+A3-A4 : adjacent_5p upward 
+A4-A5 : adjacent_5p upward 
+A5-A6 : adjacent_5p upward 
+A6-A7 : adjacent_5p upward 
+A7-A8 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+A9-A10 : adjacent_5p upward 
+A22-A23 : adjacent_5p upward 
+A24-A25 : adjacent_5p upward 
+A26-A27 : adjacent_5p upward 
+A28-A29 : adjacent_5p upward 
+A29-A30 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A1-A30 : outward 
+A3-A28 : outward 
+A5-A26 : outward 
+A7-A24 : outward 
+A9-A22 : outward 
+Number of stackings = 18
+Number of adjacent stackings = 13
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------
+A1-A29 : A-U Ww/Ww pairing antiparallel cis XX 
+A2-A28 : U-A Ww/Ww pairing antiparallel cis XX 
+A3-A27 : A-U Ww/Ww pairing antiparallel cis XX 
+A4-A26 : U-A Ww/Ww pairing antiparallel cis XX 
+A5-A25 : A-U Ww/Ww pairing antiparallel cis XX 
+A6-A24 : U-A Ww/Ww pairing antiparallel cis XX 
+A7-A23 : A-U Ww/Ww pairing antiparallel cis XX 
+A8-A22 : U-A Ww/Ww pairing antiparallel cis XX 
+A9-A21 : A-U Ww/Ww pairing antiparallel cis XX 

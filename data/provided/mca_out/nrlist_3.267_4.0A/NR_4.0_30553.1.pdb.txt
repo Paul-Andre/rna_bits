@@ -1,0 +1,28 @@
+Residue conformations -------------------------------------------
+A431 : G C3p_endo anti
+A432 : A C3p_endo anti
+A433 : U C2p_endo anti
+A434 : C C3p_endo anti
+A435 : G C2p_endo anti
+A436 : A C3p_endo anti
+A437 : U C2p_endo anti
+A438 : G C2p_endo syn
+A439 : U C3p_endo anti
+A440 : G C3p_endo anti
+A441 : G C2p_endo syn
+A442 : U C2p_endo anti
+A443 : G C3p_endo anti
+A444 : A C3p_endo anti
+A445 : C C2p_endo anti
+A446 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A431-A432 : adjacent_5p upward 
+A432-A433 : adjacent_5p upward 
+A439-A440 : adjacent_5p upward 
+A443-A444 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 4
+Number of adjacent stackings = 4
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A441-A442 : G-U Sw/Hw adjacent_5p pairing parallel cis one_hbond 89 

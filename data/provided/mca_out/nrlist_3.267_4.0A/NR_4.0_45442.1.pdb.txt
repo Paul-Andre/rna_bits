@@ -1,0 +1,68 @@
+Residue conformations -------------------------------------------
+A16 : G C3p_endo anti
+A17 : G C3p_endo anti
+A18 : C C3p_endo anti
+A19 : C C3p_endo anti
+A20 : A C3p_endo anti
+A21 : G C3p_endo anti
+A22 : A C3p_endo anti
+A23 : U C3p_endo anti
+A24 : C C3p_endo anti
+A25 : U C2p_endo anti
+A26 : G C2p_exo anti
+A27 : A C3p_endo anti
+A28 : G C3p_endo anti
+A29 : C C3p_endo anti
+A30 : G C1p_exo anti
+B36 : G C3p_endo anti
+B37 : C C3p_endo anti
+B38 : U C3p_endo anti
+B39 : C C3p_endo anti
+B40 : U C3p_endo anti
+B41 : C C3p_endo anti
+B42 : U C3p_endo anti
+B43 : G C3p_endo anti
+B44 : G C3p_endo anti
+B45 : C C3p_endo anti
+B46 : C C3p_endo anti
+B47 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A16-A17 : adjacent_5p upward 
+A17-A18 : adjacent_5p upward 
+A18-A19 : adjacent_5p upward 
+A19-A20 : adjacent_5p upward 
+A20-A21 : adjacent_5p upward 
+A21-A22 : adjacent_5p upward 
+A23-A24 : adjacent_5p upward pairing 
+A26-A27 : adjacent_5p upward 
+A27-A28 : adjacent_5p upward 
+A28-A29 : adjacent_5p upward 
+B36-B37 : adjacent_5p upward 
+B37-B38 : adjacent_5p upward 
+B38-B39 : adjacent_5p upward 
+B40-B41 : adjacent_5p upward 
+B41-B42 : adjacent_5p upward 
+B43-B44 : adjacent_5p upward 
+B44-B45 : adjacent_5p upward 
+B45-B46 : adjacent_5p upward 
+B46-B47 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A20-B43 : outward 
+A22-A26 : upward 
+A30-B36 : outward 
+Number of stackings = 22
+Number of adjacent stackings = 19
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A16-B46 : G-C Ww/Ww pairing antiparallel cis XIX 
+A17-B45 : G-C Ww/Ww pairing antiparallel cis XIX 
+A18-B44 : C-G Ww/Ww pairing antiparallel cis XIX 
+A19-B43 : C-G Ww/Ww pairing antiparallel cis XIX 
+A20-B42 : A-U Ww/Ww pairing antiparallel cis XX 
+A21-B41 : G-C Ww/Ww pairing antiparallel cis XIX 
+A22-B40 : A-U Ww/Ww pairing antiparallel cis XX 
+A23-A24 : U-C O2P/Bh adjacent_5p upward pairing 
+A26-B39 : G-C Ww/Ww pairing antiparallel cis XIX 
+A27-B38 : A-U Ww/Ww pairing antiparallel cis XX 
+A28-B37 : G-C Ww/Ww pairing antiparallel cis XIX 
+A29-B36 : C-G Ww/Ww pairing antiparallel cis XIX 

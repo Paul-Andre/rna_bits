@@ -1,0 +1,155 @@
+Residue conformations -------------------------------------------
+A1051 : G C2p_exo anti
+A1052 : C C3p_endo anti
+A1053 : C C3p_endo anti
+A1054 : A C3p_endo anti
+A1055 : G C3p_endo anti
+A1056 : G C3p_endo anti
+A1057 : A C3p_endo anti
+A1058 : U C3p_endo anti
+A1059 : G C3p_endo anti
+A1060 : U C2p_endo anti
+A1061 : U C2p_endo anti
+A1062 : G C2p_exo anti
+A1063 : G C3p_endo anti
+A1064 : C C2p_exo anti
+A1065 : U C3p_endo anti
+A1066 : U C3p_endo anti
+A1067 : A C3p_endo anti
+A1068 : G C3p_endo anti
+A1069 : A C2p_endo syn
+A1070 : A C2p_endo anti
+A1071 : G C3p_endo anti
+A1072 : C C3p_endo anti
+A1073 : A C3p_endo anti
+A1074 : G C3p_endo anti
+A1075 : C C3p_endo anti
+A1076 : C C3p_endo anti
+A1077 : A C3p_endo anti
+A1078 : U C3p_endo anti
+A1079 : C C3p_endo anti
+A1080 : A C3p_endo anti
+A1081 : U C3p_endo anti
+A1082 : U C3p_endo anti
+A1083 : U C3p_endo anti
+A1084 : A C3p_endo anti
+A1085 : A C3p_endo anti
+A1086 : A C3p_endo syn
+A1087 : G C2p_exo syn
+A1088 : A C2p_endo syn
+A1089 : A C2p_endo anti
+A1090 : A C3p_endo anti
+A1091 : G C3p_endo anti
+A1092 : C C3p_endo anti
+A1093 : G C3p_endo anti
+A1094 : U C3p_endo anti
+A1095 : A C3p_endo anti
+A1096 : A C3p_endo anti
+A1097 : U C3p_endo anti
+A1098 : A C3p_endo anti
+A1099 : G C3p_endo anti
+A1100 : C C3p_endo anti
+A1101 : U C3p_endo anti
+A1102 : C C3p_endo anti
+A1103 : A C3p_endo anti
+A1104 : C C3p_endo anti
+A1105 : U C3p_endo anti
+A1106 : G C3p_endo anti
+A1107 : G C3p_endo anti
+A1108 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A1051-A1052 : adjacent_5p upward 
+A1054-A1055 : adjacent_5p upward 
+A1055-A1056 : adjacent_5p upward 
+A1057-A1058 : adjacent_5p upward 
+A1059-A1060 : adjacent_5p inward 
+A1062-A1063 : adjacent_5p upward 
+A1063-A1064 : adjacent_5p upward 
+A1064-A1065 : adjacent_5p upward 
+A1065-A1066 : adjacent_5p upward 
+A1067-A1068 : adjacent_5p upward 
+A1068-A1069 : adjacent_5p upward 
+A1071-A1072 : adjacent_5p upward 
+A1073-A1074 : adjacent_5p upward 
+A1074-A1075 : adjacent_5p upward 
+A1075-A1076 : adjacent_5p upward 
+A1076-A1077 : adjacent_5p upward 
+A1077-A1078 : adjacent_5p upward 
+A1080-A1081 : adjacent_5p upward 
+A1081-A1082 : adjacent_5p upward 
+A1082-A1083 : adjacent_5p upward 
+A1084-A1085 : adjacent_5p upward 
+A1085-A1086 : adjacent_5p inward 
+A1090-A1091 : adjacent_5p upward 
+A1091-A1092 : adjacent_5p upward 
+A1092-A1093 : adjacent_5p upward 
+A1093-A1094 : adjacent_5p upward 
+A1095-A1096 : adjacent_5p upward 
+A1096-A1097 : adjacent_5p upward 
+A1097-A1098 : adjacent_5p upward 
+A1098-A1099 : adjacent_5p upward 
+A1099-A1100 : adjacent_5p upward 
+A1101-A1102 : adjacent_5p upward 
+A1102-A1103 : adjacent_5p upward 
+A1103-A1104 : adjacent_5p upward pairing 
+A1106-A1107 : adjacent_5p upward 
+A1107-A1108 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A1054-A1106 : outward 
+A1057-A1086 : outward 
+A1059-A1080 : outward 
+A1061-A1070 : outward 
+A1062-A1077 : outward 
+A1069-A1073 : upward pairing 
+A1071-A1089 : downward 
+A1079-A1088 : downward 
+A1087-A1089 : upward 
+A1087-A1103 : outward 
+Number of stackings = 46
+Number of adjacent stackings = 36
+Number of non adjacent stackings = 10
+Base-pairs ------------------------------------------------------
+A1051-A1108 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A1052-A1107 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1053-A1106 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1054-A1105 : A-U Ww/Ww pairing antiparallel cis XX 
+A1055-A1085 : G-A Ss/Ss O2'/Ww pairing parallel trans 57 
+A1055-A1104 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1056-A1102 : G-C Ww/O2P pairing 
+A1056-A1103 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A1057-A1081 : A-U Ww/Ww pairing antiparallel cis one_hbond 
+A1057-A1087 : A-G Bh/O2P pairing 
+A1058-A1080 : U-A Ww/Ww pairing antiparallel cis XX 
+A1059-A1079 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1060-A1088 : U-A Ww/Hh pairing parallel cis XXIII 
+A1062-A1076 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1063-A1075 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1064-A1070 : C-A Bh/O2P pairing 
+A1064-A1074 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1065-A1069 : U-A Ww/O2' pairing 
+A1065-A1073 : U-A Ws/Wh pairing antiparallel cis one_hbond 46 
+A1066-A1068 : U-G O2'/Hh Ww/O2P pairing 
+A1066-A1069 : U-A Ww/O2P pairing 
+A1068-A1095 : G-A Bs/O2' pairing 
+A1069-A1073 : A-A O2'/Bh upward pairing 
+A1070-A1096 : A-A Hh/O2' pairing 
+A1070-A1097 : A-U Ww/O2' pairing 
+A1071-A1091 : G-G Ww/Hh pairing parallel cis VI 
+A1071-A1100 : G-C Wh/Bh pairing antiparallel cis one_hbond 
+A1072-A1092 : C-C Ww/Hh pairing parallel cis 
+A1077-A1088 : A-A Ww/O2' pairing 
+A1077-A1089 : A-A Bh/O2P pairing 
+A1082-A1086 : U-A Ww/Ww pairing parallel trans XXI 
+A1083-A1085 : U-A O2'/Hh Ww/O2P pairing 
+A1083-A1086 : U-A Ww/O2P pairing 
+A1084-A1105 : A-U Bs/Ss Ss/O2' pairing antiparallel cis one_hbond 
+A1086-A1103 : A-A O2'/Ww pairing 
+A1087-A1102 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1089-A1090 : A-A Ss/Hw O2'/Hh adjacent_5p pairing parallel cis one_hbond 
+A1090-A1101 : A-U Ww/Ww pairing antiparallel cis XX 
+A1091-A1100 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1092-A1099 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1093-A1098 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A1094-A1096 : U-A O2'/Hh Hh/O2P Ww/O2P pairing 
+A1094-A1097 : U-U Ww/O2P pairing 
+A1103-A1104 : A-C O2P/Bh adjacent_5p upward pairing 

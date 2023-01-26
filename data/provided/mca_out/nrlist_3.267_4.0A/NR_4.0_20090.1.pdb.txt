@@ -1,0 +1,2978 @@
+Residue conformations -------------------------------------------
+A2 : A C2p_endo anti
+A3 : U C2p_endo anti
+A4 : C C3p_endo anti
+A5 : C C3p_endo anti
+A6 : G C3p_endo anti
+A7 : G C2p_exo anti
+A8 : U C4p_exo syn
+A9 : C C3p_endo anti
+A10 : G C2p_exo anti
+A11 : A C3p_endo anti
+A12 : U C3p_endo anti
+A13 : C C3p_endo anti
+A14 : C C3p_endo anti
+A15 : U C3p_endo anti
+A16 : G C3p_endo anti
+A17 : C C3p_endo anti
+A18 : C C3p_endo anti
+A19 : G C3p_endo anti
+A20 : G C3p_endo anti
+A21 : A C3p_endo anti
+A22 : G C3p_endo anti
+A23 : C C3p_endo anti
+A24 : G C3p_endo anti
+A25 : C C3p_endo anti
+A26 : G C3p_endo anti
+A27 : A C3p_endo anti
+A28 : C C3p_endo anti
+A29 : G C3p_endo anti
+A30 : C C3p_endo anti
+A31 : U C3p_endo anti
+A32 : C C3p_endo anti
+A33 : U C3p_endo anti
+A34 : C C3p_endo anti
+A35 : C C3p_endo anti
+A36 : C C3p_endo anti
+A37 : C C3p_endo anti
+A38 : A C3p_endo anti
+A39 : A C3p_endo anti
+A40 : G C3p_endo anti
+A41 : G C2p_endo anti
+A42 : A C3p_endo anti
+A43 : C C2p_endo anti
+A44 : G C3p_endo anti
+A45 : A C2p_endo anti
+A46 : A C2p_endo anti
+A47 : G C3p_endo anti
+A48 : C C3p_endo anti
+A49 : C C3p_endo anti
+A50 : A C3p_endo anti
+A51 : U C3p_endo anti
+A52 : G C3p_endo anti
+A53 : C C3p_endo anti
+A54 : A C3p_endo anti
+A55 : U C2p_endo anti
+A56 : G C3p_endo anti
+A57 : C C3p_endo anti
+A58 : C C3p_endo anti
+A62 : U C3p_endo anti
+A63 : C C3p_endo anti
+A64 : A C2p_endo anti
+A69 : G C3p_endo anti
+A70 : G C3p_endo anti
+A71 : A C3p_endo anti
+A72 : C C3p_endo anti
+A73 : G C3p_endo anti
+A74 : C C3p_endo anti
+A75 : G C3p_endo anti
+A76 : G C3p_endo anti
+A77 : C C3p_endo anti
+A78 : G C3p_endo anti
+A79 : G C3p_endo anti
+A80 : A C2p_endo syn
+A81 : C C3p_endo anti
+A82 : G C3p_endo anti
+A83 : G C3p_endo anti
+A84 : C C3p_endo anti
+A85 : U C3p_endo anti
+A86 : C C2p_endo anti
+A88 : G C3p_endo anti
+A89 : G C3p_endo anti
+A90 : A C2p_endo anti
+A91 : C C2p_endo anti
+A92 : A C3p_endo syn
+A93 : A C3p_endo anti
+A94 : C C3p_endo anti
+A95 : G C3p_endo anti
+A96 : G C3p_endo anti
+A97 : U C3p_endo anti
+A98 : U C3p_endo anti
+A99 : G C3p_endo anti
+A100 : C C3p_endo anti
+A101 : A C3p_exo anti
+A102 : C C3p_endo anti
+A103 : C C3p_endo anti
+A105 : C C3p_endo anti
+A106 : C C3p_endo anti
+A107 : C C3p_endo anti
+A108 : G C3p_endo anti
+A109 : U C3p_endo anti
+A110 : G C3p_endo anti
+A111 : G C4p_exo anti
+A112 : C C3p_endo anti
+A113 : G C1p_exo syn
+A114 : G C2p_endo anti
+A115 : U C2p_endo anti
+A116 : C C2p_endo anti
+A124 : G C3p_endo anti
+A125 : C C2p_endo syn
+A126 : C C3p_endo anti
+A127 : G C3p_endo anti
+A128 : G C2p_endo anti
+A129 : A C2p_endo anti
+A130 : C C3p_endo anti
+A131 : A C3p_endo anti
+A132 : C C3p_endo anti
+A133 : C C3p_endo anti
+A134 : G C3p_endo anti
+A135 : C C3p_endo anti
+A136 : U C3p_endo anti
+A137 : G C3p_endo anti
+A138 : G C2p_exo anti
+A139 : C C3p_endo anti
+A140 : A C3p_endo anti
+A141 : A C2p_endo anti
+A142 : C C3p_endo anti
+A143 : C C3p_endo anti
+A144 : C C3p_endo anti
+A145 : G C3p_endo anti
+A146 : G C3p_endo anti
+A147 : C C3p_endo anti
+A148 : G C3p_endo anti
+A149 : C C3p_endo anti
+A150 : C C3p_endo anti
+A151 : A C2p_exo anti
+A152 : A C2p_endo anti
+A153 : G C2p_endo anti
+A154 : A C3p_endo anti
+A155 : C C3p_endo syn
+A156 : G C3p_endo anti
+A157 : U C3p_endo anti
+A158 : G C3p_endo anti
+A159 : C C4p_exo anti
+A160 : G C4p_exo syn
+A161 : C C2p_endo anti
+A162 : G C4p_exo anti
+A163 : C C2p_endo anti
+A164 : A C3p_endo anti
+A165 : A C3p_endo anti
+A166 : G C3p_endo anti
+A167 : G C3p_endo anti
+A168 : G C3p_endo anti
+A169 : C C3p_endo anti
+A170 : G C3p_endo anti
+A171 : G C2p_endo anti
+A172 : G C3p_endo anti
+A173 : C C2p_endo anti
+A175 : C C3p_endo syn
+A176 : C C3p_endo syn
+A177 : C C3p_endo anti
+A180 : G C2p_endo anti
+A181 : G C3p_endo anti
+A182 : G C3p_endo anti
+A183 : C C3p_endo anti
+A184 : G C3p_endo anti
+A185 : A C3p_endo anti
+A186 : G C2p_endo anti
+A187 : C C3p_endo anti
+A188 : A C3p_endo anti
+A189 : G C3p_endo anti
+A190 : C C3p_endo anti
+A191 : G C3p_endo anti
+A192 : U C3p_endo anti
+A193 : G C3p_endo syn
+A194 : A C3p_endo anti
+A195 : C C3p_endo anti
+A196 : G C3p_endo anti
+A197 : C C2p_endo anti
+A198 : A C3p_endo anti
+A199 : G C3p_endo anti
+A200 : C C3p_endo anti
+A201 : G C3p_endo anti
+A202 : A C2p_endo syn
+A203 : C C2p_endo anti
+A204 : G C2p_endo anti
+A205 : G C2p_endo anti
+A206 : C C3p_endo anti
+A207 : C C3p_endo anti
+A208 : C C3p_endo anti
+A209 : G C3p_endo anti
+A210 : C C3p_endo anti
+A211 : C C3p_endo anti
+A212 : C C3p_endo anti
+A213 : G C3p_endo anti
+A214 : G C3p_endo anti
+A215 : G C3p_endo anti
+A216 : C C3p_endo anti
+A217 : U C3p_endo anti
+A218 : U C3p_endo anti
+A219 : C C3p_endo anti
+A220 : C C3p_endo anti
+A221 : G C3p_endo anti
+A222 : G C3p_endo anti
+A223 : G C3p_endo anti
+A224 : G C3p_endo anti
+A225 : C C3p_endo anti
+A226 : A C2p_endo anti
+A227 : U C2p_endo anti
+A228 : C C3p_endo anti
+A229 : A C2p_endo anti
+A230 : C C3p_endo anti
+A231 : C C3p_endo anti
+A232 : C C3p_endo anti
+A233 : G C2p_endo anti
+A234 : G C2p_endo anti
+A235 : U C3p_endo anti
+A236 : C C3p_endo anti
+A237 : G C3p_endo anti
+A238 : G C3p_endo anti
+A239 : C C3p_endo anti
+A240 : G C3p_endo anti
+A241 : C C3p_endo anti
+A242 : G C3p_endo anti
+A243 : G C3p_endo anti
+A244 : U C3p_endo anti
+A245 : C C3p_endo anti
+A246 : G C3p_endo anti
+A247 : C C3p_endo anti
+A248 : G C3p_endo anti
+A249 : G C2p_endo syn
+A250 : C C3p_endo anti
+A251 : G C3p_endo anti
+A252 : C C3p_endo anti
+A253 : G C3p_endo anti
+A254 : C C3p_endo anti
+A255 : C C3p_endo anti
+A256 : G C3p_endo anti
+A257 : A C2p_endo anti
+A258 : G C3p_endo anti
+A259 : G C3p_endo anti
+A260 : G C3p_endo anti
+A261 : C C3p_endo anti
+A262 : C C2p_endo anti
+A263 : C C2p_endo anti
+A264 : G C2p_endo anti
+A265 : A C3p_endo anti
+A266 : C C3p_endo anti
+A267 : G C3p_endo anti
+A268 : C C3p_endo anti
+A269 : C C3p_endo anti
+A270 : U C3p_endo anti
+A271 : G C3p_endo anti
+A272 : G C3p_endo anti
+A273 : C C3p_endo anti
+A274 : G C3p_endo anti
+A275 : G C3p_endo anti
+A276 : A C3p_endo anti
+A277 : G C3p_endo anti
+A278 : A C3p_endo anti
+A279 : A C3p_endo anti
+A280 : U C3p_endo syn
+A281 : C C2p_endo anti
+A282 : A C3p_endo anti
+A283 : G C3p_endo anti
+A284 : G C3p_endo anti
+A285 : G C3p_endo anti
+A286 : U C3p_endo anti
+A287 : U C3p_endo anti
+A288 : C C3p_endo anti
+A289 : G C2p_endo anti
+A290 : A C3p_endo anti
+A291 : C C3p_endo anti
+A292 : U C2p_endo anti
+A293 : C C3p_endo anti
+A294 : C C3p_endo anti
+A295 : G C3p_endo anti
+A296 : G C3p_endo anti
+A297 : A C3p_endo anti
+A298 : G C3p_endo anti
+A299 : A C2p_endo anti
+A300 : G C3p_endo anti
+A301 : C C3p_endo anti
+A302 : G C3p_endo syn
+A303 : G C3p_endo anti
+A304 : G C3p_endo anti
+A305 : C C3p_endo anti
+A306 : C C3p_endo anti
+A307 : U C3p_endo anti
+A308 : G C3p_endo anti
+A309 : C C3p_endo anti
+A310 : G C3p_endo anti
+A311 : A C2p_endo syn
+A312 : G C2p_endo anti
+A313 : A C2p_endo anti
+A314 : C C3p_endo anti
+A315 : G C3p_endo anti
+A316 : G C3p_endo anti
+A317 : C C3p_endo anti
+A318 : C C3p_endo anti
+A319 : C C3p_endo anti
+A320 : G C3p_endo anti
+A321 : C C3p_endo anti
+A322 : A C3p_endo anti
+A323 : C C3p_endo anti
+A324 : A C3p_endo anti
+A325 : U C3p_endo anti
+A326 : C C3p_endo anti
+A327 : C C3p_endo anti
+A328 : A C2p_endo anti
+A329 : A C2p_endo anti
+A330 : G C3p_endo syn
+A331 : G C3p_endo anti
+A332 : A C3p_endo anti
+A333 : C C3p_endo anti
+A334 : G C3p_endo anti
+A335 : G C2p_endo anti
+A336 : C C3p_endo anti
+A337 : A C3p_endo anti
+A338 : G C3p_endo anti
+A339 : C C3p_endo anti
+A340 : A C3p_endo anti
+A341 : G C3p_endo anti
+A342 : G C3p_endo anti
+A343 : C C3p_endo anti
+A344 : G C3p_endo anti
+A345 : C C3p_endo anti
+A346 : G C3p_endo anti
+A347 : G C3p_endo anti
+A349 : A C3p_endo anti
+A350 : C C2p_endo anti
+A351 : U C2p_endo anti
+A352 : U C3p_endo anti
+A353 : G C3p_endo anti
+A354 : C C3p_endo anti
+A355 : C C3p_endo anti
+A356 : C C2p_endo anti
+A357 : A C3p_endo anti
+A358 : A C3p_endo anti
+A359 : U C3p_endo anti
+A360 : G C3p_endo anti
+A361 : C C3p_endo anti
+A362 : G C3p_endo anti
+A363 : C C2p_exo anti
+A364 : G C2p_endo anti
+A365 : G C2p_endo syn
+A366 : C C2p_exo anti
+A367 : G C3p_endo anti
+A368 : C C3p_endo anti
+A369 : G C2p_endo anti
+A370 : C C4p_exo syn
+A372 : G C3p_endo anti
+A373 : C C3p_endo anti
+A374 : G C2p_exo anti
+A375 : G C3p_endo anti
+A376 : C C3p_endo anti
+A377 : G C3p_endo anti
+A378 : C C2p_endo syn
+A379 : G C3p_endo anti
+A380 : A C3p_endo anti
+A381 : C C3p_endo anti
+A382 : G C3p_endo anti
+A383 : G C3p_endo anti
+A384 : G C3p_endo anti
+A385 : G C3p_endo anti
+A386 : U C3p_endo anti
+A387 : G C3p_endo anti
+A388 : C C3p_endo anti
+A389 : G C2p_endo syn
+A390 : C C2p_endo anti
+A391 : G C3p_endo anti
+A392 : C C3p_endo anti
+A393 : G C2p_endo anti
+A394 : A C3p_endo anti
+A395 : G C3p_endo anti
+A396 : U C3p_endo anti
+A397 : C C3p_endo anti
+A398 : A C3p_endo anti
+A399 : G C3p_endo anti
+A400 : G C3p_endo anti
+A401 : C C3p_endo anti
+A402 : G C3p_endo anti
+A403 : G C3p_endo anti
+A404 : G C3p_endo anti
+A405 : C C3p_endo anti
+A406 : C C3p_endo anti
+A407 : C C3p_endo syn
+A408 : A C3p_endo anti
+A409 : C C3p_endo anti
+A410 : C C3p_endo anti
+A411 : C C3p_endo anti
+A412 : C C3p_endo anti
+A413 : G C3p_endo anti
+A414 : A C3p_endo anti
+A415 : C C3p_endo anti
+A416 : C C2p_endo anti
+A426 : C C3p_endo anti
+A427 : G C3p_endo anti
+A428 : C C3p_endo anti
+A429 : C C3p_endo anti
+A430 : A C3p_endo anti
+A431 : G C3p_endo anti
+A432 : G C3p_endo anti
+A433 : G C3p_endo anti
+A434 : C C3p_endo anti
+A435 : A C2p_endo anti
+A436 : A C3p_endo anti
+A437 : G C3p_endo anti
+A438 : G C2p_endo anti
+A440 : C C3p_endo anti
+A441 : U C3p_endo anti
+A442 : G C3p_endo anti
+A443 : G C3p_endo anti
+A444 : U C3p_endo anti
+A445 : G C2p_endo anti
+A446 : C C2p_endo anti
+A447 : C C3p_endo anti
+A448 : A C3p_endo anti
+A449 : G C3p_endo anti
+A450 : C C3p_endo anti
+A451 : A C3p_endo anti
+A452 : G C3p_endo syn
+A453 : C C3p_endo anti
+A454 : C C3p_endo anti
+A455 : G C3p_endo anti
+A456 : C C3p_endo anti
+A457 : G C3p_endo anti
+A458 : G C3p_endo anti
+A459 : U C3p_endo anti
+A460 : A C2p_endo syn
+A461 : A C2p_endo anti
+A462 : U C3p_endo anti
+A463 : U C2p_endo anti
+A464 : C C3p_endo anti
+A465 : C C3p_endo anti
+A466 : A C3p_endo anti
+A467 : G C3p_endo anti
+A468 : C C3p_endo anti
+A469 : U C3p_endo anti
+A470 : C C3p_endo anti
+A471 : G C3p_endo anti
+A472 : G C3p_endo anti
+A473 : C C3p_endo anti
+A474 : G C3p_endo anti
+A475 : A C2p_endo anti
+A476 : G C3p_endo anti
+A477 : C C3p_endo anti
+A478 : G C3p_endo anti
+A479 : U C3p_endo anti
+A480 : C C3p_endo anti
+A481 : G C3p_endo anti
+A482 : C C3p_endo anti
+A483 : G C3p_endo anti
+A484 : C C3p_endo anti
+A485 : G C3p_endo anti
+A486 : G C3p_endo anti
+A487 : C C2p_endo syn
+A488 : G C2p_endo anti
+A489 : C C3p_endo anti
+A490 : U C2p_endo anti
+A491 : G C4p_exo anti
+A492 : C C3p_endo anti
+A493 : U C3p_endo anti
+A494 : G C2p_endo anti
+A495 : C C3p_endo anti
+A496 : A C3p_endo anti
+A497 : G C3p_endo anti
+A498 : U C3p_endo anti
+A499 : U C3p_endo anti
+A500 : G C3p_endo syn
+A501 : A C3p_endo anti
+A502 : A C3p_endo anti
+A503 : A C2p_endo syn
+A504 : C C2p_endo syn
+A505 : G C3p_endo anti
+A506 : C C3p_endo anti
+A507 : C C3p_endo anti
+A508 : C C3p_endo anti
+A509 : G C3p_endo anti
+A510 : U C3p_endo anti
+A511 : A C3p_endo anti
+A512 : G C3p_endo anti
+A513 : U C3p_endo anti
+A514 : U C3p_endo anti
+A515 : G C3p_endo anti
+A516 : G C3p_endo anti
+A517 : C C3p_endo anti
+A518 : C C3p_endo anti
+A519 : C C2p_endo syn
+A520 : C C2p_endo syn
+A521 : C C3p_exo anti
+A522 : C C3p_endo anti
+A523 : G C3p_endo anti
+A524 : C C3p_endo anti
+A525 : C C3p_endo anti
+A526 : G C3p_endo anti
+A527 : C C3p_endo anti
+A528 : C C3p_endo anti
+A529 : A C3p_endo anti
+A530 : C C3p_endo anti
+A531 : G C3p_endo anti
+A532 : A C3p_endo anti
+A533 : G C3p_endo anti
+A534 : G C3p_endo anti
+A535 : A C2p_endo anti
+A536 : A C3p_endo anti
+A537 : A C3p_endo anti
+A538 : C C3p_endo anti
+A539 : G C3p_endo anti
+A540 : G C3p_endo anti
+A541 : G C3p_endo anti
+A542 : A C3p_endo anti
+A543 : G C3p_endo anti
+A544 : C C3p_endo anti
+A545 : G C2p_endo anti
+A546 : C C3p_endo anti
+A547 : U C3p_endo syn
+A548 : C C3p_endo anti
+A549 : C C3p_endo anti
+A550 : A C3p_endo anti
+A551 : G C3p_endo anti
+A552 : G C3p_endo anti
+A553 : C C2p_endo anti
+A554 : A C3p_endo syn
+A555 : G C3p_endo anti
+A556 : G C3p_endo anti
+A561 : U C3p_endo anti
+A562 : U C3p_endo anti
+A563 : G C3p_endo anti
+A564 : G C3p_endo anti
+A565 : A C3p_endo anti
+A566 : C C3p_endo anti
+A567 : C C3p_endo anti
+A568 : C C3p_endo anti
+A569 : G C2p_endo anti
+A570 : C C2p_endo anti
+A571 : C C2p_endo anti
+A572 : G C3p_endo anti
+A573 : C C3p_endo anti
+A574 : G C3p_endo anti
+A575 : U C3p_endo anti
+A576 : G C3p_endo anti
+A577 : G C3p_endo anti
+A578 : G C3p_endo anti
+A579 : A C3p_endo anti
+A580 : C C3p_endo anti
+A581 : C C3p_endo anti
+A582 : G C3p_endo anti
+A583 : C C3p_endo anti
+A584 : G C3p_endo anti
+A587 : G C2p_endo syn
+A588 : C C4p_exo anti
+A589 : G C2p_exo anti
+A590 : G C3p_endo anti
+A591 : G C3p_endo anti
+A592 : C C3p_endo anti
+A593 : C C1p_exo syn
+A594 : C C2p_endo anti
+A595 : G C2p_exo anti
+A596 : G C2p_exo anti
+A597 : C C3p_endo anti
+A598 : G C3p_endo anti
+A599 : C C3p_endo anti
+A600 : G C3p_endo anti
+A601 : C C3p_endo anti
+A602 : C C3p_endo syn
+A603 : G C2p_endo anti
+A604 : C C4p_exo anti
+A605 : G C2p_endo syn
+A606 : G C4p_exo anti
+A607 : C O4p_endo anti
+A608 : A C2p_endo anti
+A609 : G C3p_endo anti
+A610 : C C3p_endo anti
+A611 : C C2p_endo anti
+A612 : C C3p_endo anti
+A613 : C C3p_endo anti
+A614 : G C2p_endo anti
+A615 : A C2p_endo anti
+A616 : G C3p_endo anti
+A617 : G C3p_endo anti
+A618 : A C3p_endo anti
+A619 : G C3p_endo anti
+A620 : A C3p_endo anti
+A621 : G C3p_endo anti
+A622 : C C3p_endo anti
+A623 : G C3p_endo anti
+A624 : G C3p_endo anti
+A625 : G C3p_endo anti
+A626 : C C3p_endo anti
+A627 : G C3p_endo anti
+A628 : G C3p_endo anti
+A629 : G C3p_endo anti
+A630 : G C3p_endo anti
+A631 : G C3p_endo anti
+A632 : C C3p_endo anti
+A633 : A C3p_endo anti
+A634 : C C3p_endo anti
+A635 : C C3p_endo anti
+A636 : G C3p_endo anti
+A637 : G C3p_endo anti
+A638 : U C3p_endo anti
+A639 : A C3p_endo anti
+A640 : C C3p_endo anti
+A641 : C C3p_endo anti
+A642 : G C3p_endo anti
+A643 : G C3p_endo anti
+A644 : C C3p_endo anti
+A645 : C C3p_endo anti
+A646 : G C3p_endo anti
+A647 : G C3p_endo anti
+A648 : G C3p_endo anti
+A649 : G C2p_endo anti
+A650 : A C2p_endo anti
+A651 : C C3p_endo anti
+A652 : G C3p_endo anti
+A653 : G C3p_endo anti
+A654 : G C3p_endo anti
+A655 : U C3p_endo anti
+A656 : G C3p_endo anti
+A657 : A C3p_endo anti
+A658 : A C3p_endo anti
+A659 : A C3p_endo anti
+A660 : C C3p_endo anti
+A661 : A C3p_endo anti
+A662 : G C3p_endo anti
+A663 : G C3p_endo anti
+A664 : A C2p_endo anti
+A665 : U C2p_endo anti
+A666 : G C2p_endo anti
+A667 : A C3p_endo anti
+A668 : U C3p_endo anti
+A669 : C C3p_endo anti
+A670 : C C3p_endo anti
+A671 : C C3p_endo anti
+A672 : G C3p_endo anti
+A673 : C C3p_endo anti
+A674 : C C3p_endo anti
+A675 : G C3p_endo anti
+A676 : A C3p_endo anti
+A677 : G C3p_endo anti
+A678 : A C3p_endo anti
+A679 : C C3p_endo anti
+A680 : C C2p_endo anti
+A681 : G C3p_endo anti
+A682 : C C3p_endo anti
+A683 : C C3p_endo anti
+A684 : G C2p_endo anti
+A685 : G C2p_endo syn
+A686 : C C3p_endo syn
+A687 : C C3p_endo anti
+A688 : G C3p_endo anti
+A689 : C C3p_endo anti
+A690 : G C3p_endo anti
+A691 : C C3p_endo anti
+A692 : A C3p_endo anti
+A693 : G C3p_endo anti
+A694 : G C3p_endo anti
+A695 : C C3p_endo anti
+A696 : G C2p_endo syn
+A697 : C C3p_endo anti
+A698 : C C3p_endo anti
+A699 : U C3p_endo anti
+A700 : G C3p_endo anti
+A701 : C C3p_endo anti
+A702 : C C3p_endo anti
+A703 : A C3p_endo anti
+A704 : A C3p_endo anti
+A705 : G C3p_endo anti
+A706 : A C3p_endo anti
+A707 : C C3p_endo anti
+A708 : C C3p_endo anti
+A709 : G C3p_endo anti
+A710 : C C3p_endo anti
+A711 : C C2p_endo syn
+A712 : U C3p_endo anti
+A713 : C C3p_endo anti
+A714 : U C4p_exo anti
+A715 : G C2p_endo anti
+A716 : U C2p_endo anti
+A717 : C C3p_endo syn
+A718 : A C3p_endo anti
+A719 : A C3p_endo anti
+A720 : U C3p_endo anti
+A721 : C C3p_endo anti
+A722 : A C3p_endo anti
+A723 : A C3p_endo anti
+A724 : G C3p_endo anti
+A725 : G C3p_endo anti
+A726 : G C3p_endo anti
+A727 : C C3p_endo anti
+A728 : G C3p_endo anti
+A729 : A C3p_endo anti
+A730 : A C3p_endo anti
+A731 : G C3p_endo anti
+A732 : G C3p_endo anti
+A733 : C C3p_endo anti
+A734 : C C3p_endo anti
+A735 : G C3p_endo anti
+A736 : G C3p_endo anti
+A737 : G C3p_endo anti
+A738 : G C3p_endo anti
+A739 : G C3p_endo anti
+A740 : C C3p_endo anti
+A741 : U C3p_endo anti
+A742 : A C3p_endo anti
+A743 : G C3p_endo anti
+A744 : A C3p_endo anti
+A745 : A C3p_endo anti
+A746 : G C3p_endo anti
+A747 : G C3p_endo anti
+A748 : C C3p_endo anti
+A749 : G C3p_endo anti
+A750 : A C3p_endo anti
+A751 : U C3p_endo anti
+A752 : C C3p_endo syn
+A753 : A C4p_exo anti
+A754 : G C3p_endo anti
+A755 : A C2p_endo anti
+A756 : C C2p_endo anti
+A757 : A C3p_endo anti
+A758 : C C3p_endo anti
+A759 : C C3p_endo anti
+A760 : A C3p_endo anti
+A761 : C C3p_endo anti
+A762 : C C3p_endo anti
+A763 : G C3p_endo anti
+A764 : U C3p_endo anti
+A765 : A C3p_endo anti
+A766 : U C3p_endo anti
+A767 : U C3p_endo anti
+A768 : C C3p_endo anti
+A769 : C C3p_endo anti
+A770 : C C3p_endo anti
+A771 : G C3p_endo anti
+A772 : G C3p_endo anti
+A773 : C C3p_endo anti
+A774 : C C3p_endo anti
+A775 : G C2p_endo anti
+A776 : U C4p_exo anti
+A777 : A C3p_endo anti
+A778 : A C2p_endo anti
+A779 : A C3p_endo anti
+A780 : C C2p_endo anti
+A781 : G C2p_endo anti
+A782 : G C2p_endo anti
+A783 : U C2p_endo anti
+A784 : G C3p_endo anti
+A785 : C C3p_endo anti
+A786 : C C3p_endo anti
+A787 : G C3p_endo anti
+A788 : C C3p_endo anti
+A789 : C C3p_endo anti
+A790 : C C3p_endo anti
+A791 : C C3p_endo syn
+A792 : G C3p_endo anti
+A793 : C C3p_endo anti
+A794 : G C3p_endo anti
+A795 : G C3p_endo anti
+A796 : C C3p_endo anti
+A797 : C C3p_endo anti
+A798 : G C3p_endo anti
+A799 : G C3p_endo anti
+A800 : C C3p_endo anti
+A801 : G C3p_endo anti
+A802 : C C3p_endo anti
+A803 : G C3p_endo anti
+A804 : C C3p_endo anti
+A805 : G C3p_endo anti
+A808 : U C3p_endo anti
+A809 : C C3p_endo anti
+A810 : C C3p_endo anti
+A811 : C C3p_endo anti
+A812 : G C3p_endo anti
+A813 : C C3p_endo anti
+A814 : C C3p_endo anti
+A815 : G C3p_endo anti
+A816 : G C3p_endo anti
+A817 : C C3p_endo anti
+A818 : C C3p_endo anti
+A819 : G C3p_endo anti
+A820 : C C3p_endo anti
+A821 : C C3p_endo anti
+A822 : C C3p_endo anti
+A823 : A C3p_endo anti
+A824 : G C3p_endo anti
+A825 : G C3p_endo anti
+A826 : G C3p_endo anti
+A827 : A C3p_endo anti
+A828 : A C3p_endo anti
+A829 : A C3p_endo anti
+A830 : C C3p_endo anti
+A831 : C C3p_endo anti
+A832 : G C3p_endo anti
+A833 : G C2p_endo syn
+A834 : G C2p_endo syn
+A835 : A C2p_endo anti
+A836 : G C3p_endo anti
+A837 : G C3p_endo anti
+A838 : C C2p_endo anti
+A839 : U C2p_endo syn
+A840 : C C2p_endo anti
+A841 : C C2p_endo anti
+A842 : G C2p_endo syn
+A843 : G C3p_endo anti
+A844 : G C3p_endo anti
+A845 : C C3p_endo anti
+A846 : U C3p_endo anti
+A847 : C C3p_endo anti
+A848 : U C3p_endo anti
+A849 : G C3p_endo anti
+A850 : G C1p_exo syn
+A851 : G C3p_endo anti
+A852 : G C3p_endo anti
+A853 : G C3p_endo anti
+A854 : G C3p_endo anti
+A855 : A C2p_endo anti
+A856 : G C2p_endo anti
+A857 : U C3p_endo anti
+A858 : A C3p_endo anti
+A859 : U C3p_endo anti
+A860 : G C3p_endo anti
+A861 : G C3p_endo anti
+A862 : C C3p_endo anti
+A863 : C C3p_endo anti
+A864 : G C3p_endo anti
+A865 : C C3p_endo anti
+A866 : A C3p_endo anti
+A867 : A C3p_endo anti
+A869 : G C3p_endo anti
+A870 : C C3p_endo anti
+A871 : U C3p_endo anti
+A872 : G C3p_endo anti
+A873 : A C3p_endo anti
+A874 : A C3p_endo anti
+A875 : A C3p_endo anti
+A876 : C C3p_endo anti
+A877 : U C3p_endo anti
+A878 : U C3p_endo anti
+A879 : G C2p_endo anti
+A880 : A C3p_endo anti
+A881 : A C3p_endo anti
+A882 : G C3p_endo anti
+A883 : G C3p_endo anti
+A884 : C C3p_endo anti
+A885 : A C3p_endo anti
+A886 : U C3p_endo anti
+A887 : U C3p_endo anti
+A888 : G C3p_endo anti
+A889 : A C3p_endo anti
+A890 : C C3p_endo anti
+A891 : G C3p_endo anti
+A892 : G C3p_endo anti
+A893 : A C3p_endo anti
+A894 : G C3p_endo anti
+A895 : G C3p_endo anti
+A896 : G C3p_endo anti
+A897 : G C3p_endo anti
+A898 : U C3p_endo anti
+A899 : A C3p_endo anti
+A900 : C C2p_endo anti
+A902 : A C3p_endo anti
+A903 : C C3p_endo anti
+A904 : C C3p_endo anti
+A905 : A C3p_endo anti
+A906 : G C3p_endo anti
+A907 : A C3p_endo anti
+A908 : C C3p_endo anti
+A909 : G C3p_endo anti
+A910 : U C3p_endo anti
+A911 : G C3p_endo anti
+A912 : G C3p_endo anti
+A913 : A C3p_endo anti
+A914 : G C3p_endo anti
+A915 : U C3p_endo anti
+A916 : C C3p_endo anti
+A917 : U C3p_endo anti
+A918 : G C3p_endo anti
+A919 : C C3p_endo anti
+A920 : G C3p_endo anti
+A921 : G C3p_endo anti
+A922 : C C3p_endo anti
+A923 : U C3p_endo anti
+A924 : C C3p_endo anti
+A925 : A C3p_endo anti
+A926 : A C3p_endo anti
+A927 : U C2p_endo syn
+A928 : C C3p_endo anti
+A929 : U C3p_endo anti
+A930 : G C3p_endo anti
+A931 : A C3p_endo anti
+A932 : C C2p_endo anti
+A934 : C C3p_endo anti
+A935 : A C2p_endo anti
+A936 : A C2p_exo anti
+A937 : C C3p_endo anti
+A938 : G C2p_endo syn
+A939 : C C3p_endo anti
+A940 : G C3p_endo anti
+A941 : C C3p_exo syn
+A942 : G C2p_endo anti
+A943 : C C4p_exo syn
+A944 : A C4p_exo anti
+A945 : C C3p_endo anti
+A946 : C C3p_endo anti
+A947 : U C3p_endo anti
+A948 : C C2p_endo anti
+A949 : A C4p_exo syn
+A950 : C C3p_endo anti
+A951 : C C3p_endo anti
+A952 : A C3p_endo anti
+A953 : G C3p_endo anti
+A954 : G C3p_endo anti
+A955 : C C3p_endo anti
+A956 : C C3p_endo anti
+A957 : C C2p_endo anti
+A983 : G C3p_endo anti
+A984 : C C3p_endo anti
+A1005 : G C2p_exo anti
+A1006 : C C3p_endo anti
+A1007 : G C2p_exo anti
+A1008 : G C3p_endo anti
+A1009 : U C1p_exo anti
+A1010 : G C2p_exo anti
+A1012 : U C3p_endo anti
+A1013 : G C2p_endo syn
+A1014 : C C2p_endo syn
+A1015 : A C3p_endo anti
+A1016 : U C3p_endo anti
+A1017 : G C3p_endo anti
+A1018 : G C3p_endo anti
+A1019 : C C3p_endo anti
+A1020 : C C3p_endo anti
+A1021 : G C3p_endo anti
+A1022 : C C3p_endo anti
+A1023 : U C3p_endo anti
+A1024 : C C2p_endo anti
+A1025 : C C2p_endo anti
+A1026 : C C3p_endo anti
+A1027 : A C2p_endo anti
+A1028 : G C3p_endo anti
+A1029 : C C3p_endo anti
+A1030 : C C3p_endo anti
+A1031 : C C3p_endo anti
+A1032 : G C3p_endo anti
+A1033 : U C3p_endo anti
+A1034 : G C3p_endo anti
+A1036 : C C3p_endo anti
+A1037 : G C3p_endo anti
+A1038 : C C3p_endo anti
+A1039 : G C3p_endo anti
+A1040 : A C3p_endo anti
+A1041 : G C3p_endo anti
+A1042 : C C3p_endo anti
+A1043 : C C3p_endo anti
+A1044 : G C3p_endo anti
+A1045 : U C2p_endo syn
+A1048 : G C3p_endo anti
+A1049 : C C3p_endo anti
+A1050 : U C3p_endo anti
+A1051 : C C3p_endo anti
+A1052 : C C3p_endo anti
+A1053 : A C3p_endo anti
+A1054 : U C2p_endo anti
+A1055 : U C3p_endo anti
+A1056 : G C3p_endo anti
+A1057 : C C3p_endo anti
+A1058 : G C3p_endo anti
+A1059 : A C3p_endo anti
+A1060 : C C3p_endo anti
+A1061 : A C2p_endo syn
+A1062 : A C3p_endo anti
+A1063 : C C3p_endo anti
+A1064 : G C3p_endo anti
+A1065 : A C3p_endo anti
+A1066 : G C3p_endo anti
+A1067 : C C3p_endo anti
+A1068 : G C3p_endo anti
+A1069 : A C3p_endo anti
+A1070 : G C3p_endo anti
+A1071 : A C3p_endo anti
+A1072 : C C3p_endo anti
+A1073 : C C3p_endo anti
+A1074 : C C3p_endo anti
+A1075 : C C3p_endo anti
+A1076 : G C3p_endo anti
+A1077 : G C3p_endo anti
+A1078 : C C3p_endo anti
+A1079 : C C3p_endo anti
+A1080 : G C3p_endo anti
+A1081 : C C3p_endo anti
+A1082 : G C3p_endo anti
+A1083 : G C3p_endo anti
+A1084 : G C3p_endo anti
+A1087 : C C3p_endo anti
+A1088 : C C2p_endo anti
+A1089 : G C2p_endo anti
+A1090 : C C3p_endo anti
+A1091 : G C3p_endo anti
+A1092 : G C3p_endo anti
+A1093 : G C3p_endo anti
+A1094 : A C2p_endo anti
+A1095 : C C4p_exo syn
+A1096 : G C2p_endo anti
+A1097 : G C3p_endo anti
+A1098 : C C3p_endo anti
+A1099 : C C3p_endo anti
+A1100 : C C3p_endo anti
+A1101 : G C3p_endo anti
+A1102 : C C3p_endo anti
+A1106 : A C3p_endo anti
+A1107 : G C3p_endo anti
+A1108 : C C3p_endo anti
+A1109 : G C3p_endo anti
+A1110 : G C3p_endo anti
+A1111 : G C3p_endo anti
+A1112 : A C3p_endo anti
+A1113 : G C3p_endo anti
+A1114 : G C3p_endo anti
+A1115 : A C3p_endo anti
+A1116 : C C3p_endo anti
+A1117 : G C2p_endo syn
+A1118 : G C2p_endo syn
+A1119 : C C3p_endo anti
+A1120 : G C3p_endo anti
+A1121 : G C3p_endo anti
+A1122 : G C3p_endo anti
+A1123 : G C3p_endo anti
+A1124 : C C3p_endo anti
+A1125 : G C3p_endo anti
+A1126 : A C3p_endo anti
+A1127 : U C3p_endo anti
+A1128 : A C3p_endo anti
+A1129 : G C3p_endo anti
+A1130 : C C2p_endo anti
+A1131 : A C2p_endo anti
+A1132 : G C2p_exo syn
+A1133 : G C3p_endo anti
+A1134 : U C3p_endo anti
+A1135 : C C2p_endo anti
+A1136 : U C2p_endo anti
+A1137 : G C2p_exo anti
+A1138 : U C2p_exo anti
+A1139 : G C4p_endo syn
+A1140 : A C2p_exo anti
+A1141 : U C3p_endo anti
+A1142 : G C3p_endo anti
+A1143 : C C3p_endo anti
+A1144 : C C3p_endo anti
+A1145 : C C2p_endo anti
+A1146 : U C3p_endo anti
+A1147 : C C2p_endo anti
+A1151 : C C2p_endo anti
+A1152 : G C3p_endo anti
+A1153 : C C3p_endo anti
+A1154 : C C3p_endo anti
+A1155 : C C3p_endo anti
+A1156 : U C3p_endo anti
+A1157 : G C3p_endo anti
+A1158 : G C3p_endo anti
+A1159 : G C3p_endo anti
+A1160 : C C3p_endo syn
+A1161 : C C2p_endo anti
+A1162 : G C4p_exo anti
+A1163 : C C2p_endo anti
+A1164 : A C3p_endo syn
+A1165 : C C3p_endo anti
+A1166 : G C3p_endo anti
+A1167 : C C2p_exo anti
+A1168 : G C3p_endo anti
+A1169 : C C3p_endo anti
+A1170 : G C3p_endo anti
+A1171 : C C3p_endo anti
+A1172 : U C3p_endo anti
+A1173 : A C3p_endo anti
+A1174 : C C3p_endo anti
+A1175 : A C3p_endo anti
+A1176 : C C2p_endo anti
+A1177 : U C2p_endo anti
+A1178 : G C3p_endo anti
+A1179 : G C3p_endo anti
+A1180 : C C3p_endo anti
+A1181 : G C3p_endo anti
+A1182 : G C3p_endo anti
+A1183 : G C3p_endo anti
+A1184 : G C3p_endo anti
+A1185 : C C3p_endo anti
+A1186 : C C3p_endo anti
+A1187 : A C3p_endo anti
+A1188 : G C3p_endo anti
+A1189 : C C3p_endo anti
+A1190 : C C2p_endo anti
+A1191 : G C2p_endo anti
+A1192 : G C3p_endo anti
+A1193 : C C2p_endo anti
+A1194 : G C3p_endo anti
+A1195 : C C3p_endo anti
+A1196 : C C2p_exo anti
+A1197 : C C3p_endo anti
+A1198 : G C3p_endo anti
+A1199 : C C3p_endo syn
+A1200 : G C3p_endo anti
+A1201 : A C3p_endo anti
+A1202 : G C3p_endo anti
+A1203 : G C1p_endo anti
+A1204 : A C3p_endo anti
+A1205 : C C3p_endo anti
+A1206 : G C3p_endo anti
+A1207 : C C3p_endo anti
+A1208 : G C2p_endo syn
+A1212 : A C3p_endo anti
+A1213 : G C3p_endo anti
+A1214 : C C3p_endo anti
+A1215 : C C3p_endo anti
+A1216 : C C3p_endo anti
+A1217 : C C3p_endo anti
+A1218 : C C3p_endo anti
+A1219 : G C3p_endo anti
+A1220 : C C3p_endo anti
+A1221 : C C3p_endo anti
+A1222 : G C2p_endo anti
+A1223 : U C2p_endo syn
+A1224 : G C3p_endo syn
+A1225 : G C2p_endo syn
+A1226 : C C3p_endo anti
+A1227 : C C2p_endo anti
+A1228 : G C3p_endo anti
+A1229 : G C3p_endo anti
+A1230 : G C2p_endo anti
+A1231 : A C3p_endo anti
+A1232 : C C3p_endo anti
+A1233 : C C3p_endo anti
+A1234 : G C3p_endo anti
+A1235 : C C3p_endo anti
+A1236 : G C3p_endo anti
+A1237 : G C3p_endo anti
+A1238 : G C3p_endo anti
+A1239 : C C3p_endo anti
+A1240 : U C3p_endo anti
+A1241 : G C3p_endo anti
+A1242 : G C3p_endo anti
+A1243 : A C3p_endo anti
+A1244 : A C2p_endo anti
+A1245 : C C2p_endo syn
+A1246 : G C3p_endo anti
+A1247 : C C3p_endo anti
+A1248 : C C3p_endo anti
+A1249 : C C3p_endo anti
+A1250 : C C3p_endo anti
+A1251 : C C3p_endo anti
+A1252 : G C3p_endo anti
+A1253 : C C3p_endo anti
+A1254 : G C2p_endo anti
+A1255 : C C3p_endo anti
+A1256 : A C3p_endo anti
+A1257 : C C3p_endo anti
+A1258 : C C2p_endo syn
+A1259 : A C2p_endo anti
+A1260 : G C3p_endo syn
+A1262 : A C3p_endo anti
+A1263 : A C3p_endo anti
+A1264 : U C3p_endo anti
+A1265 : G C3p_endo anti
+A1266 : U C3p_endo anti
+A1267 : C C3p_endo anti
+A1268 : U C2p_endo anti
+A1269 : U C2p_endo anti
+A1270 : G C2p_endo anti
+A1271 : U C3p_endo anti
+A1272 : A C3p_endo anti
+A1273 : G C3p_endo anti
+A1274 : G C3p_endo anti
+A1275 : C C3p_endo anti
+A1276 : G C3p_endo anti
+A1277 : C C3p_endo anti
+A1278 : C C3p_endo anti
+A1279 : C C3p_endo anti
+A1280 : G C3p_endo anti
+A1281 : C C3p_endo anti
+A1282 : C C3p_endo syn
+A1283 : C C3p_endo anti
+A1284 : C C3p_endo anti
+A1285 : C C3p_endo anti
+A1286 : A C2p_endo anti
+A1287 : C C2p_endo anti
+A1288 : C C3p_endo anti
+A1289 : G C3p_endo anti
+A1290 : C C3p_endo anti
+A1291 : G C3p_endo anti
+A1292 : C C3p_endo anti
+A1293 : G C3p_endo anti
+A1294 : C C3p_endo anti
+A1295 : C C3p_endo anti
+A1296 : G C3p_endo anti
+A1297 : G C3p_endo anti
+A1298 : A C3p_endo anti
+A1299 : C C3p_endo anti
+A1300 : G C3p_endo syn
+A1301 : C C4p_exo anti
+A1302 : G C3p_endo anti
+A1303 : U C3p_endo anti
+A1304 : C C2p_endo anti
+A1305 : C C3p_endo anti
+A1306 : C C3p_endo anti
+A1307 : U C3p_endo anti
+A1308 : G C3p_endo anti
+A1309 : C C3p_endo anti
+A1310 : C C3p_endo anti
+A1311 : C C3p_endo anti
+A1312 : C C3p_endo anti
+A1313 : U C3p_endo anti
+A1315 : G C3p_endo anti
+A1316 : U C3p_endo anti
+A1317 : A C2p_endo anti
+A1318 : C C3p_endo anti
+A1319 : A C2p_endo anti
+A1320 : C C2p_endo anti
+A1321 : A C3p_endo anti
+A1322 : C C2p_endo anti
+A1323 : C C2p_endo anti
+A1324 : G C3p_endo anti
+A1326 : C C3p_endo anti
+A1327 : C C3p_endo anti
+A1328 : G C3p_endo anti
+A1329 : U C3p_endo anti
+A1330 : C C3p_endo anti
+A1331 : G C3p_endo anti
+A1332 : C C3p_endo anti
+A1333 : U C3p_endo anti
+A1334 : C C3p_endo anti
+A1335 : C C3p_endo anti
+A1336 : U C3p_endo anti
+A1337 : A C3p_endo anti
+A1338 : C C3p_endo anti
+A1339 : C C3p_endo anti
+A1340 : G C3p_endo anti
+A1341 : A C3p_endo anti
+A1342 : C C3p_endo anti
+A1343 : U C3p_endo anti
+A1344 : G C3p_endo anti
+A1345 : G C3p_endo anti
+A1346 : G C3p_endo anti
+A1347 : C C3p_endo anti
+A1348 : G C3p_endo anti
+A1349 : C C3p_endo anti
+A1350 : U C3p_endo anti
+A1351 : G C3p_endo anti
+A1352 : C C3p_endo anti
+A1353 : G C3p_endo anti
+A1354 : G C3p_endo anti
+A1355 : C C3p_endo anti
+A1356 : G C3p_endo anti
+A1357 : A C3p_endo anti
+A1358 : G C3p_endo anti
+A1359 : C C3p_endo anti
+A1360 : G C3p_endo anti
+A1361 : C C3p_endo anti
+A1362 : C C3p_endo anti
+A1363 : C C3p_endo anti
+A1364 : C C3p_endo anti
+A1365 : G C3p_endo anti
+A1366 : G C2p_endo anti
+A1367 : A C3p_endo syn
+A1368 : C C3p_endo anti
+A1371 : G C3p_endo anti
+A1372 : G C3p_endo anti
+A1373 : G C3p_endo anti
+A1374 : A C3p_endo anti
+A1375 : A C3p_endo anti
+A1376 : G C3p_endo anti
+A1377 : G C3p_endo anti
+A1378 : G C3p_endo anti
+A1379 : C C3p_endo anti
+A1380 : C C3p_endo anti
+A1381 : G C3p_endo anti
+A1382 : C C3p_endo anti
+A1383 : G C3p_endo anti
+A1384 : A C3p_endo anti
+A1385 : G C3p_endo anti
+A1386 : C C3p_endo anti
+A1387 : C C3p_endo anti
+A1388 : C C3p_endo anti
+A1389 : C C3p_endo anti
+A1391 : G C2p_exo anti
+A1392 : C C3p_endo anti
+A1393 : G C2p_exo anti
+A1394 : C C3p_endo anti
+A1395 : C C3p_endo anti
+A1396 : U C3p_endo anti
+A1397 : G C3p_endo anti
+A1398 : G C3p_endo anti
+A1399 : A C3p_endo anti
+A1400 : G C3p_endo anti
+A1401 : G C3p_endo anti
+A1402 : A C3p_endo anti
+A1403 : A C3p_endo anti
+A1404 : G C3p_endo anti
+A1405 : G C3p_endo anti
+A1406 : A C3p_endo anti
+A1407 : G C3p_endo anti
+A1408 : A C3p_endo anti
+A1409 : A C2p_endo syn
+A1410 : G C3p_endo anti
+A1411 : U C3p_endo anti
+A1412 : C C3p_endo anti
+A1413 : G C3p_endo anti
+A1414 : U C2p_endo syn
+A1415 : A C3p_endo anti
+A1416 : A C3p_endo anti
+A1417 : C C3p_endo anti
+A1418 : A C2p_endo syn
+A1419 : A C2p_endo anti
+A1420 : G C2p_endo anti
+A1421 : G C2p_exo syn
+A1422 : U C2p_endo anti
+A1423 : A C3p_endo anti
+A1424 : U C3p_endo anti
+A1425 : C C3p_endo anti
+A1427 : G C3p_endo anti
+A1428 : U C3p_endo anti
+A1429 : A C3p_endo anti
+A1430 : G C3p_endo anti
+A1431 : G C3p_endo anti
+A1432 : U C3p_endo anti
+A1433 : G C3p_endo anti
+A1436 : C C3p_endo anti
+A1437 : C C3p_endo anti
+A1438 : U C3p_endo anti
+A1439 : G C3p_endo anti
+A1440 : C C3p_endo anti
+A1441 : G C3p_endo anti
+A1442 : G C3p_endo anti
+A1443 : A C3p_endo anti
+A1444 : U C2p_endo anti
+A1445 : G C2p_endo syn
+A1446 : G C2p_endo anti
+A1447 : A C2p_endo anti
+A1448 : U C3p_endo anti
+A1449 : C C2p_endo syn
+A1450 : C C3p_endo anti
+A1451 : C C2p_endo anti
+A1452 : U C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A4-A5 : adjacent_5p upward 
+A6-A7 : adjacent_5p upward 
+A10-A11 : adjacent_5p upward 
+A11-A12 : adjacent_5p upward 
+A14-A15 : adjacent_5p upward 
+A15-A16 : adjacent_5p upward 
+A16-A17 : adjacent_5p upward 
+A18-A19 : adjacent_5p upward 
+A19-A20 : adjacent_5p upward 
+A20-A21 : adjacent_5p upward 
+A22-A23 : adjacent_5p upward 
+A23-A24 : adjacent_5p upward 
+A24-A25 : adjacent_5p upward 
+A25-A26 : adjacent_5p upward 
+A26-A27 : adjacent_5p upward 
+A27-A28 : adjacent_5p upward 
+A29-A30 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A31-A32 : adjacent_5p upward 
+A37-A38 : adjacent_5p upward 
+A39-A40 : adjacent_5p upward 
+A42-A43 : adjacent_5p upward 
+A47-A48 : adjacent_5p upward 
+A48-A49 : adjacent_5p upward 
+A50-A51 : adjacent_5p upward 
+A51-A52 : adjacent_5p upward 
+A52-A53 : adjacent_5p upward 
+A56-A57 : adjacent_5p upward 
+A62-A63 : adjacent_5p upward 
+A69-A70 : adjacent_5p upward 
+A70-A71 : adjacent_5p upward 
+A71-A72 : adjacent_5p upward 
+A72-A73 : adjacent_5p upward 
+A73-A74 : adjacent_5p upward 
+A74-A75 : adjacent_5p upward 
+A75-A76 : adjacent_5p upward 
+A76-A77 : adjacent_5p upward 
+A77-A78 : adjacent_5p upward 
+A78-A79 : adjacent_5p upward 
+A81-A82 : adjacent_5p upward 
+A82-A83 : adjacent_5p upward 
+A83-A84 : adjacent_5p upward 
+A84-A85 : adjacent_5p upward 
+A85-A86 : adjacent_5p upward 
+A88-A89 : adjacent_5p upward 
+A92-A93 : adjacent_5p outward 
+A93-A94 : adjacent_5p upward 
+A95-A96 : adjacent_5p upward 
+A96-A97 : adjacent_5p upward 
+A98-A99 : adjacent_5p upward 
+A99-A100 : adjacent_5p upward 
+A106-A107 : adjacent_5p upward 
+A107-A108 : adjacent_5p upward 
+A108-A109 : adjacent_5p upward 
+A109-A110 : adjacent_5p upward 
+A110-A111 : adjacent_5p upward 
+A111-A112 : adjacent_5p upward 
+A112-A113 : adjacent_5p inward 
+A127-A128 : adjacent_5p upward 
+A128-A129 : adjacent_5p upward 
+A129-A130 : adjacent_5p upward 
+A131-A132 : adjacent_5p upward 
+A132-A133 : adjacent_5p upward 
+A134-A135 : adjacent_5p upward 
+A135-A136 : adjacent_5p upward 
+A137-A138 : adjacent_5p upward 
+A138-A139 : adjacent_5p upward 
+A140-A141 : adjacent_5p upward 
+A141-A142 : adjacent_5p upward 
+A143-A144 : adjacent_5p upward 
+A145-A146 : adjacent_5p upward 
+A146-A147 : adjacent_5p upward 
+A148-A149 : adjacent_5p upward 
+A151-A152 : adjacent_5p upward 
+A154-A155 : adjacent_5p inward 
+A156-A157 : adjacent_5p upward 
+A157-A158 : adjacent_5p upward 
+A162-A163 : adjacent_5p upward 
+A164-A165 : adjacent_5p upward 
+A165-A166 : adjacent_5p upward 
+A166-A167 : adjacent_5p upward 
+A168-A169 : adjacent_5p upward 
+A169-A170 : adjacent_5p upward 
+A171-A172 : adjacent_5p upward pairing 
+A175-A176 : adjacent_5p downward 
+A181-A182 : adjacent_5p upward 
+A182-A183 : adjacent_5p upward 
+A184-A185 : adjacent_5p upward 
+A187-A188 : adjacent_5p upward 
+A188-A189 : adjacent_5p upward 
+A189-A190 : adjacent_5p upward 
+A191-A192 : adjacent_5p upward 
+A192-A193 : adjacent_5p inward 
+A193-A194 : adjacent_5p outward 
+A194-A195 : adjacent_5p upward 
+A195-A196 : adjacent_5p upward 
+A196-A197 : adjacent_5p upward 
+A198-A199 : adjacent_5p upward 
+A199-A200 : adjacent_5p upward 
+A200-A201 : adjacent_5p upward 
+A204-A205 : adjacent_5p upward 
+A206-A207 : adjacent_5p upward 
+A208-A209 : adjacent_5p upward 
+A209-A210 : adjacent_5p upward 
+A210-A211 : adjacent_5p upward 
+A211-A212 : adjacent_5p upward 
+A212-A213 : adjacent_5p upward 
+A213-A214 : adjacent_5p upward 
+A214-A215 : adjacent_5p upward 
+A215-A216 : adjacent_5p upward 
+A216-A217 : adjacent_5p upward 
+A218-A219 : adjacent_5p upward 
+A221-A222 : adjacent_5p upward 
+A223-A224 : adjacent_5p upward 
+A224-A225 : adjacent_5p upward 
+A232-A233 : adjacent_5p upward 
+A237-A238 : adjacent_5p upward 
+A238-A239 : adjacent_5p upward 
+A239-A240 : adjacent_5p upward 
+A240-A241 : adjacent_5p upward 
+A241-A242 : adjacent_5p upward 
+A242-A243 : adjacent_5p upward 
+A243-A244 : adjacent_5p upward 
+A245-A246 : adjacent_5p upward 
+A246-A247 : adjacent_5p upward 
+A247-A248 : adjacent_5p upward 
+A251-A252 : adjacent_5p upward 
+A252-A253 : adjacent_5p upward 
+A253-A254 : adjacent_5p upward 
+A256-A257 : adjacent_5p upward 
+A258-A259 : adjacent_5p upward 
+A259-A260 : adjacent_5p upward 
+A260-A261 : adjacent_5p upward 
+A265-A266 : adjacent_5p upward 
+A266-A267 : adjacent_5p upward 
+A267-A268 : adjacent_5p upward 
+A269-A270 : adjacent_5p upward 
+A274-A275 : adjacent_5p upward 
+A275-A276 : adjacent_5p upward 
+A277-A278 : adjacent_5p upward 
+A278-A279 : adjacent_5p upward 
+A279-A280 : adjacent_5p inward 
+A280-A281 : adjacent_5p outward 
+A282-A283 : adjacent_5p upward 
+A283-A284 : adjacent_5p upward 
+A285-A286 : adjacent_5p upward 
+A286-A287 : adjacent_5p upward 
+A287-A288 : adjacent_5p upward 
+A288-A289 : adjacent_5p upward 
+A290-A291 : adjacent_5p upward 
+A293-A294 : adjacent_5p upward 
+A294-A295 : adjacent_5p upward 
+A295-A296 : adjacent_5p upward 
+A296-A297 : adjacent_5p upward 
+A297-A298 : adjacent_5p upward 
+A298-A299 : adjacent_5p upward 
+A300-A301 : adjacent_5p upward 
+A301-A302 : adjacent_5p inward 
+A302-A303 : adjacent_5p outward 
+A303-A304 : adjacent_5p upward 
+A304-A305 : adjacent_5p upward 
+A306-A307 : adjacent_5p upward 
+A307-A308 : adjacent_5p upward 
+A309-A310 : adjacent_5p upward 
+A316-A317 : adjacent_5p upward 
+A320-A321 : adjacent_5p upward 
+A321-A322 : adjacent_5p upward 
+A322-A323 : adjacent_5p upward 
+A324-A325 : adjacent_5p upward 
+A326-A327 : adjacent_5p upward 
+A331-A332 : adjacent_5p upward 
+A332-A333 : adjacent_5p upward 
+A334-A335 : adjacent_5p upward 
+A338-A339 : adjacent_5p upward 
+A339-A340 : adjacent_5p upward 
+A340-A341 : adjacent_5p upward 
+A341-A342 : adjacent_5p upward 
+A342-A343 : adjacent_5p upward 
+A343-A344 : adjacent_5p upward 
+A344-A345 : adjacent_5p upward 
+A345-A346 : adjacent_5p upward 
+A353-A354 : adjacent_5p upward 
+A358-A359 : adjacent_5p upward 
+A359-A360 : adjacent_5p upward 
+A360-A361 : adjacent_5p upward 
+A362-A363 : adjacent_5p upward 
+A365-A366 : adjacent_5p upward 
+A366-A367 : adjacent_5p upward 
+A367-A368 : adjacent_5p upward 
+A372-A373 : adjacent_5p upward 
+A373-A374 : adjacent_5p upward 
+A374-A375 : adjacent_5p upward 
+A375-A376 : adjacent_5p upward 
+A376-A377 : adjacent_5p upward 
+A379-A380 : adjacent_5p upward 
+A380-A381 : adjacent_5p upward 
+A382-A383 : adjacent_5p upward 
+A383-A384 : adjacent_5p upward 
+A384-A385 : adjacent_5p upward 
+A385-A386 : adjacent_5p upward 
+A387-A388 : adjacent_5p upward 
+A388-A389 : adjacent_5p inward 
+A391-A392 : adjacent_5p upward 
+A393-A394 : adjacent_5p upward 
+A394-A395 : adjacent_5p upward 
+A395-A396 : adjacent_5p upward 
+A396-A397 : adjacent_5p upward 
+A398-A399 : adjacent_5p upward 
+A399-A400 : adjacent_5p upward 
+A400-A401 : adjacent_5p upward 
+A401-A402 : adjacent_5p upward 
+A402-A403 : adjacent_5p upward 
+A404-A405 : adjacent_5p upward 
+A405-A406 : adjacent_5p upward 
+A406-A407 : adjacent_5p inward 
+A407-A408 : adjacent_5p outward 
+A408-A409 : adjacent_5p upward 
+A409-A410 : adjacent_5p upward 
+A413-A414 : adjacent_5p upward 
+A414-A415 : adjacent_5p upward 
+A415-A416 : adjacent_5p upward 
+A427-A428 : adjacent_5p upward 
+A428-A429 : adjacent_5p upward 
+A429-A430 : adjacent_5p upward 
+A430-A431 : adjacent_5p upward 
+A432-A433 : adjacent_5p upward 
+A433-A434 : adjacent_5p upward 
+A434-A435 : adjacent_5p inward 
+A436-A437 : adjacent_5p upward 
+A442-A443 : adjacent_5p upward 
+A443-A444 : adjacent_5p upward 
+A444-A445 : adjacent_5p upward 
+A447-A448 : adjacent_5p upward 
+A448-A449 : adjacent_5p upward 
+A449-A450 : adjacent_5p upward 
+A450-A451 : adjacent_5p upward 
+A453-A454 : adjacent_5p upward 
+A455-A456 : adjacent_5p upward 
+A456-A457 : adjacent_5p upward 
+A465-A466 : adjacent_5p upward 
+A466-A467 : adjacent_5p upward 
+A467-A468 : adjacent_5p upward 
+A468-A469 : adjacent_5p upward 
+A469-A470 : adjacent_5p upward 
+A471-A472 : adjacent_5p upward 
+A472-A473 : adjacent_5p upward 
+A473-A474 : adjacent_5p upward 
+A476-A477 : adjacent_5p upward 
+A478-A479 : adjacent_5p upward 
+A479-A480 : adjacent_5p upward 
+A480-A481 : adjacent_5p upward 
+A481-A482 : adjacent_5p upward 
+A483-A484 : adjacent_5p upward 
+A484-A485 : adjacent_5p upward 
+A485-A486 : adjacent_5p upward 
+A486-A487 : adjacent_5p upward 
+A492-A493 : adjacent_5p upward 
+A493-A494 : adjacent_5p inward 
+A495-A496 : adjacent_5p upward 
+A496-A497 : adjacent_5p upward 
+A501-A502 : adjacent_5p upward 
+A505-A506 : adjacent_5p upward 
+A508-A509 : adjacent_5p upward 
+A510-A511 : adjacent_5p upward 
+A511-A512 : adjacent_5p upward 
+A512-A513 : adjacent_5p upward 
+A513-A514 : adjacent_5p upward 
+A516-A517 : adjacent_5p upward 
+A517-A518 : adjacent_5p upward 
+A523-A524 : adjacent_5p upward 
+A525-A526 : adjacent_5p upward 
+A526-A527 : adjacent_5p upward 
+A528-A529 : adjacent_5p upward 
+A529-A530 : adjacent_5p upward 
+A531-A532 : adjacent_5p upward 
+A532-A533 : adjacent_5p upward 
+A533-A534 : adjacent_5p upward 
+A535-A536 : adjacent_5p upward 
+A536-A537 : adjacent_5p upward 
+A537-A538 : adjacent_5p upward 
+A538-A539 : adjacent_5p upward 
+A539-A540 : adjacent_5p upward 
+A540-A541 : adjacent_5p upward 
+A542-A543 : adjacent_5p upward 
+A543-A544 : adjacent_5p upward 
+A548-A549 : adjacent_5p upward 
+A551-A552 : adjacent_5p upward 
+A552-A553 : adjacent_5p upward 
+A554-A555 : adjacent_5p outward 
+A555-A556 : adjacent_5p upward 
+A562-A563 : adjacent_5p upward 
+A563-A564 : adjacent_5p upward 
+A565-A566 : adjacent_5p upward 
+A567-A568 : adjacent_5p upward 
+A572-A573 : adjacent_5p upward 
+A574-A575 : adjacent_5p upward 
+A576-A577 : adjacent_5p upward 
+A577-A578 : adjacent_5p upward 
+A579-A580 : adjacent_5p upward 
+A580-A581 : adjacent_5p upward 
+A581-A582 : adjacent_5p upward 
+A582-A583 : adjacent_5p upward 
+A583-A584 : adjacent_5p upward 
+A587-A588 : adjacent_5p outward 
+A589-A590 : adjacent_5p upward 
+A590-A591 : adjacent_5p upward 
+A591-A592 : adjacent_5p upward 
+A592-A593 : adjacent_5p upward 
+A593-A594 : adjacent_5p inward 
+A595-A596 : adjacent_5p upward 
+A596-A597 : adjacent_5p upward 
+A598-A599 : adjacent_5p upward 
+A599-A600 : adjacent_5p upward 
+A600-A601 : adjacent_5p upward 
+A603-A604 : adjacent_5p downward 
+A606-A607 : adjacent_5p upward 
+A609-A610 : adjacent_5p upward 
+A612-A613 : adjacent_5p upward 
+A613-A614 : adjacent_5p upward 
+A617-A618 : adjacent_5p upward 
+A618-A619 : adjacent_5p upward 
+A619-A620 : adjacent_5p upward 
+A620-A621 : adjacent_5p upward 
+A621-A622 : adjacent_5p upward 
+A623-A624 : adjacent_5p upward 
+A624-A625 : adjacent_5p upward 
+A625-A626 : adjacent_5p upward 
+A629-A630 : adjacent_5p upward 
+A630-A631 : adjacent_5p upward 
+A631-A632 : adjacent_5p upward 
+A632-A633 : adjacent_5p upward 
+A633-A634 : adjacent_5p upward 
+A634-A635 : adjacent_5p upward 
+A636-A637 : adjacent_5p upward 
+A637-A638 : adjacent_5p upward 
+A638-A639 : adjacent_5p upward 
+A639-A640 : adjacent_5p upward 
+A640-A641 : adjacent_5p upward 
+A642-A643 : adjacent_5p upward 
+A643-A644 : adjacent_5p upward 
+A645-A646 : adjacent_5p upward 
+A646-A647 : adjacent_5p upward 
+A647-A648 : adjacent_5p upward 
+A648-A649 : adjacent_5p upward 
+A652-A653 : adjacent_5p upward 
+A653-A654 : adjacent_5p upward 
+A656-A657 : adjacent_5p upward 
+A657-A658 : adjacent_5p upward 
+A658-A659 : adjacent_5p upward 
+A659-A660 : adjacent_5p upward 
+A660-A661 : adjacent_5p upward 
+A662-A663 : adjacent_5p upward 
+A667-A668 : adjacent_5p upward 
+A668-A669 : adjacent_5p upward 
+A670-A671 : adjacent_5p upward 
+A671-A672 : adjacent_5p upward 
+A672-A673 : adjacent_5p upward 
+A673-A674 : adjacent_5p upward 
+A675-A676 : adjacent_5p upward 
+A676-A677 : adjacent_5p upward 
+A677-A678 : adjacent_5p upward 
+A678-A679 : adjacent_5p upward 
+A679-A680 : adjacent_5p upward 
+A681-A682 : adjacent_5p upward 
+A683-A684 : adjacent_5p inward 
+A687-A688 : adjacent_5p upward 
+A688-A689 : adjacent_5p upward 
+A691-A692 : adjacent_5p upward 
+A692-A693 : adjacent_5p upward 
+A694-A695 : adjacent_5p upward 
+A698-A699 : adjacent_5p upward 
+A700-A701 : adjacent_5p upward 
+A701-A702 : adjacent_5p upward 
+A702-A703 : adjacent_5p upward 
+A703-A704 : adjacent_5p upward 
+A704-A705 : adjacent_5p upward 
+A705-A706 : adjacent_5p upward 
+A706-A707 : adjacent_5p upward 
+A707-A708 : adjacent_5p upward 
+A709-A710 : adjacent_5p upward 
+A713-A714 : adjacent_5p upward 
+A714-A715 : adjacent_5p upward 
+A718-A719 : adjacent_5p upward 
+A719-A720 : adjacent_5p upward 
+A720-A721 : adjacent_5p upward 
+A722-A723 : adjacent_5p upward 
+A723-A724 : adjacent_5p upward 
+A724-A725 : adjacent_5p upward 
+A725-A726 : adjacent_5p upward 
+A726-A727 : adjacent_5p upward 
+A727-A728 : adjacent_5p upward 
+A729-A730 : adjacent_5p upward 
+A730-A731 : adjacent_5p upward 
+A731-A732 : adjacent_5p upward 
+A732-A733 : adjacent_5p upward 
+A734-A735 : adjacent_5p upward 
+A735-A736 : adjacent_5p upward 
+A736-A737 : adjacent_5p upward 
+A737-A738 : adjacent_5p upward 
+A738-A739 : adjacent_5p upward 
+A740-A741 : adjacent_5p upward 
+A741-A742 : adjacent_5p upward 
+A742-A743 : adjacent_5p upward 
+A745-A746 : adjacent_5p upward 
+A746-A747 : adjacent_5p upward 
+A747-A748 : adjacent_5p upward 
+A749-A750 : adjacent_5p upward 
+A750-A751 : adjacent_5p upward 
+A751-A752 : adjacent_5p inward 
+A753-A754 : adjacent_5p upward 
+A757-A758 : adjacent_5p upward 
+A760-A761 : adjacent_5p upward 
+A762-A763 : adjacent_5p upward 
+A764-A765 : adjacent_5p upward 
+A765-A766 : adjacent_5p upward 
+A766-A767 : adjacent_5p upward 
+A769-A770 : adjacent_5p upward 
+A770-A771 : adjacent_5p upward 
+A771-A772 : adjacent_5p upward 
+A772-A773 : adjacent_5p upward 
+A773-A774 : adjacent_5p upward 
+A784-A785 : adjacent_5p upward 
+A786-A787 : adjacent_5p upward 
+A787-A788 : adjacent_5p upward 
+A789-A790 : adjacent_5p upward 
+A791-A792 : adjacent_5p outward 
+A792-A793 : adjacent_5p upward 
+A794-A795 : adjacent_5p upward 
+A795-A796 : adjacent_5p upward 
+A798-A799 : adjacent_5p upward 
+A799-A800 : adjacent_5p upward 
+A800-A801 : adjacent_5p upward 
+A801-A802 : adjacent_5p upward 
+A802-A803 : adjacent_5p upward 
+A803-A804 : adjacent_5p upward 
+A804-A805 : adjacent_5p upward 
+A808-A809 : adjacent_5p upward 
+A809-A810 : adjacent_5p upward 
+A811-A812 : adjacent_5p upward 
+A812-A813 : adjacent_5p upward 
+A814-A815 : adjacent_5p upward 
+A815-A816 : adjacent_5p upward 
+A816-A817 : adjacent_5p upward 
+A819-A820 : adjacent_5p upward 
+A820-A821 : adjacent_5p upward 
+A822-A823 : adjacent_5p upward 
+A823-A824 : adjacent_5p upward 
+A824-A825 : adjacent_5p upward 
+A825-A826 : adjacent_5p upward 
+A827-A828 : adjacent_5p upward 
+A828-A829 : adjacent_5p upward 
+A831-A832 : adjacent_5p upward 
+A836-A837 : adjacent_5p upward 
+A843-A844 : adjacent_5p upward 
+A844-A845 : adjacent_5p upward 
+A846-A847 : adjacent_5p upward 
+A847-A848 : adjacent_5p upward 
+A849-A850 : adjacent_5p inward 
+A851-A852 : adjacent_5p upward 
+A852-A853 : adjacent_5p upward 
+A853-A854 : adjacent_5p upward 
+A858-A859 : adjacent_5p upward 
+A859-A860 : adjacent_5p upward 
+A860-A861 : adjacent_5p upward 
+A861-A862 : adjacent_5p upward 
+A863-A864 : adjacent_5p upward 
+A865-A866 : adjacent_5p upward 
+A866-A867 : adjacent_5p upward 
+A869-A870 : adjacent_5p upward 
+A870-A871 : adjacent_5p upward 
+A871-A872 : adjacent_5p upward 
+A873-A874 : adjacent_5p upward 
+A874-A875 : adjacent_5p upward 
+A875-A876 : adjacent_5p upward 
+A880-A881 : adjacent_5p upward 
+A881-A882 : adjacent_5p upward 
+A882-A883 : adjacent_5p upward 
+A883-A884 : adjacent_5p upward 
+A884-A885 : adjacent_5p upward 
+A885-A886 : adjacent_5p upward 
+A886-A887 : adjacent_5p upward 
+A887-A888 : adjacent_5p upward 
+A888-A889 : adjacent_5p upward 
+A889-A890 : adjacent_5p upward 
+A893-A894 : adjacent_5p upward 
+A894-A895 : adjacent_5p upward 
+A895-A896 : adjacent_5p upward 
+A896-A897 : adjacent_5p upward 
+A897-A898 : adjacent_5p upward 
+A902-A903 : adjacent_5p upward 
+A904-A905 : adjacent_5p upward 
+A905-A906 : adjacent_5p upward 
+A906-A907 : adjacent_5p upward 
+A907-A908 : adjacent_5p upward 
+A909-A910 : adjacent_5p upward 
+A910-A911 : adjacent_5p upward 
+A912-A913 : adjacent_5p upward 
+A913-A914 : adjacent_5p upward 
+A914-A915 : adjacent_5p upward 
+A916-A917 : adjacent_5p upward 
+A918-A919 : adjacent_5p upward 
+A919-A920 : adjacent_5p upward 
+A920-A921 : adjacent_5p upward 
+A921-A922 : adjacent_5p upward 
+A922-A923 : adjacent_5p upward 
+A923-A924 : adjacent_5p upward 
+A925-A926 : adjacent_5p upward 
+A928-A929 : adjacent_5p upward 
+A930-A931 : adjacent_5p upward 
+A934-A935 : adjacent_5p inward 
+A936-A937 : adjacent_5p upward 
+A945-A946 : adjacent_5p upward 
+A946-A947 : adjacent_5p upward 
+A947-A948 : adjacent_5p inward 
+A952-A953 : adjacent_5p upward 
+A953-A954 : adjacent_5p upward 
+A955-A956 : adjacent_5p upward 
+A983-A984 : adjacent_5p upward 
+A1005-A1006 : adjacent_5p upward 
+A1006-A1007 : adjacent_5p upward 
+A1007-A1008 : adjacent_5p upward 
+A1015-A1016 : adjacent_5p upward 
+A1017-A1018 : adjacent_5p upward 
+A1018-A1019 : adjacent_5p upward 
+A1019-A1020 : adjacent_5p upward 
+A1021-A1022 : adjacent_5p upward 
+A1023-A1024 : adjacent_5p inward 
+A1026-A1027 : adjacent_5p upward 
+A1028-A1029 : adjacent_5p upward 
+A1029-A1030 : adjacent_5p upward 
+A1032-A1033 : adjacent_5p upward 
+A1033-A1034 : adjacent_5p upward 
+A1036-A1037 : adjacent_5p upward 
+A1038-A1039 : adjacent_5p upward 
+A1039-A1040 : adjacent_5p upward 
+A1041-A1042 : adjacent_5p upward 
+A1042-A1043 : adjacent_5p upward 
+A1043-A1044 : adjacent_5p upward 
+A1044-A1045 : adjacent_5p upward 
+A1048-A1049 : adjacent_5p upward 
+A1049-A1050 : adjacent_5p upward 
+A1052-A1053 : adjacent_5p upward 
+A1055-A1056 : adjacent_5p upward 
+A1056-A1057 : adjacent_5p upward 
+A1057-A1058 : adjacent_5p upward 
+A1058-A1059 : adjacent_5p upward 
+A1059-A1060 : adjacent_5p upward 
+A1062-A1063 : adjacent_5p upward 
+A1063-A1064 : adjacent_5p upward 
+A1064-A1065 : adjacent_5p upward 
+A1065-A1066 : adjacent_5p upward 
+A1066-A1067 : adjacent_5p upward 
+A1067-A1068 : adjacent_5p upward 
+A1068-A1069 : adjacent_5p upward 
+A1069-A1070 : adjacent_5p upward 
+A1070-A1071 : adjacent_5p upward 
+A1071-A1072 : adjacent_5p upward 
+A1074-A1075 : adjacent_5p upward 
+A1075-A1076 : adjacent_5p upward 
+A1076-A1077 : adjacent_5p upward 
+A1080-A1081 : adjacent_5p upward 
+A1081-A1082 : adjacent_5p upward 
+A1082-A1083 : adjacent_5p upward 
+A1083-A1084 : adjacent_5p upward 
+A1089-A1090 : adjacent_5p upward 
+A1090-A1091 : adjacent_5p upward 
+A1091-A1092 : adjacent_5p upward 
+A1092-A1093 : adjacent_5p upward 
+A1097-A1098 : adjacent_5p upward 
+A1101-A1102 : adjacent_5p upward 
+A1109-A1110 : adjacent_5p upward 
+A1110-A1111 : adjacent_5p upward 
+A1111-A1112 : adjacent_5p upward 
+A1112-A1113 : adjacent_5p upward 
+A1113-A1114 : adjacent_5p upward 
+A1115-A1116 : adjacent_5p upward 
+A1117-A1118 : adjacent_5p upward 
+A1120-A1121 : adjacent_5p upward 
+A1121-A1122 : adjacent_5p upward 
+A1122-A1123 : adjacent_5p upward 
+A1123-A1124 : adjacent_5p upward 
+A1124-A1125 : adjacent_5p upward 
+A1126-A1127 : adjacent_5p upward 
+A1127-A1128 : adjacent_5p upward 
+A1128-A1129 : adjacent_5p upward 
+A1129-A1130 : adjacent_5p upward 
+A1132-A1133 : adjacent_5p outward 
+A1133-A1134 : adjacent_5p upward 
+A1137-A1138 : adjacent_5p upward 
+A1140-A1141 : adjacent_5p upward 
+A1142-A1143 : adjacent_5p upward 
+A1145-A1146 : adjacent_5p upward 
+A1146-A1147 : adjacent_5p upward 
+A1152-A1153 : adjacent_5p upward 
+A1157-A1158 : adjacent_5p upward 
+A1158-A1159 : adjacent_5p upward 
+A1159-A1160 : adjacent_5p inward 
+A1162-A1163 : adjacent_5p upward 
+A1164-A1165 : adjacent_5p outward 
+A1166-A1167 : adjacent_5p upward 
+A1168-A1169 : adjacent_5p upward 
+A1169-A1170 : adjacent_5p upward 
+A1170-A1171 : adjacent_5p upward 
+A1171-A1172 : adjacent_5p upward 
+A1173-A1174 : adjacent_5p upward 
+A1178-A1179 : adjacent_5p upward 
+A1179-A1180 : adjacent_5p upward 
+A1181-A1182 : adjacent_5p upward 
+A1182-A1183 : adjacent_5p upward 
+A1183-A1184 : adjacent_5p upward 
+A1184-A1185 : adjacent_5p upward 
+A1187-A1188 : adjacent_5p upward 
+A1188-A1189 : adjacent_5p upward 
+A1192-A1193 : adjacent_5p upward 
+A1194-A1195 : adjacent_5p upward 
+A1195-A1196 : adjacent_5p upward 
+A1197-A1198 : adjacent_5p upward 
+A1199-A1200 : adjacent_5p outward 
+A1200-A1201 : adjacent_5p upward 
+A1201-A1202 : adjacent_5p upward pairing 
+A1202-A1203 : adjacent_5p upward 
+A1204-A1205 : adjacent_5p upward 
+A1206-A1207 : adjacent_5p upward 
+A1212-A1213 : adjacent_5p upward 
+A1213-A1214 : adjacent_5p upward 
+A1214-A1215 : adjacent_5p upward 
+A1217-A1218 : adjacent_5p upward 
+A1219-A1220 : adjacent_5p upward 
+A1220-A1221 : adjacent_5p upward 
+A1228-A1229 : adjacent_5p upward 
+A1229-A1230 : adjacent_5p upward 
+A1231-A1232 : adjacent_5p upward 
+A1232-A1233 : adjacent_5p upward 
+A1234-A1235 : adjacent_5p upward 
+A1235-A1236 : adjacent_5p upward 
+A1236-A1237 : adjacent_5p upward 
+A1237-A1238 : adjacent_5p upward 
+A1238-A1239 : adjacent_5p upward 
+A1240-A1241 : adjacent_5p upward 
+A1242-A1243 : adjacent_5p upward 
+A1246-A1247 : adjacent_5p upward 
+A1252-A1253 : adjacent_5p upward 
+A1255-A1256 : adjacent_5p upward 
+A1256-A1257 : adjacent_5p upward 
+A1263-A1264 : adjacent_5p upward 
+A1265-A1266 : adjacent_5p upward 
+A1272-A1273 : adjacent_5p upward 
+A1273-A1274 : adjacent_5p upward 
+A1274-A1275 : adjacent_5p upward 
+A1275-A1276 : adjacent_5p upward 
+A1276-A1277 : adjacent_5p upward 
+A1280-A1281 : adjacent_5p upward 
+A1283-A1284 : adjacent_5p upward 
+A1284-A1285 : adjacent_5p upward 
+A1289-A1290 : adjacent_5p upward 
+A1290-A1291 : adjacent_5p upward 
+A1291-A1292 : adjacent_5p upward 
+A1292-A1293 : adjacent_5p upward 
+A1293-A1294 : adjacent_5p upward 
+A1295-A1296 : adjacent_5p upward 
+A1297-A1298 : adjacent_5p upward 
+A1298-A1299 : adjacent_5p upward 
+A1300-A1301 : adjacent_5p outward 
+A1302-A1303 : adjacent_5p upward 
+A1303-A1304 : adjacent_5p upward 
+A1306-A1307 : adjacent_5p upward 
+A1308-A1309 : adjacent_5p upward 
+A1312-A1313 : adjacent_5p upward 
+A1315-A1316 : adjacent_5p upward 
+A1328-A1329 : adjacent_5p upward 
+A1329-A1330 : adjacent_5p upward 
+A1330-A1331 : adjacent_5p upward 
+A1331-A1332 : adjacent_5p upward 
+A1333-A1334 : adjacent_5p upward 
+A1336-A1337 : adjacent_5p upward 
+A1337-A1338 : adjacent_5p upward 
+A1339-A1340 : adjacent_5p upward 
+A1344-A1345 : adjacent_5p upward 
+A1345-A1346 : adjacent_5p upward 
+A1346-A1347 : adjacent_5p upward 
+A1348-A1349 : adjacent_5p upward 
+A1350-A1351 : adjacent_5p upward 
+A1352-A1353 : adjacent_5p upward 
+A1353-A1354 : adjacent_5p upward 
+A1354-A1355 : adjacent_5p upward 
+A1355-A1356 : adjacent_5p upward 
+A1357-A1358 : adjacent_5p upward 
+A1358-A1359 : adjacent_5p upward 
+A1359-A1360 : adjacent_5p upward 
+A1361-A1362 : adjacent_5p upward 
+A1362-A1363 : adjacent_5p upward 
+A1364-A1365 : adjacent_5p upward 
+A1365-A1366 : adjacent_5p upward 
+A1367-A1368 : adjacent_5p outward 
+A1371-A1372 : adjacent_5p upward 
+A1372-A1373 : adjacent_5p upward 
+A1374-A1375 : adjacent_5p upward 
+A1375-A1376 : adjacent_5p upward 
+A1376-A1377 : adjacent_5p upward 
+A1377-A1378 : adjacent_5p upward 
+A1378-A1379 : adjacent_5p upward 
+A1379-A1380 : adjacent_5p upward 
+A1381-A1382 : adjacent_5p upward 
+A1382-A1383 : adjacent_5p upward 
+A1384-A1385 : adjacent_5p upward 
+A1385-A1386 : adjacent_5p upward 
+A1387-A1388 : adjacent_5p upward 
+A1388-A1389 : adjacent_5p upward 
+A1391-A1392 : adjacent_5p upward 
+A1393-A1394 : adjacent_5p upward 
+A1395-A1396 : adjacent_5p upward 
+A1397-A1398 : adjacent_5p upward 
+A1399-A1400 : adjacent_5p upward 
+A1400-A1401 : adjacent_5p upward 
+A1401-A1402 : adjacent_5p upward 
+A1402-A1403 : adjacent_5p upward 
+A1403-A1404 : adjacent_5p upward 
+A1404-A1405 : adjacent_5p upward 
+A1405-A1406 : adjacent_5p upward 
+A1406-A1407 : adjacent_5p upward 
+A1407-A1408 : adjacent_5p upward 
+A1410-A1411 : adjacent_5p upward 
+A1411-A1412 : adjacent_5p upward 
+A1412-A1413 : adjacent_5p upward 
+A1413-A1414 : adjacent_5p inward 
+A1415-A1416 : adjacent_5p upward 
+A1416-A1417 : adjacent_5p upward 
+A1423-A1424 : adjacent_5p upward 
+A1427-A1428 : adjacent_5p upward 
+A1429-A1430 : adjacent_5p upward 
+A1430-A1431 : adjacent_5p upward 
+A1431-A1432 : adjacent_5p upward 
+A1437-A1438 : adjacent_5p upward 
+A1439-A1440 : adjacent_5p upward 
+A1440-A1441 : adjacent_5p upward 
+A1441-A1442 : adjacent_5p upward 
+A1442-A1443 : adjacent_5p upward 
+A1443-A1444 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A2-A282 : outward 
+A6-A19 : outward 
+A10-A1319 : downward 
+A22-A485 : outward 
+A24-A483 : outward 
+A26-A481 : outward 
+A29-A478 : outward 
+A33-A385 : outward 
+A39-A379 : outward 
+A40-A350 : upward 
+A41-A349 : downward 
+A42-A290 : outward 
+A44-A271 : outward 
+A46-A337 : outward 
+A47-A344 : outward 
+A49-A336 : inward 
+A52-A340 : outward 
+A54-A315 : upward 
+A54-A338 : outward 
+A56-A78 : outward 
+A80-A310 : downward 
+A80-A311 : upward 
+A89-A272 : inward 
+A90-A223 : upward 
+A90-A272 : outward 
+A95-A221 : outward 
+A98-A218 : outward 
+A101-A185 : inward 
+A110-A209 : outward 
+A116-A197 : downward 
+A126-A202 : downward 
+A127-A156 : outward 
+A134-A148 : outward 
+A137-A145 : outward 
+A152-A154 : upward 
+A158-A201 : inward 
+A160-A201 : upward 
+A164-A198 : outward 
+A167-A194 : outward 
+A168-A193 : downward 
+A170-A191 : outward 
+A171-A186 : downward 
+A175-A598 : upward 
+A181-A188 : outward 
+A226-A228 : downward 
+A226-A229 : upward 
+A227-A860 : outward 
+A229-A265 : outward 
+A231-A260 : outward 
+A234-A249 : upward 
+A237-A256 : outward 
+A238-A255 : outward 
+A240-A253 : outward 
+A242-A251 : outward 
+A248-A250 : upward 
+A274-A295 : outward 
+A277-A289 : outward 
+A300-A322 : outward 
+A300-A335 : downward 
+A302-A320 : upward 
+A311-A313 : upward 
+A313-A316 : upward pairing 
+A324-A334 : outward 
+A351-A375 : outward 
+A353-A374 : outward 
+A356-A368 : inward pairing 
+A357-A404 : outward 
+A362-A367 : outward 
+A378-A476 : upward 
+A398-A413 : outward 
+A426-A475 : upward 
+A430-A471 : outward 
+A432-A463 : outward 
+A438-A440 : upward 
+A442-A466 : outward 
+A446-A457 : downward 
+A446-A458 : upward 
+A461-A464 : upward 
+A487-A489 : inward 
+A488-A494 : outward 
+A491-A495 : outward 
+A496-A849 : outward 
+A497-A503 : upward 
+A498-A835 : outward 
+A503-A784 : upward 
+A505-A779 : downward 
+A510-A723 : outward 
+A511-A722 : outward 
+A515-A718 : outward 
+A516-A615 : outward 
+A523-A584 : outward 
+A525-A582 : outward 
+A529-A576 : outward 
+A531-A574 : outward 
+A534-A569 : inward 
+A540-A567 : outward 
+A546-A551 : outward 
+A554-A563 : upward pairing 
+A555-A562 : outward 
+A587-A609 : upward 
+A603-A605 : inward pairing 
+A614-A715 : inward 
+A615-A617 : upward 
+A623-A709 : outward 
+A628-A695 : inward 
+A628-A696 : outward pairing 
+A629-A704 : outward 
+A630-A703 : outward 
+A633-A700 : outward 
+A642-A675 : outward 
+A649-A666 : inward pairing 
+A652-A662 : outward 
+A664-A666 : outward 
+A684-A696 : downward 
+A685-A687 : outward 
+A690-A694 : outward 
+A728-A775 : inward pairing 
+A729-A777 : outward 
+A735-A771 : outward 
+A744-A765 : outward 
+A745-A764 : outward 
+A749-A760 : outward 
+A755-A757 : upward pairing 
+A777-A779 : upward 
+A778-A1445 : outward pairing 
+A782-A1445 : downward 
+A787-A843 : outward 
+A791-A822 : upward 
+A794-A819 : outward 
+A798-A815 : outward 
+A801-A812 : outward 
+A821-A832 : inward 
+A834-A836 : outward pairing 
+A851-A879 : outward 
+A855-A857 : outward 
+A856-A872 : inward 
+A858-A873 : outward 
+A888-A1319 : outward 
+A891-A893 : upward 
+A891-A1315 : outward 
+A892-A1421 : inward 
+A898-A1304 : inward 
+A899-A902 : upward 
+A899-A1308 : outward 
+A900-A1267 : downward 
+A909-A1265 : outward 
+A912-A1260 : downward 
+A913-A1173 : outward 
+A918-A1168 : outward 
+A920-A1166 : outward 
+A927-A1162 : outward pairing 
+A928-A949 : outward 
+A930-A940 : outward 
+A932-A936 : outward 
+A942-A1281 : downward 
+A942-A1285 : inward 
+A942-A1286 : downward 
+A944-A1243 : inward 
+A944-A1244 : outward 
+A952-A1157 : outward 
+A1012-A1135 : inward 
+A1013-A1134 : inward 
+A1014-A1131 : inward pairing 
+A1015-A1142 : outward 
+A1017-A1140 : outward 
+A1021-A1132 : downward 
+A1024-A1026 : outward 
+A1028-A1068 : outward 
+A1031-A1065 : outward 
+A1032-A1064 : outward 
+A1034-A1062 : outward 
+A1037-A1041 : outward 
+A1078-A1115 : outward 
+A1080-A1091 : outward 
+A1082-A1089 : outward 
+A1094-A1116 : inward 
+A1094-A1117 : outward 
+A1095-A1097 : outward 
+A1096-A1118 : downward 
+A1101-A1109 : outward 
+A1174-A1259 : upward 
+A1176-A1178 : outward 
+A1176-A1223 : inward 
+A1181-A1219 : outward 
+A1187-A1212 : outward 
+A1192-A1208 : downward 
+A1194-A1206 : outward 
+A1224-A1226 : outward 
+A1225-A1228 : upward 
+A1231-A1255 : outward 
+A1234-A1252 : outward 
+A1238-A1248 : outward 
+A1244-A1246 : upward pairing 
+A1268-A1300 : inward 
+A1269-A1271 : outward 
+A1270-A1296 : inward pairing 
+A1272-A1297 : outward 
+A1276-A1293 : outward 
+A1280-A1289 : outward 
+A1286-A1288 : outward pairing 
+A1322-A1324 : outward 
+A1328-A1413 : outward 
+A1331-A1410 : outward 
+A1337-A1403 : outward 
+A1340-A1398 : inward 
+A1341-A1399 : outward 
+A1344-A1397 : outward 
+A1348-A1393 : outward 
+A1357-A1384 : outward 
+A1360-A1381 : outward 
+A1366-A1373 : inward pairing 
+A1367-A1374 : upward 
+A1417-A1420 : inward 
+A1418-A1420 : outward 
+A1419-A1447 : outward 
+A1423-A1446 : outward 
+A1427-A1441 : outward 
+A1429-A1439 : outward 
+A1444-A1446 : upward 
+Number of stackings = 957
+Number of adjacent stackings = 738
+Number of non adjacent stackings = 219
+Base-pairs ------------------------------------------------------
+A4-A20 : C-G Ww/Ww pairing antiparallel cis XIX 
+A5-A19 : C-G Ww/Ww pairing antiparallel cis XIX 
+A6-A18 : G-C Ww/Ww pairing antiparallel cis XIX 
+A7-A17 : G-C Ww/Ww pairing antiparallel cis XIX 
+A8-A15 : U-U Hh/Ww pairing antiparallel trans one_hbond 81 
+A8-A881 : U-A Ww/Hh pairing parallel cis XXIII 
+A9-A11 : C-A O2'/Hh Hh/O2P pairing 
+A9-A12 : C-U Ww/O2P pairing 
+A10-A886 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A11-A885 : A-A Ww/Ww pairing antiparallel cis 37 
+A11-A1040 : A-A Ss/O2' pairing 
+A12-A1039 : U-G O2'/Ss pairing 
+A13-A883 : C-G Ww/Ww pairing antiparallel cis XIX 
+A13-A1038 : C-C O2'/Ww O2'/Bh pairing 
+A14-A882 : C-G Ww/Ww pairing antiparallel cis XIX 
+A15-A881 : U-A Ws/Wh pairing antiparallel trans one_hbond 46 
+A16-A880 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A17-A879 : C-G Ss/Ws O2'/Ww pairing parallel trans one_hbond 
+A21-A486 : A-G Wh/Ss Ww/O2' pairing antiparallel cis one_hbond 63 
+A22-A484 : G-C Ww/Ww pairing antiparallel cis XIX 
+A23-A483 : C-G Ww/Ww pairing antiparallel cis XIX 
+A24-A482 : G-C Ww/Ww pairing antiparallel cis XIX 
+A25-A481 : C-G Ww/Ww pairing antiparallel cis XIX 
+A26-A480 : G-C Ww/Ww pairing antiparallel cis XIX 
+A27-A479 : A-U Ww/Ww pairing antiparallel cis XX 
+A28-A478 : C-G Ww/Ww pairing antiparallel cis XIX 
+A29-A477 : G-C Ww/Ww pairing antiparallel cis XIX 
+A30-A476 : C-G Ww/Ww pairing antiparallel cis XIX 
+A31-A378 : U-C Ws/Hw pairing antiparallel trans one_hbond 
+A31-A475 : U-A O2'/Ww pairing 
+A33-A384 : U-G Ws/Ws pairing antiparallel cis one_hbond 
+A34-A383 : C-G Ww/Ww pairing antiparallel cis XIX 
+A35-A382 : C-G Ww/Ww pairing antiparallel cis XIX 
+A36-A550 : C-A O2'/Ww pairing 
+A39-A377 : A-G Hh/Ss pairing antiparallel trans XI 
+A40-A376 : G-C Ww/Ww pairing antiparallel cis XIX 
+A41-A345 : G-C Ww/Ww pairing antiparallel cis XIX 
+A41-A350 : G-C O2P/Bh pairing 
+A43-A349 : C-A O2P/Bh pairing 
+A45-A344 : A-G O2'/Bs Ww/O2' pairing 
+A46-A85 : A-U Hh/O2' pairing 
+A47-A343 : G-C Ww/Ww pairing antiparallel cis XIX 
+A48-A342 : C-G Ww/Ww pairing antiparallel cis XIX 
+A49-A341 : C-G Ww/Ww pairing antiparallel cis XIX 
+A50-A336 : A-C O2P/Bh pairing 
+A50-A341 : A-G Hh/Ss pairing antiparallel trans XI 
+A51-A340 : U-A Ww/Ww pairing antiparallel cis XX 
+A52-A339 : G-C Ww/Ww pairing antiparallel cis XIX 
+A53-A338 : C-G Ww/Ww pairing antiparallel cis XIX 
+A53-A369 : C-G O2'/Hh pairing 
+A55-A315 : U-G O2P/Ww pairing 
+A56-A77 : G-C Ww/Ww pairing antiparallel cis XIX 
+A57-A76 : C-G Ww/Ww pairing antiparallel cis XIX 
+A58-A75 : C-G Ww/Ww pairing antiparallel cis XIX 
+A62-A74 : U-C Ww/Ww pairing antiparallel cis XVIII 
+A63-A73 : C-G Ww/Ww pairing antiparallel cis XIX 
+A73-A131 : G-A O2'/Ss pairing 
+A80-A81 : A-C O2P/Bh adjacent_5p pairing 
+A80-A308 : A-G Hh/Sw pairing antiparallel trans one_hbond 
+A83-A299 : G-A Ww/Ww pairing antiparallel cis VIII 
+A84-A298 : C-G Ww/Ww pairing antiparallel cis XIX 
+A85-A297 : U-A Ww/Ww pairing antiparallel cis XX 
+A86-A296 : C-G Ww/Ww pairing antiparallel cis XIX 
+A89-A273 : G-C Bs/O2' pairing 
+A90-A270 : A-U Hh/Ws pairing antiparallel trans XXIV 
+A93-A222 : A-G Hh/Ss pairing antiparallel trans XI 
+A94-A221 : C-G Ww/Ww pairing antiparallel cis XIX 
+A94-A274 : C-G O2'/Ss pairing 
+A95-A220 : G-C Ww/Ww pairing antiparallel cis XIX 
+A96-A219 : G-C Ww/Ww pairing antiparallel cis XIX 
+A96-A569 : G-G O2P/Bs pairing 
+A97-A218 : U-U Ws/Ww pairing antiparallel cis XVI 
+A97-A533 : U-G O2P/Bs pairing 
+A98-A217 : U-U Ww/Ws pairing antiparallel cis XVI 
+A99-A216 : G-C Ww/Ww pairing antiparallel cis XIX 
+A100-A215 : C-G Ww/Ww pairing antiparallel cis XIX 
+A103-A214 : C-G Ww/Ww pairing antiparallel cis XIX 
+A105-A212 : C-C Ww/Wh pairing antiparallel cis one_hbond 131 
+A108-A210 : G-C Ww/Ww pairing antiparallel cis XIX 
+A109-A209 : U-G Ws/Ws pairing antiparallel cis one_hbond 
+A110-A208 : G-C Ww/Ww pairing antiparallel cis XIX 
+A111-A207 : G-C Ww/Ww pairing antiparallel cis XIX 
+A112-A206 : C-C Ws/Hw pairing antiparallel trans one_hbond 
+A113-A205 : G-G O2'/Ww pairing 
+A114-A161 : G-C Sw/Ws pairing parallel cis one_hbond 
+A126-A156 : C-G Ww/Ww pairing antiparallel cis XIX 
+A127-A155 : G-C Wh/Bh pairing parallel cis one_hbond 
+A128-A154 : G-A Ww/Ww pairing antiparallel cis VIII 
+A129-A152 : A-A Ww/Hh pairing antiparallel trans one_hbond 
+A130-A151 : C-A Ww/Hh pairing antiparallel trans XXV 
+A131-A150 : A-C Hh/Ww pairing antiparallel trans XXV 
+A133-A148 : C-G Ww/Ww pairing antiparallel cis XIX 
+A134-A147 : G-C Ww/Ww pairing antiparallel cis XIX 
+A135-A146 : C-G Ww/Ww pairing antiparallel cis XIX 
+A137-A144 : G-C Ww/Ww pairing antiparallel cis XIX 
+A138-A143 : G-C Ww/Ww pairing antiparallel cis one_hbond 
+A139-A141 : C-A O2'/Hh pairing 
+A139-A142 : C-C Ss/Hw pairing antiparallel trans one_hbond 132 
+A140-A328 : A-A O2'/Bh pairing 
+A157-A202 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A159-A201 : C-G O2P/Ww Bh/O2' pairing 
+A162-A197 : G-C Ws/Ww pairing antiparallel cis one_hbond 
+A163-A196 : C-G Ww/Ww pairing antiparallel cis XIX 
+A164-A196 : A-G Hh/Ss pairing antiparallel trans XI 
+A166-A194 : G-A Ww/Ww pairing antiparallel cis VIII 
+A167-A193 : G-G Ww/Hh pairing parallel cis VI 
+A168-A192 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A169-A191 : C-G Ww/Ww pairing antiparallel cis XIX 
+A170-A190 : G-C Ww/Ww pairing antiparallel cis XIX 
+A171-A172 : G-G O2'/Hh adjacent_5p upward pairing 
+A172-A177 : G-C Bs/O2P pairing 
+A175-A597 : C-C Bh/Ww pairing parallel trans 134 
+A176-A596 : C-G Hw/Wh pairing parallel cis one_hbond 
+A177-A595 : C-G Bh/Wh pairing antiparallel cis one_hbond 
+A180-A182 : G-G O2'/Hh pairing 
+A181-A187 : G-C Ww/Ww pairing antiparallel cis XIX 
+A183-A185 : C-A O2'/Hh Hh/O2P Ww/O2P pairing 
+A183-A186 : C-G Ww/O2P pairing 
+A200-A204 : C-G O2'/Bs pairing 
+A223-A269 : G-C Ww/Ww pairing antiparallel cis XIX 
+A224-A268 : G-C Ww/Ww pairing antiparallel cis XIX 
+A225-A267 : C-G Ww/Ww pairing antiparallel cis XIX 
+A226-A265 : A-A Ww/Hh pairing antiparallel trans V 
+A227-A859 : U-U Ww/Ws pairing antiparallel cis XVI 
+A228-A266 : C-C Ww/Wh pairing antiparallel cis one_hbond 131 
+A229-A261 : A-C Ww/O2' pairing 
+A229-A264 : A-G Hh/Sw pairing antiparallel trans one_hbond 
+A230-A260 : C-G Ww/Ww pairing antiparallel cis XIX 
+A230-A265 : C-A O2'/Ww pairing 
+A231-A259 : C-G Ww/Ww pairing antiparallel cis XIX 
+A232-A258 : C-G Ws/Ww pairing antiparallel cis one_hbond 130 
+A234-A237 : G-G Ww/Hh pairing parallel cis VI 
+A235-A257 : U-A Ww/Ww pairing antiparallel cis XX 
+A236-A256 : C-G Ww/Ww pairing antiparallel cis XIX 
+A237-A255 : G-C Ww/Ww pairing antiparallel cis XIX 
+A238-A249 : G-G Hh/Ww pairing parallel cis VI 
+A238-A254 : G-C Ww/Ww pairing antiparallel cis XIX 
+A239-A253 : C-G Ww/Ww pairing antiparallel cis XIX 
+A240-A252 : G-C Ww/Ww pairing antiparallel cis XIX 
+A241-A251 : C-G Ww/Ww pairing antiparallel cis XIX 
+A242-A250 : G-C Ww/Ww pairing antiparallel cis XIX 
+A244-A246 : U-G O2'/Hh pairing 
+A244-A247 : U-C Ww/O2P pairing 
+A249-A254 : G-C Wh/Bh pairing antiparallel cis one_hbond 
+A273-A291 : C-C Bh/O2P pairing 
+A273-A295 : C-G Ww/Ww pairing antiparallel cis XIX 
+A274-A294 : G-C Ww/Ww pairing antiparallel cis XIX 
+A275-A293 : G-C Ww/Ww pairing antiparallel cis XIX 
+A276-A289 : A-G O2P/Ww O2P/Bs pairing 
+A276-A536 : A-A Ss/Wh O2'/Bh pairing parallel trans one_hbond 39 
+A277-A288 : G-C Ww/Ww pairing antiparallel cis XIX 
+A278-A287 : A-U Ww/Ww pairing antiparallel cis XX 
+A279-A286 : A-U Ww/Ww pairing antiparallel cis XX 
+A280-A285 : U-G Hh/Wh pairing parallel cis one_hbond 
+A283-A494 : G-G Ww/Hw pairing parallel cis one_hbond 
+A284-A492 : G-C O2'/Ww pairing 
+A284-A493 : G-U Ss/Ww pairing antiparallel cis 93 
+A293-A535 : C-A O2'/Ww pairing 
+A298-A337 : G-A Ss/Ss O2'/Ww pairing parallel trans 57 
+A300-A321 : G-C Ww/Ww pairing antiparallel cis XIX 
+A301-A320 : C-G Ww/Ww pairing antiparallel cis XIX 
+A301-A337 : C-A O2P/Bh pairing 
+A302-A319 : G-C Wh/Wh pairing parallel cis one_hbond 124 
+A303-A318 : G-C Ww/Ww pairing antiparallel cis XIX 
+A304-A317 : G-C Ww/Ww pairing antiparallel cis XIX 
+A305-A316 : C-G Ww/Ww pairing antiparallel cis XIX 
+A306-A312 : C-G O2P/Bs pairing 
+A306-A313 : C-A Ww/Hh pairing antiparallel trans one_hbond 
+A307-A311 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A308-A310 : G-G O2'/Hh pairing 
+A308-A311 : G-A Ww/O2P pairing 
+A313-A316 : A-G O2'/Hh upward pairing 
+A319-A1357 : C-A O2'/Ss pairing 
+A320-A1384 : G-A Ss/O2' pairing 
+A322-A335 : A-G Ww/Ww pairing antiparallel cis VIII 
+A323-A334 : C-G Ww/Ww pairing antiparallel cis XIX 
+A325-A332 : U-A Ww/Ww pairing antiparallel cis XX 
+A326-A331 : C-G Ww/Ww pairing antiparallel cis XIX 
+A327-A330 : C-G Ws/Ww pairing parallel trans one_hbond 
+A328-A329 : A-A O2P/Bh O2P/Hh adjacent_5p pairing 
+A336-A340 : C-A Ws/Hw pairing parallel cis one_hbond 80 
+A339-A369 : C-G O2'/Ss pairing 
+A340-A352 : A-U Bs/Ss Ss/O2' pairing antiparallel cis one_hbond 
+A350-A375 : C-G Ws/Ww O2'/Bs pairing antiparallel cis one_hbond 130 
+A351-A374 : U-G Ws/Ws pairing antiparallel cis one_hbond 
+A353-A373 : G-C Ww/Ww pairing antiparallel cis XIX 
+A354-A372 : C-G Ww/Ww pairing antiparallel cis XIX 
+A354-A404 : C-G O2'/Ww O2'/Bs pairing 
+A355-A357 : C-A Ss/Hw O2'/Hh pairing parallel cis one_hbond 
+A356-A368 : C-C O2'/Bh inward pairing 
+A356-A369 : C-G Bh/O2P pairing 
+A356-A370 : C-C Ww/Ww pairing parallel trans 
+A357-A372 : A-G Wh/Ss pairing antiparallel cis one_hbond 63 
+A359-A370 : U-C Wh/Hw pairing parallel cis one_hbond 
+A360-A368 : G-C Ww/Ww pairing antiparallel cis XIX 
+A361-A367 : C-G Ww/Ww pairing antiparallel cis XIX 
+A362-A366 : G-C Ww/Ww pairing antiparallel cis XIX 
+A363-A365 : C-G Ww/Ww pairing antiparallel cis XIX 
+A386-A426 : U-C Ww/Ws pairing antiparallel cis one_hbond 106 
+A394-A416 : A-C Bh/Bs pairing antiparallel trans 
+A395-A415 : G-C Ww/Ww pairing antiparallel cis XIX 
+A396-A414 : U-A Ww/Ww pairing antiparallel cis XX 
+A397-A413 : C-G Ww/Ww pairing antiparallel cis XIX 
+A399-A411 : G-C Ww/Ww pairing antiparallel cis XIX 
+A400-A410 : G-C Ww/Ww pairing antiparallel cis XIX 
+A402-A407 : G-C Sw/Ww pairing parallel trans one_hbond 
+A403-A406 : G-C O2'/Bh Bs/O2P pairing 
+A426-A474 : C-G Bh/O2' pairing 
+A427-A473 : G-C Ww/Ww pairing antiparallel cis XIX 
+A428-A472 : C-G Ww/Ww pairing antiparallel cis XIX 
+A429-A471 : C-G Ww/Ww pairing antiparallel cis XIX 
+A430-A437 : A-G Ss/Sw O2'/Ww O2'/Bs pairing parallel trans one_hbond 57 
+A431-A469 : G-U Ws/Ws pairing antiparallel cis one_hbond 
+A432-A454 : G-C Ww/Ww pairing antiparallel cis XIX 
+A433-A453 : G-C Ww/Ww pairing antiparallel cis XIX 
+A435-A452 : A-G Wh/Wh pairing antiparallel trans one_hbond 
+A436-A471 : A-G Ss/O2' pairing 
+A438-A468 : G-C Ww/Ww pairing antiparallel cis XIX 
+A440-A467 : C-G Ww/Ww pairing antiparallel cis XIX 
+A441-A466 : U-A Ww/Ww pairing antiparallel cis XX 
+A442-A465 : G-C Ww/Ww pairing antiparallel cis XIX 
+A443-A464 : G-C Ww/Ww pairing antiparallel cis XIX 
+A444-A447 : U-C O2'/Ww pairing 
+A444-A461 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A445-A459 : G-U Hh/O2' pairing 
+A445-A461 : G-A Ww/O2P Bs/O2P pairing 
+A447-A457 : C-G Bh/O2' pairing 
+A448-A461 : A-A Ww/Wh pairing parallel trans one_hbond 
+A449-A456 : G-C Ww/Ww pairing antiparallel cis 
+A450-A455 : C-G Ww/Ww pairing antiparallel cis XIX 
+A451-A454 : A-C O2'/Bh pairing 
+A455-A463 : G-U Sw/Ws pairing parallel trans one_hbond 
+A462-A463 : U-U Ws/Hh adjacent_5p pairing parallel cis one_hbond 
+A488-A841 : G-C Ww/Ww pairing antiparallel cis one_hbond 
+A491-A850 : G-G Ww/Hh pairing antiparallel trans VII 
+A495-A849 : C-G Ww/Ww pairing antiparallel cis XIX 
+A496-A502 : A-A O2'/Ww pairing 
+A496-A848 : A-U Ww/Ww pairing antiparallel cis XX 
+A497-A847 : G-C Ww/Ww pairing antiparallel cis XIX 
+A498-A829 : U-A Ww/Ww pairing antiparallel cis XX 
+A499-A828 : U-A Ww/Ww pairing antiparallel cis XX 
+A501-A849 : A-G Ss/O2' pairing 
+A503-A846 : A-U Ww/Ww pairing antiparallel cis XX 
+A504-A722 : C-A Bh/O2P pairing 
+A505-A727 : G-C Ww/Ww pairing antiparallel cis XIX 
+A506-A726 : C-G Ww/Ww pairing antiparallel cis XIX 
+A507-A725 : C-G Ww/Ww pairing antiparallel cis XIX 
+A508-A724 : C-G Ww/Ww pairing antiparallel cis XIX 
+A509-A722 : G-A Ww/O2P Bs/O2P pairing 
+A509-A723 : G-A Ss/Hh pairing antiparallel trans XI 
+A510-A721 : U-C O2P/Bh pairing 
+A510-A722 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A511-A721 : A-C Hw/Ss Bh/O2' pairing antiparallel trans one_hbond 77 
+A512-A720 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A513-A719 : U-A Ww/Ww pairing antiparallel cis XX 
+A514-A718 : U-A Ww/Ww pairing antiparallel cis XX 
+A515-A717 : G-C Ww/O2P pairing 
+A522-A584 : C-G Ww/Ww pairing antiparallel cis XIX 
+A523-A583 : G-C Ww/Ww pairing antiparallel cis XIX 
+A524-A582 : C-G Ww/Ww pairing antiparallel cis XIX 
+A525-A581 : C-C Wh/Ww pairing antiparallel cis one_hbond 131 
+A526-A580 : G-C Ww/Ww pairing antiparallel cis XIX 
+A527-A577 : C-G Ww/Ww pairing antiparallel cis XIX 
+A528-A576 : C-G Ww/Ww pairing antiparallel cis XIX 
+A529-A575 : A-U Ww/Ww pairing antiparallel cis XX 
+A530-A574 : C-G Ww/Ww pairing antiparallel cis XIX 
+A531-A573 : G-C Ww/Ww pairing antiparallel cis XIX 
+A532-A572 : A-G Ww/Ww pairing antiparallel cis VIII 
+A533-A570 : G-C Ww/Ww pairing antiparallel cis XIX 
+A539-A567 : G-C Ww/Ww pairing antiparallel cis XIX 
+A540-A566 : G-C Ww/Ww pairing antiparallel cis XIX 
+A541-A565 : G-A Ss/Hh O2'/Bh pairing antiparallel trans one_hbond 
+A543-A553 : G-C Ww/Ww pairing antiparallel cis XIX 
+A544-A552 : C-G Ww/Ww pairing antiparallel cis XIX 
+A546-A550 : C-A Ww/Hh pairing antiparallel trans XXV 
+A553-A563 : C-G O2'/Bs pairing 
+A554-A562 : A-U Ww/Ws pairing parallel trans XXI 
+A554-A563 : A-G O2P/Ww upward pairing 
+A555-A561 : G-U Ww/Bh pairing antiparallel trans 91 
+A578-A579 : G-A O2'/Hh adjacent_5p pairing 
+A578-A580 : G-C O2'/Bh pairing 
+A588-A603 : C-G Wh/Wh pairing antiparallel cis one_hbond 
+A588-A606 : C-G Ww/Ww pairing antiparallel cis XIX 
+A589-A604 : G-C Ww/Ww pairing antiparallel cis XIX 
+A590-A602 : G-C Wh/Hw pairing parallel cis one_hbond 
+A591-A601 : G-C Ww/Ww pairing antiparallel cis 
+A592-A600 : C-G Ww/Ww pairing antiparallel cis XIX 
+A603-A605 : G-G O2'/Ww O2'/Bs inward pairing 
+A603-A606 : G-G Ww/Hh pairing parallel cis one_hbond 
+A614-A716 : G-U Sw/Hw pairing antiparallel trans one_hbond 88 
+A615-A716 : A-U Hh/Ws pairing antiparallel trans XXIV 
+A617-A715 : G-G Hw/Sw pairing antiparallel trans one_hbond 112 
+A617-A717 : G-C Ww/Ww pairing antiparallel cis XIX 
+A618-A714 : A-U Ww/Ww pairing antiparallel cis XX 
+A619-A713 : G-C Ww/Ww pairing antiparallel cis XIX 
+A620-A712 : A-U Ww/Ww pairing antiparallel cis XX 
+A621-A710 : G-C Ww/Ww pairing antiparallel cis XIX 
+A622-A709 : C-G Ww/Ww pairing antiparallel cis XIX 
+A623-A708 : G-C Ww/Ww pairing antiparallel cis XIX 
+A624-A707 : G-C Ww/Ww pairing antiparallel cis XIX 
+A625-A706 : G-A Ww/Ww pairing antiparallel cis VIII 
+A626-A705 : C-G Ww/Ww pairing antiparallel cis XIX 
+A627-A689 : G-C Bs/O2' pairing 
+A627-A704 : G-A Ww/Ww pairing antiparallel cis VIII 
+A628-A687 : G-C Hh/Wh pairing parallel cis one_hbond 118 
+A628-A696 : G-G Bs/O2P outward pairing 
+A629-A688 : G-G O2P/Bs pairing 
+A629-A703 : G-A Ww/Ww pairing antiparallel cis VIII 
+A630-A702 : G-C Ww/Ww pairing antiparallel cis XIX 
+A631-A701 : G-C Ww/Ww pairing antiparallel cis XIX 
+A632-A700 : C-G Ww/Ww pairing antiparallel cis XIX 
+A633-A699 : A-U Ww/Ww pairing antiparallel cis XX 
+A634-A698 : C-C Ww/Wh pairing antiparallel cis one_hbond 131 
+A636-A680 : G-C Ww/Ww pairing antiparallel cis XIX 
+A637-A679 : G-C Ww/Ww pairing antiparallel cis XIX 
+A638-A678 : U-A Wh/Wh pairing antiparallel cis one_hbond 
+A639-A677 : A-G Ww/Ww pairing antiparallel cis VIII 
+A640-A676 : C-A Wh/Ww pairing antiparallel cis one_hbond 71 
+A641-A675 : C-G Ww/Ww pairing antiparallel cis XIX 
+A642-A674 : G-C Ww/Ww pairing antiparallel cis XIX 
+A643-A673 : G-C Ww/Ww pairing antiparallel cis XIX 
+A644-A672 : C-G Ww/Ww pairing antiparallel cis XIX 
+A646-A670 : G-C Ww/Ww pairing antiparallel cis XIX 
+A647-A669 : G-C Ww/Ww pairing antiparallel cis XIX 
+A648-A667 : G-A Bs/O2P pairing 
+A648-A668 : G-U Sw/Hw pairing antiparallel trans one_hbond 88 
+A649-A666 : G-G O2'/Bs Ww/O2' inward pairing 
+A649-A667 : G-A Sw/Hh pairing antiparallel trans one_hbond 
+A650-A663 : A-G Ww/O2' pairing 
+A650-A664 : A-A O2'/Bh pairing 
+A650-A666 : A-G Hh/Ss pairing antiparallel trans XI 
+A651-A662 : C-G Ww/Ww pairing antiparallel cis XIX 
+A651-A667 : C-A O2'/Ww pairing 
+A653-A661 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A654-A659 : G-A Sw/Hh pairing antiparallel trans one_hbond 
+A655-A657 : U-A O2'/Hh pairing 
+A655-A658 : U-A Ww/O2P pairing 
+A658-A749 : A-G Ww/Sw pairing antiparallel cis one_hbond 55 
+A659-A749 : A-G Ss/O2' pairing 
+A681-A684 : G-G O2P/Bs pairing 
+A682-A683 : C-C O2P/Bh adjacent_5p pairing 
+A685-A696 : G-G Ww/Ww pairing parallel trans III 
+A688-A695 : G-C Ww/Ww pairing antiparallel cis XIX 
+A688-A816 : G-G O2P/Bs pairing 
+A689-A694 : C-G Ww/Ww pairing antiparallel cis XIX 
+A690-A693 : G-G Sw/Hh Ww/O2P Bs/O2P pairing antiparallel trans one_hbond 108 
+A692-A727 : A-C Ww/O2' pairing 
+A693-A729 : G-A Bs/O2P pairing 
+A708-A799 : C-G O2'/Ss pairing 
+A728-A775 : G-G Ww/O2' inward pairing 
+A728-A779 : G-A Sw/Ww pairing antiparallel cis one_hbond 55 
+A729-A776 : A-U Hh/Ws pairing antiparallel trans XXIV 
+A729-A1441 : A-G Bs/Ss pairing antiparallel cis one_hbond 
+A730-A1427 : A-G Ss/Sw pairing parallel trans one_hbond 57 
+A731-A1428 : G-U Ss/O2' pairing 
+A732-A773 : G-C Ww/Ww pairing antiparallel cis XIX 
+A732-A866 : G-A Sw/Ww pairing antiparallel cis one_hbond 55 
+A733-A772 : C-G Ww/Ww pairing antiparallel cis XIX 
+A733-A865 : C-C O2'/Ww pairing 
+A734-A771 : C-G Ww/Ww pairing antiparallel cis XIX 
+A735-A770 : G-C Ww/Ww pairing antiparallel cis XIX 
+A736-A769 : G-C Ww/Ww pairing antiparallel cis XIX 
+A737-A768 : G-C Ww/Ww pairing antiparallel cis XIX 
+A739-A765 : G-A Ww/O2P Bs/O2P pairing 
+A741-A767 : U-U Ww/Ws pairing antiparallel cis XVI 
+A742-A766 : A-U Ww/Ww pairing antiparallel cis XX 
+A743-A764 : G-U Ww/O2P pairing 
+A743-A765 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A744-A763 : A-G O2P/Ww O2P/Bs pairing 
+A744-A764 : A-U Hh/Ws pairing antiparallel trans XXIV 
+A745-A763 : A-G Hh/Ss pairing antiparallel trans XI 
+A746-A762 : G-C Ww/Ww pairing antiparallel cis XIX 
+A747-A761 : G-C Ww/Ww pairing antiparallel cis XIX 
+A748-A760 : C-A Ww/Wh pairing antiparallel cis one_hbond 75 
+A749-A759 : G-C Ww/Ww pairing antiparallel cis XIX 
+A750-A756 : A-C Bh/O2P Bh/O2P pairing 
+A750-A758 : A-C Ww/Hw pairing antiparallel cis one_hbond 
+A752-A754 : C-G O2'/Hh Hh/O2P pairing 
+A752-A755 : C-A Bh/O2P pairing 
+A754-A1414 : G-U Ww/O2P pairing 
+A755-A757 : A-A O2'/Hh upward pairing 
+A758-A759 : C-C O2P/Bh adjacent_5p pairing 
+A774-A867 : C-A O2'/Ww pairing 
+A778-A1425 : A-C Hh/O2' pairing 
+A778-A1442 : A-G O2'/Bs pairing 
+A778-A1443 : A-A Ss/O2' pairing 
+A778-A1445 : A-G Ww/O2' outward pairing 
+A780-A1445 : C-G Ww/Ww pairing antiparallel cis XIX 
+A783-A835 : U-A Ww/Hh pairing parallel cis XXIII 
+A784-A845 : G-C Ww/Ww pairing antiparallel cis XIX 
+A785-A844 : C-G Ww/Ww pairing antiparallel cis XIX 
+A786-A843 : C-G Ww/Ww pairing antiparallel cis XIX 
+A788-A837 : C-G Ww/Ww pairing antiparallel cis XIX 
+A789-A836 : C-G Ww/Ww pairing antiparallel cis XIX 
+A790-A834 : C-G Ww/Ww pairing parallel trans XXII 
+A791-A821 : C-C Bh/Bs pairing parallel cis 
+A792-A820 : G-C Ww/Ww pairing antiparallel cis XIX 
+A793-A819 : C-G Ww/Ww pairing antiparallel cis XIX 
+A794-A818 : G-C Ww/Ww pairing antiparallel cis XIX 
+A795-A817 : G-C Ww/Ww pairing antiparallel cis XIX 
+A796-A816 : C-G Ww/Ww pairing antiparallel cis XIX 
+A797-A815 : C-G Ww/Ww pairing antiparallel cis XIX 
+A798-A814 : G-C Ww/Ww pairing antiparallel cis XIX 
+A799-A813 : G-C Ww/Ww pairing antiparallel cis XIX 
+A800-A812 : C-G Ww/Ww pairing antiparallel cis XIX 
+A801-A811 : G-C Ww/Ww pairing antiparallel cis XIX 
+A803-A809 : G-C Ww/Ww pairing antiparallel cis XIX 
+A818-A833 : C-G Hw/Hw pairing antiparallel cis one_hbond 
+A822-A832 : C-G O2P/Ww pairing 
+A823-A832 : A-G Hh/Ss pairing antiparallel trans XI 
+A824-A831 : G-C Ww/Ww pairing antiparallel cis XIX 
+A825-A830 : G-C Ww/Ww pairing antiparallel cis XIX 
+A826-A828 : G-A O2'/Hh pairing 
+A826-A829 : G-A Sw/Hh Bs/O2P pairing antiparallel trans one_hbond 
+A827-A883 : A-G Ww/O2' pairing 
+A827-A1038 : A-C O2'/Bh pairing 
+A828-A884 : A-C Ss/O2' pairing 
+A830-A835 : C-A O2'/Ww pairing 
+A832-A834 : G-G O2'/Hh pairing 
+A834-A836 : G-G O2'/Hh outward pairing 
+A851-A878 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A851-A880 : G-A O2'/Ww pairing 
+A852-A877 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A853-A876 : G-C Ww/Ww pairing antiparallel cis XIX 
+A854-A875 : G-A Ss/Hh pairing antiparallel trans XI 
+A855-A874 : A-A Hh/Hh pairing parallel trans II 
+A856-A857 : G-U Sw/Hw adjacent_5p pairing parallel cis one_hbond 89 
+A856-A873 : G-A Ww/O2P Bs/O2P pairing 
+A857-A872 : U-G O2P/Ww pairing 
+A857-A873 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A858-A872 : A-G Hh/Ss pairing antiparallel trans XI 
+A860-A871 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A861-A870 : G-C Ww/Ww pairing antiparallel cis XIX 
+A862-A869 : C-G Ww/Ww pairing antiparallel cis XIX 
+A864-A866 : G-A O2'/Hh pairing 
+A864-A867 : G-A Sw/Hh Bs/O2P pairing antiparallel trans one_hbond 
+A875-A1336 : A-U Ss/O2' pairing 
+A885-A1040 : A-A O2'/Ww pairing 
+A887-A1319 : U-A Ww/Ww pairing antiparallel cis XX 
+A888-A1318 : G-C Ww/Ww pairing antiparallel cis XIX 
+A888-A1321 : G-A Ss/Ss O2'/Ww pairing parallel trans 57 
+A889-A1316 : A-U Ww/Ww pairing antiparallel cis XX 
+A890-A1315 : C-G Ww/Ww pairing antiparallel cis XIX 
+A890-A1418 : C-A O2'/Ww pairing 
+A893-A1313 : A-U Ww/Ww pairing antiparallel cis XX 
+A893-A1419 : A-A O2'/Hh pairing 
+A893-A1421 : A-G O2P/Bs pairing 
+A894-A1312 : G-C Ww/Ww pairing antiparallel cis XIX 
+A895-A1311 : G-C Ww/Ww pairing antiparallel cis XIX 
+A896-A1310 : G-C Ww/Ww pairing antiparallel cis XIX 
+A897-A1309 : G-C Ww/Ww pairing antiparallel cis XIX 
+A898-A1308 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A899-A1304 : A-C Hh/Ww pairing antiparallel trans XXV 
+A899-A1307 : A-U Ww/Ww pairing antiparallel cis XX 
+A902-A1303 : A-U Ww/Ww pairing antiparallel cis XX 
+A903-A1302 : C-G Ww/Ww pairing antiparallel cis XIX 
+A905-A1299 : A-C Ss/O2' pairing 
+A906-A1267 : G-C Ww/Ww pairing antiparallel cis XIX 
+A906-A1298 : G-A Ss/Ww O2'/Ss pairing antiparallel cis 55 
+A907-A1266 : A-U Ww/Ww pairing antiparallel cis XX 
+A907-A1297 : A-G O2'/Ww O2'/Bs pairing 
+A908-A1265 : C-G Ww/Ww pairing antiparallel cis XIX 
+A909-A1264 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A910-A1263 : U-A Ww/Ww pairing antiparallel cis XX 
+A911-A1262 : G-A Ss/Hh O2'/Bh pairing antiparallel trans one_hbond 
+A912-A1173 : G-A Ww/Ww pairing antiparallel cis VIII 
+A913-A1172 : A-U Ww/Ww pairing antiparallel cis XX 
+A913-A1256 : A-A O2'/Ss pairing 
+A914-A1171 : G-C Ww/Ww pairing antiparallel cis XIX 
+A915-A1170 : U-G Ws/Ww pairing antiparallel cis one_hbond 
+A917-A1168 : U-G Ws/Ww pairing antiparallel cis 
+A918-A937 : G-C Ss/O2' pairing 
+A918-A939 : G-C O2'/Bh pairing 
+A918-A1167 : G-C Ww/Ww pairing antiparallel cis one_hbond 
+A919-A1166 : C-G Ww/Ww pairing antiparallel cis XIX 
+A921-A1163 : G-C Ww/Ww pairing antiparallel cis XIX 
+A921-A1164 : G-A Bs/Ww pairing parallel trans one_hbond 
+A922-A1162 : C-G Ww/Ww pairing antiparallel cis XIX 
+A923-A927 : U-U Ws/Ws pairing parallel trans XIII 
+A924-A927 : C-U Ww/O2P Bh/O2P pairing 
+A925-A951 : A-C Ss/O2' pairing 
+A926-A1158 : A-G Ww/O2' pairing 
+A927-A1162 : U-G O2'/Hh outward pairing 
+A930-A939 : G-C Ww/Ww pairing antiparallel cis 
+A931-A936 : A-A Ss/O2' pairing 
+A935-A1022 : A-C Ww/O2' pairing 
+A942-A1282 : G-C Hw/Hh pairing antiparallel cis one_hbond 
+A943-A1160 : C-C O2'/Bh pairing 
+A943-A1161 : C-C Bh/O2P pairing 
+A944-A1241 : A-G Wh/Ss pairing parallel trans one_hbond 
+A944-A1283 : A-C O2P/Bh pairing 
+A948-A1009 : C-U O2P/Ww pairing 
+A948-A1159 : C-G Ws/Ww pairing antiparallel cis one_hbond 130 
+A948-A1160 : C-C Ww/Hh pairing parallel cis one_hbond 136 
+A949-A1009 : A-U C8/Ws pairing parallel cis one_hbond 
+A949-A1159 : A-G Ww/Ws pairing antiparallel cis one_hbond 
+A950-A1158 : C-G Ww/Ww pairing antiparallel cis XIX 
+A951-A1157 : C-G Ww/Ww pairing antiparallel cis XIX 
+A952-A1156 : A-U Ww/Ww pairing antiparallel cis XX 
+A953-A1155 : G-C Ww/Ww pairing antiparallel cis XIX 
+A954-A1154 : G-C Ww/Ww pairing antiparallel cis XIX 
+A955-A1153 : C-C Wh/Ww pairing antiparallel cis one_hbond 131 
+A956-A1152 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1006-A1147 : C-C Bh/Ww pairing antiparallel cis one_hbond 137 
+A1007-A1146 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A1007-A1151 : G-C Bs/O2' pairing 
+A1008-A1145 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1010-A1144 : G-C Ww/Ww pairing antiparallel cis 
+A1012-A1142 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A1013-A1017 : G-G Ww/Hh pairing parallel cis VI 
+A1013-A1135 : G-C Hh/O2P pairing 
+A1014-A1131 : C-A Ww/O2' inward pairing 
+A1015-A1135 : A-C Hh/Ww pairing antiparallel trans XXV 
+A1015-A1141 : A-U Wh/Ws pairing antiparallel cis one_hbond 46 
+A1016-A1140 : U-A Ww/Ww pairing antiparallel cis XX 
+A1018-A1134 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A1019-A1133 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1021-A1130 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1022-A1129 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1023-A1128 : U-A Ww/Ww pairing antiparallel cis one_hbond 
+A1024-A1127 : C-U Bh/Bh pairing parallel cis 103 
+A1027-A1068 : A-G Ww/O2' pairing 
+A1028-A1054 : G-U Hh/O2' pairing 
+A1028-A1067 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1028-A1126 : G-A O2'/Ww pairing 
+A1029-A1066 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1031-A1045 : C-U Hw/Wh pairing antiparallel trans one_hbond 104 
+A1031-A1064 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1032-A1063 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1033-A1062 : U-A Ww/Ww pairing antiparallel cis XX 
+A1034-A1043 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1034-A1061 : G-A O2'/Ww pairing 
+A1036-A1041 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1037-A1040 : G-A Ww/O2P Bs/O2P pairing 
+A1048-A1057 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1049-A1056 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1050-A1055 : U-U Ws/Ww pairing antiparallel cis XVI 
+A1072-A1123 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1073-A1122 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1074-A1121 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1075-A1120 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1076-A1119 : G-C Ww/Ww pairing antiparallel cis one_hbond 
+A1077-A1116 : G-C Bs/Bs pairing antiparallel cis one_hbond 
+A1078-A1092 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1079-A1091 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1080-A1090 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1081-A1089 : C-G Ww/Ww pairing antiparallel cis 
+A1082-A1088 : G-C Ww/Ww pairing antiparallel cis 
+A1083-A1087 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1093-A1115 : G-A Ss/Ww pairing parallel trans X 
+A1094-A1114 : A-G Ww/Ss pairing parallel trans X 
+A1095-A1117 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1097-A1112 : G-A Ww/Ww pairing antiparallel cis one_hbond 
+A1097-A1118 : G-G Hh/Ww pairing parallel cis one_hbond 
+A1098-A1111 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1099-A1110 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1100-A1109 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1101-A1108 : G-C Ww/Ww pairing antiparallel cis one_hbond 
+A1102-A1107 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1113-A1117 : G-G Ww/Hh pairing antiparallel trans one_hbond 
+A1114-A1116 : G-C C8/O2P pairing 
+A1114-A1117 : G-G Ww/O2P Bs/O2P pairing 
+A1174-A1225 : C-G O2'/Ww pairing 
+A1174-A1260 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1175-A1178 : A-G Ww/Ss Ss/O2' pairing antiparallel cis one_hbond 
+A1175-A1226 : A-C Bh/Ww pairing antiparallel trans 78 
+A1176-A1224 : C-G Hw/Wh pairing parallel cis one_hbond 
+A1178-A1221 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1179-A1220 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1180-A1219 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1181-A1218 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1182-A1217 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1183-A1216 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1184-A1215 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1186-A1213 : C-G Wh/Hh pairing antiparallel trans one_hbond 117 
+A1187-A1293 : A-G Ss/O2' pairing 
+A1188-A1292 : G-C Ss/O2' pairing 
+A1192-A1207 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1193-A1206 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1195-A1204 : C-A Ww/Wh pairing antiparallel cis one_hbond 75 
+A1196-A1203 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1197-A1202 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1198-A1201 : G-A O2'/Bh Bs/O2P pairing 
+A1200-A1237 : G-G Ww/O2' pairing 
+A1200-A1249 : G-C Sw/Ss Ss/O2' pairing antiparallel cis one_hbond 
+A1201-A1202 : A-G O2P/Hh adjacent_5p upward pairing 
+A1213-A1275 : G-C Ss/O2' pairing 
+A1213-A1294 : G-C Ws/Ss pairing parallel trans one_hbond 
+A1221-A1227 : C-C O2'/Ww O2'/Bh pairing 
+A1228-A1257 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1229-A1256 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A1230-A1254 : G-G Ww/O2' Bs/O2' pairing 
+A1231-A1254 : A-G Hh/Ss pairing antiparallel trans XI 
+A1232-A1253 : C-C Wh/Ww pairing antiparallel cis one_hbond 131 
+A1233-A1252 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1234-A1251 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1235-A1250 : C-C Wh/Ww pairing antiparallel cis one_hbond 131 
+A1236-A1249 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1237-A1248 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1238-A1247 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1239-A1246 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1240-A1244 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A1241-A1243 : G-A O2'/Hh pairing 
+A1244-A1246 : A-G O2'/Hh upward pairing 
+A1270-A1296 : G-G O2'/Ww inward pairing 
+A1270-A1297 : G-G Bs/O2P pairing 
+A1271-A1296 : U-G O2P/Ww pairing 
+A1272-A1296 : A-G Hh/Sw pairing antiparallel trans one_hbond 
+A1273-A1295 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1274-A1294 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1275-A1293 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1276-A1292 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1277-A1291 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1279-A1289 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1280-A1282 : G-C O2P/Bh pairing 
+A1280-A1288 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1281-A1282 : C-C O2P/Ww O2P/Bh adjacent_5p pairing 
+A1281-A1286 : C-A Ww/Ww pairing parallel trans 79 
+A1282-A1285 : C-C O2'/Bh pairing 
+A1286-A1288 : A-C O2'/Bh outward pairing 
+A1303-A1305 : U-C Ss/Hw pairing parallel cis one_hbond 
+A1315-A1418 : G-A Sw/Ss pairing antiparallel cis one_hbond 
+A1317-A1416 : A-A Ww/O2' Bh/O2' pairing 
+A1322-A1420 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1324-A1417 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1326-A1415 : C-A O2'/Ww pairing 
+A1327-A1413 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1328-A1412 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1330-A1410 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1331-A1408 : G-A Ww/Ww pairing antiparallel cis VIII 
+A1332-A1407 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1333-A1406 : U-A Ww/Ww pairing antiparallel cis XX 
+A1334-A1405 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1335-A1404 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1336-A1403 : U-A Ww/Ww pairing antiparallel cis XX 
+A1338-A1401 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1339-A1400 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1340-A1399 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A1341-A1398 : A-G Hh/Ss Bh/O2' pairing antiparallel trans XI 
+A1342-A1397 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1344-A1396 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A1345-A1395 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1346-A1394 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1347-A1393 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1348-A1392 : G-C Ww/Ww pairing antiparallel cis 127 
+A1349-A1391 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1351-A1389 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1352-A1388 : C-C Bh/Ww pairing antiparallel cis one_hbond 
+A1353-A1387 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1354-A1386 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1355-A1385 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1356-A1384 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A1357-A1383 : A-G Hh/Ss pairing antiparallel trans XI 
+A1358-A1382 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1359-A1381 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1360-A1380 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1362-A1378 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1363-A1377 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1364-A1376 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1365-A1375 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A1366-A1373 : G-G O2'/Bs inward pairing 
+A1366-A1374 : G-A Ss/Hh Bs/O2P pairing antiparallel trans XI 
+A1367-A1373 : A-G Ww/Sw Bh/O2' pairing parallel trans one_hbond 
+A1368-A1372 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1422-A1438 : U-U Ww/O2P pairing 
+A1423-A1444 : A-U Ww/Ww pairing antiparallel cis XX 
+A1424-A1443 : U-A Ww/Ww pairing antiparallel cis XX 
+A1425-A1442 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1427-A1440 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1428-A1439 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A1429-A1438 : A-U Ww/Ww pairing antiparallel cis XX 
+A1430-A1437 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1431-A1436 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1446-A1447 : G-A Ss/O2' adjacent_5p pairing 

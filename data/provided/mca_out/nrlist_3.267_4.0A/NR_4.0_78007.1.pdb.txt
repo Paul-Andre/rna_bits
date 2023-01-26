@@ -1,0 +1,16 @@
+Residue conformations -------------------------------------------
+A149 : U unknown unknown
+A150 : A C3p_exo syn
+A151 : G C2p_exo syn
+A152 : U C2p_endo anti
+A153 : A C3p_endo anti
+A154 : A C2p_exo anti
+A155 : U C2p_exo anti
+A156 : C unknown unknown
+Adjacent stackings ----------------------------------------------
+A153-A154 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 1
+Number of adjacent stackings = 1
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

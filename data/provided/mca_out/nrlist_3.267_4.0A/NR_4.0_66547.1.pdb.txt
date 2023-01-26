@@ -1,0 +1,18 @@
+Residue conformations -------------------------------------------
+A1140 : G C2p_endo anti
+A1141 : G C2p_endo anti
+A1142 : A C2p_endo syn
+A1143 : A C2p_endo anti
+A1144 : U C2p_endo anti
+A1145 : U C2p_endo anti
+A1146 : G C3p_endo anti
+A1147 : A C3p_endo anti
+A1148 : C C3p_endo anti
+A1149 : G C3p_endo anti
+A1150 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

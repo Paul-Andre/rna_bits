@@ -1,0 +1,64 @@
+Residue conformations -------------------------------------------
+A2 : G C4p_exo anti
+A3 : C C3p_endo anti
+A4 : G C3p_endo anti
+A5 : G C3p_endo anti
+A6 : A C3p_endo anti
+A7 : U C3p_endo anti
+A8 : C C3p_endo anti
+A9 : C C3p_endo anti
+A10 : G C3p_endo anti
+A11 : C C3p_endo anti
+A12 : A C3p_endo anti
+A13 : C C4p_exo anti
+A14 : C C1p_endo syn
+B61 : C C2p_exo anti
+B62 : G C3p_endo anti
+B63 : C C3p_endo anti
+B64 : G C3p_endo anti
+B65 : G C3p_endo anti
+B66 : A C3p_endo anti
+B67 : U C3p_endo anti
+B68 : C C3p_endo anti
+B69 : C C3p_endo anti
+B70 : G C3p_endo anti
+B71 : C C2p_exo anti
+B72 : A C3p_endo anti
+B73 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A3-A4 : adjacent_5p upward 
+A4-A5 : adjacent_5p upward 
+A5-A6 : adjacent_5p upward 
+A6-A7 : adjacent_5p upward 
+A7-A8 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+A10-A11 : adjacent_5p upward 
+A11-A12 : adjacent_5p upward 
+A12-A13 : adjacent_5p upward 
+B61-B62 : adjacent_5p upward 
+B62-B63 : adjacent_5p upward 
+B63-B64 : adjacent_5p upward 
+B64-B65 : adjacent_5p upward 
+B65-B66 : adjacent_5p upward 
+B66-B67 : adjacent_5p upward 
+B67-B68 : adjacent_5p upward 
+B68-B69 : adjacent_5p upward 
+B72-B73 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A2-B72 : upward 
+A4-B70 : outward 
+A10-B64 : outward 
+Number of stackings = 21
+Number of adjacent stackings = 18
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A3-B70 : C-G Ww/Ww pairing antiparallel cis XIX 
+A4-B69 : G-C Ww/Ww pairing antiparallel cis XIX 
+A5-B68 : G-C Ww/Ww pairing antiparallel cis XIX 
+A6-B67 : A-U Ww/Ww pairing antiparallel cis XX 
+A7-B66 : U-A Ww/Ww pairing antiparallel cis XX 
+A8-B65 : C-G Ww/Ww pairing antiparallel cis XIX 
+A9-B64 : C-G Ww/Ww pairing antiparallel cis XIX 
+A10-B63 : G-C Ww/Ww pairing antiparallel cis XIX 
+A11-B62 : C-G Ww/Ww pairing antiparallel cis XIX 
+B70-B71 : G-C Bs/O2' Ss/O2' adjacent_5p pairing 

@@ -1,0 +1,127 @@
+Residue conformations -------------------------------------------
+A1 : C C3p_endo anti
+A2 : C C3p_endo anti
+A3 : C C3p_endo anti
+A4 : C C2p_endo anti
+A5 : C C3p_endo anti
+A6 : C C3p_endo anti
+A7 : C C3p_endo anti
+A8 : C C3p_endo anti
+A9 : C C3p_endo anti
+A10 : C C3p_endo anti
+A11 : C C2p_endo anti
+A12 : C C3p_endo anti
+A13 : C C3p_endo anti
+A14 : C C3p_endo anti
+A15 : C C3p_endo anti
+A16 : C C3p_endo anti
+A17 : C C3p_endo anti
+A18 : C C2p_endo anti
+A19 : C C3p_endo anti
+A20 : C C3p_endo anti
+A21 : C C3p_endo anti
+A22 : C C3p_endo anti
+A23 : C C3p_endo anti
+A24 : C C3p_endo anti
+A25 : C C1p_exo anti
+A26 : C C3p_endo anti
+A27 : C C3p_endo anti
+A28 : C C3p_endo anti
+A29 : C C3p_endo anti
+A30 : C C3p_endo anti
+A31 : C C3p_endo anti
+A32 : C C2p_endo anti
+A33 : C C3p_endo anti
+A34 : C C3p_endo anti
+A35 : C C3p_endo anti
+A36 : C C3p_endo anti
+A37 : C C3p_endo anti
+A38 : C C3p_endo anti
+A39 : C C2p_endo anti
+A40 : C C3p_endo anti
+A41 : C C3p_endo anti
+A42 : C C3p_endo anti
+A43 : C C3p_endo anti
+A44 : C C3p_endo anti
+A45 : C C3p_endo anti
+A46 : C C2p_endo anti
+A47 : C C3p_endo anti
+A48 : C C3p_endo anti
+A49 : C C3p_endo anti
+A50 : C C3p_endo anti
+A51 : C C3p_endo anti
+A52 : C C3p_endo anti
+A53 : C C2p_endo anti
+A54 : C C3p_endo anti
+A55 : C C4p_exo anti
+A56 : C C3p_endo anti
+A57 : C C3p_endo anti
+A58 : C C3p_endo anti
+A59 : C C3p_endo anti
+A60 : C C2p_endo anti
+A61 : C C3p_endo anti
+A62 : C C3p_endo anti
+A63 : C C3p_endo anti
+A64 : C C3p_endo anti
+A65 : C C3p_endo anti
+A66 : C C3p_endo anti
+A67 : C C2p_endo anti
+A68 : C C3p_endo anti
+A69 : C C3p_endo anti
+A70 : C C1p_exo anti
+Adjacent stackings ----------------------------------------------
+A1-A2 : adjacent_5p upward 
+A2-A3 : adjacent_5p upward 
+A3-A4 : adjacent_5p upward 
+A5-A6 : adjacent_5p upward 
+A6-A7 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+A9-A10 : adjacent_5p upward 
+A10-A11 : adjacent_5p upward 
+A12-A13 : adjacent_5p upward 
+A13-A14 : adjacent_5p upward 
+A15-A16 : adjacent_5p upward 
+A16-A17 : adjacent_5p upward 
+A17-A18 : adjacent_5p upward 
+A19-A20 : adjacent_5p upward 
+A20-A21 : adjacent_5p upward 
+A22-A23 : adjacent_5p upward 
+A23-A24 : adjacent_5p upward 
+A24-A25 : adjacent_5p upward 
+A26-A27 : adjacent_5p upward 
+A27-A28 : adjacent_5p upward 
+A29-A30 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A31-A32 : adjacent_5p upward 
+A33-A34 : adjacent_5p upward 
+A34-A35 : adjacent_5p upward 
+A36-A37 : adjacent_5p upward 
+A37-A38 : adjacent_5p upward 
+A38-A39 : adjacent_5p upward 
+A40-A41 : adjacent_5p upward 
+A41-A42 : adjacent_5p upward 
+A43-A44 : adjacent_5p upward 
+A44-A45 : adjacent_5p upward 
+A45-A46 : adjacent_5p upward 
+A47-A48 : adjacent_5p upward 
+A48-A49 : adjacent_5p upward 
+A50-A51 : adjacent_5p upward 
+A51-A52 : adjacent_5p upward 
+A52-A53 : adjacent_5p upward 
+A54-A55 : adjacent_5p upward 
+A55-A56 : adjacent_5p upward 
+A57-A58 : adjacent_5p upward 
+A58-A59 : adjacent_5p upward 
+A59-A60 : adjacent_5p upward 
+A61-A62 : adjacent_5p upward 
+A62-A63 : adjacent_5p upward 
+A64-A65 : adjacent_5p upward 
+A65-A66 : adjacent_5p upward 
+A66-A67 : adjacent_5p upward 
+A68-A69 : adjacent_5p upward 
+A69-A70 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 50
+Number of adjacent stackings = 50
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

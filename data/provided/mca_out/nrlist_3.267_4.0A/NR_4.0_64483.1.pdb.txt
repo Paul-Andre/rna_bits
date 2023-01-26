@@ -1,0 +1,17 @@
+Residue conformations -------------------------------------------
+A161 : U C3p_endo anti
+A162 : U C3p_endo anti
+A163 : U C3p_endo anti
+A164 : U C3p_endo anti
+A165 : U C3p_endo anti
+A166 : U C3p_endo anti
+A167 : U C3p_endo anti
+A168 : U C3p_endo anti
+A169 : U C3p_endo anti
+A170 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

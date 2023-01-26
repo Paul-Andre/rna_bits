@@ -1,0 +1,71 @@
+Residue conformations -------------------------------------------
+A2 : C C3p_endo anti
+A3 : A C3p_endo anti
+A4 : C C3p_endo anti
+A5 : C C3p_endo anti
+A6 : C C3p_endo anti
+A7 : C C3p_endo anti
+A8 : A C2p_endo syn
+A9 : A C3p_endo anti
+A10 : U C2p_endo anti
+A11 : A C3p_endo anti
+A12 : U C3p_endo anti
+A13 : C C4p_exo syn
+A14 : G C2p_endo anti
+A15 : A C4p_endo anti
+A16 : A C2p_endo anti
+A17 : G C3p_endo anti
+A18 : G C3p_endo anti
+A19 : G C3p_endo anti
+A20 : G C4p_exo anti
+A21 : A C3p_exo syn
+A22 : C C3p_endo anti
+A23 : U C2p_endo syn
+A24 : A C3p_endo anti
+A25 : A C3p_endo anti
+A26 : A C3p_endo anti
+A27 : A C3p_endo anti
+A28 : C C3p_endo anti
+A29 : G C3p_endo anti
+A30 : A C2p_exo anti
+A31 : C C3p_endo anti
+A32 : A C3p_exo anti
+A34 : A C2p_exo anti
+A35 : U C2p_exo anti
+A36 : C C4p_exo anti
+A46 : A C3p_endo syn
+A47 : A C3p_endo anti
+A48 : A C3p_endo anti
+A49 : C C3p_endo anti
+A50 : U C2p_exo anti
+A51 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A3-A4 : adjacent_5p upward 
+A5-A6 : adjacent_5p upward 
+A11-A12 : adjacent_5p upward 
+A17-A18 : adjacent_5p upward 
+A18-A19 : adjacent_5p upward 
+A19-A20 : adjacent_5p upward 
+A24-A25 : adjacent_5p upward 
+A25-A26 : adjacent_5p upward 
+A26-A27 : adjacent_5p upward 
+A27-A28 : adjacent_5p upward 
+A28-A29 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A35-A36 : adjacent_5p upward 
+A48-A49 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A3-A24 : outward 
+A8-A10 : inward 
+A8-A15 : downward 
+A14-A16 : downward 
+A15-A17 : outward 
+Number of stackings = 19
+Number of adjacent stackings = 14
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------
+A3-A23 : A-U Ww/Ww pairing antiparallel cis XX 
+A4-A20 : C-G Ww/Ww pairing antiparallel cis XIX 
+A5-A19 : C-G Ww/Ww pairing antiparallel cis XIX 
+A6-A18 : C-G Ww/Ww pairing antiparallel cis XIX 
+A7-A17 : C-G Ww/Ww pairing antiparallel cis XIX 

@@ -1,0 +1,64 @@
+Residue conformations -------------------------------------------
+A597 : C C3p_endo anti
+A598 : A C3p_exo anti
+A599 : G C3p_endo anti
+A600 : G C3p_endo anti
+A601 : U C3p_endo anti
+A602 : C C3p_endo anti
+A603 : U C3p_endo anti
+A604 : C C3p_endo anti
+A605 : U C3p_endo anti
+A606 : C C3p_endo anti
+A607 : G C3p_endo anti
+A608 : U C3p_endo anti
+A609 : C C3p_endo anti
+A610 : G C3p_endo anti
+A611 : A C3p_endo anti
+B690 : U C3p_endo anti
+B691 : U C3p_endo anti
+B692 : C C3p_endo anti
+B693 : G C3p_endo anti
+B694 : A C3p_endo anti
+B695 : C C3p_endo anti
+B696 : G C3p_endo anti
+B697 : A C3p_endo anti
+B698 : G C3p_endo anti
+B699 : A C3p_endo anti
+B700 : G C3p_endo anti
+B701 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A600-A601 : adjacent_5p upward 
+A601-A602 : adjacent_5p upward 
+A603-A604 : adjacent_5p upward 
+A604-A605 : adjacent_5p upward 
+A606-A607 : adjacent_5p upward 
+A607-A608 : adjacent_5p upward 
+A608-A609 : adjacent_5p upward 
+A610-A611 : adjacent_5p upward 
+B690-B691 : adjacent_5p upward 
+B693-B694 : adjacent_5p upward 
+B694-B695 : adjacent_5p upward 
+B696-B697 : adjacent_5p upward 
+B697-B698 : adjacent_5p upward 
+B698-B699 : adjacent_5p upward 
+B699-B700 : adjacent_5p upward 
+B700-B701 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A607-B696 : outward 
+A610-B693 : outward 
+A611-B692 : outward 
+Number of stackings = 19
+Number of adjacent stackings = 16
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A601-B701 : U-A Ww/Ww pairing antiparallel cis XX 
+A602-B700 : C-G Ww/Ww pairing antiparallel cis XIX 
+A603-B699 : U-A Ww/Ww pairing antiparallel cis XX 
+A604-B698 : C-G Ww/Ww pairing antiparallel cis XIX 
+A605-B697 : U-A Ww/Ww pairing antiparallel cis XX 
+A606-B696 : C-G Ww/Ww pairing antiparallel cis XIX 
+A607-B695 : G-C Ww/Ww pairing antiparallel cis XIX 
+A608-B694 : U-A Ww/Ww pairing antiparallel cis XX 
+A609-B693 : C-G Ww/Ww pairing antiparallel cis XIX 
+A610-B692 : G-C Ww/Ww pairing antiparallel cis XIX 
+A611-B691 : A-U Ww/Ww pairing antiparallel cis one_hbond 

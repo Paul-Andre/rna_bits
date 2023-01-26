@@ -1,0 +1,11 @@
+Residue conformations -------------------------------------------
+A7 : A unknown unknown
+A8 : G unknown unknown
+A9 : G unknown unknown
+A10 : C unknown unknown
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

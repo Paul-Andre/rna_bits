@@ -1,0 +1,173 @@
+Residue conformations -------------------------------------------
+A901 : A C3p_endo anti
+A902 : G C3p_endo anti
+A903 : U C3p_endo anti
+A904 : C C3p_endo anti
+A905 : C C3p_endo anti
+A906 : C C3p_endo anti
+A907 : G C3p_endo anti
+A908 : U C3p_endo anti
+A909 : G C4p_exo anti
+A910 : G C3p_endo anti
+A911 : G C3p_endo anti
+A912 : G C2p_exo anti
+A913 : U C3p_endo anti
+A914 : A C3p_endo anti
+A915 : G C3p_endo anti
+A916 : U C3p_endo anti
+A917 : G C3p_endo anti
+A918 : G C3p_endo anti
+A919 : U C3p_endo anti
+A920 : A C3p_endo anti
+A921 : A C3p_endo anti
+A922 : U C3p_endo anti
+A923 : C C3p_endo anti
+A924 : C C3p_endo anti
+A925 : U C3p_endo anti
+A926 : G C3p_endo anti
+A927 : C C3p_endo anti
+A928 : U C3p_endo anti
+A929 : G C3p_endo anti
+A930 : G C3p_endo anti
+A931 : G C3p_endo anti
+A932 : C C3p_endo anti
+A933 : U C3p_endo anti
+A934 : U C3p_endo anti
+A935 : U C3p_endo anti
+A936 : G C3p_endo anti
+A937 : G C3p_endo anti
+A938 : A C3p_endo anti
+A939 : C C3p_endo anti
+A940 : C C3p_endo anti
+A941 : C C2p_exo anti
+A942 : G C3p_endo anti
+A943 : G C3p_endo anti
+A944 : C C3p_endo anti
+A945 : G C3p_endo anti
+A947 : A C3p_endo anti
+A948 : C C3p_endo anti
+A949 : A C3p_endo anti
+A950 : G C3p_endo anti
+A951 : C C3p_endo anti
+A952 : G C3p_endo anti
+A953 : G C3p_endo anti
+A954 : U C3p_endo anti
+A955 : U C3p_endo anti
+A956 : C C3p_endo anti
+A957 : G C3p_endo anti
+A958 : A C4p_exo anti
+A959 : C C2p_exo anti
+A960 : U C4p_exo anti
+A961 : C C3p_endo anti
+A962 : C C3p_endo anti
+A963 : G C3p_endo anti
+A964 : C C3p_endo anti
+A965 : U C3p_endo anti
+A966 : C C3p_endo anti
+A967 : G C3p_endo anti
+A968 : G C3p_endo anti
+A969 : G C3p_endo anti
+A970 : A C3p_endo anti
+A971 : C C3p_endo anti
+A972 : U C3p_endo anti
+A973 : A C3p_endo anti
+A974 : C C3p_endo anti
+A975 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A901-A902 : adjacent_5p upward 
+A902-A903 : adjacent_5p upward 
+A903-A904 : adjacent_5p upward 
+A905-A906 : adjacent_5p upward 
+A906-A907 : adjacent_5p upward 
+A910-A911 : adjacent_5p upward 
+A911-A912 : adjacent_5p upward 
+A912-A913 : adjacent_5p upward 
+A914-A915 : adjacent_5p upward 
+A915-A916 : adjacent_5p upward 
+A922-A923 : adjacent_5p upward 
+A923-A924 : adjacent_5p upward 
+A924-A925 : adjacent_5p upward 
+A925-A926 : adjacent_5p upward 
+A926-A927 : adjacent_5p upward 
+A929-A930 : adjacent_5p upward 
+A930-A931 : adjacent_5p upward 
+A931-A932 : adjacent_5p upward 
+A936-A937 : adjacent_5p upward 
+A937-A938 : adjacent_5p upward 
+A938-A939 : adjacent_5p upward 
+A939-A940 : adjacent_5p upward 
+A942-A943 : adjacent_5p upward 
+A943-A944 : adjacent_5p upward 
+A944-A945 : adjacent_5p upward 
+A949-A950 : adjacent_5p upward 
+A950-A951 : adjacent_5p upward 
+A951-A952 : adjacent_5p upward 
+A952-A953 : adjacent_5p upward 
+A953-A954 : adjacent_5p upward 
+A954-A955 : adjacent_5p upward 
+A956-A957 : adjacent_5p upward 
+A959-A960 : adjacent_5p upward 
+A963-A964 : adjacent_5p upward 
+A964-A965 : adjacent_5p upward 
+A966-A967 : adjacent_5p upward 
+A968-A969 : adjacent_5p upward 
+A969-A970 : adjacent_5p upward 
+A970-A971 : adjacent_5p upward 
+A971-A972 : adjacent_5p upward 
+A972-A973 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A901-A973 : outward 
+A907-A949 : upward 
+A907-A967 : outward 
+A909-A945 : inward pairing 
+A909-A947 : outward 
+A914-A922 : outward 
+A917-A957 : inward 
+A917-A958 : outward 
+A918-A957 : outward 
+A929-A942 : outward 
+A948-A959 : upward 
+A952-A963 : outward 
+A958-A961 : upward 
+Number of stackings = 54
+Number of adjacent stackings = 41
+Number of non adjacent stackings = 13
+Base-pairs ------------------------------------------------------
+A901-A972 : A-U Ww/Ww pairing antiparallel cis XX 
+A902-A971 : G-C Ww/Ws pairing antiparallel cis 130 
+A903-A970 : U-A Ww/Ww pairing antiparallel cis one_hbond 
+A904-A969 : C-G Ww/Ww pairing antiparallel cis XIX 
+A905-A968 : C-G Ww/Ww pairing antiparallel cis XIX 
+A906-A967 : C-G Ww/Ww pairing antiparallel cis 
+A907-A966 : G-C Ww/Ww pairing antiparallel cis 
+A908-A914 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A908-A921 : U-A O2'/Ww O2'/Bh pairing 
+A908-A947 : U-A O2'/Ss pairing 
+A909-A945 : G-G O2'/Ss inward pairing 
+A910-A925 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A910-A945 : G-G Hw/Sw pairing parallel cis one_hbond 
+A911-A924 : G-C Ww/Ww pairing antiparallel cis XIX 
+A912-A923 : G-C Ww/Ww pairing antiparallel cis 
+A913-A922 : U-U Ws/Ww pairing antiparallel cis one_hbond 
+A915-A921 : G-A Ww/Ss pairing antiparallel cis one_hbond 58 
+A916-A959 : U-C Ws/Ww pairing parallel trans XVII 
+A917-A955 : G-U Ww/Bs pairing parallel trans 87 
+A917-A960 : G-U O2'/Ww pairing 
+A918-A956 : G-C Ws/Ws pairing antiparallel cis one_hbond 
+A921-A948 : A-C Ww/O2' pairing 
+A922-A947 : U-A O2P/Bh pairing 
+A926-A944 : G-C Ww/Ww pairing antiparallel cis XIX 
+A927-A943 : C-G Ws/Ww pairing antiparallel cis one_hbond 130 
+A928-A942 : U-G Ws/Ww pairing antiparallel cis one_hbond 
+A929-A941 : G-C Ww/Ww pairing antiparallel cis XIX 
+A930-A940 : G-C Ww/Ww pairing antiparallel cis 
+A931-A939 : G-C Ww/Ww pairing antiparallel cis XIX 
+A932-A938 : C-A Ws/Wh pairing antiparallel cis one_hbond 78 
+A933-A936 : U-G Ww/O2P pairing 
+A949-A965 : A-U Ww/Ww pairing antiparallel cis XX 
+A950-A964 : G-C Ww/Ww pairing antiparallel cis XIX 
+A951-A963 : C-G Ww/Ww pairing antiparallel cis XIX 
+A952-A962 : G-C Ww/Ww pairing antiparallel cis XIX 
+A953-A961 : G-C Ww/Ww pairing antiparallel cis XIX 
+A954-A958 : U-A Ww/Hh pairing antiparallel trans XXIV 
+A955-A957 : U-G O2'/Hh Hh/O2P Ww/O2P pairing 

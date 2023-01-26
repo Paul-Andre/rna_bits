@@ -1,0 +1,17 @@
+Residue conformations -------------------------------------------
+A2001 : U C3p_endo anti
+A2002 : G C3p_endo anti
+A2003 : G C2p_endo anti
+A2004 : G C3p_endo anti
+A2005 : G C3p_endo anti
+A2006 : U C1p_exo anti
+Adjacent stackings ----------------------------------------------
+A2002-A2003 : adjacent_5p upward 
+A2003-A2004 : adjacent_5p upward 
+A2004-A2005 : adjacent_5p upward 
+A2005-A2006 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 4
+Number of adjacent stackings = 4
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

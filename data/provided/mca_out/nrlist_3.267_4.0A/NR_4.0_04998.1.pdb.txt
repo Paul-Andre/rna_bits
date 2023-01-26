@@ -1,0 +1,21 @@
+Residue conformations -------------------------------------------
+A180 : U C2p_endo anti
+A181 : U C3p_endo anti
+A182 : U C2p_endo anti
+A183 : U C3p_endo anti
+A184 : U C2p_endo anti
+A185 : U C2p_endo syn
+A186 : U C3p_endo anti
+A187 : U C3p_endo anti
+A188 : U C3p_endo anti
+A189 : U C3p_endo anti
+A190 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A185-A186 : adjacent_5p outward 
+A186-A187 : adjacent_5p upward 
+A189-A190 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 3
+Number of adjacent stackings = 3
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

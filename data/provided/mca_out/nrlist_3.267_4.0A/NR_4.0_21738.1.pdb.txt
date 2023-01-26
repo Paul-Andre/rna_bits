@@ -1,0 +1,63 @@
+Residue conformations -------------------------------------------
+A14 : U C2p_endo anti
+A15 : A C2p_endo anti
+A16 : U C2p_endo anti
+A17 : A C3p_endo anti
+A18 : C C3p_endo anti
+A19 : C C3p_endo anti
+A20 : U C3p_endo anti
+A21 : C C3p_endo anti
+A22 : U C3p_endo anti
+A23 : G C3p_endo anti
+A24 : C C3p_endo anti
+A25 : U C3p_endo anti
+A26 : U C2p_endo anti
+A27 : C C2p_endo anti
+A28 : U C2p_endo anti
+A29 : G C3p_endo syn
+A30 : C C2p_endo anti
+A31 : U C3p_endo anti
+B18 : A C3p_endo anti
+B19 : A C3p_endo anti
+B20 : G C3p_endo anti
+B21 : C C3p_endo anti
+B22 : A C3p_endo anti
+B23 : G C3p_endo anti
+B24 : A C3p_endo anti
+B25 : G C3p_endo anti
+B26 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A17-A18 : adjacent_5p upward 
+A18-A19 : adjacent_5p upward 
+A19-A20 : adjacent_5p upward 
+A20-A21 : adjacent_5p upward 
+A21-A22 : adjacent_5p upward 
+A22-A23 : adjacent_5p upward 
+A23-A24 : adjacent_5p upward 
+A24-A25 : adjacent_5p upward 
+A25-A26 : adjacent_5p upward 
+B18-B19 : adjacent_5p upward 
+B19-B20 : adjacent_5p upward 
+B20-B21 : adjacent_5p upward 
+B21-B22 : adjacent_5p upward 
+B22-B23 : adjacent_5p upward 
+B23-B24 : adjacent_5p upward 
+B24-B25 : adjacent_5p upward 
+B25-B26 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A23-B22 : outward 
+Number of stackings = 18
+Number of adjacent stackings = 17
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A18-B26 : C-G Ww/Ww pairing antiparallel cis XIX 
+A19-B25 : C-G Ww/Ww pairing antiparallel cis XIX 
+A20-B24 : U-A Ww/Ww pairing antiparallel cis XX 
+A21-B23 : C-G Ww/Ww pairing antiparallel cis XIX 
+A22-B22 : U-A Ww/Ww pairing antiparallel cis XX 
+A23-B21 : G-C Ww/Ww pairing antiparallel cis XIX 
+A24-B20 : C-G Ww/Ww pairing antiparallel cis XIX 
+A25-A27 : U-C Ws/Wh pairing antiparallel cis one_hbond 100 
+A25-B19 : U-A Ww/Ww pairing antiparallel cis XX 
+A26-B18 : U-A Ww/Ww pairing antiparallel cis XX 
+A27-A29 : C-G O2'/Bs pairing 

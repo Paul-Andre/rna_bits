@@ -1,0 +1,9 @@
+Residue conformations -------------------------------------------
+A603 : G C4p_exo syn
+A604 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

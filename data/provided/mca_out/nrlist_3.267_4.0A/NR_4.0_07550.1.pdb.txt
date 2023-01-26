@@ -1,0 +1,32 @@
+Residue conformations -------------------------------------------
+A740 : G C3p_endo anti
+A741 : G C3p_endo anti
+A742 : C C3p_endo anti
+A743 : A C2p_exo anti
+A744 : C C2p_endo anti
+A753 : G C2p_endo syn
+A754 : U C2p_endo anti
+A755 : G C3p_endo anti
+A756 : C C3p_endo anti
+A757 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A740-A741 : adjacent_5p upward 
+A741-A742 : adjacent_5p upward 
+A742-A743 : adjacent_5p upward 
+A743-A744 : adjacent_5p upward 
+A753-A754 : adjacent_5p upward 
+A754-A755 : adjacent_5p upward pairing 
+A755-A756 : adjacent_5p upward 
+A756-A757 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A743-A755 : outward 
+Number of stackings = 9
+Number of adjacent stackings = 8
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A740-A757 : G-U Ws/Ws pairing antiparallel cis one_hbond 
+A741-A756 : G-C Ww/Ww pairing antiparallel cis XIX 
+A742-A755 : C-G Ww/Ww pairing antiparallel cis XIX 
+A743-A754 : A-U Wh/Wh pairing antiparallel cis one_hbond 
+A744-A753 : C-G Ww/Ww pairing antiparallel cis 
+A754-A755 : U-G O2'/Hh adjacent_5p upward pairing 

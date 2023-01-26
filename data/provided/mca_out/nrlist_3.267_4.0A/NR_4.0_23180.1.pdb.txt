@@ -1,0 +1,48 @@
+Residue conformations -------------------------------------------
+A854 : U C3p_endo anti
+A855 : C C3p_endo anti
+A856 : A C3p_endo anti
+A857 : G C3p_endo anti
+A858 : C C3p_endo anti
+A859 : C C3p_endo anti
+A860 : A C3p_endo anti
+A861 : C C3p_endo anti
+A862 : U C3p_endo anti
+A863 : U C3p_endo anti
+A864 : U C3p_endo anti
+A865 : U C3p_endo anti
+A866 : U C3p_endo anti
+A867 : A C3p_endo anti
+A868 : A C3p_endo anti
+A869 : A C3p_endo anti
+A870 : A C3p_endo anti
+A871 : G C3p_endo anti
+A872 : A C3p_endo anti
+A873 : A C3p_endo anti
+A874 : A C3p_endo anti
+A875 : A C3p_endo anti
+A876 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A855-A856 : adjacent_5p upward 
+A856-A857 : adjacent_5p upward 
+A857-A858 : adjacent_5p upward 
+A858-A859 : adjacent_5p upward 
+A859-A860 : adjacent_5p upward 
+A860-A861 : adjacent_5p upward 
+A861-A862 : adjacent_5p upward 
+A864-A865 : adjacent_5p upward 
+A866-A867 : adjacent_5p upward 
+A867-A868 : adjacent_5p upward 
+A868-A869 : adjacent_5p upward 
+A869-A870 : adjacent_5p upward 
+A870-A871 : adjacent_5p upward 
+A871-A872 : adjacent_5p upward 
+A872-A873 : adjacent_5p upward 
+A873-A874 : adjacent_5p upward 
+A874-A875 : adjacent_5p upward 
+A875-A876 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 18
+Number of adjacent stackings = 18
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

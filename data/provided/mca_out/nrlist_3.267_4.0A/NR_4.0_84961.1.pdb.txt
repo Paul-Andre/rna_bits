@@ -1,0 +1,89 @@
+Residue conformations -------------------------------------------
+A2 : G C3p_endo anti
+A3 : A C3p_endo anti
+A4 : C C3p_endo anti
+A5 : U C3p_endo anti
+A6 : U C3p_endo anti
+A7 : A C3p_endo anti
+A8 : C C3p_endo anti
+A9 : C C3p_endo anti
+A10 : U C3p_endo anti
+A11 : G C2p_endo anti
+A12 : G C3p_endo anti
+A13 : C C3p_endo anti
+A14 : A C3p_endo anti
+A15 : G C3p_endo anti
+A16 : U C3p_endo anti
+A17 : G C3p_endo anti
+A18 : A C2p_endo anti
+A19 : G C4p_exo syn
+A20 : G C3p_endo anti
+A21 : U C3p_endo anti
+A22 : G C3p_endo anti
+A23 : C C3p_endo anti
+A24 : A C3p_endo anti
+A25 : C C3p_endo anti
+A26 : A C3p_endo anti
+A27 : C C3p_endo anti
+A28 : A C3p_endo anti
+A29 : C C3p_endo anti
+A30 : U C3p_endo anti
+A31 : G C2p_exo anti
+A122 : C C3p_endo anti
+A123 : A C3p_endo anti
+A124 : U C2p_endo anti
+A125 : A C3p_endo anti
+A126 : A C3p_exo syn
+A127 : U C2p_endo anti
+A128 : U O4p_endo anti
+A129 : U C2p_endo anti
+A130 : G C4p_exo syn
+A131 : U C2p_endo anti
+A132 : G C3p_endo anti
+A133 : G C2p_endo syn
+A134 : U C2p_exo anti
+A135 : A C2p_exo anti
+A136 : G C2p_endo anti
+A137 : U C1p_exo anti
+A138 : G C2p_exo anti
+Adjacent stackings ----------------------------------------------
+A2-A3 : adjacent_5p upward 
+A2-A138 : adjacent_3p downward 
+A3-A4 : adjacent_5p upward 
+A5-A6 : adjacent_5p upward 
+A6-A7 : adjacent_5p upward 
+A7-A8 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+A9-A10 : adjacent_5p upward 
+A10-A11 : adjacent_5p upward 
+A12-A13 : adjacent_5p upward 
+A14-A15 : adjacent_5p upward 
+A15-A16 : adjacent_5p upward 
+A16-A17 : adjacent_5p upward 
+A17-A18 : adjacent_5p inward 
+A20-A21 : adjacent_5p upward 
+A22-A23 : adjacent_5p upward 
+A24-A25 : adjacent_5p upward 
+A26-A27 : adjacent_5p upward 
+A27-A28 : adjacent_5p upward 
+A28-A29 : adjacent_5p upward 
+A29-A30 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A31-A122 : adjacent_5p upward 
+A122-A123 : adjacent_5p upward 
+A123-A124 : adjacent_5p inward 
+Non-Adjacent stackings ------------------------------------------
+A12-A123 : outward 
+A14-A31 : outward 
+A17-A28 : outward 
+A135-A137 : upward 
+Number of stackings = 29
+Number of adjacent stackings = 25
+Number of non adjacent stackings = 4
+Base-pairs ------------------------------------------------------
+A12-A122 : G-C Ww/Ww pairing antiparallel cis XIX 
+A13-A31 : C-G Ww/Ww pairing antiparallel cis XIX 
+A14-A30 : A-U Ww/Ww pairing antiparallel cis XX 
+A15-A29 : G-C Ww/Ww pairing antiparallel cis XIX 
+A16-A28 : U-A Ww/Ww pairing antiparallel cis XX 
+A17-A27 : G-C Ww/Ww pairing antiparallel cis XIX 

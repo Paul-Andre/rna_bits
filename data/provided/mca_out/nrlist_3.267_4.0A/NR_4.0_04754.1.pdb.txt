@@ -1,0 +1,206 @@
+Residue conformations -------------------------------------------
+A2 : G C3p_endo anti
+A3 : U C3p_endo anti
+A4 : G C3p_endo anti
+A5 : A C3p_endo anti
+A6 : C C3p_endo anti
+A7 : U C3p_endo anti
+A8 : A C3p_endo anti
+A9 : G C3p_endo anti
+A10 : G C3p_endo anti
+A11 : G C3p_endo anti
+A12 : U C2p_endo anti
+A13 : U C3p_endo anti
+A14 : C C3p_endo anti
+A15 : C C3p_endo anti
+A16 : G C3p_endo anti
+A17 : G C3p_endo anti
+A18 : C C3p_endo anti
+A19 : G C3p_endo anti
+A20 : A C2p_endo anti
+A21 : A C2p_endo syn
+A22 : A C3p_endo anti
+A23 : G C3p_endo anti
+A24 : C C3p_endo anti
+A25 : C C3p_endo anti
+A26 : G C3p_endo anti
+A27 : G C3p_endo anti
+A28 : U C3p_endo anti
+A29 : C C3p_endo anti
+A30 : C C3p_endo anti
+A31 : G C3p_endo anti
+A32 : A C3p_exo anti
+A33 : G C3p_endo anti
+A34 : A C3p_endo anti
+A35 : G C3p_endo anti
+A36 : U C3p_endo anti
+A37 : U C3p_endo anti
+A38 : A C3p_endo anti
+A39 : C C3p_endo anti
+A40 : C C3p_endo anti
+A41 : G C3p_endo anti
+A42 : A C3p_endo anti
+A43 : C C3p_endo anti
+A44 : C C3p_endo anti
+A45 : G C3p_endo anti
+A46 : C C3p_endo anti
+A47 : C C3p_endo anti
+A48 : G C3p_endo anti
+A49 : A C3p_endo anti
+A50 : A C3p_endo anti
+A51 : A C3p_endo anti
+A52 : G C3p_endo anti
+A53 : G C3p_endo anti
+A54 : C C3p_endo anti
+A55 : G C3p_endo anti
+A56 : G C3p_endo anti
+A57 : U C3p_endo anti
+A58 : U C3p_endo anti
+A59 : A C3p_endo anti
+A60 : C C3p_endo anti
+A61 : A C3p_endo anti
+A62 : C C3p_endo anti
+A63 : G C3p_endo anti
+A64 : G C2p_exo anti
+A65 : C C3p_endo anti
+A66 : G C3p_endo anti
+A67 : G C3p_endo anti
+A68 : G C3p_endo anti
+A69 : A C1p_exo syn
+A70 : A C2p_endo anti
+A71 : A C3p_endo anti
+A72 : A C3p_endo anti
+A73 : A C3p_endo anti
+A74 : A C3p_endo anti
+A75 : G C3p_exo anti
+A76 : C C3p_endo anti
+A77 : C C3p_endo anti
+A78 : C C3p_endo anti
+A79 : G C2p_endo anti
+A80 : G C2p_endo anti
+A81 : G C3p_endo anti
+A82 : A C3p_endo anti
+A83 : G C3p_endo anti
+A84 : G C3p_exo anti
+A85 : A C1p_exo anti
+A85 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A2-A3 : adjacent_5p upward 
+A4-A5 : adjacent_5p upward 
+A5-A6 : adjacent_5p upward 
+A6-A7 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+A9-A10 : adjacent_5p upward 
+A10-A11 : adjacent_5p upward 
+A11-A12 : adjacent_5p upward 
+A13-A14 : adjacent_5p upward 
+A16-A17 : adjacent_5p upward 
+A17-A18 : adjacent_5p upward 
+A18-A19 : adjacent_5p upward 
+A23-A24 : adjacent_5p upward 
+A25-A26 : adjacent_5p upward 
+A26-A27 : adjacent_5p upward 
+A27-A28 : adjacent_5p upward 
+A28-A29 : adjacent_5p upward 
+A29-A30 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A33-A34 : adjacent_5p upward 
+A35-A36 : adjacent_5p upward 
+A36-A37 : adjacent_5p upward 
+A38-A39 : adjacent_5p upward 
+A40-A41 : adjacent_5p upward 
+A41-A42 : adjacent_5p upward 
+A42-A43 : adjacent_5p upward 
+A45-A46 : adjacent_5p upward 
+A47-A48 : adjacent_5p upward 
+A49-A50 : adjacent_5p upward 
+A50-A51 : adjacent_5p upward 
+A52-A53 : adjacent_5p upward 
+A53-A54 : adjacent_5p upward 
+A54-A55 : adjacent_5p upward 
+A55-A56 : adjacent_5p upward 
+A56-A57 : adjacent_5p upward 
+A57-A58 : adjacent_5p upward 
+A59-A60 : adjacent_5p upward 
+A60-A61 : adjacent_5p upward 
+A62-A63 : adjacent_5p upward 
+A64-A65 : adjacent_5p upward 
+A65-A66 : adjacent_5p upward 
+A66-A67 : adjacent_5p upward 
+A67-A68 : adjacent_5p upward 
+A68-A69 : adjacent_5p inward 
+A71-A72 : adjacent_5p upward 
+A72-A73 : adjacent_5p upward 
+A73-A74 : adjacent_5p upward 
+A77-A78 : adjacent_5p upward 
+A78-A79 : adjacent_5p inward 
+A81-A82 : adjacent_5p upward 
+A82-A83 : adjacent_5p upward 
+A83-A84 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A4-A38 : outward 
+A8-A32 : outward 
+A13-A71 : outward 
+A16-A26 : outward 
+A19-A23 : outward 
+A32-A35 : upward 
+A45-A55 : outward 
+A48-A52 : outward 
+A61-A80 : outward 
+A64-A82 : outward 
+A74-A76 : upward 
+A79-A81 : outward 
+Number of stackings = 64
+Number of adjacent stackings = 52
+Number of non adjacent stackings = 12
+Base-pairs ------------------------------------------------------
+A2-A39 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3-A38 : U-A Ww/Ww pairing antiparallel cis XX 
+A4-A37 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A5-A36 : A-U Ww/Ww pairing antiparallel cis XX 
+A6-A35 : C-G Ww/Ww pairing antiparallel cis XIX 
+A7-A32 : U-A Ws/Hh pairing antiparallel trans XXIV 
+A8-A31 : A-G Hh/Ss Bh/O2' pairing antiparallel trans XI 
+A8-A75 : A-G Ww/O2' pairing 
+A9-A30 : G-C Ww/Ww pairing antiparallel cis XIX 
+A9-A74 : G-A Sw/Ss pairing antiparallel cis one_hbond 
+A9-A75 : G-G O2'/Hh pairing 
+A10-A29 : G-C Ww/Ww pairing antiparallel cis XIX 
+A10-A72 : G-A Sw/Ww pairing antiparallel cis one_hbond 55 
+A10-A73 : G-A O2'/Ss pairing 
+A11-A28 : G-U Ww/Bh pairing antiparallel cis 91 
+A11-A71 : G-A Sw/Ww pairing antiparallel cis one_hbond 55 
+A11-A72 : G-A O2'/Ss pairing 
+A12-A14 : U-C Ws/Hw pairing parallel cis one_hbond 99 
+A13-A28 : U-U Wh/Ww pairing antiparallel cis one_hbond 
+A14-A27 : C-G Ww/Ww pairing antiparallel cis XIX 
+A15-A26 : C-G Ww/Ww pairing antiparallel cis XIX 
+A16-A25 : G-C Ww/Ww pairing antiparallel cis XIX 
+A17-A24 : G-C Ww/Ww pairing antiparallel cis XIX 
+A18-A23 : C-G Ww/Ww pairing antiparallel cis XIX 
+A19-A22 : G-A Ww/O2P Bs/O2P pairing 
+A29-A71 : C-A Ss/Wh O2'/Bh pairing parallel trans one_hbond 76 
+A30-A74 : C-A O2'/Ww pairing 
+A33-A61 : G-A Ss/Ss O2'/Ww pairing parallel trans 57 
+A33-A63 : G-G Ww/Hw pairing parallel trans one_hbond 
+A40-A85 : C-G Ww/Ww pairing antiparallel cis XIX 
+A41-A58 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A42-A57 : A-U Ww/Ww pairing antiparallel cis XX 
+A43-A56 : C-G Ww/Ww pairing antiparallel cis XIX 
+A44-A55 : C-G Ww/Ww pairing antiparallel cis XIX 
+A45-A54 : G-C Ww/Ww pairing antiparallel cis XIX 
+A46-A53 : C-G Ww/Ww pairing antiparallel cis XIX 
+A47-A52 : C-G Ww/Ww pairing antiparallel cis XIX 
+A48-A50 : G-A O2'/Hh Ss/O2P pairing 
+A48-A51 : G-A Sw/Hh Bs/O2P pairing antiparallel trans one_hbond 
+A60-A80 : C-G Ww/Ww pairing antiparallel cis XIX 
+A62-A83 : C-G Ww/Ww pairing antiparallel cis XIX 
+A63-A81 : G-G Ww/O2P Bs/O2P pairing 
+A63-A82 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A64-A81 : G-G Hh/Ww pairing antiparallel trans VII 
+A66-A78 : G-C Ww/Ww pairing antiparallel cis XIX 
+A67-A77 : G-C Ww/Ww pairing antiparallel cis XIX 
+A68-A76 : G-C Ww/Ww pairing antiparallel cis XIX 
+A69-A74 : A-A Hh/Hh Bh/O2P pairing parallel trans II 
+A75-A76 : G-C O2P/Bh adjacent_5p pairing 
+A84-A85 : G-A Sw/Hh adjacent_5p pairing parallel cis one_hbond 53 

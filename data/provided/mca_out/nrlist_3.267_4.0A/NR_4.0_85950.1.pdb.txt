@@ -1,0 +1,81 @@
+Residue conformations -------------------------------------------
+A1 : A C3p_endo anti
+A2 : A C3p_endo anti
+A3 : A C2p_exo anti
+A4 : A C3p_endo anti
+A5 : A C3p_endo anti
+A6 : A C3p_endo anti
+A7 : A C3p_endo anti
+A8 : A C3p_endo anti
+A9 : A C3p_endo anti
+A10 : A C1p_endo anti
+A11 : A C3p_endo anti
+A12 : A C3p_endo anti
+A13 : A C2p_endo anti
+A14 : A C4p_exo anti
+A15 : A C3p_endo anti
+A16 : A C3p_endo anti
+A17 : A C3p_endo anti
+A18 : A C3p_endo anti
+A19 : A C3p_endo anti
+A20 : A C3p_endo anti
+A21 : A C3p_endo anti
+A22 : A C2p_endo anti
+A23 : A C3p_endo anti
+A24 : A C3p_endo anti
+A25 : A C3p_endo anti
+A26 : A C2p_exo anti
+A27 : A C4p_exo syn
+A28 : A C3p_endo anti
+A29 : A C3p_endo anti
+A30 : A C2p_exo anti
+A31 : A C4p_exo anti
+A32 : A C3p_endo anti
+A33 : A C3p_endo anti
+A34 : A C4p_exo syn
+A35 : A C3p_endo anti
+A36 : A C3p_endo anti
+A37 : A C3p_endo anti
+A38 : A C3p_endo anti
+A39 : A C3p_endo anti
+A40 : A C4p_exo anti
+A41 : A C3p_endo anti
+A42 : A C3p_endo anti
+A43 : A C3p_endo anti
+A44 : A C3p_endo anti
+A45 : A C2p_endo syn
+Adjacent stackings ----------------------------------------------
+A1-A2 : adjacent_5p upward 
+A2-A3 : adjacent_5p upward 
+A3-A4 : adjacent_5p upward 
+A7-A8 : adjacent_5p upward 
+A9-A10 : adjacent_5p upward 
+A10-A11 : adjacent_5p upward 
+A11-A12 : adjacent_5p upward 
+A12-A13 : adjacent_5p upward 
+A16-A17 : adjacent_5p upward 
+A18-A19 : adjacent_5p upward 
+A19-A20 : adjacent_5p upward 
+A20-A21 : adjacent_5p upward 
+A21-A22 : adjacent_5p upward 
+A25-A26 : adjacent_5p upward 
+A27-A28 : adjacent_5p outward 
+A28-A29 : adjacent_5p upward 
+A29-A30 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A34-A35 : adjacent_5p outward 
+A36-A37 : adjacent_5p upward 
+A37-A38 : adjacent_5p upward 
+A38-A39 : adjacent_5p upward 
+A39-A40 : adjacent_5p upward 
+A43-A44 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A5-A7 : upward 
+A14-A16 : upward 
+A23-A25 : upward 
+A32-A34 : inward 
+A41-A43 : upward 
+Number of stackings = 29
+Number of adjacent stackings = 24
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------

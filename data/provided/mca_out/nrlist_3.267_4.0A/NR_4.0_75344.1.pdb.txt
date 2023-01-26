@@ -1,0 +1,13 @@
+Residue conformations -------------------------------------------
+A1 : C C2p_endo anti
+A2 : C C2p_endo anti
+A3 : U C2p_endo anti
+A4 : G C2p_endo syn
+A5 : U unknown unknown
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A1-A4 : C-G Bh/O2P pairing 

@@ -1,0 +1,159 @@
+Residue conformations -------------------------------------------
+A3968 : G C3p_endo anti
+A3970 : C C3p_endo anti
+A3971 : C C3p_endo anti
+A3972 : G C3p_endo anti
+A3973 : A C3p_endo anti
+A3974 : U C3p_endo anti
+A3975 : C C3p_endo anti
+A3976 : C C3p_endo anti
+A3977 : G C3p_endo anti
+A3978 : U C3p_endo anti
+A3979 : U C2p_endo anti
+A3980 : G C3p_endo syn
+A3981 : A C3p_endo syn
+A3982 : G C3p_endo anti
+A3983 : C C3p_endo anti
+A3984 : U C3p_endo anti
+A3985 : C C3p_endo anti
+A3986 : C C2p_endo anti
+A3987 : A C2p_endo syn
+A3988 : A C2p_endo anti
+A3989 : G C2p_endo syn
+A3990 : G C3p_endo anti
+A3991 : C C3p_endo anti
+A3992 : C C3p_endo anti
+A3993 : G C3p_endo anti
+A3994 : G C3p_endo anti
+A3995 : G C3p_endo anti
+A3996 : C C3p_endo anti
+A3997 : U C3p_endo anti
+A3998 : U C3p_endo anti
+A3999 : C C3p_endo anti
+A4000 : U C3p_endo anti
+A4001 : G C3p_endo anti
+A4002 : C C3p_endo anti
+A4003 : A C3p_endo anti
+A4004 : G C3p_endo anti
+A4005 : G C3p_endo anti
+A4006 : G C3p_endo anti
+A4007 : A C3p_endo anti
+A4008 : G C3p_endo anti
+A4009 : U C3p_endo anti
+A4010 : G C3p_endo anti
+A4011 : G C3p_endo anti
+A4012 : C C3p_endo anti
+A4017 : G C3p_endo anti
+A4018 : C C3p_endo anti
+A4019 : U C3p_endo anti
+A4020 : G C3p_endo anti
+A4021 : C C3p_endo anti
+A4022 : C C3p_endo anti
+A4023 : C C3p_endo anti
+A4024 : C C3p_endo anti
+A4025 : U C3p_endo anti
+A4026 : G C3p_endo anti
+A4027 : C C3p_endo anti
+A4028 : U C3p_endo anti
+A4029 : G C3p_endo anti
+A4030 : G C3p_endo anti
+A4031 : G C3p_endo anti
+A4032 : G C3p_endo anti
+A4033 : C C3p_endo anti
+A4034 : C C3p_endo anti
+A4035 : G C3p_endo anti
+A4036 : A C3p_endo anti
+A4037 : C C2p_endo syn
+A4040 : G C3p_endo syn
+A4041 : A C2p_endo syn
+A4042 : C C3p_endo anti
+A4043 : A C3p_endo anti
+A4044 : G C3p_endo anti
+A4045 : A C3p_endo anti
+A4046 : G C3p_endo anti
+A4047 : U C3p_endo anti
+A4048 : G C3p_endo anti
+A4049 : G C3p_endo anti
+A4050 : G C3p_endo anti
+A4051 : U C3p_endo anti
+A4052 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A3971-A3972 : adjacent_5p upward 
+A3973-A3974 : adjacent_5p upward 
+A3974-A3975 : adjacent_5p upward 
+A3977-A3978 : adjacent_5p upward 
+A3978-A3979 : adjacent_5p inward 
+A3981-A3982 : adjacent_5p outward 
+A3982-A3983 : adjacent_5p upward 
+A3983-A3984 : adjacent_5p upward 
+A3984-A3985 : adjacent_5p upward 
+A3990-A3991 : adjacent_5p upward 
+A3991-A3992 : adjacent_5p upward 
+A3992-A3993 : adjacent_5p upward 
+A3994-A3995 : adjacent_5p upward 
+A3995-A3996 : adjacent_5p upward 
+A3996-A3997 : adjacent_5p upward 
+A3999-A4000 : adjacent_5p upward 
+A4000-A4001 : adjacent_5p upward 
+A4001-A4002 : adjacent_5p upward 
+A4003-A4004 : adjacent_5p upward 
+A4004-A4005 : adjacent_5p upward 
+A4005-A4006 : adjacent_5p upward 
+A4006-A4007 : adjacent_5p upward 
+A4009-A4010 : adjacent_5p upward 
+A4010-A4011 : adjacent_5p upward 
+A4018-A4019 : adjacent_5p upward 
+A4020-A4021 : adjacent_5p upward 
+A4021-A4022 : adjacent_5p upward 
+A4022-A4023 : adjacent_5p upward 
+A4023-A4024 : adjacent_5p upward 
+A4024-A4025 : adjacent_5p upward 
+A4025-A4026 : adjacent_5p upward 
+A4026-A4027 : adjacent_5p upward 
+A4028-A4029 : adjacent_5p upward 
+A4029-A4030 : adjacent_5p upward 
+A4030-A4031 : adjacent_5p upward 
+A4031-A4032 : adjacent_5p upward 
+A4032-A4033 : adjacent_5p upward 
+A4042-A4043 : adjacent_5p upward 
+A4043-A4044 : adjacent_5p upward 
+A4044-A4045 : adjacent_5p upward 
+A4045-A4046 : adjacent_5p upward 
+A4046-A4047 : adjacent_5p upward 
+A4048-A4049 : adjacent_5p upward 
+A4049-A4050 : adjacent_5p upward 
+A4050-A4051 : adjacent_5p upward 
+A4051-A4052 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A3994-A4035 : outward 
+A3998-A4031 : outward 
+A4003-A4026 : outward 
+A4010-A4020 : outward 
+A4035-A4041 : upward pairing 
+A4036-A4040 : upward 
+A4036-A4041 : downward pairing 
+Number of stackings = 53
+Number of adjacent stackings = 46
+Number of non adjacent stackings = 7
+Base-pairs ------------------------------------------------------
+A3994-A4034 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3995-A4033 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3996-A4032 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3997-A4031 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A3998-A4030 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A3999-A4029 : C-G Ww/Ww pairing antiparallel cis XIX 
+A4000-A4028 : U-U Ww/Wh pairing antiparallel cis one_hbond 
+A4001-A4027 : G-C Ww/Ww pairing antiparallel cis XIX 
+A4002-A4026 : C-G Ww/Ww pairing antiparallel cis XIX 
+A4003-A4025 : A-U Ww/Ww pairing antiparallel cis XX 
+A4004-A4024 : G-C Ww/Ww pairing antiparallel cis XIX 
+A4005-A4023 : G-C Ww/Ww pairing antiparallel cis XIX 
+A4006-A4022 : G-C Ww/Ww pairing antiparallel cis XIX 
+A4007-A4021 : A-C Ww/Wh pairing antiparallel cis one_hbond 71 
+A4008-A4021 : G-C Ww/Ww pairing antiparallel cis XIX 
+A4009-A4020 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A4010-A4019 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A4011-A4018 : G-C Ww/Ww pairing antiparallel cis XIX 
+A4012-A4017 : C-G Ww/Ww pairing antiparallel cis XIX 
+A4035-A4041 : G-A Ww/O2' upward pairing 
+A4036-A4041 : A-A O2P/Bh Bh/O2P downward pairing 

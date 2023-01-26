@@ -1,0 +1,45 @@
+Residue conformations -------------------------------------------
+A26 : G C2p_exo anti
+A27 : C C3p_endo anti
+A28 : C C3p_endo anti
+A29 : A C3p_endo anti
+A30 : A C2p_endo syn
+A31 : U C2p_endo anti
+A32 : G C2p_endo anti
+A33 : A C4p_exo anti
+A34 : G C2p_endo anti
+A35 : G C2p_exo anti
+A41 : C C3p_endo anti
+A42 : C C3p_endo anti
+A43 : G C2p_endo anti
+A44 : A C2p_endo anti
+A45 : G C3p_endo anti
+A46 : G C3p_endo anti
+A47 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A26-A27 : adjacent_5p upward 
+A27-A28 : adjacent_5p upward 
+A28-A29 : adjacent_5p upward 
+A33-A34 : adjacent_5p upward 
+A34-A35 : adjacent_5p upward 
+A41-A42 : adjacent_5p upward 
+A42-A43 : adjacent_5p upward 
+A45-A46 : adjacent_5p upward 
+A46-A47 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A30-A44 : inward pairing 
+A33-A44 : outward 
+Number of stackings = 11
+Number of adjacent stackings = 9
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A26-A47 : G-C Ww/Ww pairing antiparallel cis XIX 
+A27-A46 : C-G Ww/Ww pairing antiparallel cis XIX 
+A28-A45 : C-G Ww/Ww pairing antiparallel cis XIX 
+A29-A44 : A-A O2'/Ww pairing 
+A30-A44 : A-A Bh/O2' inward pairing 
+A32-A44 : G-A Ss/Hh pairing antiparallel trans XI 
+A33-A43 : A-G Hh/Ss pairing antiparallel trans XI 
+A33-A45 : A-G O2'/Bs O2'/Ss Ss/O2' pairing 
+A34-A42 : G-C Ww/Ww pairing antiparallel cis XIX 
+A35-A41 : G-C Ww/Ww pairing antiparallel cis XIX 

@@ -1,0 +1,15 @@
+Residue conformations -------------------------------------------
+A2 : U C2p_endo syn
+A3 : G C2p_endo syn
+A4 : G C2p_endo syn
+A5 : C C2p_endo anti
+A6 : U C3p_endo unknown
+A7 : C C2p_endo anti
+A8 : U C2p_endo anti
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A2-A3 : U-G Ws/Ws adjacent_5p pairing antiparallel cis one_hbond 

@@ -1,0 +1,101 @@
+Residue conformations -------------------------------------------
+A101 : G C3p_endo anti
+A102 : C C3p_endo anti
+A103 : A C3p_endo anti
+A104 : C C3p_endo anti
+A105 : C C3p_endo anti
+A106 : G C3p_endo anti
+A107 : U C3p_endo anti
+A108 : U C3p_endo anti
+A109 : G C3p_endo anti
+A110 : G C3p_endo anti
+A111 : U C3p_endo anti
+A112 : A C3p_endo anti
+A113 : G C3p_endo anti
+A114 : C C3p_endo anti
+A115 : G C3p_endo anti
+A116 : G C3p_endo anti
+A117 : U C3p_endo anti
+A118 : G C3p_endo anti
+A119 : C C3p_endo anti
+B120 : G C2p_exo anti
+B121 : C C3p_endo anti
+B122 : A C3p_endo anti
+B123 : C C3p_endo anti
+B124 : C C3p_endo anti
+B125 : G C3p_endo anti
+B126 : C C3p_endo anti
+B127 : U C3p_endo anti
+B128 : A C3p_endo anti
+B129 : C C2p_exo anti
+B130 : C C3p_endo anti
+B131 : A C3p_endo anti
+B132 : A C3p_endo anti
+B133 : C C3p_endo anti
+B134 : G C3p_endo anti
+B135 : G C3p_endo anti
+B136 : U C3p_endo anti
+B137 : G C3p_endo anti
+B138 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A101-A102 : adjacent_5p upward 
+A102-A103 : adjacent_5p upward 
+A103-A104 : adjacent_5p upward 
+A104-A105 : adjacent_5p upward 
+A106-A107 : adjacent_5p upward 
+A107-A108 : adjacent_5p upward 
+A109-A110 : adjacent_5p upward 
+A110-A111 : adjacent_5p upward 
+A111-A112 : adjacent_5p upward 
+A112-A113 : adjacent_5p upward 
+A113-A114 : adjacent_5p upward 
+A114-A115 : adjacent_5p upward 
+A115-A116 : adjacent_5p upward 
+A116-A117 : adjacent_5p upward 
+A118-A119 : adjacent_5p upward 
+B120-B121 : adjacent_5p upward 
+B121-B122 : adjacent_5p upward 
+B122-B123 : adjacent_5p upward 
+B123-B124 : adjacent_5p upward 
+B124-B125 : adjacent_5p upward 
+B125-B126 : adjacent_5p upward 
+B128-B129 : adjacent_5p upward 
+B129-B130 : adjacent_5p upward 
+B130-B131 : adjacent_5p upward 
+B131-B132 : adjacent_5p upward 
+B132-B133 : adjacent_5p upward 
+B133-B134 : adjacent_5p upward 
+B134-B135 : adjacent_5p upward 
+B135-B136 : adjacent_5p upward 
+B136-B137 : adjacent_5p upward 
+B137-B138 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A103-B137 : outward 
+A106-B134 : outward 
+A109-B131 : outward 
+A112-B128 : outward 
+A115-B125 : outward 
+A118-B122 : outward 
+Number of stackings = 37
+Number of adjacent stackings = 31
+Number of non adjacent stackings = 6
+Base-pairs ------------------------------------------------------
+A101-B138 : G-C Ww/Ww pairing antiparallel cis XIX 
+A102-B137 : C-G Ww/Ww pairing antiparallel cis XIX 
+A103-B136 : A-U Ww/Ww pairing antiparallel cis XX 
+A104-B135 : C-G Ww/Ww pairing antiparallel cis XIX 
+A105-B134 : C-G Ww/Ww pairing antiparallel cis XIX 
+A106-B133 : G-C Ww/Ww pairing antiparallel cis XIX 
+A107-B132 : U-A Ww/Ww pairing antiparallel cis XX 
+A108-B131 : U-A Ww/Ww pairing antiparallel cis XX 
+A109-B130 : G-C Ww/Ww pairing antiparallel cis XIX 
+A110-B129 : G-C Ww/Ww pairing antiparallel cis 
+A111-B128 : U-A Ww/Ww pairing antiparallel cis XX 
+A112-B127 : A-U Ww/Ww pairing antiparallel cis XX 
+A113-B126 : G-C Ww/Ww pairing antiparallel cis XIX 
+A114-B125 : C-G Ww/Ww pairing antiparallel cis XIX 
+A115-B124 : G-C Ww/Ww pairing antiparallel cis XIX 
+A116-B123 : G-C Ww/Ww pairing antiparallel cis XIX 
+A117-B122 : U-A Ww/Ww pairing antiparallel cis XX 
+A118-B121 : G-C Ww/Ww pairing antiparallel cis XIX 
+A119-B120 : C-G Ww/Ww pairing antiparallel cis XIX 

@@ -1,0 +1,11 @@
+Residue conformations -------------------------------------------
+A210 : G C3p_endo anti
+A212 : A C3p_endo anti
+A214 : U C3p_endo anti
+A216 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

@@ -1,0 +1,68 @@
+Residue conformations -------------------------------------------
+A1 : U C2p_endo anti
+A2 : G C3p_endo anti
+A3 : G C3p_endo anti
+A4 : A C3p_endo anti
+A5 : G C3p_endo anti
+A6 : U C2p_endo anti
+A7 : G C3p_endo anti
+A8 : U C3p_endo anti
+A9 : G C3p_endo anti
+A10 : A C2p_endo anti
+A11 : C C2p_endo anti
+A12 : A C2p_endo syn
+A13 : A C3p_endo anti
+A14 : U C3p_endo anti
+A15 : G C3p_endo anti
+A16 : G C3p_endo anti
+A17 : U C3p_endo anti
+A18 : G C3p_endo syn
+A19 : U C2p_endo syn
+A20 : U C3p_endo anti
+A21 : U C3p_endo anti
+B6 : C C3p_endo anti
+B7 : C C3p_endo anti
+B8 : A C3p_endo anti
+B9 : U C3p_endo anti
+B10 : U C2p_endo unknown
+B14 : A C3p_endo anti
+B15 : C C3p_endo anti
+B16 : A C3p_endo anti
+B17 : C C3p_endo anti
+B18 : U C3p_endo anti
+B19 : C C3p_endo anti
+B20 : C C3p_endo anti
+B21 : A C2p_endo anti
+B22 : A unknown unknown
+Adjacent stackings ----------------------------------------------
+A2-A3 : adjacent_5p upward 
+A3-A4 : adjacent_5p upward 
+A4-A5 : adjacent_5p upward 
+A5-A6 : adjacent_5p upward 
+A7-A8 : adjacent_5p upward 
+A13-A14 : adjacent_5p upward 
+A15-A16 : adjacent_5p upward 
+A16-A17 : adjacent_5p upward 
+B8-B9 : adjacent_5p upward 
+B16-B17 : adjacent_5p upward 
+B17-B18 : adjacent_5p upward 
+B18-B19 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A7-B16 : outward 
+A15-B8 : outward 
+Number of stackings = 14
+Number of adjacent stackings = 12
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A2-B20 : G-C Ww/Ww pairing antiparallel cis 
+A3-B19 : G-C Ww/Ww pairing antiparallel cis XIX 
+A4-B18 : A-U Ww/Ww pairing antiparallel cis XX 
+A5-B17 : G-C Ww/Ww pairing antiparallel cis XIX 
+A6-B16 : U-A Ww/Ww pairing antiparallel cis XX 
+A7-B15 : G-C Ww/Ww pairing antiparallel cis XIX 
+A9-A10 : G-A Ws/Ss adjacent_5p pairing antiparallel cis one_hbond 58 
+A10-A12 : A-A O2'/Hh pairing 
+A13-B9 : A-U Ww/Ww pairing antiparallel cis XX 
+A14-B8 : U-A Ww/Ww pairing antiparallel cis XX 
+A15-B7 : G-C Ww/Ww pairing antiparallel cis XIX 
+A16-B6 : G-C Ww/Bs pairing antiparallel cis 127 

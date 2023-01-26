@@ -1,0 +1,13 @@
+Residue conformations -------------------------------------------
+A119 : A C2p_endo syn
+A120 : U C3p_endo anti
+A121 : U O4p_endo anti
+A122 : U C2p_endo anti
+A123 : U unknown unknown
+Adjacent stackings ----------------------------------------------
+A120-A121 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 1
+Number of adjacent stackings = 1
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

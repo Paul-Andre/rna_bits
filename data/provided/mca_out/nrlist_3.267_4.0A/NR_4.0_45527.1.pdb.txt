@@ -1,0 +1,12 @@
+Residue conformations -------------------------------------------
+A5 : A C4p_exo syn
+A6 : G C4p_exo anti
+A7 : A C3p_endo syn
+A8 : A C3p_endo unknown
+A9 : A C3p_endo unknown
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

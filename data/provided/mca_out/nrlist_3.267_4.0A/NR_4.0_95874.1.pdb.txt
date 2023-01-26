@@ -1,0 +1,76 @@
+Residue conformations -------------------------------------------
+A1506 : C C3p_endo anti
+A1507 : A C3p_endo anti
+A1508 : A C3p_endo anti
+A1509 : C C3p_endo anti
+A1510 : C C3p_endo anti
+A1511 : G C3p_endo anti
+A1512 : U C3p_endo anti
+A1513 : A C3p_endo anti
+A1514 : G C3p_endo anti
+A1515 : G C3p_endo anti
+A1516 : G C3p_endo anti
+A1517 : G C3p_endo anti
+A1518 : A C3p_endo anti
+A1519 : A C3p_endo anti
+A1520 : C C3p_endo anti
+A1521 : C C2p_exo anti
+A1522 : U C3p_endo anti
+A1523 : G C3p_endo anti
+A1524 : C C3p_endo anti
+A1525 : G C3p_endo anti
+A1526 : G C3p_endo anti
+A1527 : U C3p_endo anti
+A1528 : U C3p_endo anti
+A1529 : G C3p_endo anti
+A1530 : G C1p_exo anti
+A1531 : A C2p_endo anti
+A1532 : U C2p_endo syn
+A1533 : C C2p_endo anti
+A1534 : A C2p_endo anti
+A1535 : C C2p_endo anti
+A1536 : C C3p_endo anti
+A1537 : U C3p_endo anti
+A1538 : C C3p_endo anti
+A1539 : C C3p_endo anti
+A1540 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A1506-A1507 : adjacent_5p upward 
+A1507-A1508 : adjacent_5p upward 
+A1508-A1509 : adjacent_5p upward 
+A1509-A1510 : adjacent_5p upward 
+A1510-A1511 : adjacent_5p upward 
+A1511-A1512 : adjacent_5p upward 
+A1513-A1514 : adjacent_5p upward 
+A1514-A1515 : adjacent_5p upward 
+A1515-A1516 : adjacent_5p upward 
+A1517-A1518 : adjacent_5p upward 
+A1521-A1522 : adjacent_5p upward 
+A1523-A1524 : adjacent_5p upward 
+A1525-A1526 : adjacent_5p upward 
+A1526-A1527 : adjacent_5p upward 
+A1527-A1528 : adjacent_5p upward 
+A1528-A1529 : adjacent_5p upward 
+A1529-A1530 : adjacent_5p upward 
+A1536-A1537 : adjacent_5p upward 
+A1539-A1540 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A1507-A1529 : outward 
+A1511-A1525 : outward 
+A1513-A1523 : outward 
+Number of stackings = 22
+Number of adjacent stackings = 19
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A1506-A1529 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1507-A1528 : A-U Ww/Ww pairing antiparallel cis XX 
+A1508-A1527 : A-U Ww/Ww pairing antiparallel cis XX 
+A1509-A1526 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1510-A1525 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1511-A1524 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1512-A1523 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A1513-A1522 : A-U Ww/Ww pairing antiparallel cis XX 
+A1514-A1521 : G-C Wh/Wh pairing antiparallel cis one_hbond 
+A1516-A1518 : G-A Sw/Hh Ww/O2P Bs/O2P Ss/O2P pairing antiparallel trans one_hbond 
+A1530-A1531 : G-A O2'/Hh adjacent_5p pairing 
+A1530-A1532 : G-U O2P/Ww pairing 

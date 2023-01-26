@@ -1,0 +1,32 @@
+Residue conformations -------------------------------------------
+A30 : G C3p_endo anti
+A31 : A C3p_endo anti
+A32 : C C3p_endo anti
+A33 : U C3p_endo anti
+A35 : U C3p_endo anti
+A36 : U C3p_endo anti
+A38 : A C3p_endo anti
+A40 : C C3p_endo anti
+B1 : A C3p_endo anti
+B2 : A C3p_endo anti
+B3 : A C3p_endo anti
+B4 : U C3p_endo anti
+B5 : U C3p_exo anti
+B6 : U C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A30-A31 : adjacent_5p upward 
+A31-A32 : adjacent_5p upward 
+A32-A33 : adjacent_5p upward 
+A35-A36 : adjacent_5p upward 
+B1-B2 : adjacent_5p upward 
+B2-B3 : adjacent_5p upward 
+B3-B4 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 7
+Number of adjacent stackings = 7
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A33-A35 : U-U Hh/O2P pairing 
+A33-A36 : U-U Ww/O2P pairing 
+A35-B2 : U-A Ww/Ww pairing antiparallel cis XX 
+A36-B1 : U-A Ww/Ww pairing antiparallel cis XX 

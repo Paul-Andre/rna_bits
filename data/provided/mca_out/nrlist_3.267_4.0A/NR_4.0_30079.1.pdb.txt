@@ -1,0 +1,60 @@
+Residue conformations -------------------------------------------
+A101 : C C3p_endo anti
+A102 : G C3p_endo anti
+A103 : C C3p_endo anti
+A104 : G C3p_endo anti
+A105 : A C3p_endo anti
+A106 : A C3p_endo anti
+A107 : U C3p_endo anti
+A109 : A C3p_endo anti
+A110 : G C3p_endo anti
+A111 : C C3p_endo anti
+A112 : G C3p_endo anti
+B201 : C C3p_endo anti
+B202 : G C3p_endo anti
+B203 : C C3p_endo anti
+B204 : G C3p_endo anti
+B205 : A C3p_endo anti
+B206 : A C3p_endo anti
+B207 : U C2p_endo anti
+B209 : A C3p_endo anti
+B210 : G C3p_endo anti
+B211 : C C3p_endo anti
+B212 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A101-A102 : adjacent_5p upward 
+A102-A103 : adjacent_5p upward 
+A103-A104 : adjacent_5p upward 
+A105-A106 : adjacent_5p upward 
+A106-A107 : adjacent_5p upward 
+A109-A110 : adjacent_5p upward 
+A110-A111 : adjacent_5p upward 
+B201-B202 : adjacent_5p upward 
+B202-B203 : adjacent_5p upward 
+B203-B204 : adjacent_5p upward 
+B205-B206 : adjacent_5p upward 
+B206-B207 : adjacent_5p upward 
+B209-B210 : adjacent_5p upward 
+B210-B211 : adjacent_5p upward 
+B211-B212 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A102-B212 : outward 
+A104-B207 : inward pairing 
+A105-B209 : outward 
+A109-B205 : outward 
+A112-B202 : outward 
+Number of stackings = 20
+Number of adjacent stackings = 15
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------
+A101-B212 : C-G Ww/Ww pairing antiparallel cis XIX 
+A102-B211 : G-C Ww/Ww pairing antiparallel cis XIX 
+A103-B210 : C-G Ww/Ww pairing antiparallel cis XIX 
+A104-B207 : G-U Ww/O2' inward pairing 
+A104-B209 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A105-B207 : A-U Hw/Ws pairing antiparallel trans one_hbond 
+A107-B206 : U-A Ww/Ww pairing antiparallel cis XX 
+A109-B204 : A-G Hh/Ss Bh/O2' pairing antiparallel trans XI 
+A110-B203 : G-C Ww/Ww pairing antiparallel cis XIX 
+A111-B202 : C-G Ww/Ww pairing antiparallel cis XIX 
+A112-B201 : G-C Ww/Ww pairing antiparallel cis XIX 

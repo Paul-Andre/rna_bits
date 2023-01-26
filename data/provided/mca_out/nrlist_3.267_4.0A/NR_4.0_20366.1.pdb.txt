@@ -1,0 +1,60 @@
+Residue conformations -------------------------------------------
+A101 : C C3p_endo anti
+A102 : C C3p_endo anti
+A103 : C C3p_endo anti
+A104 : C C3p_endo anti
+A105 : C C3p_endo anti
+A106 : C C3p_endo anti
+A107 : C C3p_endo anti
+A108 : C C3p_endo anti
+A109 : C C3p_endo anti
+A110 : C C3p_endo anti
+A111 : C C3p_endo anti
+B112 : G C3p_endo anti
+B113 : G C3p_endo anti
+B114 : G C3p_endo anti
+B115 : G C3p_endo anti
+B116 : G C3p_endo anti
+B117 : G C3p_endo anti
+B118 : G C3p_endo anti
+B119 : G C3p_endo anti
+B120 : G C3p_endo anti
+B121 : G C3p_endo anti
+B122 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A101-A102 : adjacent_5p upward 
+A102-A103 : adjacent_5p upward 
+A103-A104 : adjacent_5p upward 
+A104-A105 : adjacent_5p upward 
+A105-A106 : adjacent_5p upward 
+A106-A107 : adjacent_5p upward 
+A107-A108 : adjacent_5p upward 
+A108-A109 : adjacent_5p upward 
+A109-A110 : adjacent_5p upward 
+A110-A111 : adjacent_5p upward 
+B112-B113 : adjacent_5p upward 
+B113-B114 : adjacent_5p upward 
+B114-B115 : adjacent_5p upward 
+B115-B116 : adjacent_5p upward 
+B116-B117 : adjacent_5p upward 
+B117-B118 : adjacent_5p upward 
+B118-B119 : adjacent_5p upward 
+B119-B120 : adjacent_5p upward 
+B120-B121 : adjacent_5p upward 
+B121-B122 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 20
+Number of adjacent stackings = 20
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A101-B122 : C-G Ww/Ww pairing antiparallel cis XIX 
+A102-B121 : C-G Ww/Ww pairing antiparallel cis XIX 
+A103-B120 : C-G Ww/Ww pairing antiparallel cis XIX 
+A104-B119 : C-G Ww/Ww pairing antiparallel cis XIX 
+A105-B118 : C-G Ww/Ww pairing antiparallel cis XIX 
+A106-B117 : C-G Ww/Ww pairing antiparallel cis XIX 
+A107-B116 : C-G Ww/Ww pairing antiparallel cis XIX 
+A108-B115 : C-G Ww/Ww pairing antiparallel cis XIX 
+A109-B114 : C-G Ww/Ww pairing antiparallel cis XIX 
+A110-B113 : C-G Ww/Ww pairing antiparallel cis XIX 
+A111-B112 : C-G Ww/Ww pairing antiparallel cis XIX 

@@ -1,0 +1,80 @@
+Residue conformations -------------------------------------------
+A1 : U C3p_endo anti
+A2 : U C3p_endo anti
+A3 : U C4p_exo anti
+A4 : U C2p_endo anti
+A5 : U C3p_endo anti
+A6 : U C3p_endo anti
+A7 : U C3p_endo anti
+A8 : U C3p_endo anti
+A9 : U C3p_endo syn
+A10 : U C3p_endo anti
+A11 : U C3p_endo anti
+A12 : U C3p_endo anti
+A13 : U C2p_endo anti
+A14 : U C3p_endo anti
+A15 : U C3p_endo anti
+A16 : U C3p_endo anti
+A17 : U C3p_endo anti
+A18 : U C3p_endo syn
+A19 : U C3p_endo anti
+A20 : U C3p_endo anti
+A21 : U C4p_exo anti
+A22 : U C2p_endo anti
+A23 : U C3p_endo anti
+A24 : U C3p_endo anti
+A25 : U C3p_endo anti
+A26 : U C3p_endo anti
+A27 : U C3p_endo syn
+A28 : U C3p_endo anti
+A29 : U C3p_endo anti
+A30 : U C4p_exo anti
+A31 : U C2p_endo anti
+A32 : U C3p_endo anti
+A33 : U C3p_endo anti
+A34 : U C3p_endo syn
+A35 : U C3p_endo anti
+A36 : U C3p_endo anti
+A37 : U C3p_endo anti
+A38 : U C3p_endo anti
+A39 : U C4p_exo anti
+A40 : U C2p_endo anti
+A41 : U C3p_endo anti
+A42 : U C3p_endo anti
+A43 : U C3p_endo anti
+A44 : U C3p_endo anti
+A45 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A1-A2 : adjacent_5p upward 
+A2-A3 : adjacent_5p upward 
+A3-A4 : adjacent_5p upward 
+A7-A8 : adjacent_5p upward 
+A9-A10 : adjacent_5p outward 
+A11-A12 : adjacent_5p upward 
+A12-A13 : adjacent_5p upward 
+A16-A17 : adjacent_5p upward 
+A18-A19 : adjacent_5p outward 
+A19-A20 : adjacent_5p upward 
+A20-A21 : adjacent_5p upward 
+A21-A22 : adjacent_5p upward 
+A25-A26 : adjacent_5p upward 
+A27-A28 : adjacent_5p outward 
+A28-A29 : adjacent_5p upward 
+A29-A30 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A34-A35 : adjacent_5p outward 
+A36-A37 : adjacent_5p upward 
+A37-A38 : adjacent_5p upward 
+A38-A39 : adjacent_5p upward 
+A39-A40 : adjacent_5p upward 
+A43-A44 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A5-A7 : upward 
+A14-A16 : upward 
+A23-A25 : upward 
+A32-A34 : inward 
+A41-A43 : upward 
+Number of stackings = 28
+Number of adjacent stackings = 23
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------

@@ -1,0 +1,49 @@
+Residue conformations -------------------------------------------
+A2101 : A C3p_endo anti
+A2102 : U C3p_endo anti
+A2103 : C C3p_endo anti
+A2104 : G C3p_endo anti
+A2105 : U C3p_endo anti
+A2106 : G C3p_endo anti
+A2107 : G C3p_endo anti
+A2108 : A C3p_endo anti
+A2109 : C C3p_endo anti
+A2110 : C C3p_endo anti
+A2111 : C C2p_exo anti
+A2112 : A C3p_endo anti
+B2001 : G C3p_endo anti
+B2002 : G C3p_endo anti
+B2003 : G C3p_endo anti
+B2004 : U C3p_endo anti
+B2005 : C C3p_endo anti
+B2006 : C C3p_endo anti
+B2007 : A C3p_endo anti
+B2008 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A2104-A2105 : adjacent_5p upward 
+A2106-A2107 : adjacent_5p upward 
+A2107-A2108 : adjacent_5p upward 
+A2108-A2109 : adjacent_5p upward 
+A2109-A2110 : adjacent_5p upward 
+A2110-A2111 : adjacent_5p upward 
+A2111-A2112 : adjacent_5p upward 
+B2001-B2002 : adjacent_5p upward 
+B2002-B2003 : adjacent_5p upward 
+B2003-B2004 : adjacent_5p upward 
+B2004-B2005 : adjacent_5p upward 
+B2005-B2006 : adjacent_5p upward 
+B2007-B2008 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A2106-B2007 : outward 
+Number of stackings = 14
+Number of adjacent stackings = 13
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A2104-B2008 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2105-B2007 : U-A Ww/Ww pairing antiparallel cis XX 
+A2106-B2006 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2107-B2005 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2108-B2004 : A-U Ww/Ww pairing antiparallel cis XX 
+A2109-B2003 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2110-B2002 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2111-B2001 : C-G Ww/Ww pairing antiparallel cis XIX 

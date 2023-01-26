@@ -1,0 +1,72 @@
+Residue conformations -------------------------------------------
+A64 : U C3p_endo anti
+A65 : C C3p_endo anti
+A66 : U C3p_endo anti
+A67 : G C3p_endo anti
+A68 : A C3p_endo anti
+A69 : C C3p_endo anti
+A70 : G C3p_endo anti
+A71 : G C2p_endo syn
+A72 : U C2p_endo anti
+A73 : A C3p_endo anti
+A74 : C C3p_endo anti
+A75 : G C3p_endo anti
+A76 : U C3p_endo anti
+A77 : U C3p_endo anti
+A78 : U C3p_endo anti
+B43 : A C3p_endo anti
+B44 : A C3p_endo anti
+B45 : C C3p_endo anti
+B46 : G C3p_endo anti
+B47 : G C3p_endo anti
+B48 : G C3p_endo anti
+B49 : C C3p_endo anti
+B50 : G C3p_endo anti
+B51 : C C3p_endo anti
+B52 : A C3p_endo anti
+B53 : G C3p_endo anti
+B54 : A C3p_endo anti
+B55 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A64-A65 : adjacent_5p upward 
+A65-A66 : adjacent_5p upward 
+A66-A67 : adjacent_5p upward 
+A69-A70 : adjacent_5p upward 
+A70-A71 : adjacent_5p inward 
+A73-A74 : adjacent_5p upward 
+A74-A75 : adjacent_5p upward 
+A75-A76 : adjacent_5p upward 
+A76-A77 : adjacent_5p upward 
+B43-B44 : adjacent_5p upward 
+B44-B45 : adjacent_5p upward 
+B45-B46 : adjacent_5p upward 
+B46-B47 : adjacent_5p upward 
+B47-B48 : adjacent_5p upward 
+B48-B49 : adjacent_5p upward 
+B49-B50 : adjacent_5p upward 
+B50-B51 : adjacent_5p upward 
+B51-B52 : adjacent_5p upward 
+B52-B53 : adjacent_5p upward 
+B53-B54 : adjacent_5p upward 
+B54-B55 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A67-A69 : upward 
+A67-B52 : outward 
+A70-B50 : outward 
+A71-A73 : outward 
+A75-B46 : outward 
+Number of stackings = 26
+Number of adjacent stackings = 21
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------
+A64-B54 : U-A Ww/Ww pairing antiparallel cis XX 
+A65-B53 : C-G Ww/Ww pairing antiparallel cis XIX 
+A66-B52 : U-A Ww/Ww pairing antiparallel cis XX 
+A67-B51 : G-C Ww/Ww pairing antiparallel cis XIX 
+A69-B50 : C-G Ww/Ww pairing antiparallel cis XIX 
+A70-B49 : G-C Ww/Ww pairing antiparallel cis XIX 
+A71-B48 : G-G Hh/Ww pairing parallel cis VI 
+A73-B47 : A-G Ww/Ww pairing antiparallel cis VIII 
+A74-B46 : C-G Ww/Ww pairing antiparallel cis XIX 
+A75-B45 : G-C Ww/Ww pairing antiparallel cis XIX 
+A76-B44 : U-A Ww/Ww pairing antiparallel cis XX 

@@ -1,0 +1,17 @@
+Residue conformations -------------------------------------------
+A1001 : U C3p_endo anti
+A1002 : G C3p_endo anti
+A1003 : G C2p_endo anti
+A1004 : G C3p_endo anti
+A1005 : G C3p_endo anti
+A1006 : U C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A1002-A1003 : adjacent_5p upward 
+A1003-A1004 : adjacent_5p upward 
+A1004-A1005 : adjacent_5p upward 
+A1005-A1006 : adjacent_5p inward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 4
+Number of adjacent stackings = 4
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

@@ -1,0 +1,30 @@
+Residue conformations -------------------------------------------
+A599 : A C3p_endo anti
+A600 : G C3p_endo anti
+A601 : G C3p_endo anti
+A602 : U C3p_endo anti
+A603 : C C3p_endo anti
+A604 : U C3p_endo anti
+A605 : C C3p_endo anti
+A606 : U C3p_endo anti
+A607 : C C3p_endo anti
+A608 : U C3p_endo anti
+A609 : C C3p_endo anti
+A610 : G C2p_exo anti
+A611 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A600-A601 : adjacent_5p upward 
+A601-A602 : adjacent_5p upward 
+A603-A604 : adjacent_5p upward 
+A604-A605 : adjacent_5p upward 
+A605-A606 : adjacent_5p upward 
+A606-A607 : adjacent_5p upward 
+A607-A608 : adjacent_5p upward 
+A608-A609 : adjacent_5p upward 
+A609-A610 : adjacent_5p upward 
+A610-A611 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 10
+Number of adjacent stackings = 10
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

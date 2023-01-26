@@ -1,0 +1,74 @@
+Residue conformations -------------------------------------------
+A582 : U C3p_endo anti
+A583 : A C3p_endo anti
+A584 : U C2p_endo anti
+A585 : A C3p_endo anti
+A586 : U C3p_endo anti
+A587 : A C3p_endo anti
+A588 : U C3p_endo anti
+A589 : A C2p_endo anti
+A590 : U C3p_endo anti
+A591 : A C3p_endo anti
+A592 : U C3p_endo anti
+A593 : A C3p_endo anti
+A594 : U C3p_endo anti
+A595 : A C3p_endo anti
+A596 : U C3p_endo anti
+A597 : A C3p_endo anti
+A598 : U C3p_endo anti
+A599 : A C3p_endo anti
+B589 : A C3p_endo anti
+B590 : U C2p_endo syn
+B591 : A C3p_endo anti
+B592 : U C3p_endo anti
+B593 : A C3p_endo anti
+B594 : U C3p_endo anti
+B595 : A C3p_endo anti
+B596 : U C3p_endo anti
+B597 : A C3p_endo anti
+B598 : U C3p_endo anti
+B599 : A C3p_endo anti
+B600 : U C3p_endo anti
+B601 : A C3p_endo anti
+B602 : U C3p_endo anti
+B603 : A C2p_endo anti
+B604 : U C3p_endo anti
+B605 : A C2p_endo syn
+Adjacent stackings ----------------------------------------------
+A586-A587 : adjacent_5p upward 
+A590-A591 : adjacent_5p upward 
+A591-A592 : adjacent_5p upward 
+A592-A593 : adjacent_5p upward 
+A593-A594 : adjacent_5p upward 
+A594-A595 : adjacent_5p upward 
+A595-A596 : adjacent_5p upward 
+A596-A597 : adjacent_5p upward 
+A597-A598 : adjacent_5p upward 
+A598-A599 : adjacent_5p upward 
+B593-B594 : adjacent_5p upward 
+B594-B595 : adjacent_5p upward 
+B595-B596 : adjacent_5p upward 
+B596-B597 : adjacent_5p upward 
+B597-B598 : adjacent_5p upward 
+B598-B599 : adjacent_5p upward 
+B599-B600 : adjacent_5p upward 
+B600-B601 : adjacent_5p upward 
+B601-B602 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A593-B601 : outward 
+A595-B599 : outward 
+A597-B597 : outward 
+A599-B595 : outward 
+Number of stackings = 23
+Number of adjacent stackings = 19
+Number of non adjacent stackings = 4
+Base-pairs ------------------------------------------------------
+A591-B602 : A-U Ww/Ww pairing antiparallel cis one_hbond 
+A592-B601 : U-A Ww/Ww pairing antiparallel cis XX 
+A593-B600 : A-U Wh/Wh pairing antiparallel cis one_hbond 
+A594-B599 : U-A Ww/Ww pairing antiparallel cis XX 
+A595-B598 : A-U Ww/Ww pairing antiparallel cis XX 
+A596-B597 : U-A Ww/Ww pairing antiparallel cis XX 
+A597-B596 : A-U Ww/Ww pairing antiparallel cis XX 
+A598-B595 : U-A Ww/Ww pairing antiparallel cis XX 
+A599-B594 : A-U Ww/Ww pairing antiparallel cis XX 

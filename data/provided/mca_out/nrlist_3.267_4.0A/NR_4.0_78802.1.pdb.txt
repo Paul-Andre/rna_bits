@@ -1,0 +1,12 @@
+Residue conformations -------------------------------------------
+A40 : U C3p_endo anti
+A41 : A C3p_endo anti
+A42 : G C3p_endo anti
+A43 : U C3p_endo anti
+A44 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

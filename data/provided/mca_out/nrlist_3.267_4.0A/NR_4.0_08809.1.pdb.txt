@@ -1,0 +1,12 @@
+Residue conformations -------------------------------------------
+A14 : G C2p_exo anti
+A15 : A C3p_endo anti
+A16 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A14-A15 : adjacent_5p upward 
+A15-A16 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 2
+Number of adjacent stackings = 2
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

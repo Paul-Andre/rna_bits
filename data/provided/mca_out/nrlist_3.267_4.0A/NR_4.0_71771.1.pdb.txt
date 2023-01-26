@@ -1,0 +1,82 @@
+Residue conformations -------------------------------------------
+A6150 : U C3p_endo anti
+A6151 : C C3p_endo anti
+A6152 : G C3p_endo anti
+A6153 : C C3p_endo anti
+A6154 : U C3p_endo anti
+A6155 : C C3p_endo anti
+A6156 : A C2p_exo anti
+A6157 : A C3p_endo anti
+A6158 : A C3p_endo anti
+A6159 : C C3p_endo anti
+A6160 : A C3p_endo anti
+A6161 : U C3p_endo anti
+A6162 : U C3p_endo anti
+A6163 : A C4p_exo anti
+A6164 : A C3p_endo anti
+A6165 : G C3p_endo anti
+A6166 : U C3p_endo anti
+A6167 : G C3p_endo anti
+A6168 : G C3p_endo anti
+A6169 : U C3p_endo anti
+A6170 : G C3p_endo anti
+A6171 : U C3p_endo anti
+A6172 : U C3p_endo anti
+A6173 : G C3p_endo anti
+A6174 : U C3p_endo anti
+A6175 : G C3p_endo anti
+A6176 : C C3p_endo anti
+A6177 : G C3p_endo anti
+A6178 : A C3p_endo anti
+A6188 : C C2p_exo anti
+A6189 : A C3p_endo anti
+A6190 : C C3p_endo anti
+A6191 : U C3p_endo anti
+A6192 : U C4p_exo anti
+A6193 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A6152-A6153 : adjacent_5p upward 
+A6154-A6155 : adjacent_5p upward 
+A6157-A6158 : adjacent_5p upward 
+A6158-A6159 : adjacent_5p upward 
+A6159-A6160 : adjacent_5p upward 
+A6160-A6161 : adjacent_5p upward 
+A6163-A6164 : adjacent_5p upward 
+A6164-A6165 : adjacent_5p upward 
+A6165-A6166 : adjacent_5p upward 
+A6166-A6167 : adjacent_5p upward 
+A6167-A6168 : adjacent_5p upward 
+A6168-A6169 : adjacent_5p upward 
+A6169-A6170 : adjacent_5p upward 
+A6170-A6171 : adjacent_5p upward 
+A6171-A6172 : adjacent_5p upward 
+A6173-A6174 : adjacent_5p upward 
+A6175-A6176 : adjacent_5p upward 
+A6177-A6178 : adjacent_5p upward 
+A6189-A6190 : adjacent_5p upward 
+A6191-A6192 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A6152-A6177 : outward 
+A6160-A6170 : outward 
+A6167-A6189 : outward 
+Number of stackings = 23
+Number of adjacent stackings = 20
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A6150-A6178 : U-A Ww/Ww pairing antiparallel cis XX 
+A6151-A6177 : C-G Ww/Ww pairing antiparallel cis XIX 
+A6152-A6176 : G-C Ww/Ww pairing antiparallel cis XIX 
+A6153-A6175 : C-G Ww/Ww pairing antiparallel cis XIX 
+A6155-A6173 : C-G Ww/Ww pairing antiparallel cis XIX 
+A6157-A6172 : A-U Ww/Ww pairing antiparallel cis XX 
+A6158-A6171 : A-U Ww/Ww pairing antiparallel cis XX 
+A6159-A6170 : C-G Ww/Ww pairing antiparallel cis XIX 
+A6160-A6169 : A-U Ww/Ww pairing antiparallel cis XX 
+A6161-A6168 : U-G Ws/Ww pairing antiparallel cis one_hbond 
+A6162-A6164 : U-A O2'/Hh pairing 
+A6162-A6165 : U-G Ww/O2P pairing 
+A6163-A6192 : A-U Ww/Ww pairing antiparallel cis XX 
+A6164-A6191 : A-U Ww/Ww pairing antiparallel cis XX 
+A6165-A6190 : G-C Ww/Ww pairing antiparallel cis XIX 
+A6166-A6189 : U-A Ww/Ww pairing antiparallel cis XX 
+A6167-A6188 : G-C Ww/Ww pairing antiparallel cis XIX 

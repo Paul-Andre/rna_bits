@@ -1,0 +1,82 @@
+Residue conformations -------------------------------------------
+A-22 : A C3p_endo anti
+A-21 : C C3p_endo anti
+A-20 : G C3p_endo anti
+A-19 : A C2p_endo anti
+A-18 : U C2p_endo anti
+A-17 : U C3p_endo anti
+A-16 : G C3p_endo anti
+A-15 : C C3p_endo anti
+A-14 : C C3p_endo anti
+A-13 : C C3p_endo anti
+A-12 : C C3p_endo anti
+A-11 : U C3p_endo anti
+A-10 : C C3p_endo anti
+A-9 : A C2p_endo anti
+A-8 : C C2p_endo anti
+A-7 : G C3p_endo syn
+A-6 : A C3p_endo anti
+A-5 : G C3p_endo anti
+A-4 : G C3p_endo anti
+A-3 : G C3p_endo anti
+A-2 : G C3p_endo anti
+A-1 : A C3p_endo anti
+A0 : C C3p_endo anti
+A1 : A C2p_endo anti
+A2 : G C3p_endo anti
+A3 : C C3p_endo anti
+A4 : U C3p_endo anti
+A5 : G C3p_endo anti
+A6 : G C3p_endo anti
+A7 : U C3p_endo anti
+A8 : A C3p_endo anti
+A9 : A C3p_endo anti
+A10 : U C3p_endo anti
+A11 : G C3p_endo anti
+A12 : G C3p_endo anti
+A13 : G C3p_endo anti
+A14 : A C3p_endo anti
+A15 : U C3p_endo anti
+A16 : A C3p_endo anti
+A17 : C C3p_endo anti
+A18 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A-17-A-16 : adjacent_5p upward 
+A-16-A-15 : adjacent_5p upward 
+A-14-A-13 : adjacent_5p upward 
+A-13-A-12 : adjacent_5p upward 
+A-11-A-10 : adjacent_5p upward 
+A-6-A-5 : adjacent_5p upward 
+A-5-A-4 : adjacent_5p upward 
+A-4-A-3 : adjacent_5p upward 
+A-3-A-2 : adjacent_5p upward 
+A-2-A-1 : adjacent_5p upward 
+A-1-A0 : adjacent_5p upward 
+A1-A2 : adjacent_5p upward 
+A2-A3 : adjacent_5p upward 
+A3-A4 : adjacent_5p upward 
+A4-A5 : adjacent_5p upward 
+A5-A6 : adjacent_5p upward 
+A6-A7 : adjacent_5p upward 
+A7-A8 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+A9-A10 : adjacent_5p upward 
+A10-A11 : adjacent_5p upward 
+A11-A12 : adjacent_5p upward 
+A12-A13 : adjacent_5p upward 
+A13-A14 : adjacent_5p upward 
+A14-A15 : adjacent_5p upward 
+A15-A16 : adjacent_5p upward 
+A16-A17 : adjacent_5p upward 
+A17-A18 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 28
+Number of adjacent stackings = 28
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A-16-A-1 : G-A Ww/Ww pairing antiparallel cis VIII 
+A-15-A-2 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-14-A-3 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-13-A-4 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-12-A-5 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-11-A-6 : U-A Ww/Ww pairing antiparallel cis XX 

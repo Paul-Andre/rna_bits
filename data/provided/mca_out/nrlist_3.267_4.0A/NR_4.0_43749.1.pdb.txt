@@ -1,0 +1,57 @@
+Residue conformations -------------------------------------------
+A101 : C C3p_endo anti
+A102 : G C3p_endo anti
+A103 : C C3p_endo anti
+A105 : A C3p_endo anti
+A106 : A C3p_endo anti
+A107 : U C3p_endo anti
+A108 : U C3p_endo anti
+A109 : G C3p_endo anti
+A110 : G C3p_endo anti
+A111 : C C3p_endo anti
+A112 : G C3p_endo anti
+B101 : C C3p_endo anti
+B102 : G C3p_endo anti
+B103 : C C3p_endo anti
+B105 : A C3p_endo anti
+B106 : A C3p_endo anti
+B107 : U C3p_endo anti
+B108 : U C3p_endo anti
+B109 : G C3p_endo anti
+B110 : G C3p_endo anti
+B111 : C C3p_endo anti
+B112 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A102-A103 : adjacent_5p upward 
+A105-A106 : adjacent_5p upward 
+A106-A107 : adjacent_5p upward 
+A107-A108 : adjacent_5p upward 
+A109-A110 : adjacent_5p upward 
+A110-A111 : adjacent_5p upward 
+A111-A112 : adjacent_5p upward 
+B102-B103 : adjacent_5p upward 
+B105-B106 : adjacent_5p upward 
+B106-B107 : adjacent_5p upward 
+B107-B108 : adjacent_5p upward 
+B109-B110 : adjacent_5p upward 
+B110-B111 : adjacent_5p upward 
+B111-B112 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A102-B112 : outward 
+A105-B109 : outward 
+A109-B105 : outward 
+A112-B102 : outward 
+Number of stackings = 18
+Number of adjacent stackings = 14
+Number of non adjacent stackings = 4
+Base-pairs ------------------------------------------------------
+A101-B112 : C-G Ww/Ww pairing antiparallel cis XIX 
+A102-B111 : G-C Ww/Ww pairing antiparallel cis XIX 
+A103-B110 : C-G Ww/Ww pairing antiparallel cis XIX 
+A105-B108 : A-U Ww/Ww pairing antiparallel cis XX 
+A106-B107 : A-U Ww/Ww pairing antiparallel cis XX 
+A107-B106 : U-A Ww/Ww pairing antiparallel cis XX 
+A108-B105 : U-A Ww/Ww pairing antiparallel cis XX 
+A110-B103 : G-C Ww/Ww pairing antiparallel cis XIX 
+A111-B102 : C-G Ww/Ww pairing antiparallel cis XIX 
+A112-B101 : G-C Ww/Ww pairing antiparallel cis XIX 

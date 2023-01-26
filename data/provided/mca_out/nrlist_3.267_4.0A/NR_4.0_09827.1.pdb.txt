@@ -1,0 +1,45 @@
+Residue conformations -------------------------------------------
+A2102 : A C2p_endo anti
+A2103 : C C3p_endo anti
+A2104 : G C3p_endo anti
+A2105 : A C3p_endo anti
+A2106 : U C3p_endo anti
+A2107 : U C3p_endo anti
+A2108 : U C3p_endo anti
+A2109 : U C3p_endo anti
+A2110 : A C3p_endo anti
+A2111 : U C3p_endo anti
+A2112 : G C3p_endo anti
+A2113 : G C4p_exo anti
+A2114 : A C3p_endo anti
+A2115 : C C3p_endo anti
+B2006 : C C3p_endo anti
+B2007 : A C3p_endo anti
+B2008 : U C3p_endo anti
+B2009 : A C3p_endo anti
+B2010 : A C3p_endo anti
+B2011 : A C3p_endo anti
+B2012 : A C3p_endo anti
+B2013 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A2105-A2106 : adjacent_5p upward 
+A2106-A2107 : adjacent_5p upward 
+A2107-A2108 : adjacent_5p upward 
+A2108-A2109 : adjacent_5p upward 
+A2110-A2111 : adjacent_5p upward 
+A2111-A2112 : adjacent_5p upward 
+B2006-B2007 : adjacent_5p upward pairing 
+B2008-B2009 : adjacent_5p upward 
+B2009-B2010 : adjacent_5p upward 
+B2010-B2011 : adjacent_5p upward 
+B2011-B2012 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 11
+Number of adjacent stackings = 11
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A2105-B2013 : A-U Ww/Ws pairing antiparallel cis one_hbond 
+A2107-B2011 : U-A Ww/Ww pairing antiparallel cis one_hbond 
+A2109-B2009 : U-A Ws/Ww pairing antiparallel cis 
+A2112-A2114 : G-A O2P/Bh pairing 
+B2006-B2007 : C-A O2P/Hh adjacent_5p upward pairing 

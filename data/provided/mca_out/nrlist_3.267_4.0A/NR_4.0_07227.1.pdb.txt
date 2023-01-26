@@ -1,0 +1,10 @@
+Residue conformations -------------------------------------------
+A607 : U C3p_exo anti
+A608 : U C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A607-A608 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 1
+Number of adjacent stackings = 1
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

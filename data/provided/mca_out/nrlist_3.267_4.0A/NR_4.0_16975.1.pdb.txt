@@ -1,0 +1,16 @@
+Residue conformations -------------------------------------------
+A164 : A C3p_endo anti
+A165 : A C3p_endo anti
+A166 : A C3p_endo anti
+A167 : A C3p_endo anti
+A168 : A C3p_endo anti
+A169 : A C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A165-A166 : adjacent_5p upward 
+A166-A167 : adjacent_5p upward 
+A167-A168 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 3
+Number of adjacent stackings = 3
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

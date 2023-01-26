@@ -1,0 +1,73 @@
+Residue conformations -------------------------------------------
+A581 : A C3p_endo anti
+A582 : G C3p_endo anti
+A583 : G C3p_endo anti
+A584 : A C3p_endo anti
+A585 : G C3p_endo anti
+A586 : A C3p_endo anti
+A587 : U C3p_endo anti
+A588 : G C3p_endo anti
+A589 : A C3p_endo anti
+A590 : A C3p_endo anti
+A591 : A C3p_endo anti
+A592 : G C3p_endo anti
+A593 : U C3p_endo anti
+A594 : C C3p_endo anti
+A595 : U C3p_endo anti
+A596 : C C3p_endo anti
+A597 : C C3p_endo anti
+A598 : A C2p_endo anti
+A599 : G C3p_endo anti
+A600 : G C3p_endo anti
+A601 : U C3p_endo anti
+A602 : C C3p_endo anti
+A603 : U C3p_endo anti
+A604 : C C3p_endo anti
+A605 : U C3p_endo anti
+A606 : C C3p_endo anti
+A607 : G C3p_endo anti
+A608 : U C3p_endo anti
+A609 : C C3p_endo anti
+A610 : C C3p_endo anti
+A611 : G C3p_endo anti
+A612 : G C2p_endo anti
+A613 : A unknown unknown
+Adjacent stackings ----------------------------------------------
+A581-A582 : adjacent_5p upward 
+A582-A583 : adjacent_5p upward 
+A583-A584 : adjacent_5p upward 
+A584-A585 : adjacent_5p upward 
+A585-A586 : adjacent_5p upward 
+A586-A587 : adjacent_5p upward 
+A587-A588 : adjacent_5p upward 
+A589-A590 : adjacent_5p upward 
+A590-A591 : adjacent_5p upward 
+A591-A592 : adjacent_5p upward 
+A592-A593 : adjacent_5p upward 
+A593-A594 : adjacent_5p upward 
+A595-A596 : adjacent_5p upward 
+A596-A597 : adjacent_5p upward 
+A597-A598 : adjacent_5p upward 
+A600-A601 : adjacent_5p upward 
+A601-A602 : adjacent_5p upward 
+A602-A603 : adjacent_5p upward 
+A603-A604 : adjacent_5p upward 
+A604-A605 : adjacent_5p upward 
+A607-A608 : adjacent_5p upward 
+A608-A609 : adjacent_5p upward 
+A609-A610 : adjacent_5p upward 
+A610-A611 : adjacent_5p upward 
+A611-A612 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 25
+Number of adjacent stackings = 25
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A582-A597 : G-C Ww/Ww pairing antiparallel cis XIX 
+A583-A596 : G-C Ww/Ww pairing antiparallel cis XIX 
+A584-A595 : A-U Ww/Ww pairing antiparallel cis XX 
+A585-A594 : G-C Ww/Ww pairing antiparallel cis XIX 
+A586-A593 : A-U Ww/Ww pairing antiparallel cis XX 
+A587-A592 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A588-A590 : G-A O2'/Hh pairing 
+A588-A591 : G-A Sw/Hh Bs/O2P pairing antiparallel trans one_hbond 

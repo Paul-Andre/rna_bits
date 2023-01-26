@@ -1,0 +1,41 @@
+Residue conformations -------------------------------------------
+A901 : G C3p_endo anti
+A902 : C C3p_endo anti
+A903 : A C2p_exo anti
+A904 : U C3p_endo anti
+A905 : C C3p_endo anti
+A906 : C C3p_endo anti
+A907 : G C3p_endo anti
+B966 : C C3p_endo anti
+B967 : G C3p_endo anti
+B968 : G C3p_endo anti
+B969 : A C3p_endo anti
+B970 : U C3p_endo anti
+B971 : G C3p_endo anti
+B972 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A901-A902 : adjacent_5p upward 
+A902-A903 : adjacent_5p upward 
+A903-A904 : adjacent_5p upward 
+A904-A905 : adjacent_5p upward 
+A905-A906 : adjacent_5p upward 
+B966-B967 : adjacent_5p upward 
+B967-B968 : adjacent_5p upward 
+B968-B969 : adjacent_5p upward 
+B969-B970 : adjacent_5p upward 
+B970-B971 : adjacent_5p upward 
+B971-B972 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A903-B971 : outward 
+A907-B967 : outward 
+Number of stackings = 13
+Number of adjacent stackings = 11
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A901-B972 : G-C Ww/Ww pairing antiparallel cis 
+A902-B971 : C-G Ww/Ww pairing antiparallel cis XIX 
+A903-B970 : A-U Ww/Ww pairing antiparallel cis XX 
+A904-B969 : U-A Ww/Ww pairing antiparallel cis XX 
+A905-B968 : C-G Ww/Ww pairing antiparallel cis XIX 
+A906-B967 : C-G Ww/Ww pairing antiparallel cis XIX 
+A907-B966 : G-C Ww/Ww pairing antiparallel cis XIX 

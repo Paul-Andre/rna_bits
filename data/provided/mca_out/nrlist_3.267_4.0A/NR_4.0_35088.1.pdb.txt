@@ -1,0 +1,106 @@
+Residue conformations -------------------------------------------
+A1484 : G C3p_endo anti
+A1485 : G C3p_endo anti
+A1486 : G C3p_endo anti
+A1488 : G C2p_exo anti
+A1489 : G C3p_endo anti
+A1490 : U C3p_endo anti
+A1491 : G C3p_endo anti
+A1492 : A C1p_exo syn
+A1493 : A C3p_endo syn
+A1494 : G C3p_endo anti
+A1495 : U C3p_endo anti
+A1496 : C C3p_endo anti
+A1497 : G C3p_endo anti
+A1498 : U C3p_endo anti
+A1499 : A C2p_exo anti
+A1500 : A C3p_endo anti
+A1501 : C C3p_endo anti
+A1502 : G C3p_endo anti
+A1503 : C C3p_endo anti
+A1504 : G C3p_endo anti
+A1505 : G C3p_endo anti
+A1506 : C C3p_endo anti
+A1506 : U C3p_endo anti
+B1397 : C C3p_endo anti
+B1398 : C C3p_endo anti
+B1399 : G C3p_endo anti
+B1400 : C C3p_endo anti
+B1401 : G C3p_endo anti
+B1402 : C C3p_endo anti
+B1403 : C C3p_endo anti
+B1404 : C C3p_endo anti
+B1405 : G C3p_endo anti
+B1407 : C C3p_endo anti
+B1408 : A C3p_endo anti
+B1409 : C C3p_endo anti
+B1410 : A C3p_endo anti
+B1411 : C C3p_endo anti
+B1412 : C C3p_endo anti
+B1413 : A C3p_endo anti
+B1414 : C C3p_endo anti
+B1415 : C C3p_endo anti
+B1416 : C C3p_endo anti
+B1417 : G C3p_endo anti
+B1417 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A1484-A1485 : adjacent_5p upward 
+A1485-A1486 : adjacent_5p upward 
+A1488-A1489 : adjacent_5p upward 
+A1489-A1490 : adjacent_5p upward 
+A1490-A1491 : adjacent_5p upward 
+A1493-A1494 : adjacent_5p outward 
+A1494-A1495 : adjacent_5p upward 
+A1495-A1496 : adjacent_5p upward 
+A1496-A1497 : adjacent_5p upward 
+A1497-A1498 : adjacent_5p upward 
+A1499-A1500 : adjacent_5p upward 
+A1500-A1501 : adjacent_5p upward 
+A1501-A1502 : adjacent_5p upward 
+A1502-A1503 : adjacent_5p upward 
+A1504-A1505 : adjacent_5p upward 
+B1398-B1399 : adjacent_5p upward 
+B1399-B1400 : adjacent_5p upward 
+B1401-B1402 : adjacent_5p upward 
+B1402-B1403 : adjacent_5p upward 
+B1403-B1404 : adjacent_5p upward 
+B1404-B1405 : adjacent_5p upward 
+B1407-B1408 : adjacent_5p upward 
+B1408-B1409 : adjacent_5p upward 
+B1409-B1410 : adjacent_5p upward 
+B1410-B1411 : adjacent_5p upward 
+B1411-B1412 : adjacent_5p upward 
+B1412-B1413 : adjacent_5p upward 
+B1413-B1414 : adjacent_5p upward 
+B1414-B1415 : adjacent_5p upward 
+B1415-B1416 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A1488-B1413 : outward 
+A1491-B1410 : outward 
+A1494-B1408 : outward 
+A1497-B1405 : outward 
+A1502-B1401 : outward 
+A1504-B1399 : outward 
+Number of stackings = 36
+Number of adjacent stackings = 30
+Number of non adjacent stackings = 6
+Base-pairs ------------------------------------------------------
+A1484-B1416 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1485-B1415 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1486-B1414 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1488-B1412 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1489-B1411 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1490-B1410 : U-A Ww/Ww pairing antiparallel cis XX 
+A1491-B1409 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1493-B1408 : A-A Wh/Ww pairing parallel cis one_hbond 
+A1494-B1407 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1496-B1405 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1497-B1404 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1498-A1499 : U-A O2'/Hh adjacent_5p pairing 
+A1498-B1403 : U-C Ws/Wh pairing antiparallel cis one_hbond 100 
+A1500-B1402 : A-C Wh/Ww pairing antiparallel cis one_hbond 78 
+A1501-B1401 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1502-B1400 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1503-B1399 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1504-B1398 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1505-B1397 : G-C Ww/Ww pairing antiparallel cis XIX 

@@ -1,0 +1,194 @@
+Residue conformations -------------------------------------------
+A3813 : C C3p_endo anti
+A3814 : G C3p_endo anti
+A3815 : G C3p_endo anti
+A3816 : A C3p_endo anti
+A3817 : G C3p_endo anti
+A3818 : U C3p_endo anti
+A3819 : G C2p_endo syn
+A3820 : A C3p_endo anti
+A3821 : U C3p_endo anti
+A3822 : U C3p_endo anti
+A3823 : G C3p_endo anti
+A3824 : C C3p_endo anti
+A3825 : C C3p_endo anti
+A3826 : G C3p_endo anti
+A3827 : G C3p_endo anti
+A3828 : C C3p_endo anti
+A3829 : A C3p_endo anti
+A3830 : C C3p_endo anti
+A3831 : C C3p_endo anti
+A3832 : G C3p_endo anti
+A3833 : G C2p_endo anti
+A3834 : A C2p_endo anti
+A3835 : U C2p_endo syn
+A3836 : G C2p_endo anti
+A3837 : U C2p_endo syn
+A3838 : G C2p_endo syn
+A3839 : G C2p_endo anti
+A3840 : U C2p_endo anti
+A3841 : G C3p_endo anti
+A3842 : U C3p_endo anti
+A3843 : G C3p_endo anti
+A3844 : C C3p_endo anti
+A3845 : A C2p_endo anti
+A3846 : G C3p_endo anti
+A3847 : G C3p_endo anti
+A3848 : C C3p_endo anti
+A3849 : C C3p_endo anti
+A3850 : U C3p_endo anti
+A3851 : G C3p_endo anti
+A3852 : C C3p_endo anti
+A3853 : G C3p_endo anti
+A3854 : A C3p_endo anti
+A3855 : G C3p_endo anti
+A3856 : A C3p_endo anti
+A3857 : U C3p_endo anti
+A3858 : G C3p_endo anti
+A3859 : G C3p_endo anti
+A3863 : C C3p_endo anti
+A3864 : A C3p_endo anti
+A3866 : U C3p_endo anti
+A3867 : G C3p_endo anti
+A3868 : A C3p_endo anti
+A3869 : G C3p_endo anti
+A3870 : U C3p_endo anti
+A3871 : G C3p_endo anti
+A3872 : G C3p_endo anti
+A3873 : G C3p_endo anti
+A3874 : C C3p_endo anti
+A3875 : A C3p_endo anti
+A3876 : G C3p_endo anti
+A3877 : G C2p_endo syn
+A3878 : C C3p_endo anti
+A3879 : U C2p_endo anti
+A3880 : G C3p_endo anti
+A3881 : C C3p_endo anti
+A3882 : A C3p_endo anti
+A3883 : A C3p_endo anti
+A3884 : G C2p_endo syn
+A3885 : C C3p_endo anti
+A3886 : C C3p_endo anti
+A3887 : U C3p_endo anti
+A3888 : C C3p_endo anti
+A3889 : C C3p_endo anti
+A3890 : U C3p_endo anti
+A3891 : G C3p_endo anti
+A3892 : C C3p_endo anti
+A3893 : C C3p_endo anti
+A3894 : G C3p_endo anti
+A3895 : G C3p_endo anti
+A3896 : U C3p_endo anti
+A3897 : C C3p_endo anti
+A3898 : G C2p_endo anti
+A3899 : G C2p_endo syn
+A3900 : A C2p_endo anti
+A3901 : C C2p_endo anti
+A3902 : A C3p_endo anti
+A3903 : A C2p_endo anti
+A3904 : A C3p_endo anti
+A3905 : C C2p_endo anti
+A3907 : G C2p_endo syn
+Adjacent stackings ----------------------------------------------
+A3813-A3814 : adjacent_5p upward 
+A3814-A3815 : adjacent_5p upward 
+A3815-A3816 : adjacent_5p upward 
+A3816-A3817 : adjacent_5p upward 
+A3817-A3818 : adjacent_5p upward 
+A3818-A3819 : adjacent_5p inward 
+A3820-A3821 : adjacent_5p upward 
+A3823-A3824 : adjacent_5p upward 
+A3825-A3826 : adjacent_5p upward 
+A3826-A3827 : adjacent_5p upward 
+A3827-A3828 : adjacent_5p upward 
+A3828-A3829 : adjacent_5p upward 
+A3829-A3830 : adjacent_5p upward 
+A3841-A3842 : adjacent_5p upward 
+A3842-A3843 : adjacent_5p upward 
+A3843-A3844 : adjacent_5p upward 
+A3847-A3848 : adjacent_5p upward 
+A3849-A3850 : adjacent_5p upward 
+A3851-A3852 : adjacent_5p upward 
+A3852-A3853 : adjacent_5p upward 
+A3854-A3855 : adjacent_5p upward pairing 
+A3855-A3856 : adjacent_5p upward 
+A3856-A3857 : adjacent_5p upward 
+A3858-A3859 : adjacent_5p upward 
+A3863-A3864 : adjacent_5p upward 
+A3866-A3867 : adjacent_5p upward 
+A3868-A3869 : adjacent_5p upward 
+A3869-A3870 : adjacent_5p upward 
+A3871-A3872 : adjacent_5p upward 
+A3872-A3873 : adjacent_5p upward 
+A3873-A3874 : adjacent_5p upward 
+A3874-A3875 : adjacent_5p upward 
+A3875-A3876 : adjacent_5p upward 
+A3880-A3881 : adjacent_5p upward 
+A3881-A3882 : adjacent_5p upward 
+A3882-A3883 : adjacent_5p upward 
+A3883-A3884 : adjacent_5p inward 
+A3885-A3886 : adjacent_5p upward 
+A3886-A3887 : adjacent_5p upward 
+A3887-A3888 : adjacent_5p upward 
+A3888-A3889 : adjacent_5p upward 
+A3889-A3890 : adjacent_5p upward 
+A3891-A3892 : adjacent_5p upward 
+A3892-A3893 : adjacent_5p upward 
+A3893-A3894 : adjacent_5p upward 
+A3894-A3895 : adjacent_5p upward 
+A3895-A3896 : adjacent_5p upward 
+A3896-A3897 : adjacent_5p upward 
+A3902-A3903 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A3813-A3891 : outward 
+A3823-A3882 : outward 
+A3826-A3877 : outward 
+A3829-A3843 : outward 
+A3831-A3841 : outward 
+A3832-A3836 : inward pairing 
+A3832-A3838 : outward 
+A3833-A3836 : outward pairing 
+A3838-A3841 : upward 
+A3846-A3879 : outward 
+A3847-A3875 : outward 
+A3851-A3871 : outward 
+A3853-A3867 : inward 
+A3854-A3868 : outward 
+A3858-A3864 : outward 
+A3877-A3880 : upward 
+A3904-A3907 : inward 
+Number of stackings = 66
+Number of adjacent stackings = 49
+Number of non adjacent stackings = 17
+Base-pairs ------------------------------------------------------
+A3813-A3890 : C-U Hw/Bs pairing antiparallel trans one_hbond 
+A3814-A3889 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3815-A3888 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3816-A3887 : A-U Ww/Ww pairing antiparallel cis XX 
+A3817-A3886 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3820-A3884 : A-G Wh/Hh pairing parallel cis one_hbond 61 
+A3821-A3883 : U-A Ww/Ww pairing antiparallel cis XX 
+A3822-A3882 : U-A Ww/Ww pairing antiparallel cis XX 
+A3823-A3881 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3824-A3880 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3825-A3877 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3827-A3844 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3828-A3843 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3829-A3842 : A-U Ww/Ww pairing antiparallel cis XX 
+A3830-A3841 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3831-A3838 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3832-A3836 : G-G Ss/O2' inward pairing 
+A3833-A3836 : G-G O2P/Bs Bs/O2P outward pairing 
+A3845-A3875 : A-A Ww/O2' Bh/O2' pairing 
+A3847-A3874 : G-C Ww/Ww pairing antiparallel cis XIX 
+A3848-A3873 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3849-A3872 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3850-A3871 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A3851-A3870 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A3852-A3869 : C-G Ww/Ww pairing antiparallel cis XIX 
+A3853-A3868 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A3854-A3855 : A-G O2P/Hh adjacent_5p upward pairing 
+A3854-A3867 : A-G Hh/Ss Bh/O2' pairing antiparallel trans XI 
+A3855-A3866 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A3857-A3864 : U-A Ww/Ww pairing antiparallel cis XX 
+A3858-A3863 : G-C Ww/Ww pairing antiparallel cis XIX 

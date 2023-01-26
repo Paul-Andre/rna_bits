@@ -1,0 +1,42 @@
+Residue conformations -------------------------------------------
+A201 : C C2p_endo anti
+A202 : C C3p_endo anti
+A203 : G C3p_endo anti
+A204 : C C3p_endo anti
+A205 : C C3p_endo anti
+A206 : G C3p_endo anti
+A207 : C C3p_endo anti
+A208 : C C3p_endo anti
+A209 : G C3p_endo anti
+A210 : C C3p_endo anti
+A211 : C C3p_endo anti
+A212 : G C3p_endo anti
+A213 : C C3p_endo anti
+A214 : C C3p_endo anti
+A215 : G C3p_endo anti
+A216 : C C3p_endo anti
+A217 : C C3p_endo anti
+A218 : G C4p_exo anti
+A219 : C C2p_exo anti
+A220 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A202-A203 : adjacent_5p upward 
+A203-A204 : adjacent_5p upward 
+A205-A206 : adjacent_5p upward 
+A206-A207 : adjacent_5p upward 
+A207-A208 : adjacent_5p upward 
+A208-A209 : adjacent_5p upward 
+A209-A210 : adjacent_5p upward 
+A210-A211 : adjacent_5p upward 
+A211-A212 : adjacent_5p upward 
+A212-A213 : adjacent_5p upward 
+A214-A215 : adjacent_5p upward 
+A215-A216 : adjacent_5p upward 
+A216-A217 : adjacent_5p upward 
+A217-A218 : adjacent_5p upward 
+A218-A219 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 15
+Number of adjacent stackings = 15
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

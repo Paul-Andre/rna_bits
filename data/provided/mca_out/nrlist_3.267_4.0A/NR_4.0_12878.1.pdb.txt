@@ -1,0 +1,19 @@
+Residue conformations -------------------------------------------
+A17 : A C3p_endo unknown
+A18 : A C3p_endo unknown
+A19 : A C3p_endo unknown
+A20 : A C3p_endo unknown
+A21 : A C3p_endo unknown
+A22 : A C3p_endo unknown
+A23 : A C3p_endo unknown
+A24 : A C3p_endo unknown
+A25 : A C3p_endo unknown
+A26 : A C3p_endo unknown
+A27 : A C3p_endo unknown
+A28 : A C3p_endo unknown
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

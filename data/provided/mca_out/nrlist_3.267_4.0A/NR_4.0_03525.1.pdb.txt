@@ -1,0 +1,66 @@
+Residue conformations -------------------------------------------
+A1932 : A C3p_endo anti
+A1933 : G C3p_endo anti
+A1934 : C C3p_endo anti
+A1935 : G C2p_exo anti
+A1936 : A C3p_endo anti
+A1937 : A C4p_exo anti
+A1938 : A C1p_exo syn
+A1940 : U C3p_endo anti
+A1941 : C C3p_endo anti
+A1942 : C C3p_endo anti
+A1943 : U C2p_exo anti
+A1944 : U C2p_exo anti
+A1945 : G C3p_endo anti
+A1946 : U C2p_exo anti
+A1947 : C C3p_endo anti
+A1948 : G C3p_endo anti
+A1949 : G C3p_endo anti
+A1950 : G C3p_endo anti
+A1951 : U C3p_endo anti
+A1952 : A C1p_exo syn
+A1953 : A C1p_exo anti
+A1954 : G C2p_endo anti
+A1955 : U C3p_endo anti
+A1956 : U C1p_exo anti
+A1957 : C C2p_exo anti
+A1958 : C C3p_endo anti
+A1959 : G C3p_endo anti
+A1960 : A C2p_exo anti
+A1961 : C C4p_exo anti
+Adjacent stackings ----------------------------------------------
+A1932-A1933 : adjacent_5p upward 
+A1933-A1934 : adjacent_5p upward 
+A1934-A1935 : adjacent_5p upward 
+A1935-A1936 : adjacent_5p upward 
+A1940-A1941 : adjacent_5p upward 
+A1941-A1942 : adjacent_5p upward pairing 
+A1944-A1945 : adjacent_5p upward 
+A1945-A1946 : adjacent_5p upward 
+A1946-A1947 : adjacent_5p upward 
+A1947-A1948 : adjacent_5p upward 
+A1948-A1949 : adjacent_5p upward 
+A1949-A1950 : adjacent_5p upward 
+A1950-A1951 : adjacent_5p upward 
+A1959-A1960 : adjacent_5p upward 
+A1960-A1961 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A1938-A1942 : inward 
+A1948-A1959 : outward 
+A1949-A1958 : outward 
+A1952-A1954 : inward 
+Number of stackings = 19
+Number of adjacent stackings = 15
+Number of non adjacent stackings = 4
+Base-pairs ------------------------------------------------------
+A1935-A1938 : G-A Sw/Ww pairing antiparallel cis one_hbond 55 
+A1935-A1943 : G-U Bs/O2P pairing 
+A1938-A1943 : A-U Bh/O2P pairing 
+A1941-A1942 : C-C O2P/Bh adjacent_5p upward pairing 
+A1945-A1961 : G-C Ww/Ww pairing antiparallel cis 
+A1946-A1960 : U-A Ww/Ww pairing antiparallel cis one_hbond 
+A1947-A1959 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1948-A1958 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1949-A1957 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1950-A1955 : G-U Ww/O2P Bs/O2P pairing 
+A1956-A1957 : U-C O2P/Bh adjacent_5p pairing 

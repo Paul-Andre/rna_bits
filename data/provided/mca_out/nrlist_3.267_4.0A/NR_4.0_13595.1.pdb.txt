@@ -1,0 +1,98 @@
+Residue conformations -------------------------------------------
+A1110 : C C3p_endo anti
+A1111 : A C2p_endo syn
+A1112 : U C2p_endo syn
+A1113 : G C2p_endo anti
+A1114 : A C3p_endo anti
+A1115 : C C2p_endo anti
+A1116 : G C3p_endo anti
+A1117 : G C3p_endo anti
+A1118 : U C3p_endo anti
+A1119 : C C3p_endo anti
+A1120 : U C3p_endo anti
+A1121 : G C3p_endo anti
+A1122 : C C3p_endo anti
+A1123 : C C3p_endo anti
+A1124 : U C3p_endo anti
+A1125 : G C2p_endo anti
+A1126 : A C2p_endo syn
+A1127 : A C3p_endo anti
+A1128 : A C3p_endo anti
+A1129 : A C3p_endo anti
+A1130 : C C3p_endo anti
+A1131 : C C3p_endo anti
+A1132 : A C3p_endo anti
+A1133 : G C3p_endo syn
+A1134 : C C3p_endo syn
+A1135 : C C2p_endo anti
+A1136 : C C3p_endo anti
+A1137 : G C2p_endo syn
+A1138 : C C2p_endo anti
+A1139 : U C3p_endo anti
+A1140 : G C3p_endo anti
+A1141 : G C3p_endo anti
+A1142 : U C3p_endo anti
+A1143 : G C3p_endo anti
+A1144 : G C2p_endo syn
+A1145 : G C3p_endo anti
+A1146 : G C3p_endo anti
+A1147 : C C3p_endo anti
+A1148 : A C3p_endo anti
+A1149 : G C3p_endo anti
+A1150 : U C3p_endo anti
+A1151 : C C3p_endo anti
+A1152 : C C3p_endo anti
+A1153 : C C2p_endo anti
+A1154 : G C2p_endo syn
+A1155 : A C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A1115-A1116 : adjacent_5p upward 
+A1116-A1117 : adjacent_5p upward 
+A1117-A1118 : adjacent_5p upward 
+A1119-A1120 : adjacent_5p upward 
+A1121-A1122 : adjacent_5p upward 
+A1127-A1128 : adjacent_5p upward pairing 
+A1128-A1129 : adjacent_5p upward 
+A1129-A1130 : adjacent_5p upward 
+A1130-A1131 : adjacent_5p upward 
+A1131-A1132 : adjacent_5p upward 
+A1140-A1141 : adjacent_5p upward 
+A1141-A1142 : adjacent_5p upward 
+A1143-A1144 : adjacent_5p upward 
+A1144-A1145 : adjacent_5p upward pairing 
+A1147-A1148 : adjacent_5p upward 
+A1148-A1149 : adjacent_5p upward 
+A1149-A1150 : adjacent_5p upward 
+A1150-A1151 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A1111-A1155 : inward 
+A1114-A1154 : downward 
+A1123-A1146 : inward 
+A1125-A1144 : downward 
+A1132-A1140 : outward 
+Number of stackings = 23
+Number of adjacent stackings = 18
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------
+A1110-A1155 : C-A O2'/Ww pairing 
+A1113-A1114 : G-A O2'/Hh adjacent_5p pairing 
+A1114-A1153 : A-C Ww/O2' Bh/O2' pairing 
+A1116-A1152 : G-C Ww/Ws pairing antiparallel cis one_hbond 130 
+A1117-A1151 : G-C Ww/Ww pairing antiparallel cis 
+A1119-A1149 : C-G Wh/Wh pairing antiparallel cis one_hbond 
+A1120-A1121 : U-G Ww/Hw adjacent_5p pairing parallel cis one_hbond 
+A1120-A1149 : U-G Ws/Bs pairing antiparallel cis one_hbond 
+A1124-A1144 : U-G Ww/O2' pairing 
+A1125-A1145 : G-G C8/Wh pairing parallel trans one_hbond 
+A1126-A1140 : A-G Ww/O2P Bh/O2P Bh/O2P pairing 
+A1126-A1142 : A-U C8/Hw pairing parallel trans one_hbond 
+A1127-A1128 : A-A O2P/Hh adjacent_5p upward pairing 
+A1129-A1142 : A-U Wh/Ws pairing antiparallel cis one_hbond 46 
+A1130-A1141 : C-G Ww/Ww pairing antiparallel cis 
+A1132-A1139 : A-U Ww/Ww pairing antiparallel cis XX 
+A1133-A1137 : G-G Ww/Hh pairing antiparallel trans one_hbond 
+A1134-A1138 : C-C Hw/Ss pairing parallel trans one_hbond 
+A1136-A1137 : C-G O2P/Bs adjacent_5p pairing 
+A1137-A1138 : G-C C8/Ws O2'/Ww adjacent_5p pairing parallel cis one_hbond 
+A1144-A1145 : G-G O2'/Hh adjacent_5p upward pairing 
+A1144-A1146 : G-G O2'/Hh pairing 

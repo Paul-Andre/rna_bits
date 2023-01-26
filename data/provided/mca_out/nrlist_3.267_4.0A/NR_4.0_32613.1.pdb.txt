@@ -1,0 +1,10 @@
+Residue conformations -------------------------------------------
+A74 : C C2p_endo anti
+A75 : C C3p_endo anti
+A76 : A C2p_exo anti
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

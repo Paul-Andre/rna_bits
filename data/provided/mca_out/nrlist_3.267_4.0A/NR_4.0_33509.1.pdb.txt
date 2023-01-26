@@ -1,0 +1,15 @@
+Residue conformations -------------------------------------------
+A1 : U C3p_endo anti
+A2 : G C2p_endo anti
+A3 : U C2p_endo anti
+A4 : A C2p_endo anti
+A5 : A C2p_endo syn
+A6 : A C1p_exo syn
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A2-A6 : G-A Ss/Ww pairing parallel trans X 
+A5-A6 : A-A Ss/O2' adjacent_5p pairing 

@@ -1,0 +1,22 @@
+Residue conformations -------------------------------------------
+A1531 : A C1p_exo anti
+A1532 : U C1p_exo syn
+A1533 : C C2p_endo anti
+A1534 : A C2p_endo anti
+A1535 : C C2p_endo anti
+A1536 : C C3p_endo anti
+A1537 : U C3p_endo anti
+A1538 : C C3p_endo anti
+A1539 : C C3p_endo anti
+A1540 : U C3p_endo anti
+A1541 : U C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A1536-A1537 : adjacent_5p upward 
+A1538-A1539 : adjacent_5p upward 
+A1539-A1540 : adjacent_5p upward 
+A1540-A1541 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 4
+Number of adjacent stackings = 4
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

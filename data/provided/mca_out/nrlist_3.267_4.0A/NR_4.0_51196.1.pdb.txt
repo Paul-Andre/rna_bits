@@ -1,0 +1,80 @@
+Residue conformations -------------------------------------------
+A6174 : G C3p_endo anti
+A6175 : G C3p_endo anti
+A6176 : U C3p_endo anti
+A6177 : U C3p_endo anti
+A6178 : A C3p_endo anti
+A6179 : U C3p_endo anti
+A6180 : U C3p_endo anti
+A6181 : C C2p_endo anti
+A6182 : A C3p_endo anti
+A6183 : G C3p_endo anti
+A6184 : A C3p_endo anti
+A6185 : U C3p_endo anti
+A6186 : U C3p_endo anti
+A6187 : A C3p_endo anti
+A6188 : G C3p_endo anti
+A6189 : G C3p_endo anti
+A6190 : U C3p_endo anti
+A6191 : A C3p_endo anti
+A6192 : G C3p_endo anti
+A6193 : U C3p_endo anti
+A6194 : C C3p_endo anti
+A6195 : G C3p_endo anti
+A6196 : A C3p_endo anti
+A6197 : A C3p_endo anti
+A6198 : U C3p_endo anti
+A6199 : G C3p_endo anti
+A6200 : A C3p_endo anti
+A6201 : C C3p_endo anti
+A6202 : C C3p_endo anti
+A6212 : U C3p_endo anti
+A6213 : A C3p_endo anti
+A6214 : C C3p_endo anti
+A6215 : C C3p_endo anti
+A6216 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A6174-A6175 : adjacent_5p upward 
+A6175-A6176 : adjacent_5p upward 
+A6176-A6177 : adjacent_5p upward 
+A6177-A6178 : adjacent_5p upward 
+A6178-A6179 : adjacent_5p upward 
+A6179-A6180 : adjacent_5p upward 
+A6180-A6181 : adjacent_5p upward 
+A6181-A6182 : adjacent_5p upward 
+A6182-A6183 : adjacent_5p upward 
+A6183-A6184 : adjacent_5p upward 
+A6184-A6185 : adjacent_5p upward 
+A6187-A6188 : adjacent_5p upward 
+A6188-A6189 : adjacent_5p upward 
+A6189-A6190 : adjacent_5p upward 
+A6190-A6191 : adjacent_5p upward 
+A6191-A6192 : adjacent_5p upward 
+A6192-A6193 : adjacent_5p upward 
+A6193-A6194 : adjacent_5p upward 
+A6195-A6196 : adjacent_5p upward 
+A6196-A6197 : adjacent_5p upward 
+A6197-A6198 : adjacent_5p upward 
+A6199-A6200 : adjacent_5p upward 
+A6200-A6201 : adjacent_5p upward 
+A6213-A6214 : adjacent_5p upward 
+A6214-A6215 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A6191-A6213 : outward 
+Number of stackings = 26
+Number of adjacent stackings = 25
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A6174-A6202 : G-C Ww/Ws pairing antiparallel cis one_hbond 130 
+A6176-A6200 : U-A Ww/Ww pairing antiparallel cis XX 
+A6178-A6198 : A-U Ww/Ww pairing antiparallel cis XX 
+A6179-A6197 : U-A Ww/Ww pairing antiparallel cis one_hbond 
+A6180-A6196 : U-A Ww/Ww pairing antiparallel cis XX 
+A6183-A6194 : G-C Ww/Ww pairing antiparallel cis XIX 
+A6185-A6192 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A6186-A6188 : U-G O2'/Hh pairing 
+A6186-A6189 : U-G Ww/O2P pairing 
+A6187-A6216 : A-U Ww/Ww pairing antiparallel cis XX 
+A6188-A6215 : G-C Ww/Ww pairing antiparallel cis XIX 
+A6189-A6214 : G-C Ww/Ww pairing antiparallel cis XIX 
+A6190-A6213 : U-A Ww/Ww pairing antiparallel cis XX 

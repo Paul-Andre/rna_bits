@@ -1,0 +1,41 @@
+Residue conformations -------------------------------------------
+A1 : G C3p_endo anti
+A2 : G C3p_endo anti
+A3 : G C3p_endo anti
+A4 : A C3p_endo anti
+A7 : G C3p_endo anti
+A8 : A C3p_exo anti
+A9 : A C4p_endo anti
+A10 : A C2p_endo syn
+A11 : A C1p_exo syn
+A12 : A C3p_endo anti
+A13 : G C3p_endo anti
+A14 : A C3p_endo anti
+A18 : G C3p_endo anti
+A19 : A C2p_endo anti
+A25 : A C3p_exo anti
+A27 : A C2p_endo anti
+A30 : A C3p_endo anti
+A31 : A C3p_endo anti
+A32 : G C3p_endo anti
+A36 : A C3p_endo anti
+A38 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A1-A2 : adjacent_5p upward 
+A2-A3 : adjacent_5p upward 
+A3-A4 : adjacent_5p upward 
+A12-A13 : adjacent_5p upward 
+A13-A14 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A31-A32 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A9-A11 : downward 
+A12-A36 : outward 
+A18-A27 : upward 
+A19-A25 : upward pairing 
+Number of stackings = 11
+Number of adjacent stackings = 7
+Number of non adjacent stackings = 4
+Base-pairs ------------------------------------------------------
+A19-A25 : A-A O2'/Ww upward pairing 
+A19-A27 : A-A O2P/Bh pairing 

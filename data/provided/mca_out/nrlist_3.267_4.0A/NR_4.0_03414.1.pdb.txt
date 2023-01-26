@@ -1,0 +1,103 @@
+Residue conformations -------------------------------------------
+A1 : U C2p_exo anti
+A2 : C C2p_endo syn
+A3 : A C4p_exo anti
+A4 : U C3p_exo anti
+A5 : C C3p_endo anti
+A6 : G C2p_endo anti
+A7 : A C2p_endo anti
+A8 : A C2p_exo anti
+A9 : U C3p_endo anti
+A10 : C C2p_endo anti
+A11 : G C3p_endo anti
+A12 : C C2p_endo anti
+A13 : C C2p_endo anti
+A14 : A C2p_endo anti
+A15 : C C2p_exo anti
+A16 : C C3p_endo anti
+A17 : U C2p_endo syn
+A18 : A C2p_exo anti
+A19 : C O4p_endo syn
+A20 : A C2p_endo anti
+A21 : A C2p_endo anti
+A22 : G C3p_exo anti
+A23 : A C3p_endo anti
+A24 : C C3p_endo anti
+A25 : U C3p_endo anti
+A26 : G C2p_exo syn
+A27 : G C2p_exo syn
+A28 : A C2p_endo anti
+A29 : G C2p_endo anti
+A30 : C C1p_endo anti
+A31 : U C2p_exo anti
+A32 : U C3p_endo anti
+A33 : G C3p_endo anti
+A34 : C C2p_exo anti
+A35 : U C2p_exo anti
+A36 : C C3p_endo anti
+A37 : C C3p_endo syn
+A38 : C C3p_exo anti
+A39 : U C3p_exo anti
+A40 : C C3p_exo syn
+A41 : G C3p_exo anti
+A42 : A C3p_endo anti
+A43 : A C3p_endo anti
+A44 : G C3p_endo anti
+A45 : G C3p_endo anti
+A46 : C C3p_endo anti
+A47 : G C3p_endo anti
+A48 : C C2p_endo anti
+A49 : C C2p_endo anti
+A50 : A C4p_endo anti
+A51 : A C2p_endo anti
+A52 : G C2p_endo anti
+A53 : U C2p_endo anti
+A54 : A C3p_endo anti
+A55 : U C2p_endo anti
+A56 : A C2p_exo anti
+A57 : U C4p_exo anti
+A58 : U C1p_exo anti
+A59 : C C2p_exo anti
+A60 : A C3p_endo anti
+A61 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A3-A4 : adjacent_5p downward 
+A5-A6 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+A13-A14 : adjacent_5p inward 
+A16-A17 : adjacent_5p upward 
+A27-A28 : adjacent_5p outward 
+A33-A34 : adjacent_5p upward 
+A34-A35 : adjacent_5p upward 
+A41-A42 : adjacent_5p outward 
+A43-A44 : adjacent_5p upward 
+A44-A45 : adjacent_5p upward 
+A45-A46 : adjacent_5p upward 
+A47-A48 : adjacent_5p upward 
+A54-A55 : adjacent_5p upward 
+A59-A60 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A10-A13 : upward pairing 
+A50-A52 : outward 
+A51-A58 : downward pairing 
+Number of stackings = 18
+Number of adjacent stackings = 15
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A6-A7 : G-A O2P/Bh adjacent_5p pairing 
+A7-A59 : A-C Ww/Ww pairing antiparallel cis 71 
+A8-A35 : A-U Ww/Ww pairing antiparallel cis XX 
+A10-A13 : C-C O2'/Bh upward pairing 
+A10-A33 : C-G Ww/Ww pairing antiparallel cis 128 
+A12-A34 : C-C Hh/O2' Ww/O2' pairing 
+A17-A30 : U-C Ww/O2' pairing 
+A17-A31 : U-U Ww/O2P pairing 
+A18-A31 : A-U Ss/O2P pairing 
+A22-A26 : G-G Hh/Sw Hh/O2P pairing parallel trans one_hbond 
+A28-A29 : A-G O2'/Hh O2'/C8 adjacent_5p pairing 
+A29-A31 : G-U Bs/O2P Ss/O2P pairing 
+A39-A47 : U-G Hw/Ww pairing antiparallel cis one_hbond 91 
+A40-A41 : C-G O2P/Hh adjacent_5p pairing 
+A42-A43 : A-A O2'/C8 adjacent_5p pairing 
+A51-A58 : A-U Bh/O2' downward pairing 
+A56-A58 : A-U Ss/O2P pairing 

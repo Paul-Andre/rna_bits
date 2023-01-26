@@ -1,0 +1,49 @@
+Residue conformations -------------------------------------------
+A2587 : A C2p_endo syn
+A2588 : G C3p_endo anti
+A2589 : A C3p_endo anti
+A2590 : A C3p_endo anti
+A2591 : C C3p_endo anti
+A2592 : G C3p_endo anti
+A2593 : U C3p_endo anti
+A2594 : C C3p_endo anti
+A2595 : G C3p_endo anti
+A2596 : U C2p_endo anti
+A2597 : G C2p_endo anti
+A2598 : A C3p_endo syn
+A2599 : G C3p_endo anti
+A2600 : A C3p_endo anti
+A2601 : C C2p_endo anti
+A2602 : A C2p_endo anti
+A2603 : G C3p_endo anti
+A2604 : U C2p_endo anti
+A2606 : C C3p_endo anti
+A2607 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A2588-A2589 : adjacent_5p upward 
+A2589-A2590 : adjacent_5p upward 
+A2590-A2591 : adjacent_5p upward 
+A2592-A2593 : adjacent_5p upward 
+A2594-A2595 : adjacent_5p upward 
+A2598-A2599 : adjacent_5p outward 
+A2599-A2600 : adjacent_5p upward 
+A2600-A2601 : adjacent_5p upward 
+A2603-A2604 : adjacent_5p upward 
+A2606-A2607 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A2588-A2607 : outward 
+A2592-A2603 : outward 
+A2594-A2600 : outward 
+A2601-A2603 : upward 
+Number of stackings = 14
+Number of adjacent stackings = 10
+Number of non adjacent stackings = 4
+Base-pairs ------------------------------------------------------
+A2587-A2588 : A-G O2'/Hh adjacent_5p pairing 
+A2588-A2606 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2590-A2604 : A-U Ww/Ww pairing antiparallel cis XX 
+A2591-A2603 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2592-A2601 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2593-A2600 : U-A Ww/Ww pairing antiparallel cis XX 
+A2594-A2599 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2595-A2598 : G-A Ss/Ww O2'/Bh pairing parallel trans X 

@@ -1,0 +1,17 @@
+Residue conformations -------------------------------------------
+A30 : G C3p_endo anti
+A31 : A C3p_endo anti
+A32 : C C3p_endo anti
+A33 : U C2p_endo anti
+A35 : C C3p_exo anti
+A36 : G C3p_exo syn
+A37 : G C2p_endo syn
+Adjacent stackings ----------------------------------------------
+A30-A31 : adjacent_5p upward 
+A31-A32 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 2
+Number of adjacent stackings = 2
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A32-A37 : C-G Ww/Ww pairing antiparallel cis XIX 

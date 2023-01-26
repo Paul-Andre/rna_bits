@@ -1,0 +1,44 @@
+Residue conformations -------------------------------------------
+A201 : G C3p_endo anti
+A202 : G C3p_endo anti
+A203 : C C3p_endo anti
+A204 : G C3p_endo anti
+A205 : A C3p_endo anti
+A206 : G C3p_endo anti
+A207 : C C3p_endo anti
+A208 : C C3p_endo anti
+B209 : G C3p_endo anti
+B210 : G C3p_endo anti
+B211 : C C3p_endo anti
+B212 : G C3p_endo anti
+B213 : A C3p_endo anti
+B214 : G C3p_endo anti
+B215 : C C3p_endo anti
+B216 : C C2p_exo anti
+Adjacent stackings ----------------------------------------------
+A201-A202 : adjacent_5p upward 
+A202-A203 : adjacent_5p upward 
+A203-A204 : adjacent_5p upward 
+A205-A206 : adjacent_5p upward 
+A206-A207 : adjacent_5p upward 
+B209-B210 : adjacent_5p upward 
+B210-B211 : adjacent_5p upward 
+B211-B212 : adjacent_5p upward 
+B213-B214 : adjacent_5p upward 
+B214-B215 : adjacent_5p upward 
+B215-B216 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A204-B212 : inward 
+A205-B213 : outward 
+Number of stackings = 13
+Number of adjacent stackings = 11
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A201-B216 : G-C Ww/Ww pairing antiparallel cis XIX 
+A202-B215 : G-C Ww/Ww pairing antiparallel cis XIX 
+A203-B214 : C-G Ww/Ww pairing antiparallel cis XIX 
+A204-B213 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A205-B212 : A-G Hh/Sw pairing antiparallel trans one_hbond 
+A206-B211 : G-C Ww/Ww pairing antiparallel cis XIX 
+A207-B210 : C-G Ww/Ww pairing antiparallel cis XIX 
+A208-B209 : C-G Ww/Ww pairing antiparallel cis XIX 

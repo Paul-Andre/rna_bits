@@ -1,0 +1,11 @@
+Residue conformations -------------------------------------------
+A500 : A C2p_endo anti
+A502 : C C2p_endo anti
+A503 : A unknown unknown
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+A500-A502 : upward 
+Number of stackings = 1
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------

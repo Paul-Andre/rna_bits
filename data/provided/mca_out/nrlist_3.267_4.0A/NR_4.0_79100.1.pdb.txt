@@ -1,0 +1,86 @@
+Residue conformations -------------------------------------------
+A303 : G C3p_endo anti
+A304 : G C3p_endo anti
+A305 : G C3p_endo anti
+A306 : C C3p_endo anti
+A307 : U C3p_endo anti
+A308 : G C3p_endo anti
+A309 : C C3p_endo anti
+A310 : A C3p_endo anti
+A311 : U C3p_endo anti
+A312 : G C3p_endo anti
+A313 : U C4p_exo anti
+A314 : G C2p_endo anti
+A315 : G C3p_endo anti
+A316 : C C3p_endo anti
+A317 : A C3p_endo anti
+A318 : G C3p_endo anti
+A319 : C C3p_endo anti
+A320 : U C3p_endo anti
+A321 : C C3p_endo anti
+A322 : G C3p_endo anti
+A323 : G C3p_endo anti
+A324 : G C3p_endo anti
+A325 : C C3p_endo anti
+A326 : U C3p_endo anti
+A327 : G C3p_endo anti
+A328 : C C3p_endo anti
+A329 : A C3p_endo anti
+A330 : U C3p_endo anti
+A331 : G C3p_endo anti
+A332 : U C2p_endo syn
+A333 : G C2p_endo anti
+A334 : G C3p_endo anti
+A335 : C C3p_endo anti
+A336 : A C3p_endo anti
+A337 : G C3p_endo anti
+A338 : C C3p_endo anti
+A339 : U C3p_endo anti
+A340 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A303-A304 : adjacent_5p upward 
+A304-A305 : adjacent_5p upward 
+A305-A306 : adjacent_5p upward 
+A308-A309 : adjacent_5p upward 
+A309-A310 : adjacent_5p upward 
+A310-A311 : adjacent_5p upward 
+A315-A316 : adjacent_5p upward 
+A316-A317 : adjacent_5p upward 
+A317-A318 : adjacent_5p upward 
+A318-A319 : adjacent_5p upward 
+A319-A320 : adjacent_5p upward 
+A321-A322 : adjacent_5p upward 
+A322-A323 : adjacent_5p upward 
+A323-A324 : adjacent_5p upward 
+A324-A325 : adjacent_5p upward 
+A327-A328 : adjacent_5p upward 
+A328-A329 : adjacent_5p upward 
+A329-A330 : adjacent_5p upward 
+A334-A335 : adjacent_5p upward 
+A335-A336 : adjacent_5p upward 
+A336-A337 : adjacent_5p upward 
+A337-A338 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A303-A340 : downward 
+A308-A317 : outward 
+A310-A315 : outward 
+A327-A336 : outward 
+A329-A334 : outward 
+Number of stackings = 27
+Number of adjacent stackings = 22
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------
+A303-A321 : G-C Ww/Ww pairing antiparallel cis XIX 
+A304-A320 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A305-A319 : G-C Ww/Ww pairing antiparallel cis XIX 
+A306-A318 : C-G Ww/Ww pairing antiparallel cis XIX 
+A307-A317 : U-A Ww/Ww pairing antiparallel cis XX 
+A308-A316 : G-C Ww/Ww pairing antiparallel cis XIX 
+A309-A315 : C-G Ww/Ww pairing antiparallel cis XIX 
+A322-A340 : G-C Ws/Ww pairing antiparallel cis one_hbond 
+A323-A339 : G-U Ww/Ws pairing antiparallel cis 
+A324-A338 : G-C Ww/Ww pairing antiparallel cis XIX 
+A325-A337 : C-G Ww/Ww pairing antiparallel cis XIX 
+A326-A336 : U-A Ww/Ww pairing antiparallel cis XX 
+A327-A335 : G-C Ww/Ww pairing antiparallel cis XIX 
+A328-A334 : C-G Ww/Ww pairing antiparallel cis XIX 

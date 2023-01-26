@@ -1,0 +1,195 @@
+Residue conformations -------------------------------------------
+A1673 : G C3p_endo anti
+A1674 : C C3p_endo anti
+A1675 : C C3p_endo anti
+A1676 : U C3p_endo anti
+A1677 : C C3p_endo anti
+A1678 : A C3p_endo anti
+A1679 : G C3p_endo anti
+A1680 : G C3p_endo anti
+A1681 : A C3p_endo syn
+A1682 : U C3p_endo anti
+A1683 : C C3p_endo anti
+A1684 : U C3p_endo anti
+A1685 : G C3p_endo anti
+A1686 : C C3p_endo anti
+A1687 : U C3p_endo anti
+A1688 : U C3p_endo anti
+A1689 : A C3p_endo anti
+A1690 : G C3p_endo anti
+A1691 : A C3p_endo anti
+A1692 : G C3p_endo anti
+A1693 : A C3p_endo anti
+A1694 : A C3p_endo anti
+A1695 : G C3p_endo anti
+A1696 : G C3p_endo anti
+A1697 : G C3p_endo anti
+A1698 : G C3p_endo anti
+A1699 : G C3p_endo syn
+A1700 : C C2p_endo anti
+A1701 : A C3p_endo syn
+A1702 : A C3p_endo syn
+A1703 : C C3p_endo anti
+A1704 : U C3p_endo anti
+A1705 : C C3p_endo anti
+A1706 : C C3p_endo anti
+A1707 : A C3p_endo syn
+A1708 : U C3p_endo anti
+A1709 : C C3p_endo anti
+A1710 : U C3p_endo anti
+A1711 : C C3p_endo anti
+A1712 : A C3p_endo syn
+A1713 : G C3p_endo anti
+A1714 : A C3p_endo anti
+A1715 : G C3p_endo anti
+A1716 : C C3p_endo anti
+A1717 : G C3p_endo anti
+A1718 : G C3p_endo anti
+A1719 : A C3p_endo anti
+A1720 : G C3p_endo anti
+A1721 : A C3p_endo anti
+A1722 : A C3p_endo anti
+A1723 : U C3p_endo anti
+A1724 : U C3p_endo anti
+A1725 : U C3p_endo anti
+A1726 : G C3p_endo anti
+A1727 : G C3p_endo anti
+A1728 : A C3p_endo anti
+A1729 : C C3p_endo anti
+A1730 : A C3p_endo anti
+A1731 : A C3p_endo anti
+A1732 : A C3p_endo anti
+A1733 : C C3p_endo anti
+A1734 : U C3p_endo anti
+A1735 : U C3p_endo anti
+A1736 : G C3p_endo anti
+A1737 : G C3p_endo anti
+A1738 : U C3p_endo anti
+A1739 : C C3p_endo anti
+A1740 : A C3p_endo anti
+A1741 : U C3p_endo anti
+A1742 : U C3p_endo anti
+A1743 : U C3p_endo anti
+A1744 : A C3p_endo anti
+A1745 : G C3p_endo anti
+A1746 : A C3p_endo anti
+A1747 : G C3p_endo anti
+A1748 : G C3p_endo anti
+A1749 : A C3p_endo anti
+A1750 : A C3p_endo anti
+A1751 : C C3p_endo anti
+A1752 : U C4p_exo anti
+A1753 : A C4p_exo anti
+A1754 : A C3p_endo anti
+A1755 : A C3p_endo syn
+A1756 : A C3p_endo syn
+A1757 : G C3p_endo anti
+A1758 : U C3p_endo anti
+A1759 : C C3p_endo anti
+A1760 : G C4p_exo anti
+A1761 : U C2p_endo syn
+A1762 : A C3p_endo anti
+A1763 : A C3p_endo anti
+A1764 : C C3p_endo anti
+A1765 : A C2p_endo syn
+A1766 : A C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A1673-A1674 : adjacent_5p upward 
+A1675-A1676 : adjacent_5p upward 
+A1677-A1678 : adjacent_5p upward 
+A1678-A1679 : adjacent_5p upward 
+A1679-A1680 : adjacent_5p upward 
+A1681-A1682 : adjacent_5p outward 
+A1683-A1684 : adjacent_5p upward 
+A1685-A1686 : adjacent_5p upward 
+A1686-A1687 : adjacent_5p upward 
+A1687-A1688 : adjacent_5p upward 
+A1688-A1689 : adjacent_5p upward 
+A1690-A1691 : adjacent_5p upward 
+A1691-A1692 : adjacent_5p upward 
+A1692-A1693 : adjacent_5p upward 
+A1694-A1695 : adjacent_5p upward 
+A1695-A1696 : adjacent_5p upward 
+A1696-A1697 : adjacent_5p upward 
+A1697-A1698 : adjacent_5p upward 
+A1699-A1700 : adjacent_5p outward 
+A1705-A1706 : adjacent_5p upward 
+A1706-A1707 : adjacent_5p inward 
+A1707-A1708 : adjacent_5p outward 
+A1709-A1710 : adjacent_5p upward 
+A1712-A1713 : adjacent_5p outward 
+A1713-A1714 : adjacent_5p upward 
+A1714-A1715 : adjacent_5p upward 
+A1715-A1716 : adjacent_5p upward 
+A1716-A1717 : adjacent_5p upward 
+A1717-A1718 : adjacent_5p upward 
+A1718-A1719 : adjacent_5p upward 
+A1719-A1720 : adjacent_5p upward 
+A1721-A1722 : adjacent_5p upward 
+A1722-A1723 : adjacent_5p upward 
+A1723-A1724 : adjacent_5p upward 
+A1725-A1726 : adjacent_5p upward 
+A1726-A1727 : adjacent_5p upward 
+A1727-A1728 : adjacent_5p upward 
+A1728-A1729 : adjacent_5p upward 
+A1729-A1730 : adjacent_5p upward 
+A1731-A1732 : adjacent_5p upward 
+A1732-A1733 : adjacent_5p upward 
+A1733-A1734 : adjacent_5p upward 
+A1734-A1735 : adjacent_5p upward 
+A1735-A1736 : adjacent_5p upward 
+A1736-A1737 : adjacent_5p upward 
+A1737-A1738 : adjacent_5p upward 
+A1740-A1741 : adjacent_5p upward 
+A1742-A1743 : adjacent_5p upward 
+A1744-A1745 : adjacent_5p upward 
+A1747-A1748 : adjacent_5p upward 
+A1748-A1749 : adjacent_5p upward 
+A1750-A1751 : adjacent_5p upward 
+A1751-A1752 : adjacent_5p upward 
+A1752-A1753 : adjacent_5p upward 
+A1753-A1754 : adjacent_5p upward 
+A1755-A1756 : adjacent_5p upward 
+A1757-A1758 : adjacent_5p upward 
+A1759-A1760 : adjacent_5p upward 
+A1760-A1761 : adjacent_5p inward 
+A1762-A1763 : adjacent_5p upward 
+A1763-A1764 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A1677-A1725 : outward 
+A1680-A1720 : inward 
+A1681-A1721 : upward 
+A1685-A1717 : outward 
+A1690-A1712 : downward 
+Number of stackings = 66
+Number of adjacent stackings = 61
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------
+A1673-A1728 : G-A Ww/Ww pairing antiparallel cis one_hbond 
+A1674-A1727 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1675-A1726 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1676-A1725 : U-U Ws/Ww pairing antiparallel cis XVI 
+A1677-A1724 : C-U Wh/Ws pairing antiparallel cis one_hbond 100 
+A1678-A1723 : A-U Ww/Ww pairing antiparallel cis XX 
+A1679-A1722 : G-A Ss/Hh pairing antiparallel trans XI 
+A1680-A1681 : G-A O2'/Ss adjacent_5p pairing 
+A1680-A1721 : G-A Ss/Hh O2'/Bh Bs/O2P pairing antiparallel trans XI 
+A1681-A1720 : A-G Ww/O2' Bh/O2' pairing 
+A1682-A1719 : U-A Ww/Ww pairing antiparallel cis XX 
+A1683-A1718 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1684-A1717 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A1685-A1716 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1686-A1715 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1687-A1714 : U-A Ww/Ww pairing antiparallel cis XX 
+A1688-A1713 : U-G Ww/Ww pairing antiparallel cis one_hbond 
+A1689-A1712 : A-A Ss/Ww pairing parallel trans one_hbond 39 
+A1690-A1711 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1692-A1709 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1693-A1708 : A-U Ww/Ww pairing antiparallel cis XX 
+A1694-A1707 : A-A Wh/Hh pairing parallel cis one_hbond 35 
+A1695-A1706 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1696-A1705 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1697-A1704 : G-U Ww/Ws pairing antiparallel cis one_hbond 
+A1698-A1703 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1699-A1703 : G-C Wh/Wh pairing parallel cis one_hbond 124 
+A1746-A1747 : A-G O2P/Hh adjacent_5p pairing 

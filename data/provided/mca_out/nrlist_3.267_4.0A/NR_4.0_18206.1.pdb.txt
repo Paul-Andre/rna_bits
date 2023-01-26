@@ -1,0 +1,68 @@
+Residue conformations -------------------------------------------
+A-19 : G C3p_endo anti
+A-18 : C C3p_endo anti
+A-17 : G C3p_endo anti
+A-16 : U C3p_endo anti
+A-15 : C C3p_endo anti
+A-14 : G C3p_endo anti
+A-13 : C C3p_endo anti
+A-12 : A C3p_endo anti
+A-11 : G C3p_endo anti
+A-10 : G C2p_endo anti
+A-9 : C C3p_endo anti
+A-8 : C C3p_endo anti
+A-7 : U C3p_endo anti
+A-6 : U C3p_endo anti
+A-5 : U C3p_endo anti
+A-4 : U C3p_endo anti
+A-3 : U C3p_endo anti
+A-2 : A C3p_endo anti
+A-1 : U C3p_endo anti
+A0 : U C3p_endo anti
+B10 : C C3p_endo anti
+B11 : C C3p_endo anti
+B12 : U C3p_endo anti
+B13 : G C3p_endo anti
+B14 : C C3p_endo anti
+B15 : G C3p_endo anti
+B16 : A C3p_endo anti
+B17 : C C3p_endo anti
+B18 : G C3p_endo anti
+B19 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A-17-A-16 : adjacent_5p upward 
+A-16-A-15 : adjacent_5p upward 
+A-15-A-14 : adjacent_5p upward 
+A-14-A-13 : adjacent_5p upward 
+A-12-A-11 : adjacent_5p upward 
+A-11-A-10 : adjacent_5p upward 
+A-9-A-8 : adjacent_5p upward 
+A-8-A-7 : adjacent_5p upward 
+A-7-A-6 : adjacent_5p upward 
+A-3-A-2 : adjacent_5p upward 
+A-2-A-1 : adjacent_5p upward 
+A-1-A0 : adjacent_5p upward 
+B10-B11 : adjacent_5p upward 
+B12-B13 : adjacent_5p upward 
+B13-B14 : adjacent_5p upward 
+B14-B15 : adjacent_5p upward 
+B15-B16 : adjacent_5p upward 
+B16-B17 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A-17-B18 : outward 
+A-14-B15 : outward 
+A-12-B13 : outward 
+Number of stackings = 21
+Number of adjacent stackings = 18
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A-19-B19 : G-C Ww/Ww pairing antiparallel cis XIX 
+A-18-B18 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-17-B17 : G-C Ww/Ww pairing antiparallel cis XIX 
+A-16-B16 : U-A Ww/Ww pairing antiparallel cis XX 
+A-15-B15 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-14-B14 : G-C Ww/Ww pairing antiparallel cis XIX 
+A-13-B13 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-12-B12 : A-U Ww/Ww pairing antiparallel cis XX 
+A-11-B11 : G-C Ww/Ww pairing antiparallel cis XIX 
+A-10-B10 : G-C Ww/Ww pairing antiparallel cis XIX 

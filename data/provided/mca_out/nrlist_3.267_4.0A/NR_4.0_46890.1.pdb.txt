@@ -1,0 +1,36 @@
+Residue conformations -------------------------------------------
+A-7 : U C3p_exo syn
+A-6 : G C3p_endo syn
+A-5 : U C2p_endo syn
+A-4 : A C2p_endo anti
+A-3 : A C2p_exo anti
+A-2 : U C2p_exo anti
+A-1 : C C3p_endo anti
+A0 : C C3p_exo anti
+A1 : C C2p_exo anti
+A2 : C C3p_endo anti
+A3 : U C3p_endo anti
+A4 : U C3p_endo anti
+A5 : G C3p_endo anti
+A6 : G C3p_endo anti
+A7 : C C3p_endo anti
+A8 : G C3p_endo anti
+A9 : G C2p_exo anti
+A10 : U C3p_endo anti
+A11 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A-6-A-5 : adjacent_5p upward 
+A1-A2 : adjacent_5p upward 
+A2-A3 : adjacent_5p upward 
+A3-A4 : adjacent_5p upward 
+A5-A6 : adjacent_5p upward 
+A6-A7 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+A9-A10 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 8
+Number of adjacent stackings = 8
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A-7-A-6 : U-G O2'/Hh adjacent_5p pairing 
+A-1-A0 : C-C Ss/Hh adjacent_5p pairing parallel trans one_hbond 

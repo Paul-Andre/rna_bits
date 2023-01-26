@@ -1,0 +1,31 @@
+Residue conformations -------------------------------------------
+A163 : A C3p_exo anti
+A164 : A C3p_endo anti
+A165 : A C3p_endo anti
+A166 : A C3p_endo anti
+A167 : A C3p_endo anti
+A168 : A C3p_endo anti
+A169 : A C3p_endo anti
+A170 : A C2p_endo syn
+A171 : A C3p_endo anti
+B182 : U C2p_endo syn
+B183 : U C2p_endo anti
+B184 : U C3p_endo anti
+B185 : U C3p_endo anti
+B186 : U C3p_endo anti
+B187 : U C3p_endo anti
+B188 : U C3p_endo anti
+B189 : U C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A164-A165 : adjacent_5p upward 
+A165-A166 : adjacent_5p upward 
+A166-A167 : adjacent_5p upward 
+B186-B187 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 4
+Number of adjacent stackings = 4
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A164-B187 : A-U Wh/Wh pairing antiparallel cis one_hbond 
+A165-B186 : A-U Hw/Wh pairing antiparallel trans one_hbond 52 
+A166-B185 : A-U Wh/Wh pairing antiparallel cis one_hbond 

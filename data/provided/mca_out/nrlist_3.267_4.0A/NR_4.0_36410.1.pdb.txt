@@ -1,0 +1,19 @@
+Residue conformations -------------------------------------------
+A701 : G C3p_endo anti
+A702 : G C3p_endo anti
+A703 : G C3p_endo anti
+A704 : C C3p_endo anti
+A705 : G C3p_endo anti
+A706 : G C3p_endo anti
+A707 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A701-A702 : adjacent_5p upward 
+A702-A703 : adjacent_5p upward 
+A703-A704 : adjacent_5p upward 
+A705-A706 : adjacent_5p upward 
+A706-A707 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 5
+Number of adjacent stackings = 5
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

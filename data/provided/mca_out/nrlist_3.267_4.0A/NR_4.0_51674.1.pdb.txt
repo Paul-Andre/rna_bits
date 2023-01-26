@@ -1,0 +1,48 @@
+Residue conformations -------------------------------------------
+A48 : G C2p_exo anti
+A49 : C C4p_exo anti
+A50 : U C3p_endo anti
+A51 : G C3p_endo anti
+A52 : U C3p_endo anti
+A53 : G C2p_endo anti
+A55 : U C3p_endo anti
+A56 : C C3p_endo anti
+A57 : G C3p_endo anti
+A58 : A C3p_endo anti
+A59 : U C4p_endo anti
+A60 : C C2p_endo anti
+A61 : C C3p_endo anti
+A62 : A C3p_endo anti
+A63 : C C3p_endo anti
+A64 : A C3p_endo anti
+A65 : G C3p_endo anti
+A66 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A48-A49 : adjacent_5p upward 
+A49-A50 : adjacent_5p upward 
+A50-A51 : adjacent_5p upward 
+A51-A52 : adjacent_5p upward 
+A52-A53 : adjacent_5p upward 
+A56-A57 : adjacent_5p upward 
+A57-A58 : adjacent_5p upward 
+A61-A62 : adjacent_5p upward 
+A62-A63 : adjacent_5p upward 
+A63-A64 : adjacent_5p upward 
+A64-A65 : adjacent_5p upward 
+A65-A66 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A51-A64 : outward 
+A53-A58 : inward 
+A53-A62 : outward 
+Number of stackings = 15
+Number of adjacent stackings = 12
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A48-A66 : G-C Ww/Ww pairing antiparallel cis XIX 
+A49-A65 : C-G Ww/Ww pairing antiparallel cis XIX 
+A50-A64 : U-A Ww/Ww pairing antiparallel cis XX 
+A51-A63 : G-C Ww/Ww pairing antiparallel cis XIX 
+A52-A62 : U-A Ww/Ww pairing antiparallel cis XX 
+A53-A61 : G-C Ww/Ww pairing antiparallel cis XIX 
+A59-A60 : U-C O2P/Bh adjacent_5p pairing 
+A60-A61 : C-C O2P/Bh adjacent_5p pairing 

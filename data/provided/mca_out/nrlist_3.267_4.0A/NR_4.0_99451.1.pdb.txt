@@ -1,0 +1,31 @@
+Residue conformations -------------------------------------------
+A2003 : C C3p_endo anti
+A2004 : U C3p_endo anti
+A2005 : A C2p_exo anti
+A2006 : C C3p_endo anti
+A2007 : C C3p_endo anti
+A2008 : C C3p_endo anti
+B2101 : G C2p_exo anti
+B2102 : G C3p_endo anti
+B2103 : G C3p_endo anti
+B2104 : U C3p_endo anti
+B2105 : A C3p_endo anti
+B2106 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A2005-A2006 : adjacent_5p upward 
+A2006-A2007 : adjacent_5p upward 
+B2101-B2102 : adjacent_5p upward 
+B2102-B2103 : adjacent_5p upward 
+B2103-B2104 : adjacent_5p upward 
+B2105-B2106 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A2005-B2105 : outward 
+Number of stackings = 7
+Number of adjacent stackings = 6
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A2003-B2106 : C-G Ww/Ww pairing antiparallel cis 130 
+A2004-B2105 : U-A Ww/Ww pairing antiparallel cis one_hbond 
+A2006-B2103 : C-G Ww/Ww pairing antiparallel cis one_hbond 130 
+A2007-B2102 : C-G Bs/Ww pairing antiparallel cis 127 
+A2008-B2101 : C-G Ww/Ww pairing antiparallel cis 130 

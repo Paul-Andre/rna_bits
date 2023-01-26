@@ -1,0 +1,22 @@
+Residue conformations -------------------------------------------
+A0 : A C3p_exo syn
+A1 : G C2p_endo anti
+A2 : A C2p_exo anti
+A3 : A C3p_endo anti
+A4 : C C2p_endo anti
+A5 : U C2p_endo anti
+A6 : C C2p_endo anti
+A7 : A C2p_endo anti
+A8 : A C3p_endo anti
+A9 : U C1p_exo anti
+A10 : A C3p_exo syn
+A11 : G C3p_exo anti
+Adjacent stackings ----------------------------------------------
+A2-A3 : adjacent_5p upward 
+A8-A9 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 2
+Number of adjacent stackings = 2
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A8-A10 : A-A O2'/Hh pairing 

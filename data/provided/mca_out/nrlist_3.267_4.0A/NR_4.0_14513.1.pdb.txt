@@ -1,0 +1,68 @@
+Residue conformations -------------------------------------------
+A28 : C C3p_endo anti
+A29 : U C3p_endo anti
+A30 : G C3p_endo anti
+A31 : U C3p_endo anti
+A32 : C C3p_endo anti
+A33 : C C3p_endo anti
+A34 : A C3p_endo anti
+A35 : A C2p_endo syn
+A36 : U C2p_endo anti
+A37 : G C2p_endo anti
+A38 : A C3p_endo anti
+A39 : G C3p_endo anti
+A40 : C C3p_endo anti
+A41 : G C2p_endo anti
+A42 : C C2p_endo syn
+A43 : A C2p_endo anti
+A44 : U C2p_endo anti
+A45 : A C2p_endo anti
+A46 : G C3p_endo anti
+A47 : U C3p_endo anti
+A48 : G C2p_endo anti
+A49 : A C2p_endo anti
+A50 : G C3p_endo anti
+A51 : G C3p_endo anti
+A52 : G C3p_endo anti
+A53 : C C3p_endo anti
+A54 : A C3p_endo anti
+A55 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A30-A31 : adjacent_5p upward 
+A32-A33 : adjacent_5p upward 
+A33-A34 : adjacent_5p upward 
+A38-A39 : adjacent_5p upward 
+A39-A40 : adjacent_5p upward 
+A40-A41 : adjacent_5p upward 
+A46-A47 : adjacent_5p upward 
+A47-A48 : adjacent_5p upward 
+A50-A51 : adjacent_5p upward 
+A51-A52 : adjacent_5p upward 
+A52-A53 : adjacent_5p upward 
+A53-A54 : adjacent_5p upward 
+A54-A55 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A30-A54 : outward 
+A34-A50 : outward 
+A35-A49 : inward pairing 
+A37-A48 : inward pairing 
+A38-A49 : outward 
+Number of stackings = 18
+Number of adjacent stackings = 13
+Number of non adjacent stackings = 5
+Base-pairs ------------------------------------------------------
+A28-A55 : C-G Ww/Ww pairing antiparallel cis XIX 
+A29-A54 : U-A Ww/Ww pairing antiparallel cis XX 
+A30-A53 : G-C Ww/Ww pairing antiparallel cis XIX 
+A31-A52 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A32-A51 : C-G Ww/Ww pairing antiparallel cis XIX 
+A33-A50 : C-G Ww/Ww pairing antiparallel cis XIX 
+A34-A49 : A-A O2'/Ww pairing 
+A35-A49 : A-A Bh/O2' inward pairing 
+A37-A48 : G-G O2'/Bs inward pairing 
+A37-A49 : G-A Ss/Hh pairing antiparallel trans XI 
+A38-A48 : A-G Hh/Ss pairing antiparallel trans XI 
+A38-A50 : A-G O2'/Bs pairing 
+A39-A47 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A40-A46 : C-G Ww/Ww pairing antiparallel cis XIX 
+A41-A44 : G-U Ss/Ws pairing parallel trans 86 

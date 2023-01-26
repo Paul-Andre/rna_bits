@@ -1,0 +1,52 @@
+Residue conformations -------------------------------------------
+A-44 : C C3p_endo anti
+A-43 : C C3p_endo anti
+A-42 : C C3p_endo anti
+A-41 : C C3p_endo anti
+A-40 : G C3p_endo anti
+A-39 : A C3p_endo unknown
+A-38 : G C3p_endo unknown
+A-37 : A C3p_endo anti
+A-36 : G C3p_endo anti
+A-35 : G C3p_endo anti
+A-34 : G C3p_endo anti
+A-33 : G C3p_endo anti
+A-32 : G C3p_endo anti
+A-31 : U C2p_endo anti
+A-30 : U C3p_endo anti
+A-15 : U C3p_endo anti
+A-14 : U C3p_endo unknown
+A-13 : U C3p_endo unknown
+A-12 : U C3p_endo unknown
+A-11 : U C3p_endo unknown
+A-10 : U C3p_endo unknown
+A-9 : U C3p_endo unknown
+A-8 : U C3p_endo unknown
+A-7 : U C3p_endo unknown
+A-6 : U C3p_endo anti
+A-5 : U C3p_endo anti
+A-4 : U C3p_endo anti
+A-3 : U C3p_endo anti
+A-2 : U C3p_endo anti
+A-1 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A-44-A-43 : adjacent_5p upward 
+A-42-A-41 : adjacent_5p upward 
+A-36-A-35 : adjacent_5p upward 
+A-35-A-34 : adjacent_5p upward 
+A-34-A-33 : adjacent_5p upward 
+A-33-A-32 : adjacent_5p upward 
+A-5-A-4 : adjacent_5p upward 
+A-3-A-2 : adjacent_5p upward 
+A-2-A-1 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A-40-A-36 : outward 
+Number of stackings = 10
+Number of adjacent stackings = 9
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A-44-A-33 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-43-A-34 : C-G Ww/Ww pairing antiparallel cis 
+A-42-A-35 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-41-A-36 : C-G Ws/Ww pairing antiparallel cis one_hbond 130 
+A-40-A-37 : G-A Bs/O2P pairing 

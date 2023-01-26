@@ -1,0 +1,62 @@
+Residue conformations -------------------------------------------
+A101 : G C2p_endo anti
+A102 : A C3p_endo anti
+A103 : G C3p_endo anti
+A104 : U C4p_exo anti
+A106 : G C2p_endo anti
+A107 : A C3p_endo anti
+A108 : G C3p_endo anti
+A109 : U C2p_endo anti
+A111 : G C1p_exo anti
+A112 : A C2p_exo anti
+A113 : G C3p_endo anti
+A114 : U C1p_exo anti
+A116 : G C2p_endo anti
+A117 : A C2p_exo anti
+A118 : G C3p_endo anti
+A119 : U C2p_endo anti
+A121 : G C2p_endo anti
+A122 : A C3p_endo anti
+A123 : G C3p_endo anti
+A124 : U C2p_endo anti
+A126 : G C2p_endo anti
+A127 : A C3p_endo anti
+A128 : G C3p_endo anti
+A129 : U C3p_endo anti
+A131 : G C2p_endo anti
+A132 : A C2p_exo anti
+A133 : G C3p_endo anti
+A134 : U C2p_endo anti
+A136 : G C2p_endo anti
+A137 : A C2p_exo anti
+A138 : G C3p_endo anti
+A139 : U C3p_exo anti
+A141 : G C2p_endo anti
+A142 : A C2p_exo anti
+A143 : G C3p_endo anti
+A144 : U C1p_exo anti
+A146 : G C1p_exo anti
+A147 : A C2p_exo syn
+A148 : G C3p_endo anti
+A149 : U C2p_endo anti
+A151 : G C1p_exo anti
+A152 : A C3p_endo anti
+A153 : G C3p_endo anti
+A154 : U C1p_exo anti
+Adjacent stackings ----------------------------------------------
+A102-A103 : adjacent_5p upward 
+A107-A108 : adjacent_5p upward 
+A112-A113 : adjacent_5p upward 
+A117-A118 : adjacent_5p upward 
+A122-A123 : adjacent_5p upward 
+A127-A128 : adjacent_5p upward 
+A132-A133 : adjacent_5p upward 
+A137-A138 : adjacent_5p upward 
+A142-A143 : adjacent_5p upward 
+A147-A148 : adjacent_5p upward 
+A152-A153 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 11
+Number of adjacent stackings = 11
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

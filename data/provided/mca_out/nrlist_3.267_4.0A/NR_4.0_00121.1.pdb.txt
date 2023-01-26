@@ -1,0 +1,21 @@
+Residue conformations -------------------------------------------
+A745 : G C2p_endo anti
+A746 : U C1p_exo anti
+A748 : G C2p_exo anti
+A749 : A C3p_endo anti
+A750 : A C3p_endo anti
+A751 : A C3p_endo anti
+A752 : A C2p_exo anti
+Adjacent stackings ----------------------------------------------
+A749-A750 : adjacent_5p upward pairing 
+A751-A752 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A746-A750 : inward pairing 
+Number of stackings = 3
+Number of adjacent stackings = 2
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A745-A751 : G-A Ww/O2P pairing 
+A746-A750 : U-A O2'/Ww inward pairing 
+A748-A750 : G-A O2P/Bh pairing 
+A749-A750 : A-A O2P/Bh adjacent_5p upward pairing 

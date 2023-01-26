@@ -1,0 +1,236 @@
+Residue conformations -------------------------------------------
+A2140 : G C3p_endo anti
+A2141 : G C3p_endo anti
+A2142 : G C3p_endo anti
+A2143 : U C3p_endo anti
+A2144 : C C3p_endo anti
+A2145 : G C3p_endo anti
+A2146 : C C3p_endo anti
+A2147 : C C3p_endo anti
+A2148 : G C3p_endo anti
+A2149 : A C3p_endo anti
+A2150 : U C3p_endo anti
+A2151 : G C2p_endo anti
+A2152 : U C2p_endo anti
+A2153 : G C2p_exo anti
+A2154 : C C3p_endo anti
+A2155 : A C3p_endo anti
+A2156 : G C3p_endo anti
+A2157 : C C3p_endo anti
+A2158 : A C2p_endo anti
+A2159 : U C2p_endo anti
+A2160 : A C2p_endo anti
+A2161 : G C3p_endo anti
+A2162 : G C3p_endo anti
+A2163 : U C3p_endo anti
+A2164 : A C3p_endo anti
+A2165 : G C2p_exo anti
+A2166 : G C3p_endo anti
+A2167 : A C2p_endo anti
+A2168 : G C2p_exo anti
+A2169 : A C3p_endo anti
+A2170 : C C3p_endo anti
+A2171 : A C3p_endo anti
+A2172 : C C3p_endo anti
+A2173 : U C2p_endo anti
+A2174 : A C1p_exo syn
+A2175 : C C3p_endo anti
+A2176 : A C2p_endo syn
+A2177 : C C2p_endo anti
+A2178 : A C2p_exo anti
+A2179 : G C3p_endo anti
+A2180 : G C3p_endo anti
+A2181 : U C3p_endo anti
+A2182 : A C3p_endo anti
+A2183 : C C3p_endo anti
+A2184 : C C3p_endo anti
+A2185 : C C3p_endo anti
+A2186 : G C3p_endo anti
+A2187 : C C3p_endo anti
+A2188 : G C4p_exo anti
+A2189 : C C2p_endo anti
+A2190 : U C2p_endo anti
+A2191 : A C3p_endo syn
+A2192 : G C3p_endo anti
+A2193 : C C3p_endo anti
+A2194 : G C3p_endo anti
+A2195 : G C3p_endo anti
+A2196 : G C3p_endo anti
+A2197 : C C3p_endo anti
+A2198 : C C2p_endo anti
+A2199 : A C3p_endo anti
+A2200 : C C3p_endo anti
+A2201 : C C3p_endo anti
+A2202 : G C3p_endo anti
+A2203 : A C2p_endo syn
+A2204 : G C2p_exo anti
+A2205 : U C3p_endo anti
+A2206 : C C3p_endo anti
+A2207 : A C3p_endo anti
+A2208 : A C2p_exo syn
+A2209 : C C3p_endo anti
+A2210 : A C2p_exo anti
+A2211 : G C3p_endo anti
+A2212 : U C3p_endo anti
+A2213 : G C3p_endo anti
+A2214 : A C2p_exo anti
+A2215 : A C3p_endo anti
+A2216 : A C2p_endo syn
+A2217 : U C1p_exo anti
+A2218 : A C3p_endo anti
+A2219 : C C3p_endo anti
+A2220 : U C3p_endo anti
+A2221 : A C3p_endo anti
+A2222 : C C3p_endo anti
+A2223 : C C3p_endo anti
+A2224 : C C3p_endo anti
+A2225 : G C3p_endo anti
+A2226 : U C2p_exo anti
+A2227 : C C2p_exo anti
+A2228 : G C2p_exo anti
+A2229 : G C3p_endo anti
+A2230 : U C3p_endo anti
+A2231 : G C3p_endo anti
+A2232 : A C3p_endo anti
+A2233 : C C3p_endo anti
+A2234 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A2140-A2141 : adjacent_5p upward 
+A2141-A2142 : adjacent_5p upward 
+A2142-A2143 : adjacent_5p upward 
+A2145-A2146 : adjacent_5p upward 
+A2148-A2149 : adjacent_5p upward 
+A2149-A2150 : adjacent_5p upward 
+A2153-A2154 : adjacent_5p upward 
+A2154-A2155 : adjacent_5p upward 
+A2155-A2156 : adjacent_5p upward 
+A2157-A2158 : adjacent_5p upward 
+A2161-A2162 : adjacent_5p upward 
+A2162-A2163 : adjacent_5p upward 
+A2163-A2164 : adjacent_5p upward 
+A2164-A2165 : adjacent_5p upward 
+A2165-A2166 : adjacent_5p upward 
+A2168-A2169 : adjacent_5p upward 
+A2169-A2170 : adjacent_5p upward 
+A2170-A2171 : adjacent_5p upward 
+A2171-A2172 : adjacent_5p upward 
+A2178-A2179 : adjacent_5p upward 
+A2179-A2180 : adjacent_5p upward 
+A2180-A2181 : adjacent_5p upward 
+A2181-A2182 : adjacent_5p upward 
+A2182-A2183 : adjacent_5p upward 
+A2183-A2184 : adjacent_5p upward 
+A2184-A2185 : adjacent_5p upward 
+A2185-A2186 : adjacent_5p upward 
+A2186-A2187 : adjacent_5p upward 
+A2187-A2188 : adjacent_5p upward 
+A2191-A2192 : adjacent_5p outward 
+A2192-A2193 : adjacent_5p upward 
+A2194-A2195 : adjacent_5p upward 
+A2195-A2196 : adjacent_5p upward 
+A2196-A2197 : adjacent_5p upward 
+A2199-A2200 : adjacent_5p upward 
+A2200-A2201 : adjacent_5p upward 
+A2201-A2202 : adjacent_5p upward 
+A2204-A2205 : adjacent_5p upward 
+A2205-A2206 : adjacent_5p upward 
+A2206-A2207 : adjacent_5p upward 
+A2207-A2208 : adjacent_5p inward 
+A2208-A2209 : adjacent_5p outward 
+A2209-A2210 : adjacent_5p upward 
+A2210-A2211 : adjacent_5p upward 
+A2211-A2212 : adjacent_5p upward 
+A2212-A2213 : adjacent_5p upward 
+A2214-A2215 : adjacent_5p upward 
+A2216-A2217 : adjacent_5p upward 
+A2218-A2219 : adjacent_5p upward pairing 
+A2220-A2221 : adjacent_5p upward 
+A2221-A2222 : adjacent_5p upward 
+A2222-A2223 : adjacent_5p upward 
+A2223-A2224 : adjacent_5p upward 
+A2225-A2226 : adjacent_5p upward 
+A2228-A2229 : adjacent_5p upward 
+A2229-A2230 : adjacent_5p upward 
+A2230-A2231 : adjacent_5p upward 
+A2231-A2232 : adjacent_5p upward 
+A2232-A2233 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A2145-A2231 : outward 
+A2148-A2228 : outward 
+A2151-A2161 : upward 
+A2151-A2225 : outward 
+A2152-A2159 : outward 
+A2152-A2189 : inward pairing 
+A2156-A2158 : inward pairing 
+A2160-A2215 : inward 
+A2160-A2216 : outward 
+A2171-A2204 : outward 
+A2174-A2202 : inward 
+A2175-A2177 : upward 
+A2176-A2197 : inward 
+A2176-A2198 : outward 
+A2177-A2198 : inward 
+A2178-A2203 : outward 
+A2180-A2201 : outward 
+A2182-A2199 : outward 
+A2186-A2194 : outward 
+Number of stackings = 78
+Number of adjacent stackings = 59
+Number of non adjacent stackings = 19
+Base-pairs ------------------------------------------------------
+A2141-A2234 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2142-A2233 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2143-A2232 : U-A Ww/Ww pairing antiparallel cis XX 
+A2144-A2231 : C-G Ww/Ww pairing antiparallel cis 
+A2146-A2229 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2147-A2228 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2148-A2227 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2149-A2226 : A-U Ww/Ww pairing antiparallel cis XX 
+A2150-A2225 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A2151-A2159 : G-U O2P/Ww pairing 
+A2151-A2224 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2152-A2189 : U-C O2P/Ww O2P/Bh Ww/O2' inward pairing 
+A2152-A2191 : U-A Ww/Hh pairing parallel cis XXIII 
+A2155-A2160 : A-A Ww/Hh pairing antiparallel trans V 
+A2155-A2212 : A-U Ss/O2' pairing 
+A2156-A2158 : G-A O2'/Bh Ww/O2' inward pairing 
+A2156-A2160 : G-A Ww/O2P Bs/O2P pairing 
+A2156-A2216 : G-A Ss/Ww pairing parallel trans X 
+A2158-A2217 : A-U Ww/Ww pairing antiparallel cis XX 
+A2159-A2192 : U-G Hw/Sw pairing parallel cis one_hbond 89 
+A2160-A2213 : A-G Ww/Ss pairing parallel trans X 
+A2161-A2223 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2162-A2222 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2163-A2221 : U-A Ww/Ww pairing antiparallel cis XX 
+A2164-A2220 : A-U Ww/Ww pairing antiparallel cis XX 
+A2165-A2219 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2166-A2217 : G-U Ww/O2P Bs/O2P pairing 
+A2166-A2218 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A2168-A2206 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2168-A2218 : G-A O2'/Ww pairing 
+A2169-A2205 : A-U Ww/Ww pairing antiparallel cis XX 
+A2170-A2204 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2171-A2178 : A-A O2'/C8 pairing 
+A2171-A2203 : A-A O2'/Ww pairing 
+A2174-A2175 : A-C Ss/Hw adjacent_5p pairing parallel cis one_hbond 
+A2174-A2203 : A-A Ww/Hh pairing antiparallel trans V 
+A2176-A2177 : A-C Ss/O2' adjacent_5p pairing 
+A2177-A2202 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2178-A2202 : A-G Hh/Ss pairing antiparallel trans XI 
+A2178-A2204 : A-G Ss/Ss pairing parallel trans 57 
+A2179-A2201 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2180-A2200 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2181-A2199 : U-A Ww/Ww pairing antiparallel cis XX 
+A2182-A2197 : A-C Wh/Ww pairing antiparallel cis one_hbond 75 
+A2183-A2196 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2184-A2195 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2185-A2194 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2186-A2193 : G-C Ww/Ww pairing antiparallel cis XIX 
+A2187-A2192 : C-G Ww/Ww pairing antiparallel cis XIX 
+A2188-A2191 : G-A Sw/Ww pairing parallel trans one_hbond 
+A2207-A2218 : A-A O2'/C8 pairing 
+A2211-A2217 : G-U Ww/Bh pairing antiparallel trans one_hbond 91 
+A2212-A2216 : U-A Ww/Hh pairing antiparallel trans XXIV 
+A2213-A2215 : G-A O2'/Hh pairing 
+A2213-A2216 : G-A Ww/O2P pairing 
+A2218-A2219 : A-C O2P/Bh adjacent_5p upward pairing 

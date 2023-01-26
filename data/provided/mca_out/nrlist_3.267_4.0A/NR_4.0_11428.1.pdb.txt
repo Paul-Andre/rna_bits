@@ -1,0 +1,29 @@
+Residue conformations -------------------------------------------
+A4 : U C3p_endo anti
+A5 : A C3p_endo anti
+A6 : A C2p_exo syn
+A7 : G C3p_endo anti
+A8 : G C3p_endo anti
+A9 : A C2p_exo anti
+A10 : G C4p_exo syn
+A11 : C C3p_endo unknown
+A12 : U unknown unknown
+A13 : A C4p_exo anti
+A14 : C C3p_endo anti
+A15 : C C3p_endo anti
+A16 : U C3p_endo anti
+A17 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A4-A5 : adjacent_5p upward 
+A7-A8 : adjacent_5p upward 
+A9-A10 : adjacent_5p inward 
+A14-A15 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A5-A7 : upward 
+Number of stackings = 5
+Number of adjacent stackings = 4
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A5-A16 : A-U Ww/Ww pairing antiparallel cis XX 
+A7-A15 : G-C Ww/Ww pairing antiparallel cis one_hbond 
+A8-A14 : G-C Ws/Ww pairing antiparallel cis one_hbond 

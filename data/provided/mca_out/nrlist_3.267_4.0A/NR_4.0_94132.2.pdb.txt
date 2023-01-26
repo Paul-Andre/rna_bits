@@ -1,0 +1,104 @@
+Residue conformations -------------------------------------------
+A101 : U C3p_endo anti
+A102 : U C3p_endo anti
+A103 : U C3p_endo anti
+A104 : U C3p_endo anti
+A105 : U C3p_endo anti
+A106 : U C3p_endo anti
+A107 : U C2p_endo anti
+A108 : U C3p_endo anti
+A109 : U C3p_endo anti
+A110 : U C3p_endo anti
+A111 : U C3p_endo anti
+A112 : U C3p_endo anti
+A113 : U C3p_endo anti
+A114 : U C3p_endo anti
+A115 : U C3p_endo anti
+A116 : U C2p_endo anti
+A117 : U C2p_endo anti
+A118 : U C3p_endo syn
+A119 : U C3p_endo anti
+A120 : U C3p_endo anti
+A121 : U C3p_endo anti
+A122 : U C3p_endo anti
+A123 : U C3p_endo anti
+A124 : U C3p_endo anti
+A125 : U C3p_endo anti
+A126 : U C3p_endo anti
+A127 : U C3p_endo syn
+A128 : U C3p_endo anti
+A129 : U C2p_endo anti
+A130 : U C3p_endo anti
+A131 : U C3p_endo anti
+A132 : U C3p_endo anti
+A133 : U C2p_endo syn
+A447 : U C3p_endo anti
+A448 : U C3p_endo anti
+A449 : U C3p_endo anti
+A450 : U C3p_endo anti
+A451 : U C3p_endo anti
+A452 : U C3p_endo anti
+A453 : U C3p_endo anti
+A454 : U C3p_endo anti
+A455 : U C3p_endo anti
+A456 : U C3p_endo anti
+A457 : U C3p_endo anti
+A458 : U C2p_endo anti
+A459 : U C3p_endo anti
+A460 : U C3p_endo anti
+A461 : U C3p_endo anti
+A462 : U C3p_endo anti
+A463 : U C3p_endo anti
+A464 : U C3p_endo anti
+A465 : U C3p_endo anti
+A466 : U C3p_endo anti
+A467 : U C2p_endo anti
+A468 : U C2p_endo anti
+A469 : U C3p_endo syn
+A470 : U C3p_endo anti
+A471 : U C3p_endo anti
+A472 : U C3p_endo anti
+A473 : U C3p_endo anti
+A474 : U C3p_endo anti
+A475 : U C3p_endo anti
+A476 : U C2p_endo anti
+A477 : U C3p_endo anti
+A478 : U C3p_endo anti
+A479 : U C3p_endo anti
+A480 : U C3p_endo anti
+A481 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A101-A102 : adjacent_5p upward 
+A104-A105 : adjacent_5p upward 
+A110-A111 : adjacent_5p upward 
+A112-A113 : adjacent_5p upward 
+A113-A114 : adjacent_5p upward 
+A119-A120 : adjacent_5p upward 
+A121-A122 : adjacent_5p upward 
+A122-A123 : adjacent_5p upward 
+A124-A125 : adjacent_5p upward 
+A130-A131 : adjacent_5p upward 
+A131-A132 : adjacent_5p upward 
+A448-A449 : adjacent_5p upward 
+A452-A453 : adjacent_5p upward 
+A454-A455 : adjacent_5p upward 
+A455-A456 : adjacent_5p upward 
+A461-A462 : adjacent_5p upward 
+A463-A464 : adjacent_5p upward 
+A464-A465 : adjacent_5p upward 
+A470-A471 : adjacent_5p upward 
+A472-A473 : adjacent_5p upward 
+A473-A474 : adjacent_5p upward 
+A479-A480 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A108-A110 : upward 
+A117-A119 : upward 
+A126-A128 : upward 
+A450-A452 : upward 
+A459-A461 : upward 
+A468-A470 : upward 
+A477-A479 : upward 
+Number of stackings = 29
+Number of adjacent stackings = 22
+Number of non adjacent stackings = 7
+Base-pairs ------------------------------------------------------

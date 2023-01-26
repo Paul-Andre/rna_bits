@@ -1,0 +1,16 @@
+Residue conformations -------------------------------------------
+A906 : G C2p_exo anti
+A907 : G C3p_endo anti
+A908 : C C3p_endo anti
+B918 : C C3p_endo anti
+B919 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A906-A907 : adjacent_5p upward 
+A907-A908 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A907-B919 : outward 
+Number of stackings = 3
+Number of adjacent stackings = 2
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A906-B919 : G-C Ww/Ww pairing antiparallel cis one_hbond 

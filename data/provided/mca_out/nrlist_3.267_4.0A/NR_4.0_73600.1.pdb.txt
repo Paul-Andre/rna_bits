@@ -1,0 +1,17 @@
+Residue conformations -------------------------------------------
+A1001 : A C2p_endo anti
+A1002 : A C3p_endo anti
+A1003 : A C3p_endo anti
+A1004 : A C3p_endo anti
+A1005 : A C3p_endo anti
+A1006 : A C3p_endo anti
+A1007 : A C3p_endo anti
+A1008 : A C2p_endo anti
+A1009 : A C3p_endo syn
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+A1001-A1003 : upward 
+Number of stackings = 1
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------

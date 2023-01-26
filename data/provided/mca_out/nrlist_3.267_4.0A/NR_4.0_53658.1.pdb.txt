@@ -1,0 +1,220 @@
+Residue conformations -------------------------------------------
+A395 : U C3p_endo anti
+A396 : A C3p_endo anti
+A397 : U C2p_endo anti
+A398 : U C2p_endo anti
+A399 : A C3p_endo anti
+A400 : U C3p_endo anti
+A401 : A C2p_endo anti
+A402 : U C3p_endo anti
+A403 : U C3p_endo anti
+A404 : U C3p_endo anti
+A405 : A C3p_endo anti
+A406 : U C3p_endo anti
+A407 : U C2p_endo anti
+A408 : C C2p_endo anti
+A409 : A C3p_endo anti
+A410 : U C2p_endo anti
+A411 : A C2p_endo anti
+A412 : U C2p_endo anti
+A413 : A C2p_endo anti
+A414 : A C3p_endo syn
+A415 : U C2p_endo syn
+A416 : U C3p_endo anti
+A417 : A C2p_endo syn
+A418 : A C2p_endo anti
+A419 : U C3p_endo anti
+A420 : A C3p_endo anti
+A421 : G C2p_endo anti
+A422 : G C2p_endo syn
+A423 : A C3p_endo anti
+A424 : U C3p_endo anti
+A425 : A C2p_endo anti
+A426 : A C2p_endo anti
+A427 : U C2p_endo anti
+A428 : A C2p_endo anti
+A429 : U C2p_endo anti
+A430 : U C3p_endo anti
+A431 : U C3p_endo anti
+A432 : G C2p_endo anti
+A433 : U C2p_endo anti
+A434 : A C2p_endo anti
+A435 : G C2p_endo anti
+A436 : U C3p_endo anti
+A437 : U C3p_endo anti
+A438 : U C2p_endo anti
+A439 : U C3p_endo anti
+A440 : U C3p_endo anti
+A441 : G C3p_endo anti
+A442 : A C2p_endo syn
+A443 : U C3p_endo anti
+A444 : A C2p_endo anti
+A445 : C C2p_endo anti
+A446 : C C3p_endo anti
+A447 : A C3p_endo anti
+A448 : U C3p_endo anti
+A449 : G C2p_endo syn
+A450 : A C3p_endo anti
+A451 : U C2p_endo anti
+A452 : A C3p_endo anti
+A453 : A C3p_endo anti
+A454 : G C3p_endo anti
+A455 : G C3p_endo anti
+A456 : A C2p_endo syn
+A457 : U C2p_endo anti
+A458 : U C2p_endo anti
+A459 : A C2p_endo anti
+A460 : U C2p_endo syn
+A461 : A C2p_endo anti
+A462 : A C2p_endo anti
+A463 : A C2p_endo syn
+A464 : U C2p_endo anti
+A465 : U C2p_endo anti
+A466 : G C2p_endo anti
+A467 : A C2p_endo anti
+A468 : A C2p_endo syn
+A469 : A C2p_endo syn
+A470 : G C2p_endo syn
+A471 : U C3p_endo anti
+A472 : G C3p_endo anti
+A473 : U C2p_endo anti
+A474 : U C2p_endo anti
+A475 : A C3p_endo anti
+A476 : A C2p_endo anti
+A477 : U C2p_endo anti
+A478 : A C3p_endo anti
+A479 : U C2p_endo anti
+A480 : C C3p_endo anti
+A481 : A C3p_endo anti
+A482 : U C2p_endo anti
+A483 : A C2p_endo syn
+A484 : A C2p_endo anti
+A485 : U C2p_endo anti
+A486 : C C3p_endo anti
+A487 : A C3p_endo anti
+A488 : A C2p_endo anti
+A489 : A C2p_endo anti
+A490 : A C2p_endo anti
+A491 : U C3p_endo anti
+A492 : U C2p_endo anti
+A493 : U C3p_endo anti
+A494 : A C2p_exo anti
+A495 : U C3p_endo anti
+A496 : U C3p_endo anti
+A497 : A C3p_endo anti
+A498 : U C3p_endo anti
+A499 : U C3p_endo syn
+A500 : U C2p_endo anti
+A501 : A C2p_endo anti
+A502 : U C3p_endo anti
+A503 : A C1p_exo syn
+A504 : U C2p_endo anti
+A505 : U C2p_endo anti
+A506 : A C2p_endo anti
+A507 : A C2p_endo anti
+A508 : A C2p_endo syn
+A509 : U C2p_endo anti
+A510 : A C2p_endo anti
+A511 : U C2p_endo anti
+A512 : G C2p_endo anti
+A513 : U C3p_endo anti
+A514 : A C2p_endo anti
+A515 : U C3p_endo anti
+A516 : G C2p_endo anti
+A517 : U C2p_endo anti
+A518 : G C2p_endo anti
+A519 : U C2p_endo anti
+A520 : A C3p_endo anti
+A521 : G C3p_endo anti
+A522 : A C3p_endo anti
+A523 : U C3p_endo anti
+A524 : A C3p_endo anti
+A525 : A C3p_endo anti
+A526 : A C3p_endo anti
+A527 : A C2p_endo anti
+A528 : U C2p_endo anti
+A529 : A C2p_endo syn
+A530 : A C4p_exo anti
+A531 : G C2p_endo anti
+A532 : A C2p_endo anti
+A533 : A C2p_endo anti
+A534 : A C2p_endo anti
+A535 : U C2p_endo anti
+A536 : U C2p_endo anti
+A537 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A402-A403 : adjacent_5p upward 
+A403-A404 : adjacent_5p upward 
+A405-A406 : adjacent_5p upward 
+A409-A410 : adjacent_5p upward 
+A419-A420 : adjacent_5p upward 
+A423-A424 : adjacent_5p upward 
+A436-A437 : adjacent_5p upward 
+A446-A447 : adjacent_5p upward 
+A448-A449 : adjacent_5p inward 
+A452-A453 : adjacent_5p upward 
+A453-A454 : adjacent_5p upward 
+A468-A469 : adjacent_5p upward pairing 
+A472-A473 : adjacent_5p upward 
+A478-A479 : adjacent_5p upward 
+A487-A488 : adjacent_5p upward 
+A494-A495 : adjacent_5p upward 
+A509-A510 : adjacent_5p upward pairing 
+A515-A516 : adjacent_5p upward 
+A520-A521 : adjacent_5p upward 
+A521-A522 : adjacent_5p upward 
+A522-A523 : adjacent_5p upward 
+A524-A525 : adjacent_5p upward 
+A525-A526 : adjacent_5p upward 
+A530-A531 : adjacent_5p upward 
+A536-A537 : adjacent_5p upward pairing 
+Non-Adjacent stackings ------------------------------------------
+A399-A527 : inward 
+A399-A533 : outward 
+A405-A524 : outward 
+A407-A514 : upward 
+A442-A447 : downward 
+A443-A445 : inward 
+A444-A481 : inward pairing 
+A444-A483 : outward 
+A450-A474 : inward pairing 
+A452-A471 : outward 
+A461-A463 : outward 
+A465-A528 : upward pairing 
+Number of stackings = 37
+Number of adjacent stackings = 25
+Number of non adjacent stackings = 12
+Base-pairs ------------------------------------------------------
+A398-A534 : U-A Ws/Wh pairing antiparallel cis one_hbond 46 
+A400-A527 : U-A O2'/Ww O2'/Bh pairing 
+A402-A526 : U-A Ww/Ww pairing antiparallel cis XX 
+A403-A525 : U-A Ww/Ww pairing antiparallel cis XX 
+A404-A524 : U-A Ww/Ww pairing antiparallel cis XX 
+A406-A522 : U-A Ww/Ww pairing antiparallel cis XX 
+A408-A496 : C-U Ww/O2' pairing 
+A408-A497 : C-A Bh/O2' pairing 
+A428-A430 : A-U O2'/Hh O2'/Ww pairing 
+A440-A479 : U-U Ws/Ww pairing antiparallel cis one_hbond 
+A441-A477 : G-U Ww/O2P Ww/O2P pairing 
+A442-A448 : A-U Ww/O2P pairing 
+A442-A476 : A-A Bh/O2P pairing 
+A443-A446 : U-C Bh/Hw pairing antiparallel cis one_hbond 104 
+A444-A481 : A-A O2'/Bh O2'/Hh inward pairing 
+A445-A481 : C-A Ww/O2P Bh/O2P pairing 
+A446-A478 : C-A Ww/O2' pairing 
+A449-A475 : G-A O2'/Bh pairing 
+A449-A476 : G-A Ww/O2P pairing 
+A450-A474 : A-U Ww/O2' inward pairing 
+A453-A469 : A-A Bh/O2P pairing 
+A460-A461 : U-A Ws/Hw adjacent_5p pairing antiparallel cis one_hbond 
+A465-A527 : U-A Ww/O2P pairing 
+A465-A528 : U-U O2'/Ww upward pairing 
+A468-A469 : A-A O2'/Hh adjacent_5p upward pairing 
+A468-A470 : A-G Ss/Ww pairing parallel trans one_hbond 59 
+A469-A470 : A-G Ss/Bs adjacent_5p pairing antiparallel cis one_hbond 58 
+A485-A486 : U-C O2P/Bh adjacent_5p pairing 
+A498-A499 : U-U O2'/Hh O2'/Ww adjacent_5p pairing 
+A509-A510 : U-A O2'/C8 adjacent_5p upward pairing 
+A517-A519 : U-U O2P/Ww pairing 
+A532-A533 : A-A O2'/Hh adjacent_5p pairing 
+A536-A537 : U-A O2'/Hh adjacent_5p upward pairing 

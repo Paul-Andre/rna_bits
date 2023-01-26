@@ -1,0 +1,19 @@
+Residue conformations -------------------------------------------
+A528 : U C2p_endo anti
+A529 : U C2p_endo anti
+A530 : U C2p_endo anti
+A531 : U C3p_endo anti
+A532 : U C3p_endo anti
+A533 : U C3p_endo anti
+A534 : U C3p_endo anti
+A535 : U C4p_exo anti
+A536 : U unknown unknown
+Adjacent stackings ----------------------------------------------
+A531-A532 : adjacent_5p upward 
+A532-A533 : adjacent_5p upward 
+A533-A534 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 3
+Number of adjacent stackings = 3
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

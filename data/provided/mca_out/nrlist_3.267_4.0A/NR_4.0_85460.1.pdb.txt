@@ -1,0 +1,10 @@
+Residue conformations -------------------------------------------
+A512 : U C2p_endo syn
+A513 : G C2p_endo anti
+A514 : U unknown unknown
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

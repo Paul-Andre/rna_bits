@@ -1,0 +1,49 @@
+Residue conformations -------------------------------------------
+A1301 : G C3p_endo anti
+A1302 : A C3p_endo anti
+A1303 : G C3p_endo anti
+A1304 : G C3p_endo anti
+A1305 : G C3p_endo anti
+A1306 : G C3p_endo anti
+A1307 : A C2p_endo anti
+A1309 : U C3p_endo anti
+A1310 : G C2p_endo syn
+A1311 : A C2p_endo anti
+A1312 : A C2p_endo syn
+A1313 : A C2p_endo anti
+A1314 : A C3p_endo anti
+A1315 : U C3p_endo anti
+A1316 : C C3p_endo anti
+A1317 : C C3p_endo anti
+A1318 : C C3p_endo anti
+A1319 : C C3p_endo anti
+A1320 : U C3p_endo anti
+A1321 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A1301-A1302 : adjacent_5p upward 
+A1302-A1303 : adjacent_5p upward 
+A1303-A1304 : adjacent_5p upward 
+A1304-A1305 : adjacent_5p upward 
+A1305-A1306 : adjacent_5p upward 
+A1306-A1307 : adjacent_5p upward 
+A1314-A1315 : adjacent_5p upward 
+A1315-A1316 : adjacent_5p upward 
+A1316-A1317 : adjacent_5p upward 
+A1317-A1318 : adjacent_5p upward 
+A1318-A1319 : adjacent_5p upward 
+A1320-A1321 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A1309-A1311 : upward 
+A1312-A1314 : upward 
+Number of stackings = 14
+Number of adjacent stackings = 12
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A1301-A1321 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1302-A1320 : A-U Ww/Ww pairing antiparallel cis XX 
+A1303-A1319 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1304-A1318 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1305-A1317 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1306-A1316 : G-C Ww/Ww pairing antiparallel cis XIX 
+A1307-A1315 : A-U Wh/Wh pairing antiparallel cis one_hbond 
+A1309-A1312 : U-A Ws/Hh pairing antiparallel trans XXIV 

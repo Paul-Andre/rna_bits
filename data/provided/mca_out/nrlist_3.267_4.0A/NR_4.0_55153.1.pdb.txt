@@ -1,0 +1,55 @@
+Residue conformations -------------------------------------------
+A-6 : C C3p_endo anti
+A-5 : C C3p_endo anti
+A-4 : A C3p_endo anti
+A-3 : G C3p_endo anti
+A-2 : U C3p_endo anti
+A-1 : C C2p_endo anti
+A1 : G C2p_exo anti
+A2 : G C3p_endo anti
+A3 : A C3p_endo anti
+A4 : A C3p_endo anti
+A5 : C C3p_endo anti
+B44 : G C3p_endo anti
+B45 : G C3p_endo anti
+B46 : U C3p_endo anti
+B47 : G C2p_endo syn
+B48 : A C3p_endo anti
+B49 : G C3p_endo anti
+B50 : G C3p_endo anti
+B51 : C C3p_endo anti
+B52 : U C3p_endo anti
+B53 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A-5-A-4 : adjacent_5p upward 
+A-4-A-3 : adjacent_5p upward 
+A-3-A-2 : adjacent_5p upward 
+A-2-A-1 : adjacent_5p upward 
+A2-A3 : adjacent_5p upward 
+A3-A4 : adjacent_5p upward 
+A4-A5 : adjacent_5p upward 
+B44-B45 : adjacent_5p upward 
+B45-B46 : adjacent_5p upward 
+B48-B49 : adjacent_5p upward 
+B49-B50 : adjacent_5p upward 
+B50-B51 : adjacent_5p upward 
+B51-B52 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A-4-B53 : outward 
+A-1-A1 : upward 
+A1-B47 : upward 
+A2-B48 : outward 
+Number of stackings = 17
+Number of adjacent stackings = 13
+Number of non adjacent stackings = 4
+Base-pairs ------------------------------------------------------
+A-5-B53 : C-G Ww/Ww pairing antiparallel cis XIX 
+A-4-B52 : A-U Ww/Ww pairing antiparallel cis XX 
+A-3-B51 : G-C Ww/Ww pairing antiparallel cis XIX 
+A-2-B50 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A-1-B49 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1-B48 : G-A Ss/Hh O2'/Bh pairing antiparallel trans XI 
+A2-B47 : G-G Hw/C8 pairing parallel trans one_hbond 
+A4-B46 : A-U Ww/Ww pairing antiparallel cis XX 
+A5-B45 : C-G Ww/Ww pairing antiparallel cis XIX 
+B46-B47 : U-G O2P/Bs adjacent_5p pairing 

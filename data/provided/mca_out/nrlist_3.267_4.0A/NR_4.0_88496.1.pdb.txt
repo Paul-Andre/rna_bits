@@ -1,0 +1,84 @@
+Residue conformations -------------------------------------------
+A201 : G C3p_endo anti
+A202 : G C3p_endo anti
+A203 : A C3p_endo anti
+A204 : A C3p_endo anti
+A205 : C C3p_endo anti
+A206 : C C3p_endo anti
+A207 : G C3p_endo anti
+A208 : G C3p_endo anti
+A209 : U C3p_endo anti
+A210 : G C3p_endo anti
+A211 : C O4p_endo anti
+A212 : G C3p_endo anti
+A213 : C C3p_endo anti
+A214 : A C2p_endo anti
+A215 : U C2p_endo syn
+A216 : A C2p_exo anti
+A217 : A C3p_endo anti
+A218 : C C3p_endo anti
+A219 : C C3p_endo anti
+A220 : A C3p_endo anti
+A221 : C C3p_endo anti
+A222 : C C2p_endo anti
+A223 : U C2p_endo anti
+A224 : C C2p_endo anti
+A225 : A C3p_endo anti
+A226 : G C3p_exo syn
+A227 : U C2p_endo anti
+A228 : G C3p_endo anti
+A229 : C C3p_endo anti
+A230 : G C2p_endo anti
+A231 : A C2p_exo anti
+A232 : G C3p_endo anti
+A233 : C C3p_endo anti
+A234 : A C3p_endo anti
+A235 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A201-A202 : adjacent_5p upward 
+A202-A203 : adjacent_5p upward 
+A203-A204 : adjacent_5p upward 
+A204-A205 : adjacent_5p upward 
+A205-A206 : adjacent_5p upward 
+A206-A207 : adjacent_5p upward 
+A207-A208 : adjacent_5p upward 
+A208-A209 : adjacent_5p upward 
+A212-A213 : adjacent_5p upward 
+A213-A214 : adjacent_5p inward 
+A216-A217 : adjacent_5p upward 
+A217-A218 : adjacent_5p upward 
+A218-A219 : adjacent_5p upward 
+A219-A220 : adjacent_5p upward 
+A220-A221 : adjacent_5p upward 
+A228-A229 : adjacent_5p upward 
+A229-A230 : adjacent_5p inward 
+A231-A232 : adjacent_5p upward 
+A232-A233 : adjacent_5p upward 
+A233-A234 : adjacent_5p upward 
+A234-A235 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A210-A215 : inward 
+A210-A226 : downward 
+A211-A215 : outward 
+A212-A234 : outward 
+A220-A226 : outward 
+A223-A225 : outward 
+Number of stackings = 27
+Number of adjacent stackings = 21
+Number of non adjacent stackings = 6
+Base-pairs ------------------------------------------------------
+A207-A222 : G-C Ww/Ww pairing antiparallel cis XIX 
+A208-A221 : G-C Ww/Ww pairing antiparallel cis XIX 
+A208-A225 : G-A Ss/Ss O2'/Ww pairing parallel trans one_hbond 57 
+A209-A220 : U-A Ww/Ww pairing antiparallel cis XX 
+A210-A228 : G-G Ww/Hh pairing parallel cis VI 
+A211-A230 : C-G Ww/Ww pairing antiparallel cis XIX 
+A212-A233 : G-C Ww/Ww pairing antiparallel cis XIX 
+A213-A232 : C-G Ww/Ww pairing antiparallel cis XIX 
+A214-A231 : A-A Ww/Ww pairing parallel trans I 
+A215-A227 : U-U Hh/Ww pairing antiparallel trans 81 
+A215-A229 : U-C Wh/Wh pairing antiparallel cis one_hbond 
+A217-A229 : A-C Wh/Ws pairing antiparallel cis one_hbond 78 
+A218-A228 : C-G Ww/Ww pairing antiparallel cis XIX 
+A219-A226 : C-G Ww/Ww pairing antiparallel cis XIX 
+A227-A229 : U-C Ws/Hw pairing parallel cis one_hbond 99 

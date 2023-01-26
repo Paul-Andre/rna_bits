@@ -1,0 +1,23 @@
+Residue conformations -------------------------------------------
+A401 : C C3p_endo anti
+A402 : G C3p_endo anti
+A403 : U C3p_endo anti
+A404 : G C3p_endo anti
+A405 : A C3p_endo anti
+A406 : C C3p_endo anti
+A407 : U C3p_endo anti
+A408 : C C3p_endo anti
+A409 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A401-A402 : adjacent_5p upward 
+A402-A403 : adjacent_5p upward 
+A403-A404 : adjacent_5p upward 
+A404-A405 : adjacent_5p upward 
+A405-A406 : adjacent_5p upward 
+A406-A407 : adjacent_5p upward 
+A408-A409 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 7
+Number of adjacent stackings = 7
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

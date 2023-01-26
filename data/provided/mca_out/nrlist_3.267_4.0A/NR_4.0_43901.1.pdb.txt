@@ -1,0 +1,80 @@
+Residue conformations -------------------------------------------
+A404 : C C3p_endo anti
+A405 : U C3p_endo anti
+A406 : G C3p_endo anti
+A407 : U C3p_endo anti
+A408 : G C4p_exo anti
+A409 : U C3p_endo anti
+A410 : U C2p_exo anti
+A411 : C C3p_endo anti
+A412 : G C3p_endo anti
+A413 : A C3p_endo anti
+A414 : U C3p_endo anti
+A415 : C C3p_endo anti
+A416 : C C3p_endo anti
+A417 : A C3p_endo anti
+A418 : C C3p_endo anti
+A419 : A C3p_endo anti
+A420 : G C3p_endo anti
+B404 : C C3p_endo anti
+B405 : U C3p_endo anti
+B406 : G C3p_endo anti
+B407 : U C3p_endo anti
+B408 : G C4p_exo anti
+B409 : U C2p_exo anti
+B410 : U C3p_endo anti
+B411 : C C3p_endo anti
+B412 : G C3p_endo anti
+B413 : A C3p_endo anti
+B414 : U C3p_endo anti
+B415 : C C3p_endo anti
+B416 : C C3p_endo anti
+B417 : A C3p_endo anti
+B418 : C C3p_endo anti
+B419 : A C3p_endo anti
+B420 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A404-A405 : adjacent_5p upward 
+A406-A407 : adjacent_5p upward 
+A407-A408 : adjacent_5p upward 
+A412-A413 : adjacent_5p upward 
+A413-A414 : adjacent_5p upward 
+A415-A416 : adjacent_5p upward 
+A416-A417 : adjacent_5p upward 
+A417-A418 : adjacent_5p upward 
+A418-A419 : adjacent_5p upward 
+A419-A420 : adjacent_5p upward 
+B404-B405 : adjacent_5p upward 
+B405-B406 : adjacent_5p upward 
+B406-B407 : adjacent_5p upward 
+B412-B413 : adjacent_5p upward 
+B413-B414 : adjacent_5p upward 
+B414-B415 : adjacent_5p upward 
+B417-B418 : adjacent_5p upward 
+B418-B419 : adjacent_5p upward 
+B419-B420 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A406-B419 : outward 
+A408-A412 : upward 
+A408-B417 : outward 
+A417-B408 : outward 
+A419-B406 : outward 
+B408-B412 : upward 
+Number of stackings = 25
+Number of adjacent stackings = 19
+Number of non adjacent stackings = 6
+Base-pairs ------------------------------------------------------
+A404-B420 : C-G Ww/Ww pairing antiparallel cis XIX 
+A405-B419 : U-A Ww/Ww pairing antiparallel cis XX 
+A406-B418 : G-C Ww/Ww pairing antiparallel cis XIX 
+A407-B417 : U-A Ww/Ww pairing antiparallel cis XX 
+A408-B416 : G-C Ww/Ww pairing antiparallel cis XIX 
+A412-B415 : G-C Ww/Ww pairing antiparallel cis XIX 
+A413-B414 : A-U Ww/Ww pairing antiparallel cis XX 
+A414-B413 : U-A Ww/Ww pairing antiparallel cis XX 
+A415-B412 : C-G Ww/Ww pairing antiparallel cis XIX 
+A416-B408 : C-G Ww/Ww pairing antiparallel cis XIX 
+A417-B407 : A-U Ww/Ww pairing antiparallel cis XX 
+A418-B406 : C-G Ww/Ww pairing antiparallel cis XIX 
+A419-B405 : A-U Ww/Ww pairing antiparallel cis XX 
+A420-B404 : G-C Ww/Ww pairing antiparallel cis XIX 

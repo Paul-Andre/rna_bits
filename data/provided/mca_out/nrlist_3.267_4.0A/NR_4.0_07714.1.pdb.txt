@@ -1,0 +1,44 @@
+Residue conformations -------------------------------------------
+A693 : A C3p_endo anti
+A694 : G C3p_endo anti
+A695 : A C3p_endo anti
+A696 : G C3p_endo anti
+A697 : A C3p_endo anti
+A698 : G C3p_endo anti
+A699 : A C3p_endo anti
+A700 : C C4p_exo anti
+A701 : C C3p_endo anti
+B599 : C C3p_endo anti
+B600 : A C3p_endo anti
+B601 : G C3p_endo anti
+B602 : G C3p_endo anti
+B603 : U C3p_endo anti
+B604 : C C3p_endo anti
+B605 : U C3p_endo anti
+B606 : C C3p_endo anti
+B607 : U C3p_endo anti
+B608 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A693-A694 : adjacent_5p upward 
+A694-A695 : adjacent_5p upward 
+A695-A696 : adjacent_5p upward 
+A696-A697 : adjacent_5p upward 
+A697-A698 : adjacent_5p upward 
+A698-A699 : adjacent_5p upward 
+A699-A700 : adjacent_5p upward 
+B600-B601 : adjacent_5p upward 
+B601-B602 : adjacent_5p upward 
+B602-B603 : adjacent_5p upward 
+B603-B604 : adjacent_5p upward 
+B605-B606 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 12
+Number of adjacent stackings = 12
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A693-B608 : A-C Ww/Wh pairing antiparallel cis one_hbond 71 
+A695-B607 : A-U Bs/Ws pairing antiparallel cis one_hbond 
+A696-B605 : G-U Ws/Ws pairing antiparallel cis one_hbond 
+A698-B603 : G-U Ws/Ws pairing antiparallel cis one_hbond 
+A699-B602 : A-G Ww/Ww pairing antiparallel cis VIII 
+A700-B601 : C-G Ww/Ww pairing antiparallel cis XIX 

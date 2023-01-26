@@ -1,0 +1,24 @@
+Residue conformations -------------------------------------------
+A4601 : U C3p_endo anti
+A4602 : A C3p_endo anti
+A4603 : C C3p_endo anti
+A4604 : G C3p_endo anti
+A4605 : A C3p_endo anti
+A4606 : G C3p_endo anti
+A4607 : A C3p_endo anti
+A4608 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A4602-A4603 : adjacent_5p upward pairing 
+A4603-A4604 : adjacent_5p upward 
+A4605-A4606 : adjacent_5p upward 
+A4606-A4607 : adjacent_5p upward 
+A4607-A4608 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 5
+Number of adjacent stackings = 5
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A4602-A4603 : A-C O2P/Bh adjacent_5p upward pairing 
+A4603-A4608 : C-G Ww/Ww pairing antiparallel cis XIX 
+A4604-A4606 : G-G O2'/Hh pairing 
+A4604-A4607 : G-A Bs/O2P pairing 

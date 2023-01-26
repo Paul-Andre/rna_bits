@@ -1,0 +1,30 @@
+Residue conformations -------------------------------------------
+A1283 : U C3p_endo anti
+A1284 : A C3p_endo anti
+A1285 : G C3p_endo anti
+A1286 : C C3p_endo anti
+A1287 : C C3p_endo anti
+A1288 : C C3p_endo anti
+A1289 : C C3p_endo anti
+A1290 : C C3p_endo anti
+B1272 : G C3p_endo anti
+B1273 : G C3p_endo anti
+B1274 : G C3p_endo anti
+B1275 : G C3p_endo anti
+B1276 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A1283-A1284 : adjacent_5p upward 
+A1285-A1286 : adjacent_5p upward 
+A1286-A1287 : adjacent_5p upward 
+B1272-B1273 : adjacent_5p upward 
+B1273-B1274 : adjacent_5p upward 
+B1274-B1275 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 6
+Number of adjacent stackings = 6
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A1287-B1275 : C-G Ww/Ww pairing antiparallel cis 
+A1288-B1274 : C-G Ww/Ww pairing antiparallel cis XIX 
+A1289-B1273 : C-G Ww/Ww pairing antiparallel cis one_hbond 
+A1290-B1272 : C-G Ww/Ww pairing antiparallel cis XIX 

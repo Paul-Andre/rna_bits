@@ -1,0 +1,41 @@
+Residue conformations -------------------------------------------
+A404 : C C3p_endo anti
+A405 : U C3p_endo anti
+A406 : G C3p_endo anti
+A407 : U C3p_endo anti
+A408 : G C3p_endo anti
+A409 : U O4p_endo anti
+A411 : C C1p_exo anti
+A412 : G C1p_exo syn
+A413 : A C3p_endo anti
+A414 : U C2p_exo anti
+A415 : C O4p_endo anti
+A416 : C C3p_endo anti
+A417 : A C3p_endo anti
+A418 : C C3p_endo anti
+A419 : A C3p_endo anti
+A420 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A404-A405 : adjacent_5p upward 
+A405-A406 : adjacent_5p upward 
+A406-A407 : adjacent_5p upward 
+A408-A409 : adjacent_5p upward 
+A417-A418 : adjacent_5p upward 
+A418-A419 : adjacent_5p upward 
+A419-A420 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A406-A419 : outward 
+A408-A417 : outward 
+A413-A416 : upward 
+Number of stackings = 10
+Number of adjacent stackings = 7
+Number of non adjacent stackings = 3
+Base-pairs ------------------------------------------------------
+A404-A420 : C-G Ww/Ww pairing antiparallel cis XIX 
+A405-A419 : U-A Ww/Ww pairing antiparallel cis XX 
+A406-A418 : G-C Ww/Ww pairing antiparallel cis XIX 
+A407-A417 : U-A Ww/Ww pairing antiparallel cis XX 
+A408-A416 : G-C Ww/Ww pairing antiparallel cis XIX 
+A409-A413 : U-A Ww/Hh pairing antiparallel trans XXIV 
+A413-A415 : A-C O2P/Bh pairing 
+A415-A416 : C-C O2P/Bh adjacent_5p pairing 

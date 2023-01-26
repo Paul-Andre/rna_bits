@@ -1,0 +1,62 @@
+Residue conformations -------------------------------------------
+A0 : U C2p_endo anti
+A1 : U C3p_endo anti
+A2 : G C2p_endo syn
+A3 : A C2p_endo anti
+A4 : U C3p_endo anti
+A5 : G C2p_endo anti
+A6 : U C2p_endo anti
+A7 : C C3p_endo anti
+A8 : A C2p_endo syn
+A9 : C C2p_endo anti
+A10 : G C2p_endo syn
+A11 : G C2p_endo anti
+A12 : A C2p_endo anti
+A13 : A C2p_endo syn
+A14 : C C3p_endo anti
+A15 : C C3p_endo anti
+A16 : U C3p_endo anti
+A17 : U C2p_endo anti
+A18 : U C2p_endo anti
+A19 : G C2p_endo anti
+A20 : U C3p_endo anti
+A21 : U C3p_endo anti
+A22 : G C3p_endo anti
+A23 : U C2p_endo anti
+A24 : C C2p_endo anti
+A25 : U C2p_endo anti
+A26 : U C3p_endo anti
+A27 : C C2p_endo anti
+A28 : G C2p_endo syn
+A29 : A C2p_endo anti
+A30 : C C3p_endo anti
+A31 : A C3p_endo anti
+A32 : U C3p_endo anti
+A33 : G C2p_endo anti
+A34 : G C3p_endo anti
+A35 : G C3p_endo anti
+A36 : U C3p_endo anti
+A37 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A1-A2 : adjacent_5p inward 
+A13-A14 : adjacent_5p upward 
+A14-A15 : adjacent_5p upward 
+A15-A16 : adjacent_5p upward 
+A20-A21 : adjacent_5p upward 
+A21-A22 : adjacent_5p upward 
+A26-A27 : adjacent_5p upward 
+A28-A29 : adjacent_5p upward 
+A30-A31 : adjacent_5p upward 
+A31-A32 : adjacent_5p upward 
+A34-A35 : adjacent_5p upward 
+A35-A36 : adjacent_5p upward 
+A36-A37 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A7-A10 : inward 
+A8-A10 : outward pairing 
+Number of stackings = 15
+Number of adjacent stackings = 13
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A8-A10 : A-G Ss/O2' outward pairing 
+A33-A34 : G-G Sw/Ss adjacent_5p pairing parallel cis one_hbond 

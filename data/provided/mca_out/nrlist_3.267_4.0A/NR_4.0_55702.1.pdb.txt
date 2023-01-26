@@ -1,0 +1,84 @@
+Residue conformations -------------------------------------------
+A101 : G C3p_endo anti
+A102 : A C2p_exo anti
+A103 : U C2p_endo anti
+A104 : G C2p_endo anti
+A105 : A C3p_endo anti
+A106 : G C3p_endo anti
+A107 : A C3p_endo anti
+A108 : U C2p_endo anti
+A109 : G C2p_endo anti
+A110 : A C3p_endo anti
+A111 : G C3p_endo anti
+A112 : A C3p_endo anti
+A113 : U C2p_endo anti
+A114 : G C2p_endo anti
+A115 : A C3p_endo anti
+A116 : G C4p_exo anti
+A117 : A C3p_endo anti
+A118 : U C2p_endo anti
+A119 : G C1p_exo anti
+A120 : A C3p_endo anti
+A121 : G C3p_endo anti
+A122 : A C3p_endo anti
+A123 : U C2p_endo anti
+A124 : G C2p_endo anti
+A125 : A C3p_endo anti
+A126 : G C3p_endo anti
+A127 : A C2p_exo anti
+A128 : U C2p_endo syn
+A129 : G C3p_exo anti
+A130 : A C3p_endo anti
+A131 : G C3p_endo anti
+A132 : A C3p_endo anti
+A133 : U C2p_endo anti
+A134 : G C2p_endo anti
+A135 : A C3p_endo anti
+A136 : G C3p_endo anti
+A137 : A C3p_endo anti
+A138 : U C2p_endo anti
+A139 : G C2p_endo anti
+A140 : A C3p_endo anti
+A141 : G C3p_endo anti
+A142 : A C3p_endo anti
+A143 : U C2p_endo anti
+A144 : G C2p_endo anti
+A145 : A C3p_endo anti
+A146 : G C3p_endo anti
+A147 : A C3p_endo anti
+A148 : U C2p_endo anti
+A149 : G C2p_endo anti
+A150 : A C3p_endo anti
+A151 : G C3p_endo anti
+A152 : A C3p_endo anti
+A153 : U C2p_endo anti
+A154 : G C2p_endo anti
+A155 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A101-A155 : adjacent_3p downward 
+A102-A103 : adjacent_5p upward 
+A105-A106 : adjacent_5p upward 
+A107-A108 : adjacent_5p upward 
+A110-A111 : adjacent_5p upward 
+A112-A113 : adjacent_5p upward 
+A115-A116 : adjacent_5p upward 
+A117-A118 : adjacent_5p upward 
+A120-A121 : adjacent_5p upward 
+A122-A123 : adjacent_5p upward 
+A125-A126 : adjacent_5p upward 
+A127-A128 : adjacent_5p upward 
+A130-A131 : adjacent_5p upward 
+A132-A133 : adjacent_5p upward 
+A135-A136 : adjacent_5p upward 
+A137-A138 : adjacent_5p upward 
+A140-A141 : adjacent_5p upward 
+A142-A143 : adjacent_5p upward 
+A145-A146 : adjacent_5p upward 
+A147-A148 : adjacent_5p upward 
+A150-A151 : adjacent_5p upward 
+A152-A153 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 22
+Number of adjacent stackings = 22
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

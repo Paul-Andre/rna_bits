@@ -1,0 +1,22 @@
+Residue conformations -------------------------------------------
+A2 : A C2p_endo anti
+A3 : A C2p_endo anti
+A4 : A C3p_endo anti
+A5 : A C2p_endo anti
+A6 : A C3p_endo anti
+A7 : A C2p_endo syn
+A8 : A C2p_endo anti
+A9 : A C2p_endo anti
+A10 : A C2p_endo anti
+A11 : A C2p_endo anti
+A12 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+A2-A7 : outward 
+A9-A12 : upward 
+Number of stackings = 2
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A6-A12 : A-G Ss/Sw pairing parallel trans one_hbond 57 
+A8-A12 : A-G O2P/Ww O2P/Bs pairing 

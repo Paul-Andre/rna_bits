@@ -1,0 +1,197 @@
+Residue conformations -------------------------------------------
+A211 : C C3p_endo anti
+A212 : C C3p_endo anti
+A213 : U C3p_endo anti
+A214 : G C3p_endo anti
+A215 : C C3p_endo anti
+A216 : G C3p_endo anti
+A217 : G C3p_endo anti
+A218 : C C3p_endo anti
+A362 : G C3p_endo anti
+A363 : G C3p_endo anti
+A364 : C C3p_endo anti
+A365 : C C3p_endo anti
+A366 : G C3p_endo anti
+A367 : C C3p_endo anti
+A368 : A C3p_endo anti
+A369 : G C3p_endo anti
+A370 : G C3p_endo anti
+A371 : A C3p_endo anti
+A372 : A C2p_endo anti
+A373 : G C3p_endo anti
+A374 : A C2p_endo anti
+A375 : G C3p_endo anti
+A376 : G C3p_endo anti
+A377 : A C2p_endo anti
+A378 : A C2p_endo anti
+A379 : C C2p_endo anti
+A380 : G C3p_endo anti
+A381 : G C3p_endo anti
+A382 : A C3p_endo anti
+A383 : G C3p_endo anti
+A384 : C C3p_endo anti
+A385 : G C3p_endo anti
+A386 : A C3p_endo anti
+A387 : G C3p_endo anti
+A388 : U C3p_endo anti
+A389 : C C3p_endo anti
+A390 : C C3p_endo anti
+A391 : C C3p_endo anti
+A392 : C C2p_endo anti
+A397 : G C3p_endo anti
+A398 : C C3p_endo anti
+A399 : G C3p_endo anti
+A400 : G C3p_endo anti
+A401 : C C3p_endo anti
+A402 : G C3p_endo anti
+A403 : C C3p_endo anti
+A404 : G C3p_endo anti
+A405 : A C3p_endo anti
+A406 : U C2p_endo anti
+A407 : U C3p_endo anti
+A408 : C C3p_endo anti
+A409 : C C3p_endo anti
+A410 : C C3p_endo anti
+A411 : U C2p_endo syn
+A412 : G C3p_endo syn
+A413 : A C3p_endo anti
+A414 : G C2p_endo anti
+A415 : C C2p_endo anti
+A416 : U C3p_endo anti
+A417 : G C2p_endo anti
+A418 : U C2p_endo anti
+A419 : G C3p_endo anti
+A420 : G C3p_endo anti
+A421 : G C3p_endo anti
+A422 : A C3p_endo anti
+A423 : C C3p_endo anti
+A424 : G C3p_endo anti
+A425 : U C3p_endo anti
+A426 : G C3p_endo anti
+A427 : C C3p_endo anti
+A428 : A C3p_endo anti
+A429 : C C3p_endo anti
+A430 : C C3p_endo anti
+A431 : C C3p_endo anti
+A432 : A C3p_endo anti
+A433 : G C3p_endo anti
+A434 : G C3p_endo anti
+A435 : A C3p_endo anti
+A436 : C C3p_endo anti
+A437 : U C3p_endo anti
+A438 : C C3p_endo anti
+A439 : G C3p_endo anti
+A440 : G C3p_endo anti
+A441 : C C3p_endo anti
+A442 : U C3p_endo anti
+A443 : C C3p_endo anti
+A444 : A C3p_endo anti
+A445 : C C3p_endo anti
+A446 : A C2p_endo syn
+A447 : C C2p_endo anti
+A448 : A C2p_endo anti
+A449 : U C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A212-A213 : adjacent_5p upward 
+A213-A214 : adjacent_5p upward 
+A214-A215 : adjacent_5p upward 
+A215-A216 : adjacent_5p upward 
+A216-A217 : adjacent_5p upward 
+A362-A363 : adjacent_5p upward 
+A363-A364 : adjacent_5p upward 
+A364-A365 : adjacent_5p upward 
+A365-A366 : adjacent_5p upward 
+A366-A367 : adjacent_5p upward 
+A367-A368 : adjacent_5p upward 
+A368-A369 : adjacent_5p upward 
+A369-A370 : adjacent_5p upward 
+A370-A371 : adjacent_5p upward 
+A375-A376 : adjacent_5p upward 
+A381-A382 : adjacent_5p upward 
+A382-A383 : adjacent_5p upward 
+A383-A384 : adjacent_5p upward 
+A384-A385 : adjacent_5p upward 
+A385-A386 : adjacent_5p upward 
+A386-A387 : adjacent_5p upward 
+A387-A388 : adjacent_5p upward 
+A388-A389 : adjacent_5p upward 
+A389-A390 : adjacent_5p upward 
+A390-A391 : adjacent_5p upward 
+A391-A392 : adjacent_5p upward 
+A399-A400 : adjacent_5p upward 
+A400-A401 : adjacent_5p upward 
+A401-A402 : adjacent_5p upward 
+A402-A403 : adjacent_5p upward 
+A403-A404 : adjacent_5p upward 
+A404-A405 : adjacent_5p upward 
+A408-A409 : adjacent_5p upward 
+A409-A410 : adjacent_5p upward 
+A419-A420 : adjacent_5p upward 
+A420-A421 : adjacent_5p upward 
+A421-A422 : adjacent_5p upward 
+A422-A423 : adjacent_5p upward 
+A423-A424 : adjacent_5p upward 
+A424-A425 : adjacent_5p upward 
+A425-A426 : adjacent_5p upward 
+A426-A427 : adjacent_5p upward 
+A427-A428 : adjacent_5p upward 
+A428-A429 : adjacent_5p upward 
+A429-A430 : adjacent_5p upward 
+A431-A432 : adjacent_5p upward 
+A432-A433 : adjacent_5p upward 
+A433-A434 : adjacent_5p upward 
+A434-A435 : adjacent_5p upward 
+A435-A436 : adjacent_5p upward 
+A436-A437 : adjacent_5p upward 
+A437-A438 : adjacent_5p upward 
+A440-A441 : adjacent_5p upward 
+A441-A442 : adjacent_5p upward 
+A442-A443 : adjacent_5p upward 
+A443-A444 : adjacent_5p upward 
+A444-A445 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A214-A368 : outward 
+A216-A366 : outward 
+A400-A428 : outward 
+A402-A426 : outward 
+A404-A424 : outward 
+A411-A417 : inward 
+A412-A414 : inward 
+A417-A419 : outward 
+Number of stackings = 65
+Number of adjacent stackings = 57
+Number of non adjacent stackings = 8
+Base-pairs ------------------------------------------------------
+A211-A370 : C-G Ww/Ww pairing antiparallel cis XIX 
+A212-A369 : C-G Ww/Ww pairing antiparallel cis XIX 
+A213-A368 : U-A Ww/Ww pairing antiparallel cis XX 
+A214-A367 : G-C Ww/Ww pairing antiparallel cis 
+A215-A366 : C-G Ww/Ww pairing antiparallel cis XIX 
+A216-A365 : G-C Ww/Ww pairing antiparallel cis XIX 
+A217-A364 : G-C Ws/Ww pairing antiparallel cis 128 
+A370-A372 : G-A Sw/Ww O2'/Hh pairing parallel trans one_hbond 
+A377-A447 : A-C Ss/O2' pairing 
+A378-A446 : A-A Bh/O2' pairing 
+A380-A445 : G-C Ws/Bs pairing antiparallel cis one_hbond 
+A381-A443 : G-C Ww/Ww pairing antiparallel cis 
+A382-A442 : A-U Ww/Ww pairing antiparallel cis XX 
+A383-A441 : G-C Ww/Ww pairing antiparallel cis XIX 
+A384-A440 : C-G Ww/Ww pairing antiparallel cis 
+A385-A438 : G-C Ws/Ws pairing antiparallel cis one_hbond 
+A386-A437 : A-U Ww/Ww pairing antiparallel cis one_hbond 
+A387-A436 : G-C Ww/Ww pairing antiparallel cis XIX 
+A388-A435 : U-A Ww/Ww pairing antiparallel cis one_hbond 
+A389-A434 : C-G Ww/Ww pairing antiparallel cis XIX 
+A391-A432 : C-A Ws/Wh pairing antiparallel trans one_hbond 78 
+A397-A428 : G-A Wh/Wh pairing antiparallel cis one_hbond 
+A399-A428 : G-A Ww/Ww pairing antiparallel cis VIII 
+A400-A427 : G-C Ww/Ww pairing antiparallel cis XIX 
+A401-A426 : C-G Ww/Ww pairing antiparallel cis XIX 
+A402-A425 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A403-A424 : C-G Ww/Ww pairing antiparallel cis XIX 
+A404-A423 : G-C Ww/Ww pairing antiparallel cis 
+A408-A421 : C-G Ww/Ww pairing antiparallel cis XIX 
+A409-A420 : C-G Ww/Ww pairing antiparallel cis XIX 
+A410-A419 : C-G Ww/Ww pairing antiparallel cis 
+A444-A446 : A-A O2'/Hh pairing 
+A446-A448 : A-A O2'/Bh pairing 

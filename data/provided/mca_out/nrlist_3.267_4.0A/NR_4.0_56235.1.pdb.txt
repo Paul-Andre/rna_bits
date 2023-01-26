@@ -1,0 +1,51 @@
+Residue conformations -------------------------------------------
+A302 : G C3p_endo anti
+A303 : A C3p_endo anti
+A304 : G C3p_endo anti
+A305 : C C3p_endo anti
+A308 : C C3p_endo anti
+A309 : G C3p_endo anti
+A310 : G C3p_endo anti
+A311 : C C3p_endo anti
+A312 : U C3p_endo anti
+A313 : C C3p_endo anti
+B402 : G C3p_endo anti
+B403 : A C3p_endo anti
+B404 : G C3p_endo anti
+B405 : C C3p_endo anti
+B408 : C C3p_endo anti
+B409 : G C3p_endo anti
+B410 : G C3p_endo anti
+B411 : C C3p_endo anti
+B412 : U C3p_endo anti
+B413 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A302-A303 : adjacent_5p upward 
+A303-A304 : adjacent_5p upward 
+A304-A305 : adjacent_5p upward 
+A308-A309 : adjacent_5p upward 
+A309-A310 : adjacent_5p upward 
+A310-A311 : adjacent_5p upward 
+A311-A312 : adjacent_5p upward 
+A312-A313 : adjacent_5p upward 
+B402-B403 : adjacent_5p upward 
+B403-B404 : adjacent_5p upward 
+B404-B405 : adjacent_5p upward 
+B408-B409 : adjacent_5p upward 
+B409-B410 : adjacent_5p upward 
+B410-B411 : adjacent_5p upward 
+B411-B412 : adjacent_5p upward 
+B412-B413 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 16
+Number of adjacent stackings = 16
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A302-B413 : G-C Ww/Ww pairing antiparallel cis XIX 
+A303-B412 : A-U Ww/Ww pairing antiparallel cis XX 
+A304-B411 : G-C Ww/Ww pairing antiparallel cis XIX 
+A305-B410 : C-G Ww/Ww pairing antiparallel cis XIX 
+A310-B405 : G-C Ww/Ww pairing antiparallel cis XIX 
+A311-B404 : C-G Ww/Ww pairing antiparallel cis XIX 
+A312-B403 : U-A Ww/Ww pairing antiparallel cis XX 
+A313-B402 : C-G Ww/Ww pairing antiparallel cis XIX 

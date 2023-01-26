@@ -1,0 +1,34 @@
+Residue conformations -------------------------------------------
+A157 : A C3p_endo anti
+A158 : A C3p_endo anti
+A159 : A C3p_endo anti
+A160 : A C3p_endo anti
+A161 : U C3p_endo anti
+A162 : U C3p_endo anti
+A163 : U C2p_exo syn
+A164 : A C3p_endo anti
+A165 : A C3p_endo anti
+A166 : A C3p_endo anti
+A167 : U C3p_endo anti
+A168 : U C3p_endo unknown
+A169 : U C3p_endo unknown
+A170 : U C3p_endo unknown
+A171 : U C3p_endo unknown
+A172 : U C3p_endo unknown
+A173 : U C3p_endo unknown
+A174 : U C3p_endo unknown
+A175 : U C3p_endo unknown
+A176 : U C3p_endo unknown
+A177 : U C3p_endo unknown
+A178 : U C3p_endo unknown
+Adjacent stackings ----------------------------------------------
+A157-A158 : adjacent_5p upward 
+A158-A159 : adjacent_5p upward 
+A159-A160 : adjacent_5p upward 
+A160-A161 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 4
+Number of adjacent stackings = 4
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A163-A164 : U-A O2'/C8 adjacent_5p pairing 

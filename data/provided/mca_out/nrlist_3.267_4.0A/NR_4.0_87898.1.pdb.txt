@@ -1,0 +1,16 @@
+Residue conformations -------------------------------------------
+A10 : C C3p_endo anti
+A11 : U C2p_endo anti
+A12 : G C3p_endo anti
+A13 : U C2p_endo anti
+A14 : G C3p_endo syn
+A15 : C C2p_endo anti
+A16 : G C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A12-A13 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 1
+Number of adjacent stackings = 1
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A12-A14 : G-G Sw/Wh pairing parallel cis one_hbond 114 

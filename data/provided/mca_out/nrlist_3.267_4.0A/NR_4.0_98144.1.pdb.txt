@@ -1,0 +1,13 @@
+Residue conformations -------------------------------------------
+A73 : A C3p_endo anti
+A74 : C C3p_endo anti
+A75 : C C3p_endo anti
+A76 : A C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A73-A74 : adjacent_5p upward 
+A75-A76 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 2
+Number of adjacent stackings = 2
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

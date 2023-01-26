@@ -1,0 +1,11 @@
+Residue conformations -------------------------------------------
+A802 : G C2p_endo anti
+A803 : G C2p_endo anti
+A804 : G C2p_endo syn
+Adjacent stackings ----------------------------------------------
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 0
+Number of adjacent stackings = 0
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A803-A804 : G-G Ss/Ww adjacent_5p pairing parallel cis one_hbond 

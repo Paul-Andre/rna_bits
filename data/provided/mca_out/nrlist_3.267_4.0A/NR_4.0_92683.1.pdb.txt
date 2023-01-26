@@ -1,0 +1,42 @@
+Residue conformations -------------------------------------------
+A501 : G C3p_endo anti
+A502 : G C3p_endo anti
+A503 : C C3p_endo anti
+A504 : G C3p_endo anti
+A505 : U C3p_endo anti
+A506 : G C3p_endo anti
+A507 : C C3p_endo anti
+A508 : C C3p_endo anti
+B509 : G C3p_endo anti
+B510 : G C3p_endo anti
+B511 : C C3p_endo anti
+B512 : G C3p_endo anti
+B513 : U C3p_endo anti
+B514 : G C3p_endo anti
+B515 : C C3p_endo anti
+B516 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A501-A502 : adjacent_5p upward 
+A502-A503 : adjacent_5p upward 
+A504-A505 : adjacent_5p upward 
+A506-A507 : adjacent_5p upward 
+A507-A508 : adjacent_5p upward 
+B509-B510 : adjacent_5p upward 
+B510-B511 : adjacent_5p upward 
+B512-B513 : adjacent_5p upward 
+B514-B515 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A504-B514 : outward 
+A506-B512 : outward 
+Number of stackings = 11
+Number of adjacent stackings = 9
+Number of non adjacent stackings = 2
+Base-pairs ------------------------------------------------------
+A501-B516 : G-C Ww/Ww pairing antiparallel cis XIX 
+A502-B515 : G-C Ww/Ww pairing antiparallel cis XIX 
+A503-B514 : C-G Ww/Ww pairing antiparallel cis XIX 
+A504-B513 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A505-B512 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A506-B511 : G-C Ww/Ww pairing antiparallel cis XIX 
+A507-B510 : C-G Ww/Ww pairing antiparallel cis XIX 
+A508-B509 : C-G Ww/Ww pairing antiparallel cis XIX 

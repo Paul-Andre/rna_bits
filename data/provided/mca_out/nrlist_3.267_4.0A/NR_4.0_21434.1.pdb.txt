@@ -1,0 +1,10 @@
+Residue conformations -------------------------------------------
+A19 : A C3p_endo anti
+A20 : U C2p_exo anti
+Adjacent stackings ----------------------------------------------
+A19-A20 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 1
+Number of adjacent stackings = 1
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------

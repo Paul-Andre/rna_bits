@@ -1,0 +1,143 @@
+Residue conformations -------------------------------------------
+A484 : G C3p_endo anti
+A485 : G C3p_endo anti
+A486 : C C3p_endo anti
+A487 : C C3p_endo anti
+A488 : A C3p_endo anti
+A489 : G C3p_endo anti
+A490 : U C3p_endo anti
+A491 : C C2p_endo anti
+A492 : U C3p_endo anti
+A493 : G C3p_endo anti
+A494 : G C3p_endo anti
+A495 : C C3p_endo anti
+A496 : G C3p_endo anti
+A497 : U C3p_endo anti
+A498 : U C2p_endo anti
+A499 : U C3p_endo anti
+A500 : G C3p_endo anti
+A501 : G C3p_endo anti
+A502 : U C3p_endo anti
+A503 : G C3p_endo anti
+A504 : A C3p_endo anti
+A505 : C C3p_endo anti
+A506 : A C3p_endo anti
+A507 : G C3p_endo anti
+A508 : C C3p_endo anti
+A509 : G C3p_endo anti
+A510 : C C3p_endo anti
+A511 : C C3p_endo anti
+A512 : A C3p_endo anti
+A513 : A C3p_endo anti
+A514 : G C3p_endo anti
+A515 : U C3p_endo anti
+A516 : U C3p_endo anti
+A517 : C C3p_endo anti
+A518 : U C3p_endo anti
+A519 : U C2p_endo anti
+A520 : C C2p_endo anti
+A521 : G C3p_endo syn
+A522 : G C3p_endo anti
+A523 : A C3p_endo anti
+A524 : A C3p_endo anti
+A525 : U C3p_endo anti
+A526 : U C2p_endo anti
+A527 : G C3p_endo anti
+A528 : G C3p_endo anti
+A529 : G C3p_endo anti
+A530 : A C3p_endo anti
+A531 : A C3p_endo anti
+A532 : A C3p_endo anti
+A533 : U C2p_endo anti
+A534 : C C3p_endo anti
+A535 : C C3p_endo anti
+A536 : U C3p_endo anti
+A537 : A C3p_endo anti
+A538 : C C3p_endo anti
+A539 : U C3p_endo anti
+A540 : G C3p_endo anti
+A541 : G C3p_endo anti
+A542 : C C3p_endo anti
+A543 : C C3p_endo anti
+Adjacent stackings ----------------------------------------------
+A484-A485 : adjacent_5p upward 
+A485-A486 : adjacent_5p upward 
+A486-A487 : adjacent_5p upward 
+A487-A488 : adjacent_5p upward 
+A488-A489 : adjacent_5p upward 
+A489-A490 : adjacent_5p upward 
+A493-A494 : adjacent_5p upward 
+A494-A495 : adjacent_5p upward 
+A495-A496 : adjacent_5p upward 
+A496-A497 : adjacent_5p upward 
+A500-A501 : adjacent_5p upward 
+A502-A503 : adjacent_5p upward 
+A503-A504 : adjacent_5p upward 
+A505-A506 : adjacent_5p upward 
+A506-A507 : adjacent_5p upward 
+A507-A508 : adjacent_5p upward 
+A508-A509 : adjacent_5p upward 
+A509-A510 : adjacent_5p upward 
+A510-A511 : adjacent_5p upward 
+A511-A512 : adjacent_5p upward 
+A512-A513 : adjacent_5p upward 
+A513-A514 : adjacent_5p upward 
+A514-A515 : adjacent_5p upward 
+A515-A516 : adjacent_5p upward 
+A516-A517 : adjacent_5p upward 
+A517-A518 : adjacent_5p upward 
+A522-A523 : adjacent_5p upward 
+A523-A524 : adjacent_5p upward 
+A524-A525 : adjacent_5p upward 
+A527-A528 : adjacent_5p upward 
+A528-A529 : adjacent_5p upward 
+A530-A531 : adjacent_5p upward 
+A531-A532 : adjacent_5p upward 
+A534-A535 : adjacent_5p upward 
+A536-A537 : adjacent_5p upward 
+A537-A538 : adjacent_5p upward 
+A540-A541 : adjacent_5p upward 
+A541-A542 : adjacent_5p upward 
+A542-A543 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A488-A540 : outward 
+A491-A527 : upward 
+A493-A512 : outward 
+A496-A509 : outward 
+A500-A506 : outward 
+A532-A534 : upward 
+Number of stackings = 45
+Number of adjacent stackings = 39
+Number of non adjacent stackings = 6
+Base-pairs ------------------------------------------------------
+A484-A543 : G-C Ww/Ww pairing antiparallel cis XIX 
+A485-A542 : G-C Ww/Ww pairing antiparallel cis XIX 
+A486-A541 : C-G Ww/Ww pairing antiparallel cis XIX 
+A487-A540 : C-G Ww/Ww pairing antiparallel cis XIX 
+A488-A539 : A-U Ww/Ww pairing antiparallel cis XX 
+A489-A504 : G-A Ss/Ss O2'/Ww pairing parallel trans 57 
+A489-A538 : G-C Ww/Ww pairing antiparallel cis XIX 
+A490-A537 : U-A Ww/Ww pairing antiparallel cis XX 
+A491-A536 : C-U Wh/Wh pairing antiparallel cis one_hbond 
+A492-A512 : U-A Ww/Ww pairing antiparallel cis XX 
+A493-A511 : G-C Ww/Ww pairing antiparallel cis XIX 
+A494-A510 : G-C Ww/Ww pairing antiparallel cis XIX 
+A495-A509 : C-G Ww/Ww pairing antiparallel cis XIX 
+A496-A508 : G-C Ww/Ww pairing antiparallel cis XIX 
+A497-A507 : U-G Ws/Ww pairing antiparallel cis XXVIII 
+A499-A506 : U-A Ww/Ww pairing antiparallel cis XX 
+A500-A505 : G-C Ww/Ww pairing antiparallel cis XIX 
+A501-A503 : G-G O2'/Hh pairing 
+A501-A504 : G-A Ww/O2P Bs/O2P pairing 
+A502-A540 : U-G Ww/O2' pairing 
+A503-A539 : G-U Ss/O2' pairing 
+A513-A526 : A-U Ww/Ww pairing antiparallel cis XX 
+A514-A525 : G-U Ww/Ws pairing antiparallel cis XXVIII 
+A515-A524 : U-A Ww/Ww pairing antiparallel cis XX 
+A516-A523 : U-A Ww/Ww pairing antiparallel cis XX 
+A517-A522 : C-G Ww/Ww pairing antiparallel cis XIX 
+A519-A520 : U-C O2P/Bh adjacent_5p pairing 
+A519-A521 : U-G O2'/Hh pairing 
+A527-A535 : G-C Ww/Ww pairing antiparallel cis XIX 
+A528-A534 : G-C Ww/Ww pairing antiparallel cis XIX 
+A529-A532 : G-A Sw/Hh Ww/O2P Bs/O2P pairing antiparallel trans one_hbond 

@@ -1,0 +1,42 @@
+Residue conformations -------------------------------------------
+A706 : C C3p_endo anti
+A707 : G C3p_endo anti
+A708 : G C3p_endo anti
+A709 : C C3p_endo anti
+A710 : G C3p_endo anti
+A711 : C C3p_endo anti
+A712 : C C3p_endo anti
+A713 : C C3p_endo anti
+A714 : G C3p_endo anti
+A715 : A C1p_exo anti
+A715.A : A C3p_exo anti
+A716 : A C3p_endo anti
+A717 : C C3p_endo anti
+A718 : A C3p_endo anti
+A719 : G C3p_endo anti
+A720 : G C3p_endo anti
+A721 : G C3p_endo anti
+A722 : A C3p_endo anti
+A723 : C C3p_endo anti
+A724 : U C3p_endo anti
+A725 : G C3p_endo syn
+Adjacent stackings ----------------------------------------------
+A707-A708 : adjacent_5p upward 
+A708-A709 : adjacent_5p upward 
+A709-A710 : adjacent_5p upward 
+A710-A711 : adjacent_5p upward 
+A712-A713 : adjacent_5p upward 
+A714-A715 : adjacent_5p upward 
+A716-A717 : adjacent_5p upward 
+A718-A719 : adjacent_5p upward 
+A719-A720 : adjacent_5p upward 
+A720-A721 : adjacent_5p upward 
+A721-A722 : adjacent_5p upward 
+A722-A723 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 12
+Number of adjacent stackings = 12
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A714-A715.A : G-A Ss/Ww pairing parallel trans X 
+A715-A716 : A-A O2'/Bh O2'/Hh pairing 

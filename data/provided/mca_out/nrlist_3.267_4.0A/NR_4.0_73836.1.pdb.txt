@@ -1,0 +1,54 @@
+Residue conformations -------------------------------------------
+A-5 : A C3p_endo syn
+A-4 : A C2p_endo syn
+A-3 : G C2p_endo syn
+A-2 : A C3p_endo anti
+A-1 : A C3p_endo syn
+A0 : A C2p_endo anti
+A1 : U C2p_endo anti
+A2 : U C2p_endo syn
+A3 : C C4p_exo anti
+A4 : A C2p_endo syn
+A5 : C C2p_endo syn
+A6 : G C2p_endo syn
+A7 : G C2p_endo syn
+A8 : C C2p_endo syn
+A9 : G C3p_endo syn
+A10 : G C3p_endo anti
+A11 : G C2p_endo syn
+A12 : C C2p_endo syn
+A13 : U C2p_endo syn
+A14 : U C2p_endo syn
+A15 : G C2p_endo anti
+A16 : A C2p_endo syn
+A17 : U C2p_endo syn
+A18 : G C2p_endo syn
+A19 : U C2p_endo syn
+A20 : C C2p_endo anti
+A21 : C C3p_endo anti
+A22 : G C3p_endo anti
+A23 : C C2p_endo syn
+A24 : G C2p_endo anti
+A25 : U C2p_endo anti
+A26 : C C2p_endo anti
+A27 : U C2p_endo anti
+A28 : A C2p_endo anti
+A29 : C C2p_endo anti
+A30 : C C2p_endo anti
+A31 : U C2p_endo anti
+A32 : G C2p_endo anti
+Adjacent stackings ----------------------------------------------
+A-2-A-1 : adjacent_5p inward 
+A4-A5 : adjacent_5p upward 
+A10-A11 : adjacent_5p inward 
+A13-A14 : adjacent_5p upward 
+A14-A15 : adjacent_5p inward 
+A25-A26 : adjacent_5p downward 
+Non-Adjacent stackings ------------------------------------------
+Number of stackings = 6
+Number of adjacent stackings = 6
+Number of non adjacent stackings = 0
+Base-pairs ------------------------------------------------------
+A-4-A-3 : A-G O2'/Hh adjacent_5p pairing 
+A15-A16 : G-A O2'/Hh adjacent_5p pairing 
+A28-A29 : A-C O2'/Hh adjacent_5p pairing 

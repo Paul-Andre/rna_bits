@@ -1,0 +1,45 @@
+Residue conformations -------------------------------------------
+A79 : C C3p_endo anti
+A80 : U C3p_endo syn
+A81 : G C2p_exo anti
+A82 : G C4p_exo anti
+A83 : G C2p_exo anti
+A84 : C C2p_exo anti
+A85 : G C3p_endo anti
+A86 : G C3p_endo anti
+A87 : G C2p_exo anti
+A88 : C C4p_exo anti
+A89 : G C4p_exo anti
+A89.A : A C3p_endo anti
+A90 : C C3p_endo anti
+A91 : C C2p_exo anti
+A92 : G C2p_exo anti
+A93 : C C2p_exo anti
+A94 : C C2p_exo anti
+A95 : U C3p_endo anti
+A96 : G C2p_exo anti
+A97 : G C4p_exo anti
+Adjacent stackings ----------------------------------------------
+A80-A81 : adjacent_5p outward 
+A81-A82 : adjacent_5p upward 
+A82-A83 : adjacent_5p upward 
+A85-A86 : adjacent_5p upward 
+A86-A87 : adjacent_5p upward 
+A89.A-A90 : adjacent_5p upward 
+A92-A93 : adjacent_5p upward 
+A94-A95 : adjacent_5p upward 
+A95-A96 : adjacent_5p upward 
+Non-Adjacent stackings ------------------------------------------
+A85-A92 : outward 
+Number of stackings = 10
+Number of adjacent stackings = 9
+Number of non adjacent stackings = 1
+Base-pairs ------------------------------------------------------
+A80-A96 : U-G Hw/Ws pairing parallel cis one_hbond 90 
+A82-A94 : G-C Ww/Ww pairing antiparallel cis 122 
+A83-A93 : G-C Ww/Ww pairing antiparallel cis XIX 
+A84-A92 : C-G Ww/Ww pairing antiparallel cis XIX 
+A85-A91 : G-C Ww/Ww pairing antiparallel cis XIX 
+A86-A90 : G-C Ww/Ww pairing antiparallel cis XIX 
+A88-A89.A : C-A Hh/Ww pairing parallel trans one_hbond 
+A89-A89.A : G-A O2P/Hh adjacent_5p pairing 
