@@ -62,7 +62,7 @@ BayesPairing -seq "UUUUUUAAGGAAGAUCUGGCCUUCCCACAAGGGAAGGCCAAAGAAUUUCCUU" -sample
 
 Next, use bp2_bridge to generate the rass files.
 
-bp2_bridge has 2 required arguments: the output.json from BayesPairing2, and the models json file that BayesPairing2 used. (The `--chefs_choice` flag is optional, to restrict to using only the "chef's choice" motifs as defined by BayesPairing2.)
+bp2_bridge has 2 required arguments: the output.json from BayesPairing2, and the models json file that BayesPairing2 used. (The `--chefs_choice` flag is optional, to restrict to using only the "chef's choice" motifs as output by BayesPairing2.)
 ```
 bp2_bridge --bp2_result output.json --database ~/where_you_installed_bp2/rnabayespairing2/bayespairing/models/RELIABLE.json --chefs_choice
 ```
