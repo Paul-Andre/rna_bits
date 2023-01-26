@@ -42,7 +42,7 @@ def letter_and_seq_score(tl, tc, ll, lc):
 
 def calculate_score(tar_seq, tar_ss, lib_seq, lib_ss):
     # the ss looks like (...()...]]]..)
-    # anything that isn't in "()." is assumed to represent a pseudoknotted
+    # anything character that isn't in "()." is assumed to represent a pseudoknotted
     # region
     assert len(tar_seq) == len(tar_ss)
     assert len(tar_ss) == len(lib_seq)
