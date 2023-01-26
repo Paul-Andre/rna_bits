@@ -84,9 +84,6 @@ for i, (name, rep_s, _) in enumerate(rows):
             # I could have deleted the hetero residues, but I decided to keep them.
             # To reduce their number, I delete waters and renumber the rest of the
             # hetero residues.
-            #
-            # To be honest, at this time I don't actually use the hetero
-            # residues anywhere, so they could be as well deleted for simplicity
 
             to_del = []
             to_renum = []
@@ -105,7 +102,7 @@ for i, (name, rep_s, _) in enumerate(rows):
                 c.detach_child(r.id)
             for i, r in enumerate(to_renum):
                 prev_id = r.id
-                new_id = (prev_id[0], max_id + i, prev_id[2])
+                new_id = (prev_id[0], max_id + 1 + i, prev_id[2])
                 r.id = new_id
                 c.add(r)
             # end of the code for hetero residue reduction

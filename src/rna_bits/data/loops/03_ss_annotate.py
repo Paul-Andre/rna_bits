@@ -244,7 +244,7 @@ for i, fn in enumerate(mcout_filenames):
         all_chains.append(current_chain)
         current_chain = []
 
-    # Sanity checks:
+    # Sanity checks: each nucleotide should be in at most 1 chain
     cnt = Counter()
     for c in all_chains:
         cnt.update(c)
