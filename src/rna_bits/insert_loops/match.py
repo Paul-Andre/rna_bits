@@ -5,7 +5,8 @@ import os
 
 from rna_bits.utils.data_path import get_path
 
-
+# TODO: these can fail depending if the libraries have been generated or not so
+# putting these in the global scope is sketchy.
 LOOP_LIBRARY_DIR = get_path("out/loops/")
 JSON_DIR = get_path("out/loops/json/")
 
