@@ -47,6 +47,7 @@ python3 generate_loops.py
 ```
 
 ## Example
+Then, we can insert loops and assemble structures:
 ```
 cd examples/rna_builder
 rna_insert_loops 1MMS_no_motifs.rass
