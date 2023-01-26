@@ -29,21 +29,29 @@ pip3 install -e .
 ```
 It will automatically install the python requirements, and make the python library and command line utilities available.
 
-NOTE: Installing the python library is required in order to run the data generation pipelines.
-
 # rna_builder
-Builds a 3d RNA structure from a given .rass file and .pdb files of fragments.
+Assembles a 3d RNA structure from a given .rass file and .pdb files of fragments.
 
 ## Example
 ```
 cd examples/rna_builder
-rna_builder *.rass
+rna_builder 1MMS_native_motifs.rass
 ```
 
 # rna_insert_loops
-Given an RNA secondary structure and sequence, creates a .rass file with loops 
+Given an RNA secondary structure and sequence, rna_insert_loops will creates .rass files with annotated loops, that can then be assembled using rna_builder.
 
-For it to run, loops need to be first generated.
+In order to insert loops, first generate the loop database by running the script `generate_loops.py`. (Note: the rna_bits module must be installed)
+```
+python3 generate_loops.py
+```
+
+## Example
+```
+cd examples/rna_builder
+rna_insert_loops 1MMS_no_motifs.rass
+rna_builder il_out/*.rass
+```
 
 # bp2_bridge
 Used to turn an output from BayesPairing2 (https://jwgitlab.cs.mcgill.ca/sarrazin/rnabayespairing2) into an input that can be passed to rna_builder.
