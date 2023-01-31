@@ -390,7 +390,7 @@ class Segmenter:
 
         return [self.display_loop(l) for l in loops]
 
-    def segment_external_loops(self):
+    def segment_external_loops(self): -> List[Tuple[str, List[int]]]
         loops = []
         for strand in self.fp_strands:
             self.traverse_strand(strand, None, None, loops)
