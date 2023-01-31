@@ -9,7 +9,11 @@ import rna_bits.insert_loops.match as match
 from rna_bits.utils.ss import parse_parens
 
 
+
+
 def parse_args(argv):
+    # TODO: see if all the args are used like they are supposed to (at the time
+    # of writing this comment I realized --top wasn't actually used)
     parser = argparse.ArgumentParser(
         description="Inserts loop motifs into a secondary structure based on sequence match.\n"
         "Works with an input .rass file, or with --seq and --ss provided via command line."
@@ -50,8 +54,11 @@ def parse_args(argv):
     parser.add_argument(
         "--stdin", action="store_true", help="Read .rass file from stdin"
     )
-
-    # TODO: implement
+    parser.add_argument(
+            "--exclude_native", action="store_true", help="Excludes loops from "
+            "the structures marked as 'native:' in the rass file"
+    )
+    # TODO: implement a cli argument version of the above
     # parser.add_argument(
     #     "--exclude",
     #     nargs= "+",
@@ -197,7 +204,7 @@ def insert_loops(seq, dot_bracket, out_fs, rest_of_file, args, exclude=None):
                     a for a in matches if all(e not in a[2]["file"] for e in exclude)
                 ]
             if len(matches) > 0:
-                how_much = 10
+                how_much = args.top
                 top_ten = matches[:how_much]
                 for out_f in out_fs:
                     i, chosen_match = random.choice(list(enumerate(top_ten)))
@@ -217,7 +224,7 @@ def in_and_out(in_f, out_fs, args, exclude=None):
     rest = in_f.read()
     in_f.close()
     for l in rest.split("\n"):
-        if l.startswith("native:") and exclude is None:
+        if args.exclude_native and l.startswith("native:") and exclude is None:
             exclude = [s.strip() for s in l[len("native:") :].split(",")]
     insert_loops(seq, dot_bracket, out_fs, rest, args, exclude=exclude)
 

@@ -1543,6 +1543,7 @@ def parse_args(argv):
         nargs="*",
         help="Path to the .rass files. If more than one is provided, will build all of them.",
     )
+    # TODO: add some args? In the very least an output arg
     # parser.add_argument(
     #     "--bp2_result",
     #     "-r",

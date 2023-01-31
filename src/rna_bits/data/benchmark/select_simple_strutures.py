@@ -156,10 +156,15 @@ def generate_structure_files(OUT_DIR, allow_multi_chain=True, allow_junctions=Tr
 
         rass_fn = remove_string_end(fn, ".pdb.txt")+".rass"
         with open(os.path.join(OUT_DIR, rass_fn), "w") as f:
+            # TODO: was there an utility to create rass files?
             f.write(sequence)
             f.write("\n")
             f.write(dot_bracket)
             f.write("\n")
+            f.write("native: ")
+            f.write(remove_string_end(fn, ".pdb.txt"))
+            f.write("\n")
+
 
         # .index files are used by RNA-puzzles' RNA_assessment to indicate which nucleotides are to be compared
         index_fn = remove_string_end(fn, ".pdb.txt")+".cons.index"
@@ -227,8 +232,8 @@ def generate_structure_files(OUT_DIR, allow_multi_chain=True, allow_junctions=Tr
 
 
 
-OUT_DIR_ALL = get_path("benchmark/auto_from_pdb/all", create=True)
-OUT_DIR_PB2 = get_path("benchmark/auto_from_pdb/bp2_limited", create=True)
+OUT_DIR_ALL = get_path("benchmark/auto_from_pdb/all/provided_ss", create=True)
+OUT_DIR_PB2 = get_path("benchmark/auto_from_pdb/bp2_limited/provided_ss", create=True)
 
 generate_structure_files(OUT_DIR_ALL, allow_multi_chain=False, allow_junctions=True)
 generate_structure_files(OUT_DIR_PB2, allow_multi_chain=False, allow_junctions=False)
