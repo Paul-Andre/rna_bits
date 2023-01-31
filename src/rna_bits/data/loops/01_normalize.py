@@ -25,7 +25,7 @@ failed = []
 for i, sf in enumerate(struct_filenames):
     print(sf, str(i + 1) + "/" + str(len(struct_filenames)))
     s = PDBParser().get_structure(sf, os.path.join(STRUCT_DIR, sf))
-    out_s = Normalizer().normalize_structure(s)
+    out_s = Normalizer(convert_hetero_nucs=True).normalize_structure(s)
     io = PDB.PDBIO()
     io.set_structure(out_s)
     io.save(os.path.join(SAVE_DIR, sf))

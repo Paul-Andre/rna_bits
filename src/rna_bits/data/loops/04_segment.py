@@ -25,7 +25,7 @@ for i, fn in enumerate(filenames):
     with open(os.path.join(SS_DIR, fn)) as f:
         chains, pairs = parse_ss_file(f)
 
-    segmenter = Segmenter(chains, pairs)
+    segmenter = Segmenter(chains, pairs, remove_lonely_pairs=False)
 
     loops = segmenter.segment_loops()
     if SEGMENT_EXTERNAL_LOOPS:

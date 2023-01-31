@@ -294,6 +294,8 @@ class Segmenter:
     def traverse_strand(
         self, strand, target, target_half, loops, visited=set(), stack=[]
     ):
+        # TODO FIXME: this seems to run forever on NR_4.0_03110.1.pdb.txt when
+        # the Segmenter is called with remove_lonely_pairs=False
 
         if strand is None:
             return
@@ -390,7 +392,7 @@ class Segmenter:
 
         return [self.display_loop(l) for l in loops]
 
-    def segment_external_loops(self): -> List[Tuple[str, List[int]]]
+    def segment_external_loops(self) -> List[Tuple[str, List[int]]]:
         loops = []
         for strand in self.fp_strands:
             self.traverse_strand(strand, None, None, loops)

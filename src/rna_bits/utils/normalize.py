@@ -103,12 +103,14 @@ class Normalizer:
         keep_unknown_residues=False,
         keep_unknown_atoms=False,
         delete_hydrogens=True,
+        convert_hetero_nucs=False,
     ):
         self.residue_renames = residue_renames
         self.atom_renames = atom_renames
         self.keep_unknown_residues = keep_unknown_residues
         self.keep_unknown_atoms = keep_unknown_atoms
         self.delete_hydrogens = delete_hydrogens
+        self.convert_hetero_nucs = convert_hetero_nucs
 
     # TODO: do this
     # def normalize_nucleotide(self, residue: Residue) ->
@@ -126,7 +128,11 @@ class Normalizer:
             if new_res_name is None:
                 continue
 
-            out_residue = PDB.Residue.Residue(residue.id, new_res_name, residue.segid)
+            new_id = residue.id
+            if new_res_name in list("AUCG") and self.convert_hetero_nucs:
+                new_id = (" ", new_id[1], new_id[2])
+
+            out_residue = PDB.Residue.Residue(new_id, new_res_name, residue.segid)
             out_chain.add(out_residue)
 
             for atom in residue:
