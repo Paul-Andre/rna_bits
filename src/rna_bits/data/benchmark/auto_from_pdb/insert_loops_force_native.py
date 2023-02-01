@@ -1,9 +1,13 @@
 import sys
 import os
 import numpy as np
-import match
+from os.path import join as pjoin
 
-sr_dir = "/home/paul/LoopLibrary/simple_rass/"
+from rna_bits.utils.data_path import get_path
+from rna_bits.utils.misc import remove_string_end
+from rna_bits.insert_loops import match
+from rna_bits.utils.ss import parse_parens
+
 
 
 def parse_index(f):
@@ -17,26 +21,15 @@ def parse_index(f):
     return cons_units
 
 
-def insert_loops(seq, dot_bracket, out_f, rest_of_file, native=None):
+def insert_loops(seq, dot_bracket, out_f, rest_of_file, cons_to_ref, native=None):
     assert len(seq) == len(dot_bracket)
-    nat = native[0]
-    with open(os.path.join(sr_dir, nat + ".cons.index_noloose")) as f:
-        cons_units = parse_index(f)
-    with open(os.path.join(sr_dir, nat + ".ref.index_noloose")) as f:
-        ref_units = parse_index(f)
-
-    cons_to_ref = dict(zip(cons_units, ref_units))
 
     original_seq = seq
     seq = seq.upper()
 
     full_pairing = [None] * len(seq)
 
-    import Project.parser
-
-    for a, b in Project.parser.parseParens(dot_bracket):
-        a -= 1
-        b -= 1
+    for a, b in parse_parens(dot_bracket, start=0):
         full_pairing[a] = b
         full_pairing[b] = a
 
@@ -118,7 +111,6 @@ def insert_loops(seq, dot_bracket, out_f, rest_of_file, native=None):
                 for (score, d) in matches
             ]
             want = cons_to_ref["A" + str(nucs[0] + 1)]
-            print(want)
             if native is not None and len(native) > 0:
                 matches = [
                     a
@@ -163,50 +155,47 @@ def insert_loops(seq, dot_bracket, out_f, rest_of_file, native=None):
                 out_f.write("\n")
 
 
-def in_and_out(in_f, out_f, native=None):
+def in_and_out(in_f, out_f, cons_to_ref, native=None):
     seq = in_f.readline().strip()
     dot_bracket = in_f.readline().strip()
     rest = in_f.read()
     for l in rest.split("\n"):
-        if l.startswith("exclude:") and native is None:
-            exclude = [s.strip() for s in l[len("exclude:") :].split(",")]
-    insert_loops(seq, dot_bracket, out_f, rest, native=native)
+        if l.startswith("native:") and native is None:
+            native = [s.strip() for s in l[len("native:") :].split(",")]
+        
+    insert_loops(seq, dot_bracket, out_f, rest, cons_to_ref=cons_to_ref, native=native)
 
 
-# if __name__ == "__main__":
-if False:
-    if len(sys.argv) >= 2:
-        f = open(sys.argv[1])
-    else:
-        f = sys.stdin
+def run_insert_loops_force_native(RASS_DIR, OUT_DIR):
+    struct_filenames = [a for a in os.listdir(RASS_DIR) if a.endswith(".rass")]
+    struct_filenames.sort()
+    assert(len(struct_filenames))
 
-    if len(sys.argv) >= 3 and sys.argv[2] == "-n":
-        in_and_out(f, sys.stdout, exclude=[])
-    else:
-        in_and_out(f, sys.stdout, exclude=None)
-else:
-    OUT_DIR = "/home/paul/LoopLibrary/simple_rass_motifs_force_native"
-    if not os.path.isdir(OUT_DIR):
-        os.mkdir(OUT_DIR)
+    for i, fn in enumerate(struct_filenames):
+        print(fn, str(i + 1) + "/" + str(len(struct_filenames)))
+        ffn = os.path.join(RASS_DIR, fn)
+        nat = remove_string_end(fn, ".rass")
 
-    for fn in (
-        fn
-        for fn in os.listdir("/home/paul/LoopLibrary/simple_rass")
-        if fn.endswith("rass")
-    ):
-        print(fn[: -len(".rass")])
-        ffn = os.path.join("/home/paul/LoopLibrary/simple_rass", fn)
-        offn = os.path.join(
-            "/home/paul/LoopLibrary/simple_rass_motifs_force_native", fn
-        )
+        offn = pjoin(OUT_DIR, nat, "1.rass")
+        os.makedirs(pjoin(OUT_DIR, nat), exist_ok=True)
+
+        try:
+            with open(os.path.join(RASS_DIR, nat + ".cons.index_noloose")) as f:
+                cons_units = parse_index(f)
+            with open(os.path.join(RASS_DIR, nat + ".ref.index_noloose")) as f:
+                ref_units = parse_index(f)
+        except IOError:
+            continue
+
+        cons_to_ref = dict(zip(cons_units, ref_units))
+
         with open(ffn) as inf:
             with open(offn, "w") as outf:
-                # in_and_out(inf, outf, native = [fn[:-len(".rass")]])
-                nat = fn[: -len(".rass")]
-                try:
-                    f = open(os.path.join(sr_dir, nat + ".ref.index_noloose"))
-                    f.close()
-                except IOError:
-                    continue
+                in_and_out(inf, outf, cons_to_ref)
 
-                in_and_out(inf, outf, native=[fn[: -len(".rass")]])
+
+if __name__ == "__main__":
+    DIR = "benchmark/auto_from_pdb/all/"
+    RASS_DIR = get_path(pjoin(DIR, "provided_ss"))
+    OUT_DIR = get_path(pjoin(DIR, "insert_loops_force_native/rass"), create=True)
+    run_insert_loops_force_native(RASS_DIR, OUT_DIR)

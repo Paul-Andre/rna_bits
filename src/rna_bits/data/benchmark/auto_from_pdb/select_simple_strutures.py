@@ -231,9 +231,9 @@ def generate_structure_files(OUT_DIR, allow_multi_chain=True, allow_junctions=Tr
     print("no_insertion_code:", no_insertion_code)
 
 
+if __name__ == "__main__":
+    OUT_DIR_ALL = get_path("benchmark/auto_from_pdb/all/provided_ss", create=True)
+    OUT_DIR_PB2 = get_path("benchmark/auto_from_pdb/bp2_limited/provided_ss", create=True)
 
-OUT_DIR_ALL = get_path("benchmark/auto_from_pdb/all/provided_ss", create=True)
-OUT_DIR_PB2 = get_path("benchmark/auto_from_pdb/bp2_limited/provided_ss", create=True)
-
-generate_structure_files(OUT_DIR_ALL, allow_multi_chain=False, allow_junctions=True)
-generate_structure_files(OUT_DIR_PB2, allow_multi_chain=False, allow_junctions=False)
+    generate_structure_files(OUT_DIR_ALL, allow_multi_chain=False, allow_junctions=True)
+    generate_structure_files(OUT_DIR_PB2, allow_multi_chain=False, allow_junctions=False)

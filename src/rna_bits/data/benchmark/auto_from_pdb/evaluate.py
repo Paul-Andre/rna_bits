@@ -222,8 +222,12 @@ def run_evaluate(DIR):
 #     print("cnt", cnt, "rmsd_tot", rmsd_tot, "average", rmsd_tot / cnt)
 #     print("failed", failed)
 
-DIR = "benchmark/auto_from_pdb/all/insert_loops_top_1_exclude_native/"
-run_evaluate(DIR)
+if __name__ == "__main__":
+    # DIR = "benchmark/auto_from_pdb/all/insert_loops_top_1_exclude_native/"
+    # run_evaluate(DIR)
+
+    DIR = "benchmark/auto_from_pdb/all/insert_loops_sample_50_exclude_native/"
+    run_evaluate(DIR)
 
 
 

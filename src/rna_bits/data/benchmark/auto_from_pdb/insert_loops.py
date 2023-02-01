@@ -26,8 +26,9 @@ def run_rna_insert_loop(RASS_DIR, OUT_DIR, command):
         
     #OUT_DIR_PB2 = get_path("benchmark/auto_from_pdb/bp2_limited/provided_ss", create=True)
 
-OUT_DIR = get_path("benchmark/auto_from_pdb/all/insert_loops_top_1_exclude_native/rass", create=True)
-run_rna_insert_loop(RASS_DIR, OUT_DIR, [ "--top", "1", "--samples", "1", "--exclude_native"])
+if __name__ == "__main__":
+    OUT_DIR = get_path("benchmark/auto_from_pdb/all/insert_loops_top_1_exclude_native/rass", create=True)
+    run_rna_insert_loop(RASS_DIR, OUT_DIR, [ "--top", "1", "--samples", "1", "--exclude_native"])
 
-OUT_DIR = get_path("benchmark/auto_from_pdb/all/insert_loops_sample_50_exclude_native/rass", create=True)
-run_rna_insert_loop(RASS_DIR, OUT_DIR, [ "--top", "10", "--samples", "50", "--exclude_native"])
+    OUT_DIR = get_path("benchmark/auto_from_pdb/all/insert_loops_sample_50_exclude_native/rass", create=True)
+    run_rna_insert_loop(RASS_DIR, OUT_DIR, [ "--top", "10", "--samples", "50", "--exclude_native"])

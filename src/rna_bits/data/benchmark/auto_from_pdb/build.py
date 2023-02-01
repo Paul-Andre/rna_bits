@@ -37,11 +37,12 @@ def run_builder(DIR):
             shutil.move(os.path.join(RASS_DIR, fn, fnn +".pdb"), os.path.join(PDB_DIR, fn, fnn+".pdb"))
 
 
-DIR = "benchmark/auto_from_pdb/all/insert_loops_sample_50_exclude_native/"
-run_builder(DIR)
+if __name__ == "__main__":
+    DIR = "benchmark/auto_from_pdb/all/insert_loops_sample_50_exclude_native/"
+    run_builder(DIR)
 
-DIR = "benchmark/auto_from_pdb/all/insert_loops_top_1_exclude_native/"
-run_builder(DIR)
+    DIR = "benchmark/auto_from_pdb/all/insert_loops_top_1_exclude_native/"
+    run_builder(DIR)
 
 
 
