@@ -68,6 +68,11 @@ def parse_args(argv):
         help="Directory to store module .pdb's",
     )
     parser.add_argument(
+        "--output_absolute_path",
+        action="store_true"
+        #help="Directory to store module .pdb's",
+    )
+    parser.add_argument(
         "--use_bp2_instance_data",
         action="store_true",
         help=(
@@ -424,9 +429,12 @@ def make_correct_model_path(path, args):
     """
     Generates the model path as it will be included in the rass file.
     """
-    return os.path.join(
-        ".", os.path.relpath(path, start=os.path.dirname(args.output_file))
-    )
+    if not args.output_absolute_path:
+        return os.path.join(
+            ".", os.path.relpath(path, start=os.path.dirname(args.output_file))
+        )
+    else:
+        return path
 
 
 def ts(a):
