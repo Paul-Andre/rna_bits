@@ -16,7 +16,7 @@ from rna_bits.utils.misc import remove_string_end
 
 
 
-def run_bp2(RASS_DIR, OUT_DIR):
+def run_bp2(RASS_DIR, OUT_DIR, DATASET_NAME):
     struct_filenames = [a for a in os.listdir(RASS_DIR) if a.endswith(".rass")]
     struct_filenames.sort()
 
@@ -33,15 +33,19 @@ def run_bp2(RASS_DIR, OUT_DIR):
         # fp = subprocess.run(["rna_insert_loops"] + command + ["--out_dir", os.path.join(OUT_DIR, remove_string_end(fn, ".rass")),
         #     os.path.join(RASS_DIR, fn)])
 
-        fp = subprocess.run(["BayesPairing", "-seq", seq, "-ss", dot_bracket, "-d", "RELIABLE"])
+        fp = subprocess.run(["BayesPairing", "-seq", seq, "-ss", dot_bracket, "-d", DATASET_NAME])
 
         shutil.move("output.json", pjoin(OUT_DIR, nat +".json"))
         
 
 if __name__ == "__main__":
-    RASS_DIR = get_path("benchmark/auto_from_pdb/all/provided_ss")
-    OUT_DIR = get_path("benchmark/auto_from_pdb/all/bp2_with_ss_reliable/bp2_output", create=True)
-    run_bp2(RASS_DIR, OUT_DIR);
+    # RASS_DIR = get_path("benchmark/auto_from_pdb/all/provided_ss")
+    # OUT_DIR = get_path("benchmark/auto_from_pdb/all/bp2_with_ss_reliable/bp2_output", create=True)
+    # run_bp2(RASS_DIR, OUT_DIR, "RELIABLE");
+
+    RASS_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/provided_ss")
+    OUT_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/bp2_with_ss_all/bp2_output", create=True)
+    run_bp2(RASS_DIR, OUT_DIR, "ALL");
 
     # OUT_DIR = get_path("benchmark/auto_from_pdb/all/insert_loops_sample_50_exclude_native/rass", create=True)
     # run_rna_insert_loop(RASS_DIR, OUT_DIR, [ "--top", "10", "--samples", "50", "--exclude_native"])
