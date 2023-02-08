@@ -21,7 +21,7 @@ BP2_DIR = "/home/paul/Masters/installation_try/rnabayespairing2/"
 
 BP2_MODELS_DIR = pjoin(BP2_DIR, "bayespairing/models/")
 
-def run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, DATASET_NAME):
+def run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, DATASET_NAME, extra_args=[]):
     struct_filenames = [a for a in os.listdir(RASS_DIR) if a.endswith(".rass")]
     struct_filenames.sort()
 
@@ -47,8 +47,8 @@ def run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, DATASET_NAME):
             "-d", pjoin(BP2_MODELS_DIR, DATASET_NAME + ".json"), "-r", pjoin(BP2_RESULT_DIR, nat +".json"),
             "-o", pjoin(OUT_RASS_DIR, nat, "out"),
             "-m", get_path("benchmark/bp2b_motifs/" + DATASET_NAME, create=True),
-            "--output_absolute_path"
-            ])
+            "--output_absolute_path" 
+            ] + extra_args)
 
         
 

@@ -33,7 +33,9 @@ def run_builder(DIR):
             print(fnn, fn, str(ii + 1) + "/" + str(len(struct_filenames)), str(i+1) + "/" + str(len(rass_dirs)))
 
             # TODO: add an --out parameter to rna_builder so don't need to move
-            fp = subprocess.run(["rna_builder", os.path.join(RASS_DIR, fn, fnn)])
+            command = ["rna_builder", os.path.join(RASS_DIR, fn, fnn)]
+            print(command)
+            fp = subprocess.run(command)
             shutil.move(os.path.join(RASS_DIR, fn, fnn +".pdb"), os.path.join(PDB_DIR, fn, fnn+".pdb"))
 
 
