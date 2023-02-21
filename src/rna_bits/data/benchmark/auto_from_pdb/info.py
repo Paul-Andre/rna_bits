@@ -38,16 +38,16 @@ def generate_info(DIR):
     PROVIDED_DIR = get_path(pjoin(DIR, "provided_ss"))
     OUT_DIR = get_path(pjoin(DIR, "info"), create=True)
 
-    filenames = [a for a in os.listdir(PROVIDED_DIR) if a.endswith(".cons.index_noloose")]
+    filenames = [a for a in os.listdir(PROVIDED_DIR) if a.endswith(".ref.index_noloose")]
     filenames.sort()
     assert(filenames)
 
     for i, fn in enumerate(filenames):
         print(fn, str(i+1) + "/" + str(len(filenames)))
 
-        nat = remove_string_end(fn, ".cons.index_noloose")
+        nat = remove_string_end(fn, ".ref.index_noloose")
 
-        with open(pjoin(PROVIDED_DIR, fn)) as f:
+        with open(pjoin(PROVIDED_DIR, nat+".cons.index_noloose")) as f:
             _,_,num = f.read().strip().split(":")
             num = int(num)
 
