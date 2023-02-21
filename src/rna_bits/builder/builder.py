@@ -790,6 +790,7 @@ def assign_models(builder: Builder, user_motifs_dir: str) -> None:
                 substitute_base(v, letters[k])
 
 
+
 # BASE_ATOMS_BY_RESNAME = {}
 # for c in SUBSTITUTION_MODEL:
 #     cn = c.id
@@ -819,7 +820,7 @@ class EverythingType:
 
 Everything = EverythingType()
 
-
+# TODO: put the decision of what atoms to use for alignment into a command line parameter
 def correspond_nucleotide_atoms(
     a: Residue, b: Residue, use_atom_names=ATOMS_FOR_ALIGNMENT
 ) -> Tuple[List[Atom], List[Atom]]:
@@ -1174,6 +1175,7 @@ def traverse_to_get_path(
     """Traverse to get a path between two rigids that are connected to only one edge each
     (to get an "outer loop")
     """
+    # TODO: does this find the shortest path, longest path, etc... ?
     placed_nucleotides = builder.placed_nucleotides
 
     assert is_terminal_rigid(builder, startNuc.rigid)

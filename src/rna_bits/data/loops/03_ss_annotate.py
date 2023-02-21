@@ -144,7 +144,7 @@ def is_valid_pairing(s):
     return (
         (a[0] in possible_pairs)
         and (a[1] in ["Ww/Ww", "Ws/Ww", "Ww/Ws"])
-        and ("pairing" in a)
+        and ("pairing" in a)  # this line is probably unnecessary
         and ("cis" in a)
         and ("adjacent_5p" not in a)
     )

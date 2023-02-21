@@ -22,6 +22,10 @@ STRUCT_DIR = get_path("interim/loops/norm_representative/")
 
 
 def generate_structure_files(OUT_DIR, allow_multi_chain=True, allow_junctions=True):
+    # TODO: Here's a very simple multi-chain structure, use it to debug mutli-chain:
+    # "NR_4.0_72830.1","5E3H|1|B+5E3H|1|C","5E3H|1|B+5E3H|1|C,6GPG|1|B+6GPG|1|C"
+    assert(not allow_multi_chain), "allow_multi_chain currently not supported"
+
     filenames = [a for a in os.listdir(SS_DIR) if a.endswith(".txt")]
     filenames.sort()
     #filenames = filenames[:10]
