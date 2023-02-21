@@ -349,6 +349,7 @@ def make_reordered_dataset_info(
 
 
 def generate_models(dataset, considered_motifs, args):
+    os.makedirs(args.motif_directory, exist_ok=True)
     # Check which motif models have already been generated
     models_by_bp2_id = defaultdict(list)
     for bp2_id in considered_motifs:
