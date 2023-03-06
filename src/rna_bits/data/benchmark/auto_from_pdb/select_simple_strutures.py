@@ -39,6 +39,9 @@ def generate_structure_files(OUT_DIR, allow_multi_chain=True, allow_junctions=Tr
         # if fn != "NR_4.0_03110.1.pdb.txt":
         #     continue
 
+        if "NR_4.0_83043.1" in fn:
+            # Skip because sus
+            continue
 
         print(fn, str(i+1)+"/"+str(len(filenames)))
         with open(os.path.join(SS_DIR, fn)) as f:

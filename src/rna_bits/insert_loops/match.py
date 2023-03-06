@@ -56,10 +56,7 @@ def calculate_score(tar_seq, tar_ss, lib_seq, lib_ss):
 
     return score
 
-
-def match(seq, ss):
-    assert len(seq) == len(ss)
-
+def loop_ss_to_comp_sizes(ss):
     comp_sizes = []
     cur_size = 0
 
@@ -70,6 +67,16 @@ def match(seq, ss):
         cur_size += 1
     comp_sizes.append(cur_size)
 
+    return comp_sizes
+
+def loop_ss_to_shape(ss):
+    comp_sizes = loop_ss_to_comp_sizes(ss)
+    return "_".join(map(str, comp_sizes))
+
+def match(seq, ss):
+    assert len(seq) == len(ss)
+
+    comp_sizes = loop_ss_to_comp_sizes(ss)
     assert sum(comp_sizes) == len(seq)
 
     fn = "_".join(map(str, comp_sizes)) + ".json"

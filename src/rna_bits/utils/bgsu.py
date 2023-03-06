@@ -32,6 +32,7 @@ class UnitId:
     insertion_code: Optional[str] = None
     symmetry: Optional[str] = None
 
+    # TODO: maybe just make it part of __init__
     @classmethod
     def parse(cls, s: str) -> "UnitId":
         """
@@ -96,6 +97,41 @@ class UnitId:
         # Note: the first element is used to indicate hetero-residues
         # I assume that BGSU residues are never hetero but I didn't check
         return (" ", self.residue_id, ic)
+
+    def contains(self, other) -> bool:
+        if self.pdb_code is None:
+            return True  # Uhh.. okay...
+        if other.pdb_code != self.pdb_code:
+            return False
+
+        if self.model_id is None:
+            return True
+        if other.model_id != self.model_id:
+            return False
+
+        if self.chain_id is None:
+            return True
+        if other.chain_id != self.chain_id:
+            return False
+
+        if self.residue_id is None:
+            return True
+        if other.residue_id != self.residue_id or other.insertion_code != self.insertion_code:
+            return False
+
+        if self.atom_name is None:
+            return True
+        if other.atom_name != self.atom_name:
+            return False
+
+        if self.atom_altloc is None:
+            return True
+        if other.atom_altloc != self.atom_altloc:
+            return False
+
+        # TODO: make this work in situation when atom_altloc is set, but
+        # atom_name isn't (representing a mutated version of a nucleotide)
+
 
 
 def download_motif_group_info(group_id: str):

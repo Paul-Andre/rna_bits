@@ -40,9 +40,27 @@ def bp2b_something(DATASET_NAME):
     """
     DIR = "benchmark/auto_from_pdb/bp2_limited/bp2_with_ss_"+DATASET_NAME.lower() + "/"
     RASS_DIR =  get_path(pjoin(DIR, "../provided_ss/"))
+    RASS_DIR_ = get_path("benchmark/auto_from_pdb/bp2_limited/provided_ss/")
+    assert(RASS_DIR == RASS_DIR_)
     BP2_RESULT_DIR = get_path(pjoin(DIR, "bp2_output/"))
     OUT_RASS_DIR =   get_path(pjoin(DIR, "rass/"), create=True)
     run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, DATASET_NAME, extra_args=["--samples", "50"]);
+
+    build_and_evaluate(DIR)
+
+def bp2b_something_exclude(DATASET_NAME):
+    """
+    For example,
+    DATASET_NAME = "ALL"
+    """
+    DIR = "benchmark/auto_from_pdb/bp2_limited/bp2_with_ss_"+DATASET_NAME.lower() + "_exclude_native/"
+    RASS_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/provided_ss/")
+
+
+    BP2_RESULT_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/bp2_with_ss_"+DATASET_NAME.lower() + "/bp2_output/")
+
+    OUT_RASS_DIR =   get_path(pjoin(DIR, "rass/"), create=True)
+    run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, DATASET_NAME, exclude_native=True, extra_args=["--samples", "50"]);
 
     build_and_evaluate(DIR)
 
@@ -53,3 +71,5 @@ if __name__ == "__main__":
             build_and_evaluate(argv[2])
         if argv[1] == "bp2b_something":
             bp2b_something(argv[2])
+        if argv[1] == "bp2b_something_exclude":
+            bp2b_something_exclude(argv[2])

@@ -58,11 +58,15 @@ def parse_args(argv):
             "--exclude_native", action="store_true", help="Excludes loops from "
             "the structures marked as 'native:' in the rass file"
     )
-    # TODO: implement a cli argument version of the above
-    # parser.add_argument(
-    #     "--exclude",
-    #     nargs= "+",
-    # )
+
+    parser.add_argument(
+            "--exclude",
+            nargs = "+",
+            help="nrlist names to exclude from the construction of the model"
+            # TODO: make it so that unit ids work
+            # help="nrlist names or unit ids to exlude from the construction of the model"
+            )
+
     parser.add_argument("--random_seed", type=int)
 
     args = parser.parse_args(argv[1:])
@@ -216,6 +220,25 @@ def insert_loops(seq, dot_bracket, out_fs, rest_of_file, args, exclude=None):
 
             elif loop_ss != "(())":
                 print("Couldn't find a motif for ", loop_seq, loop_ss)
+                for out_f in out_fs:
+                    out_f.write(
+                        " ".join(
+                            map(
+                                str,
+                                (
+                                    "# wanted:",
+                                    loop_seq,
+                                    loop_ss,
+                                ),
+                            )
+                        )
+                        + "\n"
+                    )
+                    out_f.write(
+                    "# failed to find match for " +
+                    ",".join(str(n + 1) for n in nucs))
+                    out_f.write("\n")
+                    out_f.write("\n")
 
 
 def in_and_out(in_f, out_fs, args, exclude=None):
@@ -223,9 +246,12 @@ def in_and_out(in_f, out_fs, args, exclude=None):
     dot_bracket = in_f.readline().strip()
     rest = in_f.read()
     in_f.close()
+    exclude = []
     for l in rest.split("\n"):
         if args.exclude_native and l.startswith("native:") and exclude is None:
-            exclude = [s.strip() for s in l[len("native:") :].split(",")]
+            exclude += [s.strip() for s in l[len("native:") :].split(",")]
+    if args.exclude:
+        exclude += args.exclude
     insert_loops(seq, dot_bracket, out_fs, rest, args, exclude=exclude)
 
 

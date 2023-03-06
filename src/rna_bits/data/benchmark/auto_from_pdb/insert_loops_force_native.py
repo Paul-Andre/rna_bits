@@ -8,6 +8,7 @@ from rna_bits.utils.misc import remove_string_end
 from rna_bits.insert_loops import match
 from rna_bits.utils.ss import parse_parens
 
+from collections import Counter
 
 
 def parse_index(f):
@@ -21,7 +22,18 @@ def parse_index(f):
     return cons_units
 
 
+has_junction = Counter()
+
+
+junction_type = Counter()
+
+
 def insert_loops(seq, dot_bracket, out_f, rest_of_file, cons_to_ref, native=None):
+
+    num_junctions = 0
+
+    current_rep = ""
+
     assert len(seq) == len(dot_bracket)
 
     original_seq = seq
@@ -148,11 +160,22 @@ def insert_loops(seq, dot_bracket, out_f, rest_of_file, cons_to_ref, native=None
                     )
                     + "\n"
                 )
+                out_f.write("# loop shape: ")
+                out_f.write(match.loop_ss_to_shape(loop_ss))
+                out_f.write("\n")
                 out_f.write(
                     "motif:" + best_file + ":  " + ",".join(str(n + 1) for n in nucs)
                 )
                 out_f.write("\n")
                 out_f.write("\n")
+
+                typ = loop_ss.count("()") + 1
+                if typ >= 3:
+                    num_junctions+=1
+                    current_rep += "_"+str(typ)
+
+    has_junction[num_junctions]+=1
+    junction_type[current_rep]+=1
 
 
 def in_and_out(in_f, out_f, cons_to_ref, native=None):
@@ -199,3 +222,6 @@ if __name__ == "__main__":
     RASS_DIR = get_path(pjoin(DIR, "provided_ss"))
     OUT_DIR = get_path(pjoin(DIR, "insert_loops_force_native/rass"), create=True)
     run_insert_loops_force_native(RASS_DIR, OUT_DIR)
+
+    print(has_junction)
+    print(junction_type)

@@ -4,10 +4,13 @@ import argparse
 import json
 from dataclasses import dataclass
 from collections import defaultdict
+from collections import Counter
 from typing import List, Dict, Tuple, Optional, Union, DefaultDict, Mapping, Container
 import functools
 import warnings
 import random
+from os.path import join as pjoin
+import csv
 
 from Bio import PDB
 from Bio.PDB.Structure import Structure
@@ -20,7 +23,7 @@ import rna_bits.utils.pdb
 import rna_bits.utils.bgsu
 import rna_bits.utils.ss
 from rna_bits.utils.bgsu import UnitId
-from rna_bits.utils.data_path import DATA_PATH
+from rna_bits.utils.data_path import DATA_PATH, get_path
 from rna_bits.utils.misc import make_warnings_nicer
 
 
@@ -96,6 +99,12 @@ def parse_args(argv):
         "10 by default",
     )
     parser.add_argument("--random_seed", type=int)
+
+    parser.add_argument(
+            "--exclude",
+            nargs = "+",
+            help="nrlist names or unit ids to exlude from the construction of the model"
+            )
 
     args = parser.parse_args(argv[1:])
 
@@ -202,7 +211,7 @@ def fetch_instances_units_from_bgsu(group_id: str) -> List[Tuple[str, List[UnitI
     data = utils.bgsu.download_motif_group_info(group_id)
     ret = []
     for instance_name, units_ in data["alignment"].items():
-        units: list[UnitId] = [UnitId.parse(x) for x in units_]
+        units: List[UnitId] = [UnitId.parse(x) for x in units_]
         ret.append((instance_name, units))
     return ret
 
@@ -284,8 +293,16 @@ class ReorderedDatasetInfo:
     bp2_ids_mapping: Mapping[str, Mapping[Tuple[UnitId, ...], List[str]]]
 
 
+def get_instances_from_bp2_motif(motif_data, args):
+    if args.use_bp2_instance_data:
+        instances = get_instances_units_from_bp2_PDBs(motif_data["PDBs"])
+    else:
+        group_id = motif_data["atlas_name"]
+        instances = fetch_instances_units_from_bgsu(group_id)
+
+
 def make_reordered_dataset_info(
-    dataset, considered_motifs, args
+    dataset, considered_motifs, desired_instances, args
 ) -> ReorderedDatasetInfo:
     """
     In order extract and process motifs from the PDBs in an efficient way, it
@@ -315,19 +332,22 @@ def make_reordered_dataset_info(
             if bp2_motif_id not in considered_motifs:
                 continue
 
-        # TODO: Check within bp2 source code to see if using the aln numbers are
-        # indeed a correct way to determine the extended shape of the motif.
+        # I checked with Roman and indeed, the aln numbers are the correct way
+        # to determine the shape of the motif.
         bp2_numbers = sorted(map(int, motif_data["aln"].keys()))  # [0,1,3,100,102,105]
         expansion = bp2_numbers_to_expansion(bp2_numbers)  # [[T,T,F,T], [T,F,T,F,F,T]]
         bp2_expansions[bp2_motif_id] = expansion
 
-        if args.use_bp2_instance_data:
-            instances = get_instances_units_from_bp2_PDBs(motif_data["PDBs"])
-        else:
-            group_id = motif_data["atlas_name"]
-            instances = fetch_instances_units_from_bgsu(group_id)
+        instances = desired_instances[bp2_motif_id]
+        # print(instances)
+        # if args.use_bp2_instance_data:
+        #     instances = get_instances_units_from_bp2_PDBs(motif_data["PDBs"])
+        # else:
+        #     group_id = motif_data["atlas_name"]
+        #     instances = fetch_instances_units_from_bgsu(group_id)
+        # print(instances)
 
-        for instance_id, units in instances:
+        for instance_id, units in instances.items():
             has_symmetry = any(x.symmetry is not None for x in units)
             if has_symmetry:
                 # We don't support symmetry
@@ -337,6 +357,19 @@ def make_reordered_dataset_info(
             for unit in units:
                 assert unit.pdb_code == pdb_code
                 assert unit.model_id == model_id
+            
+            # exclude = False
+            # for unit in units:
+            #     for excluded_unit in exclude_list:
+            #         print(excluded_unit, unit)
+            #         if excluded_unit.contains(unit):
+            #             exclude = True
+            #             print("yes")
+            #         else:
+            #             print("no")
+            # if exclude:
+            #     continue
+
             units_tuple = tuple(units)
             instance_id_mapping[pdb_code][units_tuple] = instance_id
             bp2_ids_mapping[pdb_code][units_tuple].append(bp2_motif_id)
@@ -348,18 +381,32 @@ def make_reordered_dataset_info(
     )
 
 
-def generate_models(dataset, considered_motifs, args):
+LIST_FILE = pjoin(get_path("provided"), "nrlist_3.267_4.0A.csv")
+nr_info = {}
+
+with open(LIST_FILE, newline="") as csvfile:
+    reader = csv.reader(csvfile)
+    for i, (name, rep_s, rep_list) in enumerate(reader):
+        nr_info[name] = (name, rep_s, rep_list)
+
+def get_nrlist_units(nr_name: str) -> List[UnitId]:
+    (_, rep_s, rep_list) = nr_info[nr_name]
+    return list(map(UnitId.parse, rep_list.split(",")))
+        
+
+def generate_models(dataset, considered_motifs, desired_instances, args):
     os.makedirs(args.motif_directory, exist_ok=True)
     # Check which motif models have already been generated
     models_by_bp2_id = defaultdict(list)
-    for bp2_id in considered_motifs:
+    for bp2_id, instance_dict in desired_instances.items():
         directory = get_motif_directory(bp2_id, args)
         if os.path.isfile(os.path.join(directory, "done")):
             _ = models_by_bp2_id[
                 bp2_id
             ]  # Force defaultdict to create the entry if it doesn't exist
-            for f in os.listdir(directory):
-                if f.endswith(".pdb"):
+            for k in instance_dict:
+                f = k+".pdb"
+                if os.path.isfile(pjoin(directory, f)):
                     model_path = os.path.join(directory, f)
                     # The intention of the None is that perhaps it'll be
                     # replaced by an actual Model object.
@@ -367,8 +414,10 @@ def generate_models(dataset, considered_motifs, args):
 
     needs_building = set(considered_motifs) - set(models_by_bp2_id)
 
+
+
     # Go through the PDBs and generate the motifs
-    a = make_reordered_dataset_info(dataset, needs_building, args)
+    a = make_reordered_dataset_info(dataset, needs_building, desired_instances=desired_instances, args=args)
     tot_stuff = sum(len(v) for v in a.instance_id_mapping.values())
     did = 0
     for pdb_code, units_bp2_ids in a.bp2_ids_mapping.items():
@@ -446,13 +495,51 @@ def ts(a):
 class MotifInsertion:
     model: Union[str, PDB.Model.Model]
     positions: List[int]
+    comment: Optional[str]
 
 
 @dataclass
+#TODO: horrible datastructure. Ideally consolidate Rass into a single data structure
 class Assembly:
     seq: str
     ss: str
+    comment: str
     motifs: List[MotifInsertion]
+
+def get_exclude_list(args):
+    exclude_list = []
+    if args.exclude:
+        for name in args.exclude:
+            if name.startswith("NR_"):
+                exclude_list.extend(get_nrlist_units(name))
+            else:
+                exclude_list.append(UnitId.parse(name))
+    return exclude_list
+
+def generate_instances_we_want(hits, dataset, exclude_list, args):
+    ret = {}
+    for k in hits.keys():
+        motif_data = dataset[k]
+
+        ret_ret = {}
+
+        if args.use_bp2_instance_data:
+            instances = get_instances_units_from_bp2_PDBs(motif_data["PDBs"])
+        else:
+            group_id = motif_data["atlas_name"]
+            instances = fetch_instances_units_from_bgsu(group_id)
+        
+
+        for instance_id, units in instances:
+            exclude = False
+            for unit in units:
+                for excluded_unit in exclude_list:
+                    if excluded_unit.contains(unit):
+                        exclude = True
+            if not exclude:
+                ret_ret[instance_id] = units
+        ret[k] = ret_ret
+    return ret
 
 
 def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
@@ -461,8 +548,12 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
     else:
         hits = result["all_hits"]["input_seq"]
 
+    exclude_list = get_exclude_list(args)
+    desired_instances = generate_instances_we_want(hits, dataset, exclude_list, args)
+
     # Get the models
-    models_by_bp2_id = generate_models(dataset, hits, args)
+    models_by_bp2_id = generate_models(dataset, hits, desired_instances, args)
+    #print(models_by_bp2_id)
 
     # Make the model paths be relative to the output rass file
     for l in models_by_bp2_id.values():
@@ -488,6 +579,7 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
 
     # For the hits given by bp2, determine the areas where they are inserted
     competing = defaultdict(list)
+    competing_num_groups = Counter()
     for motif_id, insertion_datas in hits.items():
         if len(insertion_datas) == 0:
             continue
@@ -504,6 +596,8 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
             exp_ins_pos = get_bp2_insertion_positions(ins_d, expand=True)
             ts_eip = ts(exp_ins_pos)
 
+            competing_num_groups[ts_eip]+=1;
+
             for model_filename, _ in models:
                 competing[ts_eip].append((model_filename, ins_pos))
 
@@ -516,26 +610,35 @@ def process_bp2(result, dataset, args) -> Mapping[str, List[Assembly]]:
     assemblies = {}
     for ss in sss:
         loop_areas = set()
+        loop_ss_by_area ={}
 
         loop_infos = utils.ss.Segmenter.from_parens(sss[0], start=0).segment_loops()
         for loop_ss, loop_pos in loop_infos:
             loop_areas.add(ts(loop_pos))
+            loop_ss_by_area[ts(loop_pos)] = loop_ss
 
         num_outputs = args.num_outputs
 
         ss_assemblies = []
+        comment = "Excluded: " + repr(args.exclude)+" ("+repr(exclude_list)+")"
         for _ in range(num_outputs):
-            ass = Assembly(seq=seq, ss=ss, motifs=[])
+            ass = Assembly(seq=seq, ss=ss, comment=comment, motifs=[])
             ss_assemblies.append(ass)
 
         for la in loop_areas:
             possible_models = competing[la]
+            loop_ss = loop_ss_by_area[la]
+            num_groups = competing_num_groups[la]
+            comment = ""
+            comment+= f"Selected among {len(possible_models)} instances from {num_groups} groups:" + "\n"
+            comment+= f"{loop_ss}";
+            # TODO: display SS and sequence of both the target and preferably the selected motif
             if len(possible_models) == 0:
                 warnings.warn(f"Loop {la} does not have any models")
                 continue
             for ass in ss_assemblies:
                 model, positions = random.choice(possible_models)
-                ass.motifs.append(MotifInsertion(model, positions))
+                ass.motifs.append(MotifInsertion(model, positions, comment))
 
         assemblies[ss] = ss_assemblies
 
@@ -546,16 +649,26 @@ def generate_filename(ss_inc, sample_inc, args):
     return args.output_file + "_" + str(ss_inc) + "_" + str(sample_inc) + ".rass"
 
 
-def write_assembly(assembly, f):
+def write_multiline(s: str, f):
+    for line in s.split("\n"):
+        f.write("# ")
+        f.write(line)
+        f.write("\n")
+
+def write_assembly(assembly: Assembly, f):
     f.write(assembly.seq)
     f.write("\n")
     f.write(assembly.ss)
+    f.write("\n")
+    write_multiline(assembly.comment, f)
     f.write("\n")
 
     for motif in assembly.motifs:
         shifted = [a + 1 for a in motif.positions]
         assert type(motif.model) is str
+        write_multiline(motif.comment, f)
         f.write(f"motif:{motif.model}: {','.join(map(str,shifted))}\n")
+        f.write("\n")
 
 
 def main(argv):

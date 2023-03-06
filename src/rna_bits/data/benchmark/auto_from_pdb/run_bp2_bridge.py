@@ -21,7 +21,7 @@ BP2_DIR = "/home/paul/Masters/installation_try/rnabayespairing2/"
 
 BP2_MODELS_DIR = pjoin(BP2_DIR, "bayespairing/models/")
 
-def run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, DATASET_NAME, extra_args=[]):
+def run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, DATASET_NAME, exclude_native, extra_args=[]):
     struct_filenames = [a for a in os.listdir(RASS_DIR) if a.endswith(".rass")]
     struct_filenames.sort()
 
@@ -40,17 +40,18 @@ def run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, DATASET_NAME, extra_a
 
 
         os.makedirs(pjoin(OUT_RASS_DIR, nat), exist_ok=True)
-
-        fp = subprocess.run(["bp2_bridge",
+        command = ["bp2_bridge",
             # "-seq", seq,
             "-ss", dot_bracket,
             "-d", pjoin(BP2_MODELS_DIR, DATASET_NAME + ".json"), "-r", pjoin(BP2_RESULT_DIR, nat +".json"),
             "-o", pjoin(OUT_RASS_DIR, nat, "out"),
             "-m", get_path("benchmark/bp2b_motifs/" + DATASET_NAME, create=True),
             "--output_absolute_path" 
-            ] + extra_args)
+            ] + extra_args
+        if exclude_native:
+            command += ["--exclude", nat]
 
-        
+        fp = subprocess.run(command)
 
 if __name__ == "__main__":
     # RASS_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/provided_ss")
@@ -62,6 +63,11 @@ if __name__ == "__main__":
     BP2_RESULT_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/bp2_with_ss_all/bp2_output")
     OUT_RASS_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/bp2_with_ss_all/rass", create=True)
     run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, "ALL");
+
+    # RASS_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/provided_ss")
+    # BP2_RESULT_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/bp2_with_ss_all_exclude_native/bp2_output")
+    # OUT_RASS_DIR = get_path("benchmark/auto_from_pdb/bp2_limited/bp2_with_ss_all_exclude_native/rass", create=True)
+    # run_bp2_bridge(RASS_DIR, BP2_RESULT_DIR, OUT_RASS_DIR, "ALL");
 
 # if __name__ == "__main__":
 #     OUT_DIR = get_path("benchmark/auto_from_pdb/all/insert_loops_top_1_exclude_native/rass", create=True)

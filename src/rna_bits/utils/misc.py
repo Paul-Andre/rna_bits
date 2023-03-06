@@ -15,3 +15,6 @@ def make_warnings_nicer():
 def remove_string_end(s: str, end: str):
     assert s.endswith(end)
     return s[: -len(end)]
+
+class UnsupportedError(Exception):
+    pass

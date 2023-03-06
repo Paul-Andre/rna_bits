@@ -23,3 +23,7 @@ def get_path(s: str, create=False, exist_ok=True) -> str:
     else:
         assert os.path.isdir(path), f"Path {path} does not exist"
     return path
+
+def get_file_path(s: str) -> str:
+    path = os.path.join(DATA_PATH, s)
+    return path

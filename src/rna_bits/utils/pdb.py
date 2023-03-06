@@ -17,6 +17,7 @@ from Bio.PDB.PDBExceptions import PDBConstructionWarning
 
 from rna_bits.utils.bgsu import UnitId
 from rna_bits.utils.data_path import DATA_PATH
+from rna_bits.utils.misc import UnsupportedError
 
 mmcif_parser = PDB.MMCIFParser()
 
@@ -111,8 +112,6 @@ def build_model_from_lists_of_residues(a: Sequence[Sequence[Residue]]) -> Model:
     return model
 
 
-class UnsupportedError(Exception):
-    pass
 
 
 def get_residue_from_chain(chain: Chain, unit: UnitId) -> Residue:
