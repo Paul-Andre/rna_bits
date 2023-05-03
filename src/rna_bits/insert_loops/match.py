@@ -84,8 +84,6 @@ def match(seq, ss):
         return []
 
     with open(os.path.join(JSON_DIR, fn)) as f:
-        print(fn)
-        print (os.path.join(JSON_DIR, fn))
         info = json.load(f)
     scored = []
     for entry in info:
