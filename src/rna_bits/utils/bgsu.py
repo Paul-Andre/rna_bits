@@ -140,7 +140,7 @@ def download_motif_group_info(group_id: str):
     try:
         with open(path, "rt") as f:
             data = json.load(f)
-    except FileNotFoundError:
+    except (FileNotFoundError, json.decoder.JSONDecodeError):
 
         # Download while retrying with exponential backoff
         retries = 5

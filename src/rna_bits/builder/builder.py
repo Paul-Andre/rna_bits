@@ -514,7 +514,7 @@ def resolve_filename(filename: str, user_motifs_dir: str) -> str:
     if filename.startswith("./"):
         return os.path.join(user_motifs_dir, filename)
     if not filename.startswith("/"):
-        return os.path.join(LIBRARY_MOTIFS_DIR, filename)
+        return os.path.join(DATA_PATH, filename)
     return filename
 
 
