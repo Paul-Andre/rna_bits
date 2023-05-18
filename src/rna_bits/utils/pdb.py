@@ -13,6 +13,8 @@ from Bio.PDB.Chain import Chain
 from Bio.PDB.Residue import Residue
 from Bio.PDB.Atom import Atom
 
+from Bio.PDB import PDBList
+
 from Bio.PDB.PDBExceptions import PDBConstructionWarning
 
 from rna_bits.utils.bgsu import UnitId
@@ -62,9 +64,9 @@ def fetch_pdb(
     To avoid caching set cache=None
     """
     pdb_code = pdb_code.lower()
-    # Using get() to make sure the object won't be garbage collected between
-    # the check and the retrieval (if using WeakValueDictionary)
     if cache is not None:
+        # Using get() to make sure the object won't be garbage collected between
+        # the check and the retrieval (if using WeakValueDictionary)
         res = cache.get(pdb_code)
         if res is not None:
             return res
@@ -78,10 +80,19 @@ def fetch_pdb(
         if not isinstance(e, FileNotFoundError):
             warnings.warn(f"Failed to read {pickle_path}, redownloading.")
 
-        with HiddenPrints():  # (Silence prints)
-            with warnings.catch_warnings():  # (Warning silencing context)
-                warnings.simplefilter("ignore", category=PDBConstructionWarning)
-                struct = PDB.mmtf.MMTFParser.get_structure_from_url(pdb_code)
+        with warnings.catch_warnings():  # (Warning silencing context)
+            warnings.simplefilter("ignore", category=PDBConstructionWarning)
+            try:
+                with HiddenPrints():  # (Silence prints)
+                    struct = PDB.mmtf.MMTFParser.get_structure_from_url(pdb_code)
+            except Exception:
+                warnings.warn(f"Failed to download {pdb_code} mmtf file, will attempt "
+                        "downloading mmCif file with obsolete=True.")
+                pdbl = PDBList()
+                with HiddenPrints():  # (Silence prints)
+                    cif_fname = pdbl.retrieve_pdb_file(pdb_code, obsolete=True, pdir=pickle_dir, file_format="mmCif")
+                struct = mmcif_parser.get_structure(pdb_code, cif_fname)
+
 
         os.makedirs(pickle_dir, exist_ok=True)
         with open(pickle_path, "wb") as f:
