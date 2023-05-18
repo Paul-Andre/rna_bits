@@ -148,7 +148,7 @@ def bp2_numbers_to_expansion(a):
 
 def partition_to_sizes(a, s):
     """
-    partition_by([0,1,2,3,4,5], [2,3,1]) -> [[0,1],[2,3,4],[5]]
+    partition_to_sizes([0,1,2,3,4,5], [2,3,1]) -> [[0,1],[2,3,4],[5]]
     """
     ret = []
     it = iter(a)
@@ -419,10 +419,15 @@ def generate_models(dataset, considered_motifs, desired_instances, args):
     # Go through the PDBs and generate the motifs
     a = make_reordered_dataset_info(dataset, needs_building, desired_instances=desired_instances, args=args)
     tot_stuff = sum(len(v) for v in a.instance_id_mapping.values())
-    did = 0
-    for pdb_code, units_bp2_ids in a.bp2_ids_mapping.items():
+    did_counter = 0
+    for pdb_i, (pdb_code, units_bp2_ids) in enumerate(a.bp2_ids_mapping.items()):
+        # if pdb_i<130:
+        #     continue
         structure = utils.pdb.fetch_pdb(pdb_code)
-        for units, bp2_ids in units_bp2_ids.items():
+        for units_i, (units, bp2_ids) in enumerate(units_bp2_ids.items()):
+            did_counter+=1
+            print(f"Generating motif instance {units_i+1}/{len(units_bp2_ids)} in pdb {pdb_i+1}/{len(a.instance_id_mapping)} ({pdb_code}). Instance {did_counter}/{tot_stuff}")
+
             instance_id = a.instance_id_mapping[pdb_code][units]
             atlas_names = [dataset[id]["atlas_name"] for id in bp2_ids]
             atlas_name = atlas_names[0]
@@ -461,8 +466,7 @@ def generate_models(dataset, considered_motifs, desired_instances, args):
                     utils.pdb.save_model_as_pdb(model, save_path)
                     # models_by_bp2_id[bp2_id].append((save_path, model))
                     models_by_bp2_id[bp2_id].append((save_path, None))
-            did += 1
-            print("Generated", did, "/", tot_stuff, "motif instances")
+            #print("Generated", did_counter, "/", tot_stuff, "motif instances")
 
     # Add a "done" file to indicate which motifs have been processed
     for bp2_id in considered_motifs:
