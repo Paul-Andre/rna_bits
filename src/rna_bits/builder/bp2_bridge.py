@@ -11,6 +11,7 @@ import warnings
 import random
 from os.path import join as pjoin
 import csv
+import traceback
 
 from Bio import PDB
 from Bio.PDB.Structure import Structure
@@ -180,7 +181,7 @@ def fill_gaps(
     Also assumes that the residues are in order.
 
     Returns a list of the original residues with their gaps filled in, as well
-    as a map indicating which of the returned residues are original.
+    as a list of bools indicating which of the returned residues are original.
     """
     original_dict = {a.get_id(): a for a in original}
 
@@ -202,6 +203,7 @@ def fill_gaps(
                 expansion.append(False)
             if seen_cnt == len(original):
                 break
+
     assert expansion[0] and expansion[-1]
     return (ret, expansion)
 
@@ -421,8 +423,6 @@ def generate_models(dataset, considered_motifs, desired_instances, args):
     tot_stuff = sum(len(v) for v in a.instance_id_mapping.values())
     did_counter = 0
     for pdb_i, (pdb_code, units_bp2_ids) in enumerate(a.bp2_ids_mapping.items()):
-        # if pdb_i<130:
-        #     continue
         structure = utils.pdb.fetch_pdb(pdb_code)
         for units_i, (units, bp2_ids) in enumerate(units_bp2_ids.items()):
             did_counter+=1
@@ -442,12 +442,21 @@ def generate_models(dataset, considered_motifs, desired_instances, args):
                 )
                 continue
 
+            if len(set(units)) != len(units):
+                warnings.warn(f"Repeated units {units}")
+                warnings.warn(
+                    f"Instance {instance_id} of motifs {bp2_ids} could not be generated."
+                )
+                continue
+
             units_by_component = partition_to_sizes(units, component_sizes)
             try:
                 residues, pdb_expansion = get_motif_including_gap_content(
                     structure, units_by_component
                 )
-            except CannotCreateMotifError:
+            except Exception as e:
+                if not isinstance(e, CannotCreateMotifError):
+                    traceback.print_exc()
                 warnings.warn(
                     f"Instance {instance_id} of motifs {bp2_ids} could not be generated."
                 )

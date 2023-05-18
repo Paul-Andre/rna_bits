@@ -4,6 +4,7 @@ import warnings
 import os
 import sys
 import pickle
+import traceback
 
 from Bio import PDB
 import Bio.PDB.mmtf
@@ -86,6 +87,7 @@ def fetch_pdb(
                 with HiddenPrints():  # (Silence prints)
                     struct = PDB.mmtf.MMTFParser.get_structure_from_url(pdb_code)
             except Exception:
+                traceback.print_exc()
                 warnings.warn(f"Failed to download {pdb_code} mmtf file, will attempt "
                         "downloading mmCif file with obsolete=True.")
                 pdbl = PDBList()
