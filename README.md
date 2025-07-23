@@ -1,9 +1,12 @@
 # rna_bits
 Python library and utilities for constructing 3D models of RNA molecules, developed as part of my master's project with Professor Jérôme Waldispühl.
 
-Original repo: https://jwgitlab.cs.mcgill.ca/pheneg1/rna_bits
+Provides the `rna_builder`, `rna_insert_loops` and `bp2_bridge` command line utilities, and the `rna_bits` Python library for programmatic access.
 
-Provides the `rna_builder`, `rna_insert_loops` and `bp2_bridge` command line utilities and the `rna_bits` python library.
+![image](./rna_bits%20pipelines.png)
+
+Link to original/official repo: https://jwgitlab.cs.mcgill.ca/pheneg1/rna_bits
+
 
 <!--
 The builder, the loop_inserter and the BayesPairing2 bridge. As well as scripts that generate the data that is used by these 3 utilities
