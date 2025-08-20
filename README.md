@@ -1,5 +1,5 @@
 # rna_bits
-Python library and utilities for constructing 3D models of RNA molecules, developed as part of my master's project with Professor Jérôme Waldispühl.
+Python library and utilities for constructing 3D models of RNA molecules, developed as part of my master's thesis with Professor Jérôme Waldispühl.
 
 Provides the `rna_builder`, `rna_insert_loops` and `bp2_bridge` command line utilities, and the `rna_bits` Python library for programmatic access.
 
