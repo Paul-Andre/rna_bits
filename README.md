@@ -3,7 +3,7 @@ Python library and utilities for constructing 3D models of RNA molecules, develo
 
 Provides the `rna_builder`, `rna_insert_loops` and `bp2_bridge` command line utilities, and the `rna_bits` Python library for programmatic access.
 
-![image](./rna_bits%20pipelines.png)
+![image](./rna_bits_pipelines.png)
 
 Link to original/official repo: https://jwgitlab.cs.mcgill.ca/pheneg1/rna_bits
 
