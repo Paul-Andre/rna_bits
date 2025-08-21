@@ -5,7 +5,9 @@ Provides the `rna_builder`, `rna_insert_loops` and `bp2_bridge` command line uti
 
 ![image](./rna_bits_pipelines.png)
 
-Link to original/official repo: https://jwgitlab.cs.mcgill.ca/pheneg1/rna_bits
+Note that [BayesPairing2](https://jwgitlab.cs.mcgill.ca/sarrazin/rnabayespairing2) is a separate utility developed by Roman Sarrazin-Gendron for predicting loop motif insertion sites.
+
+Link to the original rna_bits repo on Jérôme's gitlab: https://jwgitlab.cs.mcgill.ca/pheneg1/rna_bits
 
 
 <!--
@@ -36,7 +38,7 @@ pip3 install -e .
 It will automatically install the python requirements, and make the python library and command line utilities available.
 
 # rna_builder
-Assembles a 3d RNA structure from a ".rass" file and .pdb files of fragments.
+Assembles a 3D RNA structure from a ".rass" file and .pdb files of fragments.
 
 ## Example
 ```
